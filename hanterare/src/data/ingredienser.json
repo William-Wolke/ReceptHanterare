@@ -1,0 +1,10 @@
+{
+    "Gul lök": {
+        "prefererad enhet": "st",
+        "omvandling": {
+            "st": 1,
+            "g": 150,
+            "l": 0.2
+        }
+    }
+}

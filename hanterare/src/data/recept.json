@@ -1,0 +1,30 @@
+{
+    "Lätt sallad": {
+        "attribut": {
+            "portioner": 4,
+            "vegansk": true,
+            "förrätt": true,
+            "huvudrätt": false,
+            "efterrätt": false,
+            "tid": {
+                "dagar": 0,
+                "timmar": 0,
+                "minuter": 15
+            }
+        },
+        "ingredienser": {
+            "sallat": {
+                "mängd": 300,
+                "enhet": "g" 
+            },
+            "tomat": {
+                "mängd": 2,
+                "enhet": "st" 
+            }
+        },
+        "tillvägagångsätt": {
+            "förberedelse": false,
+            "tillagning": "Hacka, blanda och njut"
+        }
+    }
+}
