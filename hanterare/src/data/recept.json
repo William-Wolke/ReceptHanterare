@@ -33,9 +33,11 @@
                 "enhet": "st"
             }
         ],
-        "tillvägagångsätt": {
+        "steg": {
             "förberedelse": false,
-            "tillagning": "Hacka, blanda och njut"
+            "tillagning": [
+                "Hacka, blanda och njut"
+            ]
         }
     }
 ]
