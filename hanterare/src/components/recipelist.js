@@ -1,29 +1,27 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import recipes from '../data/recept.json';
 
-export default class PersonList extends React.Component {
-  state = {
-    persons: []
-  }
+const RecipeList = () => {
 
-  componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
-      .then(res => {
-        const persons = res.data;
-        this.setState({ persons });
-      })
-  }
+  const [recipe, setRecipe] = useState(recipes); 
 
-  render() {
-    return (
-      <ul>
+  return (
+    <div className="Recept">
         {
-          this.state.persons
-            .map(person =>
-              <li key={person.id}>{person.name}</li>
+          recipe
+            .map(recipe => (
+              <div key={recipe.namn}>
+                <img src={recipe.bild} alt={recipe.bildtext} />
+                <h2>{recipe.namn}</h2>
+                <p>{recipe.tillvägagångsätt.tillagning}</p>
+                <div>{recipe.attribut.egenskap.map(kost => (
+                    <p>{kost}</p>
+                ))}</div>
+              </div>
             )
+          )
         }
-      </ul>
-    )
-  }
+    </div>
+  );
 }
+export default RecipeList;
