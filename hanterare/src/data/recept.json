@@ -3,10 +3,13 @@
         "namn": "Lätt sallad",
         "bild": "./img/lätt_sallad.jpg",
         "bildtext": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "beskrivning": "Denna simpla och sköna gröna sallad kan hjälpa en under livets tuffa perioder. Lätt fuktig. Denna bäbis har mycket smak.",
         "attribut": {
                 "portioner": 4,
                 "måltid": [
-                    "förrätt"
+                    "förrätt",
+                    "mellanmål",
+                    "efterrätt"
                 ],
                 "kost": [
                     "vegansk", 
@@ -34,10 +37,11 @@
             }
         ],
         "steg": {
-            "förberedelse": false,
-            "tillagning": [
-                "Hacka, blanda och njut"
-            ]
+            "0" :"Ansa den spröda och ljuvliga sallaten.",
+            "1": "Skölj sallaten i isvatten precis som chocken av att vakna på morgonen.",
+            "2": "Som en bödel vid Stockholms blodbad, skiva upp tomaten",
+            "3": "Som en tornado sveper över landsmassor skall du nu blanda tomat och sallaten.",
+            "4": "Avnjut smaken av slajm likt Daidalos avnjuter att slajma små barn."
         }
     }
 ]

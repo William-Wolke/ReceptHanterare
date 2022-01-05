@@ -1,42 +1,38 @@
 import React, { useEffect, useState } from 'react';
+import useFetch from './useFetch';
 
 const RecipeList = () => {
 
-  const [recipe, setRecipe] = useState(null); 
+  const { data: recipe, isPending, error } = useFetch('http://localhost:8000/recept', 'POST');
 
-  useEffect(() => {
-    fetch('http://localhost:8000/recept')
-      .then(res => {
-        return res.json()
-      })
-      .catch(console.error())
-      .then(data => {
-        console.log(data)
-      })
-      .catch(error => console.error(error));
 
-      
-  }, []);
 
-  return (/*
+  return (
     <div className="Recept">
-        {
-          recipe
-            .map(recipe => (
-              <div key={recipe.namn}>
-                <div>
+      {error && <div>{error}</div>}
+      {isPending && <div>Loading...</div>}
+      {recipe &&
+        recipe
+          .map((recipe, index) => (
+            <div key={recipe.namn}>
+              <div className="receptBild">
                 <img src={recipe.bild} alt={recipe.bildtext} />
-                </div>
-                <h2>{recipe.namn}</h2>
-                <div>{recipe.attribut.egenskap.map(kost => (
-                    <p>{kost}</p>
-                ))}</div>
-                <p>{recipe.steg.tillagning}</p>
               </div>
-            )
-          )
-        }
+              <div className="receptNamn">
+                <p>{recipe.attribut.tid} min</p>   
+              </div>
+              <div className="receptNamn">
+                <h3>{recipe.namn}</h3>   
+              </div>
+              <div>
+                  <button>
+                      <i></i>
+                  </button>
+              </div>
+            </div>    
+          ))
+      }
     </div>
-  */null);
+  );
 }
 export default RecipeList;

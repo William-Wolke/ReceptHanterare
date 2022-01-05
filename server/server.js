@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const cors = require("cors");
+const { response } = require('express');
 const app = express();
 const url = 'mongodb://127.0.0.1:27017'
 const dbName = 'local';
@@ -27,10 +28,11 @@ MongoClient.connect(url, { useNewUrlParser: true })
             console.log('listening on 8000');
         });
         //Get file on site enter
-        app.get('/recept', (req, res) => {
-            recipeCollection.find(req).JSON()
+        app.post('/recept', (req, res) => {
+            console.log(req.body);
+            recipeCollection.find({ "name": req.body.name }).toArray()
             .then(result => {
-                res.send(result.toArray())
+                res.json(result)
             })
             .catch(error => console.error(error));
         });
@@ -39,7 +41,7 @@ MongoClient.connect(url, { useNewUrlParser: true })
         //Create user
         app.post('/create', (req, res) => {
             let name = req.body.name;
-            userCollection.find({"name": name}).toArray()
+            userCollection.find({"name": name}).toArray(req)
             .then(result => {
                 //Result == false if array is empty
                 if (result == false) {
