@@ -1,0 +1,15 @@
+:root{
+    --background: #ffffff
+}
+
+body{
+    background-color: var(--background);
+    margin: 2 rem;
+    font-family: Monospace;
+
+}
+
+.Recept{
+    display: grid;
+
+}

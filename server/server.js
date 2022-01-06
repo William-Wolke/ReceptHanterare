@@ -28,9 +28,19 @@ MongoClient.connect(url, { useNewUrlParser: true })
             console.log('listening on 8000');
         });
         //Get file on site enter
-        app.post('/recept', (req, res) => {
-            console.log(req.body);
-            recipeCollection.find({ "name": req.body.name }).toArray()
+        app.get('/recept/:namn', (req, res) => {
+            console.log(req.params);
+            console.log(req.params.namn);
+            let name = req.params.namn;
+            recipeCollection.find({ "namn": name }).toArray()
+            .then(result => {
+                res.json(result)
+            })
+            .catch(error => console.error(error));
+        });
+        
+        app.get('/allaRecept', (req, res) => {
+            recipeCollection.find().toArray()
             .then(result => {
                 res.json(result)
             })

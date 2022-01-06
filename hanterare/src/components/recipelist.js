@@ -3,12 +3,12 @@ import useFetch from './useFetch';
 
 const RecipeList = () => {
 
-  const { data: recipe, isPending, error } = useFetch('http://localhost:8000/recept', 'POST');
+  const { data: recipe, isPending, error } = useFetch('http://localhost:8000/allaRecept', 'GET');
 
 
 
   return (
-    <div className="Recept">
+    <div className="ReceptLista">
       {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}
       {recipe &&

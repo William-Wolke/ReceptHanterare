@@ -3,7 +3,7 @@ import useFetch from './useFetch';
 
 const RecipeList = () => {
 
-  const { data: recipe, isPending, error } = useFetch('http://localhost:8000/recept', 'POST');
+  const { data: recipe, isPending, error } = useFetch('http://localhost:8000/recept/' + "Lätt sallad", 'GET', );
 
 
 
@@ -72,7 +72,7 @@ const RecipeList = () => {
                 </div>
               </div>
 
-              <div>
+              <div className='instruktioner'>
                 <div>
                   <i></i>
                   <h3>Gör så här</h3>

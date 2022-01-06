@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const useFetch = (url, reqType, recipeName) => {
+const useFetch = (url, reqType) => {
 
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
@@ -9,7 +9,9 @@ const useFetch = (url, reqType, recipeName) => {
     useEffect(() => {
         fetch(url, {
             method: reqType,
-            body: {name: "inte ett recept"}
+            /*mode: 'cors',
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json',},
+            body: JSON.stringify(recipeName)*/
         })
             .then(res => {
                 if (!res.ok) {
