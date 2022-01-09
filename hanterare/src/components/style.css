@@ -13,3 +13,24 @@ body{
     display: grid;
 
 }
+/*Navbar*/
+.navbar{
+    display: flex;
+
+}
+
+.navbarLinks {
+    text-decoration: none;
+}
+
+.navbarLinks:link {
+    color: red;
+}
+
+.navbarLinks:visited {
+    color: green;
+}
+
+.navbarLinks:hover{
+    color: blue;
+}

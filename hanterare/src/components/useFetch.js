@@ -7,11 +7,11 @@ const useFetch = (url, reqType) => {
     const [error, setError] = useState(null)
 
     useEffect(() => {
+const abortCont = new AbortController();
+
         fetch(url, {
             method: reqType,
-            /*mode: 'cors',
-            headers: {'Content-Type': 'application/json', 'Accept': 'application/json',},
-            body: JSON.stringify(recipeName)*/
+            signal: abortCont.signal
         })
             .then(res => {
                 if (!res.ok) {
@@ -26,11 +26,15 @@ const useFetch = (url, reqType) => {
                 setError(null);
             })
             .catch(error => {
+                if(error.name === 'AbortError') {
+
+                } else {  
                 setIsPending(false);
                 setError(error.message);
+                }
             });
 
-
+        return () => abortCont.abort();
     }, [url]);
 
     return { data, isPending, error }

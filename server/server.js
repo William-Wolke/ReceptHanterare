@@ -28,24 +28,30 @@ MongoClient.connect(url, { useNewUrlParser: true })
             console.log('listening on 8000');
         });
         //Get file on site enter
-        app.get('/recept/:namn', (req, res) => {
-            console.log(req.params);
-            console.log(req.params.namn);
-            let name = req.params.namn;
-            recipeCollection.find({ "namn": name }).toArray()
+        app.get('/recept', (req, res) => {
+            console.log(req.query);
+            console.log(req.query.namn);
+
+            let filter = {
+                "namn": req.query.namn
+            };
+            recipeCollection.find(filter).toArray()
             .then(result => {
+                //console.log(result)
                 res.json(result)
             })
             .catch(error => console.error(error));
         });
-        
+        //Ladda in alla recept
         app.get('/allaRecept', (req, res) => {
-            recipeCollection.find().toArray()
+            recipeCollection.find({}, { projection: { "namn": 1, "bild": 1, "bildtext": 1, attribut: { "tid": 1} } }).toArray()
             .then(result => {
-                res.json(result)
+                console.log(result);
+                res.json(result);
             })
             .catch(error => console.error(error));
         });
+
         //
         app.get("/ingredienser")
         //Create user

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import useFetch from './useFetch';
 
-const RecipeList = () => {
+const Recipe = () => {
 
-  const { data: recipe, isPending, error } = useFetch('http://localhost:8000/recept/' + "Lätt sallad", 'GET', );
+  const { namn } = useParams();
+  
+  const { data: recipe, isPending, error } = useFetch('http://localhost:8000/recept?namn=' + namn, 'GET', );
 
 
 
@@ -99,4 +102,5 @@ const RecipeList = () => {
     </div>
   );
 }
-export default RecipeList;
+
+export default Recipe;
