@@ -1,41 +1,64 @@
-import React from 'react'
- 
-class MyForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { name: '' };
+import { useState } from "react";
+
+const CreateRecipe = () => {
+
+  const [receptNamn, setReceptNamn] = useState('');
+  const [beskrivning, setBeskrivning] = useState('');
+  const [ingrediens, setIngrediens] = useState('hej');
+  const [bild, setBild] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const recept = {
+      namn: receptNamn,
+
+    }
   }
- 
-  handleChange = (event) => {
-    this.setState({[event.target.name]: event.target.value});
-  }
- 
-  handleSubmit = (event) => {
-    alert('A form was submitted: ' + this.state);
- 
-    fetch('http://localhost:8000/store-data', {
-        method: 'POST',
-        // We convert the React state to JSON and send it as the POST body
-        body: JSON.stringify(this.state)
-      }).then(function(response) {
-        console.log(response)
-        return response.json();
-      });
- 
-    event.preventDefault();
-}
- 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} name="name" onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
+
+  return(
+    <div className="create">
+      <h2>Lägg till ett nytt recept</h2>
+      <form onSubmit={handleSubmit}>
+        <label>Receptnamn</label>
+        <input 
+          type="text"
+          required
+          value={receptNamn}
+          onChange={(e) => setReceptNamn(e.target.value)}
+          />
+
+        <label>Beskrivning</label>
+        <textarea 
+          required
+          value={beskrivning}
+          onChange={(e) => setBeskrivning(e.target.value)}
+          />
+
+          <label>Ingrediens</label>
+          <select
+            value={ ingrediens }
+            onChange={(e) => setIngrediens(e.target.value)}
+          >
+            <option value="hej"></option>
+            <option value="då"></option>
+          </select>
+
+          <label>Bild</label>
+          <input 
+            type="file" 
+            id="bild" 
+            name="filename"
+            onChange={setBild}
+          />
+          <label htmlFor="altText">Alt attribut</label>
+          <input 
+            type="text"
+            id="altText"
+          />
       </form>
-    );
-  }
+      <p> { receptNamn }</p>
+    </div>
+  );
 }
- 
-export default MyForm;
+
+export default CreateRecipe
