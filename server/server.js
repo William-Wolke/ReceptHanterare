@@ -14,6 +14,7 @@ MongoClient.connect(url, { useNewUrlParser: true })
         // Storing a reference to the database so you can use it later
         const db = client.db(dbName);
         const recipeCollection = db.collection('Recept');
+        const ingredientCollection = db.collection('Ingredienser');
         console.log(`Connected MongoDB: ${url}`);
         console.log(`Database: ${dbName}`);
 
@@ -53,7 +54,15 @@ MongoClient.connect(url, { useNewUrlParser: true })
         });
 
         //
-        app.get("/ingredienser")
+        app.get("/allaIngredienser", (req, res) => {
+            
+            ingredientCollection.find({}).toArray()
+            .then(result => {
+                console.log(result);
+                res.json(result);
+            })
+            .catch(error => console.error(error));
+        });
         //Create user
         app.post('/create', (req, res) => {
             let name = req.body.name;

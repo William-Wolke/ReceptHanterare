@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const RecipeList = () => {
 
-  const { data: recipe, isPending, error } = useFetch('http://localhost:8000/allaRecept', 'GET');
+  const { data: recipe, isPending, error } = useFetch('http://192.168.0.122:8000/allaRecept', 'GET');
 
 
 

@@ -7,7 +7,7 @@ const useFetch = (url, reqType) => {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-const abortCont = new AbortController();
+        const abortCont = new AbortController();
 
         fetch(url, {
             method: reqType,
@@ -24,6 +24,7 @@ const abortCont = new AbortController();
                 setData(data);
                 setIsPending(false);
                 setError(null);
+                console.log(data);
             })
             .catch(error => {
                 if(error.name === 'AbortError') {
@@ -35,7 +36,7 @@ const abortCont = new AbortController();
             });
 
         return () => abortCont.abort();
-    }, [url]);
+    }, [url, reqType]);
 
     return { data, isPending, error }
 }
