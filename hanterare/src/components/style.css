@@ -34,3 +34,21 @@ body{
 .navbarLinks:hover{
     color: blue;
 }
+
+.create{
+    
+}
+
+.createRecipeForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+.formElement{
+    display: flex;
+    flex-direction: column;
+}
