@@ -34,3 +34,21 @@ body{
 .navbarLinks:hover{
     color: blue;
 }
+
+.create{
+    display: flex;
+    flex-direction: row;
+    background-color: bisque;
+    width: 80%;
+    margin: auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-element {
+    display: flex;
+    flex-direction: column;
+}
