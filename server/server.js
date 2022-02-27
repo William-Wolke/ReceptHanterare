@@ -5,6 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const cors = require("cors");
 const { response } = require('express');
 const app = express();
+const multer = require('multer');
 const url = 'mongodb://127.0.0.1:27017'
 const dbName = 'local';
 
@@ -13,14 +14,18 @@ MongoClient.connect(url, { useNewUrlParser: true })
     .then(client => {
         // Storing a reference to the database so you can use it later
         const db = client.db(dbName);
-        const recipeCollection = db.collection('Recept');
-        const ingredientCollection = db.collection('Ingredienser');
+        const recipeCollection = db.collection('Recipe');
+        const ingredientCollection = db.collection('Ingredient');
         console.log(`Connected MongoDB: ${url}`);
         console.log(`Database: ${dbName}`);
 
         app.use(cors());
+        
         //Body parser
         app.use(bodyParser.urlencoded({ extended: true }));
+
+        //Using multer to handle files/images
+        app.use(multer({ dest: './temp/' }).any());
 
         //Handlers
 

@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mongod": "'C:/Program Files/MongoDB/Server/5.0/bin/mongod.exe'"
+    "dbstart": "mongod --dbpath ../database "
   },
   "eslintConfig": {
     "extends": [

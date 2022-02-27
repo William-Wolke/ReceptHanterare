@@ -1,9 +1,9 @@
 [
     {
-        "namn": "Röd lök",
-        "enheter": {
-            "prefererad enhet": "st",
-            "omvandling": {
+        "name": "Röd lök",
+        "unit": {
+            "preferred unit": "st",
+            "conversion": {
                 "st": 1,
                 "g": 150,
                 "l": 0.2
@@ -11,10 +11,10 @@
         }
     },
     {
-        "namn": "Gul lök",
-        "enheter": {
-            "prefererad enhet": "st",
-            "omvandling": {
+        "name": "Gul lök",
+        "unit": {
+            "preferred unit": "st",
+            "conversion": {
                 "st": 1,
                 "g": 150,
                 "l": 0.2

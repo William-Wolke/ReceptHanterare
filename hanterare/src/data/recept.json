@@ -1,42 +1,42 @@
 [
     {
-        "namn": "Lätt sallad",
-        "bild": "./img/lätt_sallad.jpg",
-        "bildtext": "En sprudlande grön sallad som smälter i munnen som slajm.",
-        "beskrivning": "Denna simpla och sköna gröna sallad kan hjälpa en under livets tuffa perioder. Lätt fuktig. Denna bäbis har mycket smak.",
-        "attribut": {
-                "portioner": 4,
-                "måltid": [
+        "name": "Lätt sallad",
+        "image": "https://images.pexels.com/photos/8852027/pexels-photo-8852027.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "description": "Denna simpla och sköna gröna sallad kan hjälpa en under livets tuffa perioder. Lätt fuktig. Denna bäbis har mycket smak.",
+        "attribute": {
+                "portions": 4,
+                "meal": [
                     "förrätt",
                     "mellanmål",
                     "efterrätt"
                 ],
-                "kost": [
+                "diet": [
                     "vegansk", 
                     "glutenfritt"
                 ],
-                "egenskap": [
+                "property": [
                     "billig",
                     "snabb"
                 ],
-                "kök": [
+                "kitchen": [
                     "fransk"
                 ],
-                "tid": "15"
+                "time": "15"
             },
-        "ingredienser": [
+        "ingredients": [
             {
-                "namn": "sallat",
-                "mängd": 300,
-                "enhet": "g"
+                "name": "sallat",
+                "amount": 300,
+                "unit": "g"
             },
             {
-                "namn": "tomat",
-                "mängd": 2,
-                "enhet": "st"
+                "name": "tomat",
+                "amount": 2,
+                "unit": "st"
             }
         ],
-        "steg": {
+        "steps": {
             "0" :"Ansa den spröda och ljuvliga sallaten.",
             "1": "Skölj sallaten i isvatten precis som chocken av att vakna på morgonen.",
             "2": "Som en bödel vid Stockholms blodbad, skiva upp tomaten",

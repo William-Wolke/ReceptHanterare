@@ -12,7 +12,6 @@ const CreateRecipe = () => {
     e.preventDefault();
     const recept = {
       namn: receptNamn,
-
     }
   }
 
