@@ -4,15 +4,17 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const cors = require("cors");
 const { response } = require('express');
+
 const app = express();
 const multer = require('multer');
+
 const url = 'mongodb://127.0.0.1:27017'
 const dbName = 'local';
 
 //Connect to Mongo db
 MongoClient.connect(url, { useNewUrlParser: true })
     .then(client => {
-        // Storing a reference to the database so you can use it later
+        // Creating a reference to the database so one can use it later
         const db = client.db(dbName);
         const recipeCollection = db.collection('Recipe');
         const ingredientCollection = db.collection('Ingredient');
@@ -33,63 +35,87 @@ MongoClient.connect(url, { useNewUrlParser: true })
         app.listen(8000, () => {
             console.log('listening on 8000');
         });
-        //Get file on site enter
+
+        //Get a recipe based on query
         app.get('/recept', (req, res) => {
             console.log(req.query);
             console.log(req.query.namn);
 
+            //Filter for query
             let filter = {
                 "namn": req.query.namn
             };
+
+            //Query
             recipeCollection.find(filter).toArray()
             .then(result => {
                 //console.log(result)
-                res.json(result)
+                res.json(result);
             })
-            .catch(error => console.error(error));
+            .catch((error) => {
+                console.error(error);
+                res.status(500);
+            });
         });
-        //Ladda in alla recept
+
+        //Get all recipes, all attributes are only needed for showing one recipe not showcasing all recipes, therefore the projection to optimize trafic
         app.get('/allaRecept', (req, res) => {
             recipeCollection.find({}, { projection: { "namn": 1, "bild": 1, "bildtext": 1, attribut: { "tid": 1} } }).toArray()
             .then(result => {
                 console.log(result);
-                res.json(result);
+                //Send the array of results
+                res.status(200).json(result);
             })
-            .catch(error => console.error(error));
+            .catch((error) => {
+                console.error(error);
+                res.status(500);
+            });
         });
 
-        //
+        //Get all ingredients
         app.get("/allaIngredienser", (req, res) => {
             
+            //Query for all recipes
             ingredientCollection.find({}).toArray()
             .then(result => {
                 console.log(result);
-                res.json(result);
+                //Send the array of results
+                res.status(200).json(result);
             })
-            .catch(error => console.error(error));
+            .catch((error) => {
+                console.error(error);
+                res.status(500);
+            });
         });
-        //Create user
+
+        //Create recipe
         app.post('/create', (req, res) => {
-            let name = req.body.name;
-            userCollection.find({"name": name}).toArray(req)
+            let recipe = req.body;
+            let name = req.body.namn;
+
+            //Query to find duplicate recipe
+            userCollection.find({"namn": namn}).toArray()
             .then(result => {
                 //Result == false if array is empty
                 if (result == false) {
-                    userCollection.insertOne(req.body)
+                    //Query for inserting the object to the db
+                    userCollection.insertOne(recipe)
                         .then(result => {
-                            console.log("User created");
+                            console.log("Recipe created");
                             //Send respons to browser
-                            res.redirect('/');
+                            res.status(200);
                         })
                         .catch(error => console.error(error))
                 }
                 //Array is not empty
                 else {
-                    console.log("User already exist");
+                    console.log("Recipe already exist");
+                    res.status(304);
                 }
             })
             .catch(error => console.error(error));
         });
+
         //Login user
         app.post('/login', (req, res) => {
             let name = req.body.name;

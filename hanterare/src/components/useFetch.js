@@ -20,16 +20,18 @@ const useFetch = (url, reqType) => {
                 return res.json();
             })
             .then(data => {
-                console.log(data);
                 setData(data);
                 setIsPending(false);
                 setError(null);
                 console.log(data);
             })
             .catch(error => {
+                
                 if(error.name === 'AbortError') {
 
-                } else {  
+                } 
+                
+                else {  
                 setIsPending(false);
                 setError(error.message);
                 }

@@ -36,19 +36,19 @@ body{
 }
 
 .create{
-    
-}
-
-.createRecipeForm{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    background-color: bisque;
     width: 80%;
     margin: auto;
 }
 
-.formElement{
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-element {
     display: flex;
     flex-direction: column;
 }
