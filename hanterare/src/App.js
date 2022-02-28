@@ -17,7 +17,7 @@ function App() {
 
             <Route exact path="/" element={(<div></div>)} />
             <Route exact path="/allaRecept" element={(<div><RecipeList /> </div>)} />
-            <Route exact path="/recept/:namn" element={(<div><Recipe /> </div>)} />
+            <Route exact path="/recept/:name" element={(<div><Recipe /> </div>)} />
             <Route path="/skapaRecept" element={(<CreateRecipe />)} />
 
           </Routes>

@@ -4,9 +4,9 @@ import useFetch from './useFetch';
 
 const Recipe = () => {
 
-  const { namn } = useParams();
+  const { name } = useParams();
   
-  const { data: recipe, isPending, error } = useFetch('http://localhost:8000/recept?namn=' + namn, 'GET', );
+  const { data: recipe, isPending, error } = useFetch('http://localhost:8000/recept?name=' + name, 'GET', );
 
 
 
@@ -17,24 +17,24 @@ const Recipe = () => {
       {recipe &&
         recipe
           .map(recipe => (
-            <div key={recipe.namn}>
-              <div className="receptBild">
+            <div key={recipe.name}>
+              {/*<div className="receptBild">
                 <img src={recipe.bild} alt={recipe.bildtext} />
-              </div>
+            </div>*/}
 
               <div className="receptIntro">
-                <h2>{recipe.namn}</h2>
+                <h2>{recipe.name}</h2>
                 <div className="receptInfo">
                   <i></i>
-                  <p>{recipe.attribut.tid} min</p>
+                  <p>{recipe.attribute.time} min</p>
                   <i></i>
                   <div className="måltidsTyp">
-                    {recipe.attribut.måltid.map(måltid => (
-                      <p>{måltid}</p>
+                    {recipe.attribute.meal.map((meal, index) => (
+                      <p key={"meal" + index}>{meal}</p>
                     ))}
                   </div>
                   <div className="receptBeskrivning">
-                    <p>{recipe.beskrivning}</p>
+                    <p>{recipe.description}</p>
                   </div>
                   <div>
                     <button>
@@ -44,14 +44,14 @@ const Recipe = () => {
                   </div>
                   <div className="receptAttribut">
                     <i></i>
-                    <div>{recipe.attribut.kök.map(kök => (
-                      <p>{kök}</p>
+                    <div>{recipe.attribute.kitchen.map((kitchen, index) => (
+                      <p key={"kitchen" + index} >{kitchen}</p>
                     ))}</div>
-                    <div>{recipe.attribut.kost.map(kost => (
-                      <p>{kost}</p>
+                    <div>{recipe.attribute.diet.map((diet, index) => (
+                      <p key={"diet" + index}>{diet}</p>
                     ))}</div>
-                    <div>{recipe.attribut.egenskap.map(egenskap => (
-                      <p>{egenskap}</p>
+                    <div>{recipe.attribute.properties.map((propertie, index) => (
+                      <p key={"propertie" + index}>{propertie}</p>
                     ))}</div>
                   </div>
                 </div>
@@ -61,15 +61,15 @@ const Recipe = () => {
                 <h3>Ingredienser</h3>
                 <div className='portioner'>
                   <button><i></i></button>
-                  <p>{recipe.attribut.portioner} portioner</p>
+                  <p>{recipe.attribute.portions} portioner</p>
                   <button><i></i></button>
                 </div>
                 <div>
-                  <div>{recipe.ingredienser.map(ingrediens => (
-                    <div>
-                      <p>{ingrediens.namn}</p>
-                      <p>{ingrediens.mängd}</p>
-                      <p>{ingrediens.enhet}</p>
+                  <div>{recipe.ingredients.map((ingredient, index) => (
+                    <div key={"ingredient" + index}>
+                      <p>{ingredient.name}</p>
+                      <p>{ingredient.amount}</p>
+                      <p>{ingredient.unit}</p>
                     </div>
                   ))}</div>
                 </div>
@@ -80,12 +80,12 @@ const Recipe = () => {
                   <i></i>
                   <h3>Gör så här</h3>
                 </div>
-                <div>{recipe.steg.map((steg, index) => (
+                <div>{recipe.steps.map((step, index) => (
                   <div key={index}>
                     <input type="checkbox" />
                     <div>
                       <p>{index+1 + "."}</p>
-                      <p>{steg}</p>
+                      <p>{step}</p>
                     </div>
                   </div>
                 ))}</div>

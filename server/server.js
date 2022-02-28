@@ -39,17 +39,19 @@ MongoClient.connect(url, { useNewUrlParser: true })
         //Get a recipe based on query
         app.get('/recept', (req, res) => {
             console.log(req.query);
-            console.log(req.query.namn);
+            console.log(req.query.name);
 
             //Filter for query
             let filter = {
-                "namn": req.query.namn
+                "name": req.query.name
             };
+
+            console.log(filter);
 
             //Query
             recipeCollection.find(filter).toArray()
             .then(result => {
-                //console.log(result)
+                console.log(result)
                 res.json(result);
             })
             .catch((error) => {
@@ -60,7 +62,7 @@ MongoClient.connect(url, { useNewUrlParser: true })
 
         //Get all recipes, all attributes are only needed for showing one recipe not showcasing all recipes, therefore the projection to optimize trafic
         app.get('/allaRecept', (req, res) => {
-            recipeCollection.find({}, { projection: { "namn": 1, "bild": 1, "bildtext": 1, attribut: { "tid": 1} } }).toArray()
+            recipeCollection.find({}, { "namn": 1, "bild": 1, "bildtext": 1, attribut: { "tid": 1} } ).toArray()
             .then(result => {
                 console.log(result);
                 //Send the array of results
