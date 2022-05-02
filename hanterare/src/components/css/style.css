@@ -1,0 +1,103 @@
+body{
+    margin: 2 rem;
+    font-family: Monospace;
+}
+
+.Recept{
+    display: grid;
+}
+
+/*Navbar*/
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.navbarLinks {
+    text-decoration: none;
+    font-size: larger;
+    padding: 3em;
+}
+
+/*Create recipe*/
+
+.create{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+.create h2 {
+    margin: auto;
+    padding: 2em 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    gap: 2em;
+}
+
+.form-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-ingredients {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    padding: 2em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.form-element {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    padding: 1em;
+}
+
+.text-area {
+    padding: 3em 1em;
+}
+
+.ingredient-list {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredient-list-header {
+
+}
+
+.ingredient-list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.ingredient-list-value {
+    width: 100%;
+    padding: 1.5em;
+    text-align: center;
+}

@@ -6,8 +6,6 @@ const RecipeList = () => {
 
   const { data: recipe, isPending, error } = useFetch('http://localhost:8000/allaRecept', 'GET');
 
-
-
   return (
     <div className="ReceptLista" key="recipeListMain">
       <div>

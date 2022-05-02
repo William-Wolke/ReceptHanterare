@@ -85,167 +85,181 @@ const CreateRecipe = () => {
   const { data, isPending, error } = useFetch('http://localhost:8000/allaIngredienser', 'GET');
 
   return (
-    <div className="create">
-      <h2>Lägg till ett nytt recept</h2>
-      <form onSubmit={handleSubmit} className="form">
+      <div className="create">
+          <h2>Lägg till ett nytt recept</h2>
+          <form onSubmit={handleSubmit} className="form">
 
-        {/* Titel */}
-        <div className="form-element">
-          <label>Receptnamn</label>
-          <input
-            type="text"
-            required
-            value={receptNamn}
-            onChange={(e) => setReceptNamn(e.target.value)}
-          />
-        </div>
+              {/* Titel */}
+              <div className="form-element">
+                <div>Receptnamn</div>
+                <input
+                  type="text"
+                  className="text-input"
+                  required
+                  value={receptNamn}
+                  className="input"
+                  onChange={(e) => setReceptNamn(e.target.value)}
+                />
+              </div>
 
-        {/* Description */}
-        <div className="form-element">
-          <label>Beskrivning</label>
-          <textarea
-            required
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
+              {/* Description */}
+              <div className="form-element">
+                <div>Beskrivning</div>
+                <textarea
+                  required
+                  value={description}
+                  className="input"
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </div>
 
-        {/* Image */}
-        {/*<div className="form-element">
-          <label>Bild</label>
-          <input
-            type="text"
-            id="bild"
-            onChange={setBild}
-          />
-        </div>*/}
+              {/* Image */}
+              {/*<div className="form-element">
+                <div>Bild</div>
+                <input
+                  type="text"
+                  id="bild"
+                  onChange={setBild}
+                />
+              </div>*/}
 
-        {/* Alt attribute for img */}
-        <div className="form-element">
-          <label htmlFor="altText">Alt attribut</label>
-          <input
-            type="text"
-            id="altText"
-          />
-        </div>
+              {/* Alt attribute for img */}
+              <div className="form-element">
+                <div>Alt attribut</div>
+                <input
+                  type="text"
+                  className="input"
+                  id="altText"
+                />
+              </div>
 
-        {/* Number of portions */}
-        <div className="form-element">
-          <label htmlFor="portions">Portioner</label>
-          <input
-            type="number"
-            id="portions"
-          />
-        </div>
+              {/* Number of portions */}
+              <div className="form-element">
+                <div>Portioner</div>
+                <input
+                  type="number"
+                  className="input"
+                  id="portions"
+                />
+              </div>
 
-        {/* Meal */}
-        <div>
-          <div className="form-element">
-            <label htmlFor="portions">Portioner</label>
-            <input
-              type="number"
-              id="portions"
-            />
-          </div>
+              {/* Meal */}
+              <div className="form-group">
+                <div className="form-element">
+                  <div>Måltid</div>
+                  <input
+                    type="number"
+                    className="input"
+                    id="portions"
+                  />
+                </div>
 
-          <div>
-            <input type="button" value="Lägg till" onClick={() => {handleAddMeal()}} />
-          </div>
-        </div>
+                {/*Add*/}
+                <div className="form-element">
+                  <input 
+                      type="button" 
+                      className="input button" 
+                      value="Lägg till" 
+                      onClick={() => {handleAddMeal()}} 
+                  />
+                </div>
+              </div>
 
-        {/* Display status on fetching ingredients */}
-        {error && <p>{error}</p>}
-        {isPending && <p>{isPending}</p>}
-        
+              {/* Display status on fetching ingredients */}
+              {error && <p>{error}</p>}
+              {isPending && <p>{isPending}</p>}
+            
 
-        {/* Ingredint only displays when ingredients are fetched */}
-        {data && <div className="form-element">
-          
-          {/* Ingredint name */}
-          <div>
-            <label htmlFor="namn">Namn</label>
-            <select 
-              name="namn" 
-              id="" 
-              value={ingredientName}
-              onChange={(e) => setIngredientName(e.target.value)}
-            >
-              {data.map((ingredient, index) => {
-                return (
-                  <option value={ingredient.name} key={index}>{ingredient.name}</option>
-                )
-              })}
-              <option value=""></option>
-            </select>
-          </div>
-
-          {/* Ingredint amount */}
-          <div className="form-element">
-            <label htmlFor="amount">Mängd</label>
-            <input 
-              type="number" 
-              name="amount"
-              value={ingredientAmount}
-              onChange={(e) => setIngredientAmount(e.target.value)}
-            />
-          </div>
-
-          {/* Ingredint unit */}
-          <div className="form-element">
-            <label htmlFor="measurment">Mått</label>
-            <select 
-              name="measurment" 
-              id="measurment"
-              value={ingredientUnit}
-              onChange={(e) => setIngredientUnit(e.target.value)}
-            >
-              <option value="Krm">Krm</option>
-              <option value="Tsk">Tsk</option>
-              <option value="Msk">Msk</option>
-              <option value="L">L</option>
-              <option value="Dl">Dl</option>
-              <option value="Cl">Cl</option>
-              <option value="Ml">Ml</option>
-              <option value="St">St</option>
-              <option value=""></option>
-            </select>
-          </div>
-
-          <input type="button" value="+" onClick={() => handleAddIngredient()} className="form-element" />
-        </div>}        
-
-        {/* Display table headers for ingredient list */}
-        <div className="form-element">
-          <div className="ingrediensRubrik">
-            <p>Nummer</p>
-            <p>Ingrediens</p>
-            <p>Mängd</p>
-            <p>Enhet</p>
-          </div>
-
-          {/* Display ingredients */}
-          {
-            <>
-              {ingredients.map((item, index) => {
-                return (
-                  <div key={index} className="form-element">
-                    <p>{index}</p>
-                    <p>{item.name}</p>
-                    <p>{item.amount}</p>
-                    <p>{item.unit}</p>
+              {/* Ingredint only displays when ingredients are fetched */}
+              {data && 
+                <div className="form-group">
+                  {/* Ingredint name */}
+                  <div className="form-element">
+                    <div>Namn</div>
+                    <select 
+                      name="namn" 
+                      id="" 
+                      value={ingredientName}
+                      className="input"
+                      onChange={(e) => setIngredientName(e.target.value)}
+                    >
+                      {data.map((ingredient, index) => {
+                        return (
+                          <option value={ingredient.name} key={index}>{ingredient.name}</option>
+                        )
+                      })}
+                      <option value=""></option>
+                    </select>
                   </div>
-                )
-              })}
 
-            </>}
-        </div>
+                  {/* Ingredint amount */}
+                  <div className="form-element">
+                    <div>Mängd</div>
+                    <input 
+                      type="number" 
+                      name="amount"
+                      className="input"
+                      value={ingredientAmount}
+                      onChange={(e) => setIngredientAmount(e.target.value)}
+                    />
+                  </div>
 
-        <div>
-          <input type="submit" value="Submit"/>
-        </div>
+                  {/* Ingredint unit */}
+                  <div className="form-element">
+                    <div>Mått</div>
+                    <select 
+                      name="measurment" 
+                      id="measurment"
+                      className="input"
+                      value={ingredientUnit}
+                      onChange={(e) => setIngredientUnit(e.target.value)}
+                    >
+                      <option value="Krm">Krm</option>
+                      <option value="Tsk">Tsk</option>
+                      <option value="Msk">Msk</option>
+                      <option value="L">L</option>
+                      <option value="Dl">Dl</option>
+                      <option value="Cl">Cl</option>
+                      <option value="Ml">Ml</option>
+                      <option value="St">St</option>
+                      <option value=""></option>
+                    </select>
+                  </div>
+                    <div className="form-element">
+                      <input 
+                          type="button"
+                          className="input button" 
+                          value="+" 
+                          onClick={() => handleAddIngredient()} />
+                    </div>
+                </div>
+              }        
+              {/* Display table headers for ingredient list */}
+              <div className="ingredient-list">
+                  <div className="ingredient-list-item">
+                      <p className="ingredient-list-value">Ingrediens</p>
+                      <p className="ingredient-list-value">Mängd</p>
+                      <p className="ingredient-list-value">Enhet</p>
+                  </div>
 
-      </form>
-    </div>
+                  {/* Display ingredients */}
+                      {ingredients && ingredients.map((item, index) => {
+                        return (
+                          <div key={index} className="ingredient-list-item" key={"ingredient" + index}>
+                            <p className="ingredient-list-value">{item.name}</p>
+                            <p className="ingredient-list-value">{item.amount}</p>
+                            <p className="ingredient-list-value">{item.unit}</p>
+                          </div>
+                        )
+                      })}  
+              </div>
+
+              <div className="form-element">
+                  <input type="submit" className="input" value="Submit"/>
+              </div>
+
+          </form>
+      </div>
   );
 }
 

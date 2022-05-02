@@ -1,0 +1,73 @@
+:root{
+    --body-background: #f6f6f6;
+    --dark-body-background: #161a1f;
+    --block-background: #ffffff;
+    --dark-block-background: #334155;
+    --text-color:#2e2e2e;
+    --dark-text-color:#f4f4f5;
+    --link-color: #1696d5;
+    --dark-link-color: #49c1fd;
+    color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) { 
+    /*Body*/
+    body {
+        background-color: var(--dark-body-background);
+        color: var(--dark-text-color);
+    }
+    /*Navbar*/
+    .navbar {
+    --dark-block-background: #334155;
+        background-color: var(--dark-block-background);
+    }
+    .navbarBlock {
+        background-color: var(--dark-block-background);
+    }
+    .navbarLinks {
+        color: var(--dark-link-color);
+    }
+    .navbarLinks:hover {
+        background-color: #1696d5;
+    }
+    /*Form*/
+    .create {
+        background-color: var(--dark-block-background);
+    }
+    .form-element {
+        color: var(--dark-text-color);
+    }
+    .ingredient-list-value {
+        border: 1px solid var(--dark-text-color);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    /*Body*/
+    body {
+        background-color: var(--body-background);
+        color: var(--text-color);
+    }
+    /*Navbar*/
+    .navbar {
+    --dark-block-background: #334155;
+        background-color: var(--block-background);
+    }
+    .navbarBlock {
+        background-color: var(--block-background);
+    }
+    .navbarLinks {
+        color: var(--link-color);
+    }
+    .navbarLinks:hover {
+        background-color: #491cfd;
+    }
+    /*Form*/
+    .create {
+        background-color: var(--block-background);
+        color: var(--text-color);
+    }
+    .ingredient-list-value {
+        border: 1px solid var(--text-color);
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import useFetch from './useFetch';
 
@@ -8,70 +8,72 @@ const Recipe = () => {
   
   const { data: recipe, isPending, error } = useFetch('http://localhost:8000/recept?name=' + name, 'GET', );
 
-
-
   return (
     <div className="Recept">
-      {error && <div>{error}</div>}
-      {isPending && <div>Loading...</div>}
-      {recipe &&
-        recipe
-          .map(recipe => (
-            <div key={recipe.name}>
-              {/*<div className="receptBild">
-                <img src={recipe.bild} alt={recipe.bildtext} />
-            </div>*/}
+        {error && <div>{error}</div>}
+        {isPending && <div>Loading...</div>}
+        {recipe &&
+          recipe
+            .map(recipe => (
+              <div key={recipe.name}>
+                {/*<div className="receptBild">
+                  <img src={recipe.bild} alt={recipe.bildtext} />
+              </div>*/}
 
-              <div className="receptIntro">
-                <h2>{recipe.name}</h2>
-                <div className="receptInfo">
-                  <i></i>
-                  <p>{recipe.attribute.time} min</p>
-                  <i></i>
-                  <div className="måltidsTyp">
-                    {recipe.attribute.meal.map((meal, index) => (
-                      <p key={"meal" + index}>{meal}</p>
-                    ))}
-                  </div>
-                  <div className="receptBeskrivning">
-                    <p>{recipe.description}</p>
-                  </div>
-                  <div>
-                    <button>
+                  <div className="receptIntro">
+                      <h2>{recipe.name}</h2>
+                      <div className="receptInfo">
                       <i></i>
-                      <p>Lägg till i veckomenyn</p>
-                    </button>
+                      <p>{recipe.attribute.time} min</p>
+                      <i></i>
+                      <div className="måltidsTyp">
+                          {recipe.attribute.meal.map((meal, index) => (
+                            <p key={"meal" + index}>{meal}</p>
+                          ))}
+                      </div>
+                      <div className="receptBeskrivning">
+                          <p>{recipe.description}</p>
+                      </div>
+                      <div>
+                          <button>
+                              <i></i>
+                              <p>Lägg till i veckomenyn</p>
+                          </button>
+                      </div>
+                      <div className="receptAttribut">
+                          <i></i>
+                          <div>{recipe.attribute.kitchen.map((kitchen, index) => (
+                              <p key={"kitchen" + index} >{kitchen}</p>
+                          ))}</div>
+                          <div>{recipe.attribute.diet.map((diet, index) => (
+                              <p key={"diet" + index}>{diet}</p>
+                          ))}</div>
+                          <div>
+                              {recipe.attribute.properties.map((propertie, index) => (
+                                  <p key={"propertie" + index}>{propertie}</p>
+                              ))}
+                          </div>
+                      </div>
                   </div>
-                  <div className="receptAttribut">
-                    <i></i>
-                    <div>{recipe.attribute.kitchen.map((kitchen, index) => (
-                      <p key={"kitchen" + index} >{kitchen}</p>
-                    ))}</div>
-                    <div>{recipe.attribute.diet.map((diet, index) => (
-                      <p key={"diet" + index}>{diet}</p>
-                    ))}</div>
-                    <div>{recipe.attribute.properties.map((propertie, index) => (
-                      <p key={"propertie" + index}>{propertie}</p>
-                    ))}</div>
-                  </div>
-                </div>
               </div>
 
               <div className="ingredienser">
-                <h3>Ingredienser</h3>
-                <div className='portioner'>
-                  <button><i></i></button>
-                  <p>{recipe.attribute.portions} portioner</p>
-                  <button><i></i></button>
-                </div>
-                <div>
-                  <div>{recipe.ingredients.map((ingredient, index) => (
-                    <div key={"ingredient" + index}>
-                      <p>{ingredient.name}</p>
-                      <p>{ingredient.amount}</p>
-                      <p>{ingredient.unit}</p>
-                    </div>
-                  ))}</div>
+                  <h3>Ingredienser</h3>
+                  <div className='portioner'>
+                      <button><i></i></button>
+                      <p>{recipe.attribute.portions} portioner</p>
+                      <button><i></i></button>
+                  </div>
+                  <div>
+                  <div>
+                      {recipe.ingredients.map((ingredient, index) => (
+                          <div key={"ingredient" + index}>
+                              <p>{ingredient.name}</p>
+                              <p>{ingredient.amount}</p>
+                              <p>{ingredient.unit}</p>
+                          </div>
+                      ))}
+                  </div>
                 </div>
               </div>
 
@@ -94,10 +96,8 @@ const Recipe = () => {
                   <h3>Klart!</h3>
                 </div>
               </div>
-
             </div>
-          )
-          )
+          ))
       }
     </div>
   );
