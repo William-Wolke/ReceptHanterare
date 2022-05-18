@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const RecipeList = () => {
 
-  const { data: recipe, isPending, error } = useFetch('http://localhost:8000/allaRecept', 'GET');
+  const { data: recipe, isPending, error } = useFetch('http://192.168.0.122:8000/allaRecept', 'GET');
 
   return (
     <div className="ReceptLista" key="recipeListMain">
@@ -15,7 +15,8 @@ const RecipeList = () => {
       {isPending && <div>Loading...</div>}
       {recipe &&
         recipe
-          .map((recipe, index) => (
+          .map((recipe, index) => {
+            return (
             <Link to={"/recept/" + recipe.name} key={"recipe" + index}>
               <div key={recipe.name + "container" + index}>
                 {/*<div className="receptBild" key={recipe.name+ " bilddiv"}>
@@ -34,7 +35,7 @@ const RecipeList = () => {
                 </div>
               </div>
             </Link>
-          ))
+          )})
       }
     </div>
   );

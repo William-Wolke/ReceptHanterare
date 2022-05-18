@@ -2,14 +2,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
-const cors = require("cors");
-const { response } = require('express');
-
 const app = express();
-const multer = require('multer');
+const cors = require('cors');
+
+
+//const multer = require('multer');
 
 const url = 'mongodb://127.0.0.1:27017'
 const dbName = 'local';
+const port = 8000;
 
 //Connect to Mongo db
 MongoClient.connect(url, { useNewUrlParser: true })
@@ -18,22 +19,28 @@ MongoClient.connect(url, { useNewUrlParser: true })
         const db = client.db(dbName);
         const recipeCollection = db.collection('Recipe');
         const ingredientCollection = db.collection('Ingredient');
+        const menuCollection = db.collection('Menu');
+
         console.log(`Connected MongoDB: ${url}`);
         console.log(`Database: ${dbName}`);
 
-        app.use(cors());
+        app.use(cors({
+            accept:'*',
+            method:'POST, GET'
+        }));
         
         //Body parser
         app.use(bodyParser.urlencoded({ extended: true }));
+        app.use(bodyParser.json())
 
         //Using multer to handle files/images
-        app.use(multer({ dest: './temp/' }).any());
+        //app.use(multer({ dest: './temp/' }).any());
 
         //Handlers
 
         //Listen
-        app.listen(8000, () => {
-            console.log('listening on 8000');
+        app.listen(port, () => {
+            console.log('listening on ' + port);
         });
 
         //Get a recipe based on query
@@ -62,7 +69,7 @@ MongoClient.connect(url, { useNewUrlParser: true })
 
         //Get all recipes, all attributes are only needed for showing one recipe not showcasing all recipes, therefore the projection to optimize trafic
         app.get('/allaRecept', (req, res) => {
-            recipeCollection.find({}, { "namn": 1, "bild": 1, "bildtext": 1, attribut: { "tid": 1} } ).toArray()
+            recipeCollection.find({}).toArray()
             .then(result => {
                 console.log(result);
                 //Send the array of results
@@ -90,24 +97,43 @@ MongoClient.connect(url, { useNewUrlParser: true })
             });
         });
 
-        //Create recipe
-        app.post('/create', (req, res) => {
-            let recipe = req.body;
-            let name = req.body.namn;
-
-            //Query to find duplicate recipe
-            userCollection.find({"namn": namn}).toArray()
+        //Get all ingredients
+        app.get("/allMenus", (req, res) => {
+            
+            //Query for all recipes
+            menuCollection.find({}).toArray()
             .then(result => {
+                console.log(result);
+                //Send the array of results
+                res.status(200).json(result);
+            })
+            .catch((error) => {
+                console.error(error);
+                res.status(500);
+            });
+        });
+
+        //Create recipe
+        app.post('/createRecipe', (req, res) => {
+            console.log("Börjar skapa");
+            //Query to find duplicate recipe
+            recipeCollection.find({"name": req.body.name}).toArray()
+            .then(result => {
+                console.log("Första hämt");
                 //Result == false if array is empty
                 if (result == false) {
+                    console.log("Ingen dup");
                     //Query for inserting the object to the db
-                    userCollection.insertOne(recipe)
+                    recipeCollection.insertOne(req.body)
                         .then(result => {
                             console.log("Recipe created");
                             //Send respons to browser
-                            res.status(200);
+                            res.status(200).send({status: "yes"});
                         })
-                        .catch(error => console.error(error))
+                        .catch(error => {
+                            console.error(error);
+                            res.status(500);
+                        });
                 }
                 //Array is not empty
                 else {
@@ -115,95 +141,78 @@ MongoClient.connect(url, { useNewUrlParser: true })
                     res.status(304);
                 }
             })
-            .catch(error => console.error(error));
+            .catch(error => {
+                console.error(error);
+                res.status(500);
+            });
         });
 
-        //Login user
-        app.post('/login', (req, res) => {
-            let name = req.body.name;
-            let pass = req.body.pass;
+        //Create ingredient
+        app.post('/createIngredient', async (req, res) => {
+            console.log("Börjar skapa");
 
-            userCollection.find({ "name": name }).toArray()
-                //Promise
-                .then(result => {
-                    //Check if pass is correct
-                    if (result[0].pass === pass) {
-                        console.log("Inloggad");
-                        //Send respons to browser
-                        res.redirect('/')
-                    }
-                    //Pass is incorrect
-                    else {
-                        console.log("Fel användarnamn eller lösenord");
-                        //Send respons to browser
-                        res.redirect('/');
-                    }
-                })
-                .catch(error => console.error(error));
-        });
-        //Update user password
-        app.post('/update', (req, res) => {
-            let name = req.body.name;
-            let oldPass = req.body.oldPass;
-            let newPass = req.body.newPass;
-            //Get this user from the db
-            userCollection.find({ "name": name }).toArray()
-                //Promise
-                .then(result => {
-                    //Check if pass is correct
-                    if (result[0].pass == oldPass) {
-                        console.log("Correct credentials")
-                        updateUserPass(result[0].name, newPass);
-                        //Send respons to browser
-                        res.redirect('/')
-                    }
-                    //Pass is incorrect
-                    else {
-                        console.log("Incorrect password or username")
-                        //Send respons to browser
-                        res.redirect('/')
-                    }
-                })
-                .catch(error => console.error(error))
-        });
-        //Delete user
-        app.post('/delete', (req, res) => {
-            let name = req.body.name;
-            let pass = req.body.pass;
-            userCollection.find({ "name": name }).toArray()
-
-                .then(result => {
-                    //Check if pass is correct
-                    if (result[0].pass == pass) {
-                        console.log("Correct credentials")
-                        deleteUser(name);
-                        //Send respons to browser
-                        res.redirect('/')
-                    }
-                    //Pass is incorrect
-                    else {
-                        console.log("Incorrect password or username")
-                        //Send respons to browser
-                        res.redirect('/')
-                    }
-                })
-                .catch(error => console.error(error))
-        });
-        //Update user pass after checking password
-        app.put(updateUserPass = (name, newPass) => {
-            userCollection.updateOne({ "name": name }, { $set: { pass: newPass } })
-            .then(result => {
-                console.log("Password changed")
+            //Query to find duplicate recipe
+            await ingredientCollection.find({"name": req.body.name}).toArray()
+            .then( async (result) => {
+                console.log("Första hämt");
+                //Result == false if array is empty
+                if (result == false) {
+                    console.log("Ingen dup");
+                    //Query for inserting the object to the db
+                    await ingredientCollection.insertOne(req.body)
+                        .then(result => {
+                            console.log("Recipe created");
+                            //Send respons to browser
+                            res.status(200).send({message: "yes"});
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            res.status(500);
+                        });
+                }
+                //Array is not empty
+                else {
+                    console.log("Ingredient already exist");
+                    res.status(304).send({message: "Ingredient already exist"});
+                }
             })
-            .catch(error => console.error(error));
+            .catch(error => {
+                console.error(error);
+                res.status(500);
+            });
         });
-        //Delete user after checking password
-        app.delete(deleteUser = (name) => {
-            db.collection('Users').deleteOne({ "name": name })
-            .then(result => {
-                console.log("User deleted")
+
+        //Create ingredient
+        app.post('/createMenu', async (req, res) => {
+
+            //Query to find duplicate recipe
+            await menuCollection.find({"year": req.body.year, "week": req.body.week}).toArray()
+            .then( async (result) => {
+
+                //Result == false if array is empty
+                if (result == false) {
+                    //Query for inserting the object to the db
+                    await menuCollection.insertOne(req.body)
+                        .then(result => {
+                            console.log("Recipe created");
+                            //Send respons to browser
+                            res.status(200).send({message: "yes"});
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            res.status(500);
+                        });
+                }
+
+                //Array is not empty
+                else {
+                    res.status(304).send({message: "Menu already exist"});
+                }
             })
-            .catch(error => console.error(error));
+            .catch(error => {
+                console.error(error);
+                res.status(500);
+            });
         });
-    })
-    .catch(error => console.error(error))
+
+    });

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-const useFetch = (url, reqType) => {
+const useFetch = (url, reqType, update) => {
 
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const abortCont = new AbortController();
@@ -38,7 +38,7 @@ const useFetch = (url, reqType) => {
             });
 
         return () => abortCont.abort();
-    }, [url, reqType]);
+    }, [url, reqType, update]);
 
     return { data, isPending, error }
 }

@@ -2,23 +2,42 @@
     {
         "name": "Röd lök",
         "unit": {
-            "preferred unit": "st",
-            "conversion": {
-                "st": 1,
-                "g": 150,
-                "l": 0.2
-            }
+            "preferredUnit": "st",
+            "conversion": [
+                {
+                    "unit": "st",
+                    "amount": 1
+                },
+                {
+                    "unit": "g",
+                    "amount": 150
+                },
+                {
+                    "unit": "l",
+                    "amount": 0.2
+                }
+            ]
+            
         }
     },
     {
         "name": "Gul lök",
         "unit": {
-            "preferred unit": "st",
-            "conversion": {
-                "st": 1,
-                "g": 150,
-                "l": 0.2
-            }
+            "preferredUnit": "st",
+            "conversion": [
+                {
+                    "unit": "st",
+                    "amount": 1
+                },
+                {
+                    "unit": "g",
+                    "amount": 150
+                },
+                {
+                    "unit": "l",
+                    "amount": 0.2
+                }
+            ]
         }
     }
 ]

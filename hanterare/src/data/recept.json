@@ -36,12 +36,12 @@
                 "unit": "st"
             }
         ],
-        "steps": {
-            "0" :"Ansa den spröda och ljuvliga sallaten.",
-            "1": "Skölj sallaten i isvatten precis som chocken av att vakna på morgonen.",
-            "2": "Som en bödel vid Stockholms blodbad, skiva upp tomaten",
-            "3": "Som en tornado sveper över landsmassor skall du nu blanda tomat och sallaten.",
-            "4": "Avnjut smaken av slajm likt Daidalos avnjuter att slajma små barn."
-        }
+        "steps": [
+            "Ansa den spröda och ljuvliga sallaten.",
+            "Skölj sallaten i isvatten precis som chocken av att vakna på morgonen.",
+            "Som en bödel vid Stockholms blodbad, skiva upp tomaten",
+            "Som en tornado sveper över landsmassor skall du nu blanda tomat och sallaten.",
+            "Avnjut smaken av slajm likt Daidalos avnjuter att slajma små barn."
+        ]
     }
 ]
