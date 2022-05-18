@@ -5,13 +5,14 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dbstart": "mongod --dbpath ../database"
+    "dbstart": "brew services start mongodb-community@5.0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.1",
+    "body-parser": "^1.20.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "mongodb": "^4.4.0",
     "multer": "^1.4.4"

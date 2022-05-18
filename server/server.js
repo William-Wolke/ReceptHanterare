@@ -2,11 +2,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
+const cors = require("cors");
+const render = require('./paths/render');
+const multer = require('multer');
+require('dotenv').config()
+
 const app = express();
-const cors = require('cors');
-
-
-//const multer = require('multer');
 
 const url = 'mongodb://127.0.0.1:27017'
 const dbName = 'local';
@@ -37,6 +38,7 @@ MongoClient.connect(url, { useNewUrlParser: true })
         //app.use(multer({ dest: './temp/' }).any());
 
         //Handlers
+        app.use('/render', render);
 
         //Listen
         app.listen(port, () => {

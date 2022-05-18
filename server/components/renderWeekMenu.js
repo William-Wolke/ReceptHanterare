@@ -1,0 +1,64 @@
+const renderWeekMenu = (week, ingredients) => {
+    return (
+        `
+            <!DOCTYPE html>
+            <html lang="sv">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Inköpslista</title>
+                <style>
+                    .rows {
+                        display: flex;
+                        flex-direction: row;
+                        width: 80%;
+                        margin: auto;
+                    }
+                    .checked {
+                        background-color: #d3d1d1;
+                        text-decoration: line-through;
+                    }
+                </style>
+            </head>
+            <body>
+                <header>
+                    <h1>Inköpslista för V.${week}</h1>
+                </header>
+                <main>
+                    <div class="list">
+                        ${ingredients.map((item, index) => {
+                            return (`
+                                <div class="rows" id="row1">
+                                    <input type="checkbox" class="checkbox" name="${index}">
+                                    <label for="${index}">${item.amount} ${item.unit} ${item.name}</label>
+                                </div>
+                            `)
+                        })}
+                    </div>
+                </main>
+                <script>
+                    let rows = document.getElementsByClassName('row');
+                    let checkboxes = document.getElementsByClassName('checkbox');
+
+                    checkboxes.foreach((item) => {
+                        item.addEventListener('click', checkCheckBox)
+                    });
+
+
+                    function checkCheckBox() {
+                        if (this.checked) {
+                            document.getElementById("row" + this.name).classList.add('checked');
+                        }
+                        else {
+                            document.getElementById("row" + this.name).classList.remove('checked');
+                        }
+                    }
+                </script>
+            </body>
+            </html>
+        `
+    );
+}
+
+module.exports = renderWeekMenu;
