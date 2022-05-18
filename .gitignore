@@ -1,4 +1,7 @@
+.DS_Store
 /database
 **/node_modules
 **./server/node_modules
 server/node_modules/
+server/.env
+server/temp/
