@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-const UseAxios = (url, body) => {
+const UseAxios = (path, body) => {
 
     let response = false;
+    let url = new URL(path, process.env.REACT_APP_DB_HOSTNAME).href;
 
     axios.post(url, body)
     .then((res) => {

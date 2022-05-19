@@ -73,10 +73,10 @@ const CreateMenu = () => {
     
 
     //Fetches recipes
-    const { data, isPending, error } = useFetch("http://192.168.0.122:8000/allaRecept", "GET", update);
+    const { data, isPending, error } = useFetch("/recipe/all/", "GET", update);
 
     //Fetches ingredients for comparing to the ingredients in recipes
-    const { data: ingredients, isPending: pendingIngredients, error: ingredientsError } = useFetch("http://192.168.0.122:8000/allaIngredienser", "GET", update); 
+    const { data: ingredients, isPending: pendingIngredients, error: ingredientsError } = useFetch("/ingredient/all", "GET", update); 
 
     const handleSubmit = (e) => {
         //Prevent reloading page
@@ -108,7 +108,7 @@ const CreateMenu = () => {
         console.log(menu);
 
         //Call api to create
-        UseAxios("http://192.168.0.122:8000/createMenu", menu);
+        UseAxios("/menu/create/", menu);
     }
 
     //Returns a array that contains the recipenames for the passed array

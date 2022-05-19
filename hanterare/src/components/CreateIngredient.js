@@ -8,9 +8,10 @@ const CreateIngredient = () => {
     const [pieces, setPieces] = useState(0);
     const [grams, setGrams] = useState(0);
     const [liters, setLiters] = useState(0);
+    const [section, setSection] = useState('');
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         //Prevent reload
         e.preventDefault();
 
@@ -29,15 +30,16 @@ const CreateIngredient = () => {
             }
         ]
 
-        let ingredient = {
+        let data = {
             name: name,
             unit: {
                 preferredUnit: preferredUnit,
                 conversion: conversion
-            }
+            },
+            section: section
         }
 
-        let res = UseAxios("http://192.168.0.122:8000/createIngredient", ingredient)
+        let res = await UseAxios("/ingredient/create/", data)
         if (res){
             console.log("Created ingredient");
         }
@@ -109,6 +111,22 @@ const CreateIngredient = () => {
                         />
                     </div>
                     
+                </div>
+
+                <div>
+                    <label htmlFor="storeSection">Del i butiken</label>
+                    <select 
+                        id="storeSection"
+                        value={section}
+                        onChange={ (e) => {setSection(e.target.value)} }
+                    >
+                        <option value="dairy">Mjölk</option>
+                        <option value="bread">Bröd</option>
+                        <option value="chark">Kött</option>
+                        <option value="produce">Grönsaker</option>
+                        <option value="cupboard">Skafferi</option>
+                        <option value="freezer">Frys</option>
+                    </select>
                 </div>
 
                 <div>

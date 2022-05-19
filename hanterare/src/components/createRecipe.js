@@ -62,7 +62,7 @@ const CreateRecipe = () => {
 
       console.log(recipe);
 
-      let res = await UseAxios("http://192.168.0.122:8000/createRecipe", recipe)
+      let res = await UseAxios("/recipe/create", recipe)
       if (res) {
         console.log("Created recipe");
       }
@@ -148,7 +148,7 @@ const CreateRecipe = () => {
     }
 
     //Fetches ingredients from db
-    const { data, isPending, error } = useFetch('http://192.168.0.122:8000/allaIngredienser', 'GET', updateIngredients);
+    const { data, isPending, error } = useFetch('/ingredient/all/', 'GET', updateIngredients);
 
     return (
         <>
