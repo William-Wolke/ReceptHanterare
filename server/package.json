@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dbstart": "brew services start mongodb-community@5.0",
+    "dev": "npm start",
     "insert-test-data": "node ./scripts/insert.js",
     "delete-all-data": "node ./scripts/deleteAll.js"
   },

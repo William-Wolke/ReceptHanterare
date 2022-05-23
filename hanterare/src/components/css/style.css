@@ -19,7 +19,7 @@ body{
 .navbarLinks {
     text-decoration: none;
     font-size: larger;
-    padding: 3em;
+    padding: 2em;
 }
 
 /*Create recipe*/
@@ -100,4 +100,19 @@ body{
     width: 100%;
     padding: 1.5em;
     text-align: center;
+}
+
+.menuList {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuItem {
+    width: 80%;
+    margin: auto;
+}
+
+.weekdayMenus {
+    display: flex;
+    flex-direction: column;
 }

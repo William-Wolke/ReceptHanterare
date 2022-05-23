@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import useFetch from './useFetch'
+import useFetch from './useFetch';
+import { Link } from 'react-router-dom';
 
 const MenuList = () => {
 
     const { update, setUpdate } = useState('');
 
-    const { data, isPending, error } = useFetch("http:/192.168.0.122:8000/allMenus", "GET", update);
+    const { data, isPending, error } = useFetch("/menu/all/", "GET", update);
 
     return (
         <div>
@@ -15,7 +16,7 @@ const MenuList = () => {
 
                         {/* Titel */}
                         <div>
-                            <h1>{item.year}: V.{item.week}</h1>
+                            <Link to={`/menu/${item.year}/${item.week}`} ><h1>{item.year}: V.{item.week}</h1></Link>
                         </div>
 
                         <div>

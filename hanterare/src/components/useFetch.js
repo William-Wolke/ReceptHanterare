@@ -5,6 +5,7 @@ const useFetch = (path, reqType, update) => {
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
+    console.log(path, process.env.REACT_APP_DB_HOSTNAME);
 
     const url = new URL(path, process.env.REACT_APP_DB_HOSTNAME).href;
 

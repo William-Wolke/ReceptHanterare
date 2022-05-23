@@ -8,12 +8,9 @@ import Navbar from './components/Navbar';
 import CreateIngredient from './components/CreateIngredient';
 import CreateMenu from './components/CreateMenu';
 import MenuList from './components/MenuList';
+import Menu from './components/Menu';
 import css from './components/css/style.css';
 import theme from './components/css/theme.css';
-
-
-
-
 
 function App() {
   return (
@@ -35,6 +32,8 @@ function App() {
             <Route exact path="/skapaIngrediens" element={( <CreateIngredient /> )} />
 
             <Route exact path="/veckoMenyer" element={( <MenuList /> )} />
+
+            <Route exact path='/menu/:year/:week' element={( <Menu />)} />
 
             <Route exact path="/skapaVeckomeny" element={( <CreateMenu /> )} />
 

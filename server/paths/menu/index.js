@@ -2,53 +2,48 @@ const express = require('express');
 const Menu = require('../../models/menu');
 const router = express.Router();
 
-//Create ingredient
-router.post('/createMenu', async (req, res) => {
-
-    //Query to find duplicate recipe
-    await menuCollection.find({"year": req.body.year, "week": req.body.week}).toArray()
-    .then( async (result) => {
-
-        //Result == false if array is empty
-        if (result == false) {
-            //Query for inserting the object to the db
-            await menuCollection.insertOne(req.body)
-                .then(result => {
-                    console.log("Recipe created");
-                    //Send respons to browser
-                    res.status(200).send({message: "yes"});
-                })
-                .catch(error => {
-                    console.error(error);
-                    res.status(500);
-                });
-        }
-
-        //Array is not empty
-        else {
-            res.status(304).send({message: "Menu already exist"});
-        }
-    })
-    .catch(error => {
-        console.error(error);
-        res.status(500);
-    });
+//Get all ingredients
+router.get("/all", async (req, res) => {
+    try {
+        let data = await Menu.find({});
+        res.status(200).json(data);
+    } catch (e) {
+        console.error(e.message);
+        res.status(500).json({message: 'Couldnt fetch data for that resource'});
+    }
 });
 
-//Get all ingredients
-router.get("/allMenus", (req, res) => {
-    
-    //Query for all recipes
-    menuCollection.find({}).toArray()
-    .then(result => {
-        console.log(result);
-        //Send the array of results
-        res.status(200).json(result);
-    })
-    .catch((error) => {
-        console.error(error);
-        res.status(500);
-    });
+router.get('/one/:year/:week/', async (req, res) => {
+    try {
+        if (req.params.year === undefined || req.params.week === undefined) {
+            throw new Error('Couldnt find a matching menu');
+        }
+        let data = await Menu.findOne().byYearAndWeek(req.params.year, req.params.week);
+        res.status(200).json(data);
+    } catch (e) {
+        console.error(e.message);
+        res.status(500).json({message: 'Couldnt fetch data for that resource'});
+    }
+})
+
+//Create ingredient
+router.post('/create', async (req, res) => {
+    try {
+        let isDuplicate = Menu.findDuplicateYearAndWeek(req.body.year, req.body.week);
+
+        if (isDuplicate) {
+            throw new Error('Menu already exist');
+        } else {
+            let newMenu = new Menu(req.body);
+            let result = await newMenu.save();
+            if (result) {
+                res.status(201).json({message: 'Created menu'});
+            }
+        }
+    } catch (e) {
+        console.error(e.message);
+        res.status(500).json({message: 'Couldnt create menu'});
+    }
 });
 
 module.exports = router;

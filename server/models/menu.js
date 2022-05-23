@@ -35,15 +35,15 @@ const menuSchema = new mongoose.Schema({
     }
 });
 
-menuSchema.statics.findDuplicateName = async function(name) {
-    const menuList = await this.find().byName(name);
+menuSchema.statics.findDuplicateYearAndWeek = async function(year, week) {
+    const menuList = await this.find().byYearAndWeek(year, week);
     console.log(menuList);
     if (menuList[0] !== undefined) return true;
     return false;
 }
 
 menuSchema.query.byYearAndWeek = function(year, week) {
-    return this.where({year: new RegExp(year), week: new RegExp(week) });
+    return this.where({year: year, week: week });
 }
 
 module.exports = mongoose.model('Menu', menuSchema);
