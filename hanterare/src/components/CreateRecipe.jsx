@@ -195,23 +195,23 @@ const CreateRecipe = () => {
                     </div>
 
                     {/* Image */}
-                    {/*<div className="form-element">
+                    <div className="form-element">
                         <label>Bild</label>
                         <input
                           type="text"
                           id="bild"
                           onChange={setBild}
                         />
-                    </div>*/}
+                    </div>
 
                     {/* Alt attribute for img */}
-                    {/*<div className="form-element">
+                    <div className="form-element">
                         <label htmlFor="altText">Alt attribut</label>
                         <input
                           type="text"
                           id="altText"
                         />
-                    </div>*/}
+                    </div>
 
                     {/* Number of portions */}
                     <div className="form-element">
@@ -392,23 +392,7 @@ const CreateRecipe = () => {
                               <input type="button" value="Skapa en ny ingrediens" onClick={() => { setCreateNewIngredient(true); window.location.href += "#"; }} />
                             </div>
 
-                            {/* Ingredint name */}
-                            <div>
-                              <label htmlFor="name">Namn</label>
-                              <select
-                                name="name"
-                                id="name"
-                                value={ingredientName}
-                                onChange={(e) => setIngredientName(e.target.value)}
-                              >
-                                {data.map((ingredient, index) => {
-                                  return (
-                                    <option value={ingredient.name} key={index}>{ingredient.name}</option>
-                                  )
-                                })}
-                                <option value=""></option>
-                              </select>
-                            </div>
+                           
 
                             {/* Ingredint amount */}
                             <div className="form-element">
@@ -457,6 +441,24 @@ const CreateRecipe = () => {
                             <p>Mängd</p>
                             <p>Enhet</p>
                         </div>
+
+                         {/* Ingredint name */}
+                         <div>
+                              <label htmlFor="name">Namn</label>
+                              <select
+                                name="name"
+                                id="name"
+                                value={ingredientName}
+                                onChange={(e) => setIngredientName(e.target.value)}
+                              >
+                                {data.map((ingredient, index) => {
+                                  return (
+                                    <option value={ingredient.name} key={index}>{ingredient.name}</option>
+                                  )
+                                })}
+                                <option value=""></option>
+                              </select>
+                            </div>
 
                         {/* Display ingredients */}
                         {ingredients.map((item, index) => {
