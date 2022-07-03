@@ -12,7 +12,7 @@ const Recipe = () => {
     } = useFetch(`/recipe/one/${name}/`, 'GET');
 
     return (
-        <div className='Recept'>
+        <div className='recept'>
             {error && <div>{error}</div>}
             {isPending && <div>Loading...</div>}
             {recipe && (

@@ -353,7 +353,6 @@ const CreateRecipe = () => {
                         </div>
                     </div>
 
-
                     {/* Steps */}
                     <div>
                         <div className="form-element">
@@ -378,11 +377,9 @@ const CreateRecipe = () => {
                         </div>
                     </div>
 
-
                     {/* Display status on fetching ingredients */}
                     {error && <p>{error}</p>}
                     {isPending && <p>{isPending}</p>}
-
 
                     {/* Ingredint only displays when ingredients are fetched */}
                     {data && 
@@ -391,8 +388,6 @@ const CreateRecipe = () => {
                             <div>
                               <input type="button" value="Skapa en ny ingrediens" onClick={() => { setCreateNewIngredient(true); window.location.href += "#"; }} />
                             </div>
-
-                           
 
                             {/* Ingredint amount */}
                             <div className="form-element">
@@ -451,7 +446,7 @@ const CreateRecipe = () => {
                                 value={ingredientName}
                                 onChange={(e) => setIngredientName(e.target.value)}
                               >
-                                {data.map((ingredient, index) => {
+                                {data && data.map((ingredient, index) => {
                                   return (
                                     <option value={ingredient.name} key={index}>{ingredient.name}</option>
                                   )

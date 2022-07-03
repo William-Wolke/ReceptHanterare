@@ -5,8 +5,8 @@
     --dark-block-background: #334155;
     --text-color:#2e2e2e;
     --dark-text-color:#f4f4f5;
-    --link-color: #1696d5;
-    --dark-link-color: #49c1fd;
+    --link-color: #3B3355;
+    --dark-link-color: #d0adf0;
     color-scheme: light dark;
 }
 
@@ -17,18 +17,17 @@
         color: var(--dark-text-color);
     }
     /*Navbar*/
-    .navbar {
-    --dark-block-background: #334155;
+    .navbarContainer {
         background-color: var(--dark-block-background);
     }
     .navbarBlock {
         background-color: var(--dark-block-background);
     }
-    .navbarLinks {
+    .navbarLink {
         color: var(--dark-link-color);
     }
-    .navbarLinks:hover {
-        background-color: #1696d5;
+    .navbarLink:hover {
+        background-color: var(--link-color);
     }
     /*Form*/
     .create {
