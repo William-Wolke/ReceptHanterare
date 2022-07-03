@@ -39,6 +39,9 @@
     .ingredient-list-value {
         border: 1px solid var(--dark-text-color);
     }
+    .card {
+        background-color: var(--dark-block-background);
+    }
 }
 
 @media (prefers-color-scheme: light) {
@@ -68,5 +71,8 @@
     }
     .ingredient-list-value {
         border: 1px solid var(--text-color);
+    }
+    .card {
+        background-color: var(--block-background);
     }
 }

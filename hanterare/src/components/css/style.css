@@ -7,6 +7,7 @@ body{
 }
 
 /*Navbar*/
+
 .navbarContainer {
     width: 100%;
 }
@@ -53,6 +54,54 @@ body{
         width: 150px;
     }
 }
+
+/*END NAVBAR*/
+
+/*START RecipeList*/
+
+.recipeList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: auto;
+}
+
+.recipeListItemContainer {
+    width: 300px;
+    margin-top: 1em;
+    padding-bottom: 1em;
+}
+
+.recipeListItem {
+    width: 250px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.recipeListTime, .recipeListName {
+    max-width: 250px;
+}
+
+.recipeListName {
+    height: 50px;
+}
+
+.recipeListThumbnail {
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+}
+
+.recipeListButton {
+    display: block;
+    height: 50px;
+    width: 100%;
+}
+
+/*END RecipeList*/
 
 /*Create recipe*/
 
