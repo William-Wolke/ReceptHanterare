@@ -262,6 +262,18 @@ body{
     text-align: center;
 }
 
+/*START Menu*/
+
+.menuContainer {
+    margin-top: 0.5em;
+}
+
+.menuItemContainer {
+    padding-top: 0.5em;
+}
+
+/*END Menu*/
+
 /*START MenuList*/
 
 .menuListContainer {

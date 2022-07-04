@@ -37,7 +37,9 @@ const MenuList = () => {
                                                     <p>{`${swWeekdays[index]}:`}</p>
                                                 </div>
                                                 <div className='menuListItemScheduleRecipe'>
-                                                    <p>{recipeName}</p>
+                                                    <Link to={`/recept/${recipeName}`} >
+                                                        <p>{recipeName}</p>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         )
