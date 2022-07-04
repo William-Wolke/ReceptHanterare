@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import UseAxios from "./UseAxios";
 
 const CreateIngredient = () => {
@@ -40,7 +40,7 @@ const CreateIngredient = () => {
         }
 
         let res = await UseAxios("/ingredient/create/", data)
-        if (res){
+        if (res) {
             console.log("Created ingredient");
         }
         else {
@@ -49,26 +49,32 @@ const CreateIngredient = () => {
 
     }
 
-    return(
-        <div id="ingredient">
-            <form onSubmit={ handleSubmit }>
+    return (
+        <div className="createIngredientContainer card">
+            <form onSubmit={handleSubmit} className="createIngredientForm">
 
-                <div>
+                <div className="createIngredientItem form-element">
+                    <h1>Skapa ingrediens</h1>
+                </div>
+
+                <div className="form-group form-element">
                     <label htmlFor="name">Namn</label>
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         id="name"
-                        value={name} 
-                        onChange={ (e) => { setName(e.target.value) } }
+                        value={name}
+                        className="input"
+                        onChange={(e) => { setName(e.target.value) }}
                     />
                 </div>
 
-                <div>
+                <div className="form-group form-element">
                     <label htmlFor="preferred">Prefererad enhet</label>
-                    <select 
+                    <select
                         id="preferred"
                         value={preferredUnit}
-                        onChange={ (e) => {setPreferredUnit(e.target.value)} }
+                        className="input"
+                        onChange={(e) => { setPreferredUnit(e.target.value) }}
                     >
                         <option value="L">L</option>
                         <option value="St">St</option>
@@ -76,49 +82,50 @@ const CreateIngredient = () => {
                     </select>
                 </div>
 
-                <div>
-                    <div>
-                        <h2>Skapa omvandlingstabell</h2>
-                    </div>
-
-                    <div>
-                        <label htmlFor="pieces">St</label>
-                        <input
-                            id="pieces"
-                            type="number" 
-                            value={pieces}
-                            onChange={ (e) => { setPieces(e.target.value) } }
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="grams">G</label>
-                        <input
-                            id="grams"
-                            type="number" 
-                            value={grams}
-                            onChange={ (e) => { setGrams(e.target.value) } }
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="liters">L</label>
-                        <input
-                            id="liters"
-                            type="number" 
-                            value={liters}
-                            onChange={ (e) => { setLiters(e.target.value) } }
-                        />
-                    </div>
-                    
+                <div className="form-group form-element">
+                    <h2>Skapa omvandlingstabell</h2>
                 </div>
 
-                <div>
+                <div className="form-group form-element">
+                    <label htmlFor="pieces">St</label>
+                    <input
+                        id="pieces"
+                        type="number"
+                        value={pieces}
+                        className="input"
+                        onChange={(e) => { setPieces(e.target.value) }}
+                    />
+                </div>
+
+                <div className="form-group form-element">
+                    <label htmlFor="grams">G</label>
+                    <input
+                        id="grams"
+                        type="number"
+                        value={grams}
+                        className="input"
+                        onChange={(e) => { setGrams(e.target.value) }}
+                    />
+                </div>
+
+                <div className="form-group form-element">
+                    <label htmlFor="liters">L</label>
+                    <input
+                        id="liters"
+                        type="number"
+                        value={liters}
+                        className="input"
+                        onChange={(e) => { setLiters(e.target.value) }}
+                    />
+                </div>
+
+                <div className="form-group form-element">
                     <label htmlFor="storeSection">Del i butiken</label>
-                    <select 
+                    <select
                         id="storeSection"
                         value={section}
-                        onChange={ (e) => {setSection(e.target.value)} }
+                        onChange={(e) => { setSection(e.target.value) }}
+                        className="input"
                     >
                         <option value="dairy">Mjölk</option>
                         <option value="bread">Bröd</option>
@@ -129,8 +136,8 @@ const CreateIngredient = () => {
                     </select>
                 </div>
 
-                <div>
-                    <input type="submit" value="Submit" />
+                <div className="form-group form-element">
+                    <input type="submit" value="Submit" className="input" />
                 </div>
 
             </form>

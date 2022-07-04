@@ -215,7 +215,7 @@ body{
 }
 
 .form-group {
-    padding: 2em 0;
+    padding: 1em 0;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -243,8 +243,16 @@ body{
     flex-direction: column;
 }
 
-.ingredient-list-header {
+.recipeAttributeList {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
 
+.recipeStepsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .ingredient-list-item {
@@ -261,6 +269,31 @@ body{
     padding: 1.5em;
     text-align: center;
 }
+
+/*END Create recipe*/
+
+/**/
+
+.createIngredientContainer {
+    width: 80%;
+    padding: 1em 0 2em;
+    margin: 1em auto;
+}
+
+.createIngredientForm {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createIngredientItem {
+    display: flex;
+    flex-direction: column;
+}
+
+/**/
 
 /*START Menu*/
 
