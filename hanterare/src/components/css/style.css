@@ -57,6 +57,86 @@ body{
 
 /*END NAVBAR*/
 
+/*START Recipe*/
+
+.recipeContainer {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 800px) {
+    .recipeContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.recipeItem {
+    margin: 1em;
+}
+
+.recipeImage {
+    object-fit: cover;
+    width: 500px;
+    height: 500px;
+}
+
+.recipeAttributeItem {
+    padding: 0.7em;
+    border-radius: 10px;
+    background-color: var(--dark-link-color);
+    min-width: fit-content;
+}
+
+.recipeInfoContainer {
+    
+}
+
+.recipeInfoItem {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+.recipePortions {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.recipePortions button {
+    height: 4em;
+    width: 3em;
+}
+
+.recipeIngredientContainer {
+    margin-top: 1em;
+}
+
+.recipeIngredientItem {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    font-size: larger;
+    padding: 0.5em 1em;
+}
+
+.recipeInstructionsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipeInstructionsItem {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+/*END Recipe*/
+
 /*START RecipeList*/
 
 .recipeList {
@@ -78,7 +158,6 @@ body{
 .recipeListItem {
     width: 250px;
     margin: auto;
-    overflow: hidden;
 }
 
 .recipeListTime, .recipeListName {
@@ -183,17 +262,46 @@ body{
     text-align: center;
 }
 
-.menuList {
+/*START MenuList*/
+
+.menuListContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    gap: 1em;
 }
 
-.menuItem {
-    width: 80%;
+.menuListItemContainer {
+    width: 350px;
+}
+
+.menuListItem {
+    width: 300px;
     margin: auto;
 }
 
-.weekdayMenus {
+
+
+.menuListItemScheduleContainer {
     display: flex;
     flex-direction: column;
 }
+
+.menuListItemScheduleItem {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.menuListItemSchedule p {
+    margin-bottom: 5em;
+}
+
+.menuListIngredientList {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+/*END MenuList*/

@@ -16,29 +16,63 @@ const Recipe = () => {
             {error && <div>{error}</div>}
             {isPending && <div>Loading...</div>}
             {recipe && (
-                <div key={recipe.name}>
-                    <div>
+                <div key={recipe.name} className='recipeContainer'>
+                    <div className='recipeItem'>
                         <div className='receptIntro'>
                             <h2>{recipe.name}</h2>
-                            <div className='receptInfo'>
-                                <i></i>
-                                <p>
-                                    {recipe.attribute.time
-                                        ? recipe.attribute.time
-                                        : 0}{' '}
-                                    min
-                                </p>
-                                <i></i>
-                                <div className='måltidsTyp'>
+                            <div className='recipeInfoContainer'>
+                                <div className='recipeInfoItem'>
+                                    <p className='recipeAttributeItem'>
+                                        {recipe.attribute.time
+                                            ? recipe.attribute.time
+                                            : 0}{' '}
+                                        min
+                                    </p>
+
                                     {recipe.attribute.meal.map(
                                         (meal, index) => {
                                             return (
-                                                <p key={'meal' + index}>
+                                                <p className='recipeAttributeItem' key={'meal' + index}>
                                                     {meal}
                                                 </p>
                                             );
                                         }
                                     )}
+
+                                    {recipe.attribute.kitchen.map(
+                                        (kitchen, index) => {
+                                            return (
+                                                <p className='recipeAttributeItem' key={'kitchen' + index}>
+                                                    {kitchen}
+                                                </p>
+                                            );
+                                        }
+                                    )}
+                                    {recipe.attribute.diet.map(
+                                        (diet, index) => {
+                                            return (
+                                                <p className='recipeAttributeItem' key={'diet' + index}>
+                                                    {diet}
+                                                </p>
+                                            );
+                                        }
+                                    )}
+                                    {recipe.attribute.properties.map(
+                                        (propertie, index) => {
+                                            return (
+                                                <p
+                                                    className='recipeAttributeItem'
+                                                    key={
+                                                        'propertie' + index
+                                                    }>
+                                                    {propertie}
+                                                </p>
+                                            );
+                                        }
+                                    )}
+                                </div>
+                                <div className='recipeInfoItem'>
+
                                 </div>
                                 <div className='receptBeskrivning'>
                                     <p>{recipe.description}</p>
@@ -49,50 +83,12 @@ const Recipe = () => {
                                         <p>Lägg till i veckomenyn</p>
                                     </button>
                                 </div>
-                                <div className='receptAttribut'>
-                                    <i></i>
-                                    <div>
-                                        {recipe.attribute.kitchen.map(
-                                            (kitchen, index) => {
-                                                return (
-                                                    <p key={'kitchen' + index}>
-                                                        {kitchen}
-                                                    </p>
-                                                );
-                                            }
-                                        )}
-                                    </div>
-                                    <div>
-                                        {recipe.attribute.diet.map(
-                                            (diet, index) => {
-                                                return (
-                                                    <p key={'diet' + index}>
-                                                        {diet}
-                                                    </p>
-                                                );
-                                            }
-                                        )}
-                                    </div>
-                                    <div>
-                                        {recipe.attribute.properties.map(
-                                            (propertie, index) => {
-                                                return (
-                                                    <p
-                                                        key={
-                                                            'propertie' + index
-                                                        }>
-                                                        {propertie}
-                                                    </p>
-                                                );
-                                            }
-                                        )}
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <div className='receptBild'>
+                    <div className='recipeItem'>
+                        <div className='receptImageContainer'>
                             <img
                                 src={
                                     new URL(
@@ -103,28 +99,28 @@ const Recipe = () => {
                                 alt={recipe.alt}
                                 height='400'
                                 width='400'
+                                className='recipeImage'
                             />
                         </div>
                     </div>
-
-                    <div className='ingredienser'>
-                        <h3>Ingredienser</h3>
-                        <div className='portioner'>
-                            <button>
-                                <i></i>
-                            </button>
-                            <p>{recipe.attribute.portions} portioner</p>
-                            <button>
-                                <i></i>
-                            </button>
-                        </div>
-                        <div>
-                            <div>
+                    <div className='recipeItem'>
+                        <div className='ingredienser'>
+                            <h3>Ingredienser</h3>
+                            <div className='recipePortions'>
+                                <button>
+                                    <p>-</p>
+                                </button>
+                                <p>{recipe.attribute.portions} portioner</p>
+                                <button>
+                                    <p>+</p>
+                                </button>
+                            </div>
+                            <div className='recipeIngredientContainer'>
                                 {recipe.ingredients &&
                                     recipe.ingredients.map(
                                         (ingredient, index) => {
                                             return (
-                                                <div key={'ingredient' + index}>
+                                                <div className='recipeIngredientItem' key={'ingredient' + index}>
                                                     <p>{ingredient.name}</p>
                                                     <p>{ingredient.amount}</p>
                                                     <p>{ingredient.unit}</p>
@@ -135,28 +131,23 @@ const Recipe = () => {
                             </div>
                         </div>
                     </div>
-
-                    <div className='instruktioner'>
-                        <div>
-                            <i></i>
-                            <h3>Gör så här</h3>
-                        </div>
-                        <div>
+                    <div className='recipeItem'>
+                        <div className='recipeInstructionsContainer'>
+                            <div>
+                                <h3>Gör så här</h3>
+                            </div>
                             {recipe.steps.map((step, index) => {
                                 return (
-                                    <div key={index}>
+                                    <div key={index} className='recipeInstructionsItem'>
                                         <input type='checkbox' />
-                                        <div>
-                                            <p>{index + 1 + '.'}</p>
-                                            <p>{step}</p>
-                                        </div>
+                                        <p>{index + 1 + '.'}</p>
+                                        <p>{step}</p>
                                     </div>
                                 );
                             })}
-                        </div>
-                        <div>
-                            <i></i>
-                            <h3>Klart!</h3>
+                            <div>
+                                <h3>Klart!</h3>
+                            </div>
                         </div>
                     </div>
                 </div>

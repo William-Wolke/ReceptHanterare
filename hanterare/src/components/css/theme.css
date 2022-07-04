@@ -39,6 +39,13 @@
     .ingredient-list-value {
         border: 1px solid var(--dark-text-color);
     }
+    .recipeIngredientItem {
+        background-color: var(--link-color);
+        border-bottom: solid 1px var(--dark-text-color);
+    }
+    .menuListItemSection {
+        border-bottom: solid 1px var(--dark-text-color);
+    }
     .card {
         background-color: var(--dark-block-background);
     }
@@ -71,6 +78,13 @@
     }
     .ingredient-list-value {
         border: 1px solid var(--text-color);
+    }
+    .recipeIngredientItem {
+        background-color: var(--dark-link-color);
+        border-bottom: solid 1px var(--text-color);
+    }
+    .menuListItemSection {
+        border-bottom: solid 1px var(--text-color);
     }
     .card {
         background-color: var(--block-background);

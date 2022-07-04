@@ -8,112 +8,70 @@ const MenuList = () => {
 
     const { data, isPending, error } = useFetch("/menu/all/", "GET", update);
 
+    const weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+
+    const swWeekdays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
+
     return (
-        <div>
+        <div className='menuListContainer'>
             {data && data.map((item, index) => {
-                return(
-                    <div key={"menu" + index}>
-
-                        {/* Titel */}
-                        <div>
-                            <Link to={`/menu/${item.year}/${item.week}`} ><h1>{item.year}: V.{item.week}</h1></Link>
-                        </div>
-
-                        <div>
-                            <p>Måndag</p>
-                            <p>Tisdag</p>
-                            <p>Onsdag</p>
-                            <p>Torsdag</p>
-                            <p>Fredag</p>
-                            <p>Lördag</p>
-                            <p>Söndag</p>
-                        </div>
-
-                        <div>
-
-                            {/* Can be optimised with a function. However i did not get that to work in a arrow function an then call method it would only display methodcall in cleartext () => {displayWeekDayRecipeName(item.monday)} */}
+                return (
+                    <div className='menuListItemContainer card' key={"menu" + index}>
+                        <div className="menuListItem">
+                            {/* Titel */}
                             <div>
-                                {item.monday && item.monday.map((recipeName, index) => {
-                                    return <p key={index}>{recipeName}</p>
-                                })}
+                                <Link to={`/menu/${item.year}/${item.week}`} ><h1>{item.year}: V.{item.week}</h1></Link>
                             </div>
 
-                            <div>
-                                {item.tuesday && item.tuesday.map((recipeName, index) => {
-                                    return <p key={index}>{recipeName}</p>
-                                })}
-                            </div>
-                            
-                            <div>
-                                {item.wednesday && item.wednesday.map((recipeName, index) => {
-                                    return <p key={index}>{recipeName}</p>
-                                })}
-                            </div>
+                            <div className='menuListItemScheduleContainer menuListItemSection'>
 
-                            <div>
-                                {item.thursday && item.thursday.map((recipeName, index) => {
-                                    return <p key={index}>{recipeName}</p>
-                                })}
-                            </div>
-
-                            <div>
-                                {item.friday && item.friday.map((recipeName, index) => {
-                                    return <p key={index}>{recipeName}</p>
-                                })}
-                            </div>
-
-                            <div>
-                                {item.saturday && item.saturday.map((recipeName, index) => {
-                                    return <p key={index}>{recipeName}</p>
-                                })}
-                            </div>
-
-                            <div>
-                                {item.sunday && item.sunday.map((recipeName, index) => {
-                                    return <p key={index}>{recipeName}</p>
-                                })}
-                            </div>
-
-                        </div>
-
-                        {/* SHopping list */}
-                        {item.shoppingList && item.shoppingList.map((shoppingItem, index) => {
-                            return (
-                                <div key={shoppingItem.name + index}>
-                                    <p>{shoppingItem.name}</p>
-
-                                    <p>{shoppingItem.amount}</p>
-
-                                    <p>{shoppingItem.unit}</p>
+                                <div>
+                                    <h2>Recept för veckan</h2>
                                 </div>
-                            )
-                        })}
 
-                        {/* SHopping list */}
-                        <div>
-                            <p>Namn</p>
-                            <p>Mängd</p>
-                            <p>Enhet</p>
-                        </div>
+                                {weekdays.map((weekday, index) => {
+                                    return item[weekday] && item[weekday].map((recipeName) => {
+                                        return (
+                                            <div key={weekday + index} className='menuListItemScheduleItem'>
+                                                <div className='menuListItemScheduleDay'>
+                                                    <p>{`${swWeekdays[index]}:`}</p>
+                                                </div>
+                                                <div className='menuListItemScheduleRecipe'>
+                                                    <p>{recipeName}</p>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                })}
 
-                        {/* SHopping list */}
-                        {item.shoppingList && item.shoppingList.map((shoppingItem, index) => {
-                            return (
-                                <div key={shoppingItem.name + index}>
-                                    <p>{shoppingItem.name}</p>
+                            </div>
 
-                                    <p>{shoppingItem.amount}</p>
-
-                                    <p>{shoppingItem.unit}</p>
+                            <div className='menuListItemSection'>
+                                <div>
+                                    <h2>Inköpslista</h2>
                                 </div>
-                            )
-                        })}
+
+                                {/* SHopping list */}
+                                {item.shoppingList && item.shoppingList.map((shoppingItem, index) => {
+                                    return (
+                                        <div key={shoppingItem.name + index} className='menuListIngredientList'>
+                                            <p>{shoppingItem.name}</p>
+
+                                            <p>{shoppingItem.amount}</p>
+
+                                            <p>{shoppingItem.unit}</p>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
+                        </div>
 
                     </div>
                 )
             })}
         </div>
     )
-    
+
 }
 export default MenuList;
