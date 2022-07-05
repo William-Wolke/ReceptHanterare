@@ -272,7 +272,7 @@ body{
 
 /*END Create recipe*/
 
-/**/
+/*START Create ingredient*/
 
 .createIngredientContainer {
     width: 80%;
@@ -293,7 +293,27 @@ body{
     flex-direction: column;
 }
 
-/**/
+/*END Create ingredient*/
+
+/*START Create menu*/
+
+.createMenuContainer {
+    width: 80%;
+    margin: auto;
+}
+
+.weekdayMenuList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.weekdayMenuItem {
+    text-align: center;
+}
+
+/*END Create menu*/
 
 /*START Menu*/
 

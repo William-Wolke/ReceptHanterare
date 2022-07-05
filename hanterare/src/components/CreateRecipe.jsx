@@ -156,9 +156,10 @@ const CreateRecipe = () => {
       {createNewIngredient && <button onClick={() => { setUpdateIngredients(updateIngredients + "y") }}>Update ingredients</button>}
 
       <div className="create">
-        <h2>Lägg till ett nytt recept</h2>
         <form onSubmit={handleSubmit} className="form">
-
+          <div className="form-element">
+            <h1>Lägg till ett nytt recept</h1>
+          </div>
           {/* Titel */}
           <div className="form-element">
             <label htmlFor="titel">recipeName</label>
@@ -416,7 +417,6 @@ const CreateRecipe = () => {
           {error && <p>{error}</p>}
           {isPending && <p>{isPending}</p>}
 
-          {/* Display table headers for ingredient list */}
           <div>
             {/* Ingredint name */}
             <div className="ingredientTable form-element">
