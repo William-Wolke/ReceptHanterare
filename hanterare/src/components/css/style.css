@@ -1,26 +1,186 @@
 body{
-    margin: 2 rem;
     font-family: Monospace;
 }
 
-.Recept{
+.recept{
     display: grid;
 }
 
 /*Navbar*/
+
+.navbarContainer {
+    width: 100%;
+}
+
 .navbar{
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 80%;
+    margin: auto;
+    flex-direction: column;
+}
+
+.navbarHeader {
+    font-size: 20px;
+}
+
+.navbarLinkContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.navbarLink {
+    width: 100px;
+    text-decoration: none;
+    font-size: larger;
+    padding: 1em;
+    display: block;
+    max-width: 100%;
+    height: 100%;
+}
+
+.navbarLinkText {
+ font-size: 16px;
+}
+
+@media screen and (min-width: 800px) {
+    .navbar {
+        flex-direction: row;
+    }
+    .navbarLink {
+        width: 150px;
+    }
+}
+
+/*END NAVBAR*/
+
+/*START Recipe*/
+
+.recipeContainer {
     width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 800px) {
+    .recipeContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.recipeItem {
+    margin: 1em;
+}
+
+.recipeImage {
+    object-fit: cover;
+    width: 500px;
+    height: 500px;
+}
+
+.recipeAttributeItem {
+    padding: 0.7em;
+    border-radius: 10px;
+    background-color: var(--dark-link-color);
+    min-width: fit-content;
+}
+
+.recipeInfoContainer {
+    
+}
+
+.recipeInfoItem {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+.recipePortions {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.recipePortions button {
+    height: 4em;
+    width: 3em;
+}
+
+.recipeIngredientContainer {
+    margin-top: 1em;
+}
+
+.recipeIngredientItem {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    font-size: larger;
+    padding: 0.5em 1em;
+}
+
+.recipeInstructionsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipeInstructionsItem {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+/*END Recipe*/
+
+/*START RecipeList*/
+
+.recipeList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: space-evenly;
+    width: 90%;
     margin: auto;
 }
 
-.navbarLinks {
-    text-decoration: none;
-    font-size: larger;
-    padding: 3em;
+.recipeListItemContainer {
+    width: 300px;
+    margin-top: 1em;
+    padding-bottom: 1em;
 }
+
+.recipeListItem {
+    width: 250px;
+    margin: auto;
+}
+
+.recipeListTime, .recipeListName {
+    max-width: 250px;
+}
+
+.recipeListName {
+    height: 50px;
+}
+
+.recipeListThumbnail {
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+}
+
+.recipeListButton {
+    display: block;
+    height: 50px;
+    width: 100%;
+}
+
+/*END RecipeList*/
 
 /*Create recipe*/
 
@@ -55,7 +215,7 @@ body{
 }
 
 .form-group {
-    padding: 2em 0;
+    padding: 1em 0;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -83,8 +243,16 @@ body{
     flex-direction: column;
 }
 
-.ingredient-list-header {
+.recipeAttributeList {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
 
+.recipeStepsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .ingredient-list-item {
@@ -101,3 +269,104 @@ body{
     padding: 1.5em;
     text-align: center;
 }
+
+/*END Create recipe*/
+
+/*START Create ingredient*/
+
+.createIngredientContainer {
+    width: 80%;
+    padding: 1em 0 2em;
+    margin: 1em auto;
+}
+
+.createIngredientForm {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createIngredientItem {
+    display: flex;
+    flex-direction: column;
+}
+
+/*END Create ingredient*/
+
+/*START Create menu*/
+
+.createMenuContainer {
+    width: 80%;
+    margin: auto;
+}
+
+.weekdayMenuList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.weekdayMenuItem {
+    text-align: center;
+}
+
+/*END Create menu*/
+
+/*START Menu*/
+
+.menuContainer {
+    margin-top: 0.5em;
+}
+
+.menuItemContainer {
+    padding-top: 0.5em;
+}
+
+/*END Menu*/
+
+/*START MenuList*/
+
+.menuListContainer {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    gap: 1em;
+}
+
+.menuListItemContainer {
+    width: 350px;
+}
+
+.menuListItem {
+    width: 300px;
+    margin: auto;
+}
+
+
+
+.menuListItemScheduleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuListItemScheduleItem {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.menuListItemSchedule p {
+    margin-bottom: 5em;
+}
+
+.menuListIngredientList {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+/*END MenuList*/

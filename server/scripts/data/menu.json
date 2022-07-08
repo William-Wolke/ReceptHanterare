@@ -1,0 +1,423 @@
+[{
+  "year": 2022,
+  "week": "3",
+  "monday": [
+    "Lätt sallad"
+  ],
+  "tuesday": [
+    "Lök me lök"
+  ],
+  "wednesday": [
+    "Falukorv med stuvade makaroner"
+  ],
+  "thursday": [
+    "Lätt sallad"
+  ],
+  "friday": [
+    "Lök me lök"
+  ],
+  "saturday": [
+    "Falukorv med stuvade makaroner"
+  ],
+  "sunday": [],
+  "shoppingList": [
+    {
+      "name": "Isbergssallat",
+      "amount": 600,
+      "unit": "G"
+    },
+    {
+      "name": "Tomat",
+      "amount": 4,
+      "unit": "St"
+    },
+    {
+      "name": "Röd lök",
+      "amount": 200,
+      "unit": "G"
+    },
+    {
+      "name": "Gul lök",
+      "amount": 138,
+      "unit": "G"
+    },
+    {
+      "name": "Mjölk",
+      "amount": 2,
+      "unit": "L"
+    },
+    {
+      "name": "Makaroner",
+      "amount": 50,
+      "unit": "G"
+    },
+    {
+      "name": "Falukorv",
+      "amount": 1100,
+      "unit": "G"
+    }
+  ]
+},{
+  "year": 2022,
+  "week": "10",
+  "monday": [
+    "Vegobullar gräddsås och kokt potatis"
+  ],
+  "tuesday": [
+    "Krämig pasta pesto"
+  ],
+  "wednesday": [
+    "Vegansk Tunamelt med avokado"
+  ],
+  "thursday": [
+    "Vegansk pytt i panna"
+  ],
+  "friday": [
+    "Tacos"
+  ],
+  "saturday": [
+    "Veganska burgare med pommes"
+  ],
+  "sunday": [
+    "Biff Stoganov"
+  ],
+  "shoppingList": [
+    {
+      "name": "Potatis",
+      "amount": 1400,
+      "unit": "G"
+    },
+    {
+      "name": "Smör",
+      "amount": 5.7,
+      "unit": "G"
+    },
+    {
+      "name": "Vetemjöl",
+      "amount": 3.1500000000000004,
+      "unit": "G"
+    },
+    {
+      "name": "Havregrädde",
+      "amount": 0.035,
+      "unit": "L"
+    },
+    {
+      "name": "Lingonsylt",
+      "amount": 0.8625,
+      "unit": "G"
+    },
+    {
+      "name": "Kinesisk soja",
+      "amount": 0.0007500000000000001,
+      "unit": "L"
+    },
+    {
+      "name": "Grönsaksbuljongtärning",
+      "amount": "0.5",
+      "unit": "St"
+    },
+    {
+      "name": "Salt",
+      "amount": 0.00055,
+      "unit": "L"
+    },
+    {
+      "name": "Peppar",
+      "amount": 0.00055,
+      "unit": "L"
+    },
+    {
+      "name": "Vegobullar",
+      "amount": "400",
+      "unit": "G"
+    },
+    {
+      "name": "Gammaldags Gurka",
+      "amount": "300",
+      "unit": "G"
+    },
+    {
+      "name": "Röd lök",
+      "amount": 3.5,
+      "unit": "St"
+    },
+    {
+      "name": "Vitlök",
+      "amount": 9,
+      "unit": "St"
+    },
+    {
+      "name": "Vegofiler",
+      "amount": "300",
+      "unit": "G"
+    },
+    {
+      "name": "Vegansk Creme Fraiche",
+      "amount": 0.020000000000000004,
+      "unit": "L"
+    },
+    {
+      "name": "Vegansk pesto",
+      "amount": "150",
+      "unit": "G"
+    },
+    {
+      "name": "Körsbärstomater",
+      "amount": "200",
+      "unit": "G"
+    },
+    {
+      "name": "Pasta",
+      "amount": "500",
+      "unit": "G"
+    },
+    {
+      "name": "Rapsolja",
+      "amount": 0.0045000000000000005,
+      "unit": "L"
+    },
+    {
+      "name": "Förkokade kikärtor",
+      "amount": "400",
+      "unit": "G"
+    },
+    {
+      "name": "Norialger ark",
+      "amount": "2",
+      "unit": "St"
+    },
+    {
+      "name": "Tomat",
+      "amount": 3,
+      "unit": "St"
+    },
+    {
+      "name": "Saltgurka",
+      "amount": "1",
+      "unit": "St"
+    },
+    {
+      "name": "Inlagd kapris",
+      "amount": 0.00045,
+      "unit": "L"
+    },
+    {
+      "name": "Tomatpuré",
+      "amount": 0.0005,
+      "unit": "L"
+    },
+    {
+      "name": "Sriracha",
+      "amount": 0.00005,
+      "unit": "L"
+    },
+    {
+      "name": "Vegansk majonäs",
+      "amount": 9.5,
+      "unit": "G"
+    },
+    {
+      "name": "Citronsaft",
+      "amount": 0,
+      "unit": "L"
+    },
+    {
+      "name": "Levainbröd skivor",
+      "amount": "8",
+      "unit": "St"
+    },
+    {
+      "name": "Avocado",
+      "amount": 6,
+      "unit": "St"
+    },
+    {
+      "name": "Vegansk cheddar, skivad",
+      "amount": "8",
+      "unit": "St"
+    },
+    {
+      "name": "Veganskt smör",
+      "amount": "",
+      "unit": ""
+    },
+    {
+      "name": "Morot",
+      "amount": "3",
+      "unit": "St"
+    },
+    {
+      "name": "Vitkål",
+      "amount": "200",
+      "unit": "G"
+    },
+    {
+      "name": "Gul lök",
+      "amount": 4,
+      "unit": "St"
+    },
+    {
+      "name": "Vegokorv",
+      "amount": "200",
+      "unit": "G"
+    },
+    {
+      "name": "Vitlökspulver",
+      "amount": 0.015,
+      "unit": "L"
+    },
+    {
+      "name": "Röd chili",
+      "amount": "1",
+      "unit": "St"
+    },
+    {
+      "name": "Kruka koriander",
+      "amount": "1",
+      "unit": "St"
+    },
+    {
+      "name": "Vegofärs",
+      "amount": "400",
+      "unit": "G"
+    },
+    {
+      "name": "Taco krydda hot cayenne",
+      "amount": "1",
+      "unit": "St"
+    },
+    {
+      "name": "Tortilla Corn Wheat Medium",
+      "amount": "1",
+      "unit": "St"
+    },
+    {
+      "name": "Riven ost",
+      "amount": "100",
+      "unit": "G"
+    },
+    {
+      "name": "Majs burk",
+      "amount": "1",
+      "unit": "St"
+    },
+    {
+      "name": "Frankful ostdipp",
+      "amount": "1",
+      "unit": "St"
+    },
+    {
+      "name": "Taco sauce x-hot",
+      "amount": "1",
+      "unit": "St"
+    },
+    {
+      "name": "Gräddfil liten",
+      "amount": "1",
+      "unit": "St"
+    },
+    {
+      "name": "Nacho chips liten",
+      "amount": "1",
+      "unit": "St"
+    },
+    {
+      "name": "Pommes",
+      "amount": 1700,
+      "unit": "G"
+    },
+    {
+      "name": "Gurka",
+      "amount": "0.5",
+      "unit": "St"
+    },
+    {
+      "name": "Isbergssallat",
+      "amount": "50",
+      "unit": "G"
+    },
+    {
+      "name": "Hamburgerost",
+      "amount": "1",
+      "unit": "St"
+    },
+    {
+      "name": "hamburgerbröd",
+      "amount": "6",
+      "unit": "St"
+    },
+    {
+      "name": "Delifresh plantbeef burgare",
+      "amount": "6",
+      "unit": "St"
+    },
+    {
+      "name": "Slotts senap",
+      "amount": "",
+      "unit": ""
+    },
+    {
+      "name": "Hamburgardressing stor",
+      "amount": "",
+      "unit": ""
+    },
+    {
+      "name": "Heinz ketchup",
+      "amount": "",
+      "unit": ""
+    },
+    {
+      "name": "Champinjon",
+      "amount": "250",
+      "unit": "G"
+    },
+    {
+      "name": "Oxfile",
+      "amount": "500",
+      "unit": "G"
+    },
+    {
+      "name": "Kalvfond",
+      "amount": 0.01125,
+      "unit": "L"
+    },
+    {
+      "name": "Dijonsenap",
+      "amount": 4.95,
+      "unit": "G"
+    },
+    {
+      "name": "Creme fraiche",
+      "amount": 20,
+      "unit": "G"
+    },
+    {
+      "name": "Haricots verts",
+      "amount": "300",
+      "unit": "G"
+    },
+    {
+      "name": "Bacon",
+      "amount": "200",
+      "unit": "G"
+    },
+    [
+      {
+        "name": "Havremjölk",
+        "amount": "1",
+        "unit": "L"
+      },
+      {
+        "name": "Müsli",
+        "amount": "1",
+        "unit": ""
+      },
+      {
+        "name": "Bacon",
+        "amount": "1",
+        "unit": "St"
+      }
+    ]
+  ]
+}]

@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const useFetch = (url, reqType, update) => {
+const useFetch = (path, reqType, update) => {
 
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
+
+    const url = new URL(path, process.env.REACT_APP_DB_HOSTNAME).href;
 
     useEffect(() => {
         const abortCont = new AbortController();
@@ -23,7 +25,6 @@ const useFetch = (url, reqType, update) => {
                 setData(data);
                 setIsPending(false);
                 setError(null);
-                console.log(data);
             })
             .catch(error => {
                 

@@ -2,17 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Recipe from './components/Recipe';
-import RecipeList from './components/Recipelist';
+import RecipeList from './components/RecipeList';
 import CreateRecipe from './components/CreateRecipe';
 import Navbar from './components/Navbar';
 import CreateIngredient from './components/CreateIngredient';
 import CreateMenu from './components/CreateMenu';
 import MenuList from './components/MenuList';
-import css from './components/style.css';
-
-
-
-
+import Menu from './components/Menu';
+import css from './components/css/style.css';
+import theme from './components/css/theme.css';
 
 function App() {
   return (
@@ -34,6 +32,8 @@ function App() {
             <Route exact path="/skapaIngrediens" element={( <CreateIngredient /> )} />
 
             <Route exact path="/veckoMenyer" element={( <MenuList /> )} />
+
+            <Route exact path='/menu/:year/:week' element={( <Menu />)} />
 
             <Route exact path="/skapaVeckomeny" element={( <CreateMenu /> )} />
 

@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dbstart": "brew services start mongodb-community@5.0"
+    "dbstart": "brew services start mongodb-community@5.0",
+    "dev": "npm start",
+    "insert-test-data": "node ./scripts/insert.js",
+    "delete-all-data": "node ./scripts/deleteAll.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +18,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "mongodb": "^4.4.0",
+    "mongoose": "^6.3.3",
     "multer": "^1.4.4"
   }
 }
