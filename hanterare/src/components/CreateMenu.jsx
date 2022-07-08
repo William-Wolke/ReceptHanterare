@@ -78,7 +78,7 @@ const CreateMenu = () => {
     //Fetches ingredients for comparing to the ingredients in recipes
     const { data: ingredients, isPending: pendingIngredients, error: ingredientsError } = useFetch("/ingredient/all", "GET", update);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         //Prevent reloading page
         e.preventDefault();
 
@@ -93,6 +93,8 @@ const CreateMenu = () => {
         let saturdayRecipeNames = summarizeNames(saturday);
         let sundayRecipeNames = summarizeNames(sunday);
 
+        let concatShoppingList = shoppingList.concat(looseIngredients);
+
         //Create object to insert into db
         let menu = {
             year: year,
@@ -104,13 +106,15 @@ const CreateMenu = () => {
             friday: fridayRecipeNames,
             saturday: saturdayRecipeNames,
             sunday: sundayRecipeNames,
-            shoppingList: [...shoppingList, looseIngredients],
+            shoppingList: concatShoppingList,
         }
 
         console.log(menu);
 
         //Call api to create
-        UseAxios("/menu/create/", menu);
+        let response = await UseAxios("/menu/create/", menu);
+
+        console.log(response);
     }
 
     //Returns a array that contains the recipenames for the passed array

@@ -29,16 +29,16 @@ router.get('/one/:year/:week/', async (req, res) => {
 //Create ingredient
 router.post('/create', async (req, res) => {
     try {
-        let isDuplicate = Menu.findDuplicateYearAndWeek(req.body.year, req.body.week);
+        let isDuplicate = await Menu.findDuplicateYearAndWeek(req.body.year, req.body.week);
 
         if (isDuplicate) {
             throw new Error('Menu already exist');
         } else {
             let newMenu = new Menu(req.body);
-            let result = await newMenu.save();
-            if (result) {
-                res.status(201).json({message: 'Created menu'});
-            }
+            await newMenu.save();
+            
+            res.status(201).json({message: 'Created menu'});
+            
         }
     } catch (e) {
         console.error(e.message);

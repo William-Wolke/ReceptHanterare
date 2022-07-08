@@ -19,8 +19,7 @@ const ingredientSchema = new mongoose.Schema({
 
 ingredientSchema.statics.findDuplicateName = async function(name) {
     const ingredientList = await this.find().byName(name);
-    console.log(ingredientList);
-    if (ingredientList[0] !== undefined) return true;
+    if (ingredientList[0] !== undefined && name === ingredientList[0].name) return true;
     return false;
 }
 

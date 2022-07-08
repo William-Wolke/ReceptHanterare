@@ -15,8 +15,9 @@
         "unit": "L",
         "amount": 0.2
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Gul lök",
   "unit": {
@@ -34,8 +35,9 @@
         "unit": "L",
         "amount": 0.2
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Falukorv",
   "unit": {
@@ -53,8 +55,9 @@
         "unit": "L",
         "amount": "0.5"
       }
-    ]},
-    "section": "chark"
+    ]
+  },
+  "section": "chark"
 },{
   "name": "Vitlök",
   "unit": {
@@ -72,8 +75,9 @@
         "unit": "L",
         "amount": "0.005"
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Makaroner",
   "unit": {
@@ -91,8 +95,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Mjölk",
   "unit": {
@@ -110,8 +115,9 @@
         "unit": "L",
         "amount": "1"
       }
-    ]},
-    "section": "dairy"
+    ]
+  },
+  "section": "dairy"
 },{
   "name": "Isbergssallat",
   "unit": {
@@ -129,8 +135,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Tomat",
   "unit": {
@@ -148,8 +155,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Potatis",
   "unit": {
@@ -167,8 +175,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Smör",
   "unit": {
@@ -186,8 +195,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "dairy"
+    ]
+  },
+  "section": "dairy"
 },{
   "name": "Vetemjöl",
   "unit": {
@@ -205,8 +215,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Havregrädde",
   "unit": {
@@ -224,8 +235,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "dairy"
+    ]
+  },
+  "section": "dairy"
 },{
   "name": "Lingonsylt",
   "unit": {
@@ -243,8 +255,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Kinesisk soja",
   "unit": {
@@ -262,8 +275,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Grönsaksbuljongtärning",
   "unit": {
@@ -281,8 +295,9 @@
         "unit": "L",
         "amount": "0.5"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Salt",
   "unit": {
@@ -300,8 +315,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Peppar",
   "unit": {
@@ -319,8 +335,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Vegobullar",
   "unit": {
@@ -338,8 +355,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "freezer"
+    ]
+  },
+  "section": "freezer"
 },{
   "name": "Rapsolja",
   "unit": {
@@ -357,8 +375,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Vegofiler",
   "unit": {
@@ -376,8 +395,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "freezer"
+    ]
+  },
+  "section": "freezer"
 },{
   "name": "Vegansk Creme Fraiche",
   "unit": {
@@ -395,8 +415,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "dairy"
+    ]
+  },
+  "section": "dairy"
 },{
   "name": "Vegansk pesto",
   "unit": {
@@ -414,8 +435,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Körsbärstomater",
   "unit": {
@@ -433,8 +455,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Pasta",
   "unit": {
@@ -452,8 +475,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Avocado",
   "unit": {
@@ -471,8 +495,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Limesaft",
   "unit": {
@@ -490,8 +515,9 @@
         "unit": "L",
         "amount": "0.25"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Förkokade kikärtor",
   "unit": {
@@ -509,8 +535,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Norialger ark",
   "unit": {
@@ -528,8 +555,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Röd chili",
   "unit": {
@@ -547,8 +575,9 @@
         "unit": "L",
         "amount": "0"
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Saltgurka",
   "unit": {
@@ -566,8 +595,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Inlagd kapris",
   "unit": {
@@ -585,8 +615,9 @@
         "unit": "L",
         "amount": "0.015"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Kruka koriander",
   "unit": {
@@ -604,8 +635,9 @@
         "unit": "L",
         "amount": "0.03"
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Fryst koriander",
   "unit": {
@@ -623,8 +655,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "freezer"
+    ]
+  },
+  "section": "freezer"
 },{
   "name": "Tomatpuré",
   "unit": {
@@ -642,8 +675,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Ponzu",
   "unit": {
@@ -661,8 +695,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Vegofärs",
   "unit": {
@@ -680,8 +715,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "freezer"
+    ]
+  },
+  "section": "freezer"
 },{
   "name": "Sriracha",
   "unit": {
@@ -699,8 +735,9 @@
         "unit": "L",
         "amount": "0.005"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Taco krydda hot cayenne",
   "unit": {
@@ -718,8 +755,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Vegansk majonäs",
   "unit": {
@@ -737,8 +775,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Tortilla Corn Wheat Medium",
   "unit": {
@@ -756,8 +795,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Citronsaft",
   "unit": {
@@ -775,8 +815,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Riven ost",
   "unit": {
@@ -794,8 +835,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "dairy"
+    ]
+  },
+  "section": "dairy"
 },{
   "name": "Majs burk",
   "unit": {
@@ -813,8 +855,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Frankful ostdipp",
   "unit": {
@@ -832,8 +875,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Levainbröd skivor",
   "unit": {
@@ -851,8 +895,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "bread"
+    ]
+  },
+  "section": "bread"
 },{
   "name": "Vegansk cheddar, skivad",
   "unit": {
@@ -870,8 +915,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "dairy"
+    ]
+  },
+  "section": "dairy"
 },{
   "name": "Taco sauce x-hot",
   "unit": {
@@ -889,8 +935,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Veganskt smör",
   "unit": {
@@ -908,8 +955,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "dairy"
+    ]
+  },
+  "section": "dairy"
 },{
   "name": "Gräddfil liten",
   "unit": {
@@ -927,8 +975,9 @@
         "unit": "L",
         "amount": "0.3"
       }
-    ]},
-    "section": "dairy"
+    ]
+  },
+  "section": "dairy"
 },{
   "name": "Heinz ketchup",
   "unit": {
@@ -946,8 +995,9 @@
         "unit": "L",
         "amount": "0.875"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Slotts senap",
   "unit": {
@@ -965,8 +1015,9 @@
         "unit": "L",
         "amount": "0"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Hamburgardressing stor",
   "unit": {
@@ -984,8 +1035,9 @@
         "unit": "L",
         "amount": "0"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Vitkål",
   "unit": {
@@ -1003,8 +1055,9 @@
         "unit": "L",
         "amount": "3"
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Morot",
   "unit": {
@@ -1022,8 +1075,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Delifresh plantbeef burgare",
   "unit": {
@@ -1041,8 +1095,9 @@
         "unit": "L",
         "amount": "0"
       }
-    ]},
-    "section": "freezer"
+    ]
+  },
+  "section": "freezer"
 },{
   "name": "Vegokorv",
   "unit": {
@@ -1060,8 +1115,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "freezer"
+    ]
+  },
+  "section": "freezer"
 },{
   "name": "hamburgerbröd",
   "unit": {
@@ -1079,8 +1135,9 @@
         "unit": "L",
         "amount": "0"
       }
-    ]},
-    "section": "bread"
+    ]
+  },
+  "section": "bread"
 },{
   "name": "Vitlökspulver",
   "unit": {
@@ -1098,8 +1155,9 @@
         "unit": "L",
         "amount": "1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Nacho chips liten",
   "unit": {
@@ -1117,8 +1175,9 @@
         "unit": "L",
         "amount": "0"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Hamburgerost",
   "unit": {
@@ -1136,8 +1195,9 @@
         "unit": "L",
         "amount": "0"
       }
-    ]},
-    "section": "milk"
+    ]
+  },
+  "section": "milk"
 },{
   "name": "Pommes",
   "unit": {
@@ -1155,8 +1215,9 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "freezer"
+    ]
+  },
+  "section": "freezer"
 },{
   "name": "Gurka",
   "unit": {
@@ -1174,8 +1235,9 @@
         "unit": "L",
         "amount": "0.9"
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Gammaldags Gurka",
   "unit": {
@@ -1193,8 +1255,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Bacon",
   "unit": {
@@ -1212,8 +1275,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "chark"
+    ]
+  },
+  "section": "chark"
 },{
   "name": "Champinjon",
   "unit": {
@@ -1231,8 +1295,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "produce"
+    ]
+  },
+  "section": "produce"
 },{
   "name": "Oxfile",
   "unit": {
@@ -1250,8 +1315,9 @@
         "unit": "L",
         "amount": 0
       }
-    ]},
-    "section": "chark"
+    ]
+  },
+  "section": "chark"
 },{
   "name": "Kalvfond",
   "unit": {
@@ -1269,8 +1335,9 @@
         "unit": "L",
         "amount": "0.5"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Dijonsenap",
   "unit": {
@@ -1288,8 +1355,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "cupboard"
+    ]
+  },
+  "section": "cupboard"
 },{
   "name": "Creme fraiche",
   "unit": {
@@ -1307,8 +1375,9 @@
         "unit": "L",
         "amount": "0.1"
       }
-    ]},
-    "section": "dairy"
+    ]
+  },
+  "section": "dairy"
 },{
   "name": "Haricots verts",
   "unit": {
@@ -1326,6 +1395,27 @@
         "unit": "L",
         "amount": ""
       }
-    ]},
-    "section": "freezer"
+    ]
+  },
+  "section": "freezer"
+},{
+  "name": "Mjöl",
+  "unit": {
+    "preferredUnit": "G",
+    "conversion": [
+      {
+        "unit": "St",
+        "amount": 0
+      },
+      {
+        "unit": "G",
+        "amount": "60"
+      },
+      {
+        "unit": "L",
+        "amount": "0"
+      }
+    ]
+  },
+  "section": "cupboard"
 }]

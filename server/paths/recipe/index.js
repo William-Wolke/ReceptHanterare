@@ -4,13 +4,9 @@ const router = express.Router();
 
 //Get a recipe based on query
 router.get('/one/:name', async (req, res) => {
-    console.log(req.params);
-    console.log(req.params.name);
-
     //Query
     try {
         let result = await Recipe.findOne().byName(req.query.name);
-        console.log(result);
         res.json(result);
     } catch (e) {
         console.error(e.messsage);
@@ -22,7 +18,6 @@ router.get('/one/:name', async (req, res) => {
 router.get('/all', async (req, res) => {
     try {
         let result = await Recipe.find({})
-        console.log(result);
         //Send the array of results
         res.status(200).json(result);
     } catch (e) {
@@ -43,13 +38,10 @@ router.post('/create', async (req, res) => {
         } else {
             //Query for inserting the object to the db
             let newRecipe = new Recipe(req.body);
-            let result = await newRecipe.save();
-            if (result) {
-                //Send respons to browser
-                res.status(200).send({status: "yes"});
-            } else {
-                throw new Error("Failed to save new recipe");
-            }
+            await newRecipe.save();
+            
+            //Send respons to browser
+            res.status(200).send({status: "yes"});
         }
     } catch (e) {
         console.error(e.message);

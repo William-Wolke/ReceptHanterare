@@ -38,13 +38,12 @@ const recipeSchema = new mongoose.Schema({
 
 recipeSchema.statics.findDuplicateName = async function(name) {
     const recipeList = await this.find().byName(name);
-    console.log(recipeList);
     if (recipeList[0] !== undefined) return true;
     return false;
 }
 
 recipeSchema.query.byName = function(name) {
-    return this.where({name: new RegExp(name) });
+    return this.where({name: name});
 }
 
 module.exports = mongoose.model('Recipe', recipeSchema);

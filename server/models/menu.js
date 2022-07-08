@@ -37,7 +37,6 @@ const menuSchema = new mongoose.Schema({
 
 menuSchema.statics.findDuplicateYearAndWeek = async function(year, week) {
     const menuList = await this.find().byYearAndWeek(year, week);
-    console.log(menuList);
     if (menuList[0] !== undefined) return true;
     return false;
 }

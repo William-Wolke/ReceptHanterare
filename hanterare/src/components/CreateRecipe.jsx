@@ -9,7 +9,7 @@ const CreateRecipe = () => {
   const [recipeName, setRecipeName] = useState('');
   const [description, setDescription] = useState('');
   const [ingredients, setIngredients] = useState([]);
-  const [bild, setBild] = useState('');
+  const [image, setImage] = useState('');
   const [alt, setAlt] = useState('');
   const [portions, setPortions] = useState(0);
   const [meal, setMeal] = useState([]);
@@ -45,7 +45,7 @@ const CreateRecipe = () => {
     //Create object to insert into db
     let recipe = {
       name: recipeName,
-      image: bild,
+      image: image,
       alt: alt,
       description: description,
       attribute: {
@@ -63,6 +63,7 @@ const CreateRecipe = () => {
     console.log(recipe);
 
     let res = await UseAxios("/recipe/create", recipe)
+    console.log(res);
     if (res) {
       console.log("Created recipe");
     }
@@ -204,8 +205,9 @@ const CreateRecipe = () => {
             <input
               type="text"
               id="bild"
+              value={image}
               className="input"
-              onChange={setBild}
+              onChange={(e) => setImage(e.target.value)}
             />
           </div>
 
@@ -215,7 +217,9 @@ const CreateRecipe = () => {
             <input
               type="text"
               id="altText"
+              value={alt}
               className="input"
+              onChange={(e) => setAlt(e.target.value)}
             />
           </div>
 

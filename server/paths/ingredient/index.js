@@ -6,7 +6,6 @@ const router = express.Router();
 router.get("/all", async (req, res) => {
     try {
         let result = await Ingredient.find({})
-        console.log(result);
         //Send the array of results
         res.status(200).json(result);
     } catch (e) {
@@ -16,7 +15,6 @@ router.get("/all", async (req, res) => {
 });
 //Create ingredient
 router.post('/create', async (req, res) => {
-    console.log(req.body, req.body.name);
     try {
         //Query to find duplicate recipe
         let isDuplicate = await Ingredient.findDuplicateName(req.body.name);
