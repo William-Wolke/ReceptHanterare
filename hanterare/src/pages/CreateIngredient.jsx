@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UseAxios from "./UseAxios";
+import UseAxios from "../hooks/UseAxios.js";
 
 const CreateIngredient = () => {
 

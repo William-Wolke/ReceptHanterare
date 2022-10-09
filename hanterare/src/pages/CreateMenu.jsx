@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import useFetch from './useFetch';
-import UseAxios from './UseAxios';
+import useFetch from '../hooks/useFetch';
+import UseAxios from '../hooks/UseAxios';
 
 const metric = [
     {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import useFetch from './useFetch';
+import useFetch from '../hooks/useFetch';
 import CreateIngredient from './CreateIngredient';
-import UseAxios from "./UseAxios";
+import UseAxios from "../hooks/UseAxios";
 
 const CreateRecipe = () => {
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useFetch from './useFetch';
+import useFetch from '../hooks/useFetch';
 import { Link, useParams } from 'react-router-dom';
 
 const Menu = () => {
