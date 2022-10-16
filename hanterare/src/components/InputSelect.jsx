@@ -11,7 +11,7 @@ const InputSelect = ({ optionList, htmlFor, value, setter, text }) => {
                 }}
             >
                 {optionList && optionList.map((option, index) => {
-                    return (<option value={option} key={index}>{option}</option>)
+                    return (<option value={option.name} key={index}>{option.name}</option>)
                 })}
             </select>
         </div>

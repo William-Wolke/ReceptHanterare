@@ -4,6 +4,7 @@ import UseAxios from '../hooks/UseAxios';
 import Input from '../components/Input.jsx';
 import InputSelect from '../components/InputSelect.jsx';
 import InputRange from '../components/InputRange.jsx';
+import WeekdayList from '../components/WeekdayList';
 
 const metric = [
     {
@@ -44,6 +45,16 @@ const metric = [
     },
 ];
 
+const weekdays = [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday"
+]
+
 const CreateMenu = () => {
     const [update, setUpdate] = useState(false);
 
@@ -56,6 +67,16 @@ const CreateMenu = () => {
     const [saturday, setSaturday] = useState([]);
     const [sunday, setSunday] = useState([]);
     const [shoppingList, setShoppingList] = useState([]);
+
+    const [weekMenu, setWeekMenu] = useState({
+        monday: [],
+        tuesday: [],
+        wednesday: [],
+        thursday: [],
+        friday: [],
+        saturday: [],
+        sunday: []
+    });
 
     //States for general info for menu
     const [week, setWeek] = useState(1);
@@ -122,14 +143,9 @@ const CreateMenu = () => {
 
     //Returns a array that contains the recipenames for the passed array
     const summarizeNames = (array) => {
-        let returnArray = [];
-
-        array &&
-            array.map((item) => {
-                returnArray.push(item.name);
-            });
-
-        return returnArray;
+        return array.map((item) => {
+            return(item.name);
+        });
     };
 
     const handleAddRecipe = () => {
@@ -141,42 +157,20 @@ const CreateMenu = () => {
             }
         });
 
-        if (day === 'monday') {
-            setMonday([...monday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('tuesday');
-            setRecipe('');
-        } else if (day === 'tuesday') {
-            setTuesday([...tuesday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('wednesday');
-            setRecipe('');
-        } else if (day === 'wednesday') {
-            setWednesday([...wednesday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('thursday');
-            setRecipe('');
-        } else if (day === 'thursday') {
-            setThursday([...thursday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('friday');
-            setRecipe('');
-        } else if (day === 'friday') {
-            setFriday([...friday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('saturday');
-            setRecipe('');
-        } else if (day === 'saturday') {
-            setSaturday([...saturday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('sunday');
-            setRecipe('');
-        } else if (day === 'sunday') {
-            setSunday([...sunday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('monday');
-            setRecipe('');
-        }
+        weekdays.map((weekday, index) => {
+            if (day === weekday) {
+                let tempMenu = weekMenu;
+                tempMenu[weekday] = [...tempMenu[weekday], addedRecipe]
+                setWeekMenu([...tempMenu]);
+                setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
+                if (index === 6) {
+                    setDay(weekdays[0]);
+                } else {
+                    setDay(weekdays[index++]);
+                }
+                setRecipe('');
+            }
+        })
     };
 
     const summarizeShoppingList = () => {
@@ -301,44 +295,21 @@ const CreateMenu = () => {
                             max='52'
                         />
 
-                        <div className='form-element'>
-                            <label htmlFor='recipe'>Recept</label>
-                            <select
-                                value={recipe}
-                                name='recipe'
-                                className='input'
-                                onChange={(e) => {
-                                    setRecipe(e.target.value);
-                                }}>
-                                {data.map((item, index) => {
-                                    return (
-                                        <option value={item.name} key={index}>
-                                            {item.name}
-                                        </option>
-                                    );
-                                })}
-                                <option value=''></option>
-                            </select>
-                        </div>
+                        <InputSelect
+                            optionList={[...data, '']}
+                            htmlFor="recipe"
+                            value={recipe}
+                            setter={setRecipe}
+                            text="Recept"
+                        />
 
-                        <div className='ingredient-list form-element'>
-                            <label htmlFor='weekday.ö-,'>Veckodag</label>
-                            <select
-                                value={day}
-                                name='weekday'
-                                className='input'
-                                onChange={(e) => {
-                                    setDay(e.target.value);
-                                }}>
-                                <option value='monday'>Måndag</option>
-                                <option value='tuesday'>Tisdag</option>
-                                <option value='wednesday'>Onsdag</option>
-                                <option value='thursday'>Torsdag</option>
-                                <option value='friday'>Fredag</option>
-                                <option value='saturday'>Lördag</option>
-                                <option value='sunday'>Söndag</option>
-                            </select>
-                        </div>
+                        <InputSelect
+                            optionList={weekdays}
+                            htmlFor="weekday"
+                            value={day}
+                            setter={setDay}
+                            text="Veckodag"
+                        />
 
                         <div className='form-element'>
                             <input
@@ -348,6 +319,8 @@ const CreateMenu = () => {
                                 onClick={handleAddRecipe}
                             />
                         </div>
+
+                        <WeekdayList weekdays={weekdays} items={weekMenu} />
 
                         <div className='weekdayMenuList form-element'>
                             {/* Monday */}
