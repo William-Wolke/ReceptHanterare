@@ -1,14 +1,17 @@
-import React, { useState } from "react";
-import UseAxios from "../hooks/UseAxios.js";
+import React, { useState } from 'react';
+import UseAxios from '../hooks/UseAxios.js';
+import Input from '../components/Input.jsx';
+import InputSelect from '../components/InputSelect.jsx';
 
 const CreateIngredient = () => {
-
     const [name, setName] = useState('');
     const [preferredUnit, setPreferredUnit] = useState('G');
     const [pieces, setPieces] = useState(0);
     const [grams, setGrams] = useState(0);
     const [liters, setLiters] = useState(0);
     const [section, setSection] = useState('');
+    const [isCreated, setIsCreated] = useState(false);
+    const [isError, setIsError] = useState(false);
 
 
     const handleSubmit = async (e) => {
@@ -17,132 +20,117 @@ const CreateIngredient = () => {
 
         let conversion = [
             {
-                unit: "St",
-                amount: pieces
+                unit: 'St',
+                amount: pieces,
             },
             {
-                unit: "G",
-                amount: grams
+                unit: 'G',
+                amount: grams,
             },
             {
-                unit: "L",
-                amount: liters
-            }
-        ]
+                unit: 'L',
+                amount: liters,
+            },
+        ];
 
         let data = {
             name: name,
             unit: {
                 preferredUnit: preferredUnit,
-                conversion: conversion
+                conversion: conversion,
             },
-            section: section
-        }
+            section: section,
+        };
 
-        let res = await UseAxios("/ingredient/create/", data)
+        let res = await UseAxios('/ingredient/create/', data);
         if (res) {
-            console.log("Created ingredient");
+            console.log('Created ingredient');
+            setIsCreated(true);
+        } else {
+            console.log('Failed');
+            setIsError(true);
         }
-        else {
-            console.log("Failed");
-        }
-
-    }
+    };
 
     return (
-        <div className="createIngredientContainer card">
-            <form onSubmit={handleSubmit} className="createIngredientForm">
-
-                <div className="createIngredientItem form-element">
+        <div className='createIngredientContainer card'>
+            <form onSubmit={handleSubmit} className='createIngredientForm'>
+                <div className='createIngredientItem form-element'>
                     <h1>Skapa ingrediens</h1>
                 </div>
 
-                <div className="form-group form-element">
-                    <label htmlFor="name">Namn</label>
-                    <input
-                        type="text"
-                        id="name"
-                        value={name}
-                        className="input"
-                        onChange={(e) => { setName(e.target.value) }}
-                    />
-                </div>
+                <Input
+                    text='Namn'
+                    htmlFor='name'
+                    type='text'
+                    value={name}
+                    setter={setName}
+                />
 
-                <div className="form-group form-element">
-                    <label htmlFor="preferred">Prefererad enhet</label>
-                    <select
-                        id="preferred"
-                        value={preferredUnit}
-                        className="input"
-                        onChange={(e) => { setPreferredUnit(e.target.value) }}
-                    >
-                        <option value="L">L</option>
-                        <option value="St">St</option>
-                        <option value="G">G</option>
-                    </select>
-                </div>
+                <InputSelect
+                    text='Prefererad enhet'
+                    htmlFor='preferred'
+                    value={preferredUnit}
+                    setter={setPreferredUnit}
+                    optionList={['L', 'St', 'G']}
+                />
 
-                <div className="form-group form-element">
+                <div className='form-group form-element'>
                     <h2>Skapa omvandlingstabell</h2>
                 </div>
 
-                <div className="form-group form-element">
-                    <label htmlFor="pieces">St</label>
-                    <input
-                        id="pieces"
-                        type="number"
-                        value={pieces}
-                        className="input"
-                        onChange={(e) => { setPieces(e.target.value) }}
-                    />
+                <Input
+                    text='St'
+                    htmlFor='pieces'
+                    type='number'
+                    value={pieces}
+                    setter={setPieces}
+                />
+
+                <Input
+                    text='G'
+                    htmlFor='grams'
+                    type='number'
+                    value={grams}
+                    setter={setGrams}
+                />
+
+                <Input
+                    text='L'
+                    htmlFor='liters'
+                    type='number'
+                    value={liters}
+                    setter={setLiters}
+                />
+
+                <InputSelect
+                    text='Del i butiken'
+                    htmlFor='storeSection'
+                    value={section}
+                    setter={setSection}
+                    optionList={[
+                        'Mjölk',
+                        'Bröd',
+                        'Kött',
+                        'Grönsaker',
+                        'Skafferi',
+                        'Frys',
+                    ]}
+                />
+
+                <div className='form-group form-element'>
+                    <input type='submit' value='Submit' className='input' />
                 </div>
 
-                <div className="form-group form-element">
-                    <label htmlFor="grams">G</label>
-                    <input
-                        id="grams"
-                        type="number"
-                        value={grams}
-                        className="input"
-                        onChange={(e) => { setGrams(e.target.value) }}
-                    />
-                </div>
-
-                <div className="form-group form-element">
-                    <label htmlFor="liters">L</label>
-                    <input
-                        id="liters"
-                        type="number"
-                        value={liters}
-                        className="input"
-                        onChange={(e) => { setLiters(e.target.value) }}
-                    />
-                </div>
-
-                <div className="form-group form-element">
-                    <label htmlFor="storeSection">Del i butiken</label>
-                    <select
-                        id="storeSection"
-                        value={section}
-                        onChange={(e) => { setSection(e.target.value) }}
-                        className="input"
-                    >
-                        <option value="dairy">Mjölk</option>
-                        <option value="bread">Bröd</option>
-                        <option value="chark">Kött</option>
-                        <option value="produce">Grönsaker</option>
-                        <option value="cupboard">Skafferi</option>
-                        <option value="freezer">Frys</option>
-                    </select>
-                </div>
-
-                <div className="form-group form-element">
-                    <input type="submit" value="Submit" className="input" />
-                </div>
-
+                {isCreated && (
+                    <div>Ingrediens skapad</div>
+                )}
+                {isError && (
+                    <div>Något gick fel</div>
+                )}
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default CreateIngredient;
