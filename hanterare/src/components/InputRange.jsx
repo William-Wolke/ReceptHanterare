@@ -17,4 +17,4 @@ const InputRange = ({ htmlFor, value, setter, text, type, min, max }) => {
     );
 };
 
-export default Input;
+export default InputRange;

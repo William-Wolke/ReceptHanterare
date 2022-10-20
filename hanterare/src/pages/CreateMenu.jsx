@@ -4,44 +4,17 @@ import UseAxios from '../hooks/UseAxios';
 import Input from '../components/Input.jsx';
 import InputSelect from '../components/InputSelect.jsx';
 import InputRange from '../components/InputRange.jsx';
+import WeekdayList from '../components/WeekdayList';
+import { summarizeNames, summarizeShoppingList } from '../helpers';
 
-const metric = [
-    {
-        unit: 'Kg',
-        convert: 1000,
-    },
-    {
-        unit: 'Hg',
-        convert: 100,
-    },
-    {
-        unit: 'Mg',
-        convert: 0.001,
-    },
-    {
-        unit: 'Dl',
-        convert: 0.1,
-    },
-    {
-        unit: 'Cl',
-        convert: 0.01,
-    },
-    {
-        unit: 'Ml',
-        convert: 0.001,
-    },
-    {
-        unit: 'Msk',
-        convert: 0.015,
-    },
-    {
-        unit: 'Tsk',
-        convert: 0.005,
-    },
-    {
-        unit: 'Krm',
-        convert: 0.001,
-    },
+const weekdays = [
+    { name: 'monday' },
+    { name: 'tuesday' },
+    { name: 'wednesday' },
+    { name: 'thursday' },
+    { name: 'friday' },
+    { name: 'saturday' },
+    { name: 'sunday' },
 ];
 
 const CreateMenu = () => {
@@ -56,6 +29,16 @@ const CreateMenu = () => {
     const [saturday, setSaturday] = useState([]);
     const [sunday, setSunday] = useState([]);
     const [shoppingList, setShoppingList] = useState([]);
+
+    const [weekMenu, setWeekMenu] = useState({
+        monday: [],
+        tuesday: [],
+        wednesday: [],
+        thursday: [],
+        friday: [],
+        saturday: [],
+        sunday: [],
+    });
 
     //States for general info for menu
     const [week, setWeek] = useState(1);
@@ -84,8 +67,8 @@ const CreateMenu = () => {
     const handleSubmit = async (e) => {
         //Prevent reloading page
         e.preventDefault();
-
-        summarizeShoppingList();
+        
+        setShoppingList(summarizeShoppingList(shoppingList));
 
         //We only want to save the recipenames not the entire recipes
         let mondayRecipeNames = summarizeNames(monday);
@@ -120,18 +103,6 @@ const CreateMenu = () => {
         console.log(response);
     };
 
-    //Returns a array that contains the recipenames for the passed array
-    const summarizeNames = (array) => {
-        let returnArray = [];
-
-        array &&
-            array.map((item) => {
-                returnArray.push(item.name);
-            });
-
-        return returnArray;
-    };
-
     const handleAddRecipe = () => {
         let addedRecipe = {};
 
@@ -141,117 +112,20 @@ const CreateMenu = () => {
             }
         });
 
-        if (day === 'monday') {
-            setMonday([...monday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('tuesday');
-            setRecipe('');
-        } else if (day === 'tuesday') {
-            setTuesday([...tuesday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('wednesday');
-            setRecipe('');
-        } else if (day === 'wednesday') {
-            setWednesday([...wednesday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('thursday');
-            setRecipe('');
-        } else if (day === 'thursday') {
-            setThursday([...thursday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('friday');
-            setRecipe('');
-        } else if (day === 'friday') {
-            setFriday([...friday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('saturday');
-            setRecipe('');
-        } else if (day === 'saturday') {
-            setSaturday([...saturday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('sunday');
-            setRecipe('');
-        } else if (day === 'sunday') {
-            setSunday([...sunday, addedRecipe]);
-            setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
-            setDay('monday');
-            setRecipe('');
-        }
-    };
-
-    const summarizeShoppingList = () => {
-        let list = shoppingList;
-
-        //Convert all shopping items to prefered units
-
-        //Map through all items in shopping list and all ingredients
-        list.map((item) => {
-            ingredients.map((ingredient) => {
-                if (item.name === ingredient.name) {
-                    if (item.unit !== ingredient.unit.preferredUnit) {
-                        ingredient.unit.conversion.map((unit) => {
-                            if (unit.unit === ingredient.unit.preferredUnit) {
-                                metric.map((metric) => {
-                                    if (metric.unit === item.unit) {
-                                        //Convert from
-                                        item.amount = Number(
-                                            item.amount *
-                                                unit.amount *
-                                                metric.convert
-                                        );
-                                        item.unit =
-                                            ingredient.unit.preferredUnit;
-                                    }
-                                });
-                            }
-                        });
-                    }
+        weekdays.map((weekday, index) => {
+            if (day === weekday) {
+                let tempMenu = weekMenu;
+                tempMenu[weekday] = [...tempMenu[weekday], addedRecipe];
+                setWeekMenu([...tempMenu]);
+                setShoppingList([...shoppingList, ...addedRecipe.ingredients]);
+                if (index === 6) {
+                    setDay(weekdays[0]);
+                } else {
+                    setDay(weekdays[index++]);
                 }
-            });
-        });
-
-        //Summarize the list
-
-        let uniqueList = [];
-
-        list.map((item) => {
-            //Runs on first iteration when list is emprty
-            if (uniqueList.length === 0) {
-                uniqueList.push({
-                    name: item.name,
-                    amount: item.amount,
-                    unit: item.unit,
-                });
-            }
-
-            //Runs on all iterations exept first
-            else if (uniqueList.length > 0) {
-                //If name i present in the array
-                let found = uniqueList.some(
-                    (element) => element.name === item.name
-                );
-
-                //No duplicates found, push new item to array
-                if (!found) {
-                    uniqueList.push({
-                        name: item.name,
-                        amount: item.amount,
-                        unit: item.unit,
-                    });
-                }
-
-                //Duplicates found, instead add the amount to total amount
-                else {
-                    uniqueList.map((element) => {
-                        if (element.name === item.name) {
-                            element.amount -= Number(-item.amount);
-                        }
-                    });
-                }
+                setRecipe('');
             }
         });
-
-        setShoppingList(uniqueList);
     };
 
     const handleAddLoose = () => {
@@ -301,44 +175,21 @@ const CreateMenu = () => {
                             max='52'
                         />
 
-                        <div className='form-element'>
-                            <label htmlFor='recipe'>Recept</label>
-                            <select
-                                value={recipe}
-                                name='recipe'
-                                className='input'
-                                onChange={(e) => {
-                                    setRecipe(e.target.value);
-                                }}>
-                                {data.map((item, index) => {
-                                    return (
-                                        <option value={item.name} key={index}>
-                                            {item.name}
-                                        </option>
-                                    );
-                                })}
-                                <option value=''></option>
-                            </select>
-                        </div>
+                        <InputSelect
+                            optionList={[...data, '']}
+                            htmlFor='recipe'
+                            value={recipe}
+                            setter={setRecipe}
+                            text='Recept'
+                        />
 
-                        <div className='ingredient-list form-element'>
-                            <label htmlFor='weekday.ö-,'>Veckodag</label>
-                            <select
-                                value={day}
-                                name='weekday'
-                                className='input'
-                                onChange={(e) => {
-                                    setDay(e.target.value);
-                                }}>
-                                <option value='monday'>Måndag</option>
-                                <option value='tuesday'>Tisdag</option>
-                                <option value='wednesday'>Onsdag</option>
-                                <option value='thursday'>Torsdag</option>
-                                <option value='friday'>Fredag</option>
-                                <option value='saturday'>Lördag</option>
-                                <option value='sunday'>Söndag</option>
-                            </select>
-                        </div>
+                        <InputSelect
+                            optionList={weekdays}
+                            htmlFor='weekday'
+                            value={day}
+                            setter={setDay}
+                            text='Veckodag'
+                        />
 
                         <div className='form-element'>
                             <input
@@ -349,70 +200,7 @@ const CreateMenu = () => {
                             />
                         </div>
 
-                        <div className='weekdayMenuList form-element'>
-                            {/* Monday */}
-                            <div className='weekdayMenuItem'>
-                                <h2 className='weekdayMenuHeader'>Måndag</h2>
-                                {monday &&
-                                    monday.map((item, index) => {
-                                        return <p key={index}>{item.name}</p>;
-                                    })}
-                            </div>
-
-                            {/* Tuesday */}
-                            <div className='weekdayMenuItem'>
-                                <h2 className='weekdayMenuHeader'>Tisdag</h2>
-                                {tuesday &&
-                                    tuesday.map((item, index) => {
-                                        return <p key={index}>{item.name}</p>;
-                                    })}
-                            </div>
-
-                            {/* Wednesday */}
-                            <div className='weekdayMenuItem'>
-                                <h2 className='weekdayMenuHeader'>Onsdag</h2>
-                                {wednesday &&
-                                    wednesday.map((item, index) => {
-                                        return <p key={index}>{item.name}</p>;
-                                    })}
-                            </div>
-
-                            {/* Thursday */}
-                            <div className='weekdayMenuItem'>
-                                <h2 className='weekdayMenuHeader'>Torsdag</h2>
-                                {thursday &&
-                                    thursday.map((item, index) => {
-                                        return <p key={index}>{item.name}</p>;
-                                    })}
-                            </div>
-
-                            {/* Friday */}
-                            <div className='weekdayMenuItem'>
-                                <h2 className='weekdayMenuHeader'>Fredag</h2>
-                                {friday &&
-                                    friday.map((item, index) => {
-                                        return <p key={index}>{item.name}</p>;
-                                    })}
-                            </div>
-
-                            {/* Saturday */}
-                            <div className='weekdayMenuItem'>
-                                <h2 className='weekdayMenuHeader'>Lördag</h2>
-                                {saturday &&
-                                    saturday.map((item, index) => {
-                                        return <p key={index}>{item.name}</p>;
-                                    })}
-                            </div>
-
-                            {/* Sunday */}
-                            <div className='weekdayMenuItem'>
-                                <h2 className='weekdayMenuHeader'>Söndag</h2>
-                                {sunday &&
-                                    sunday.map((item, index) => {
-                                        return <p key={index}>{item.name}</p>;
-                                    })}
-                            </div>
-                        </div>
+                        <WeekdayList weekdays={weekdays} items={weekMenu} />
 
                         <div className='form-element'>
                             <h2>Inköpslista</h2>
