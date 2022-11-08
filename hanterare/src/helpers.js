@@ -5,7 +5,7 @@ export const summarizeNames = (array) => {
     });
 };
 
-export const summarizeShoppingList = (list) => {
+export const summarizeShoppingList = (shoppingList, ingredients) => {
     //Convert all shopping items to prefered units
 
     const metric = [
@@ -48,7 +48,7 @@ export const summarizeShoppingList = (list) => {
     ];
 
     //Map through all items in shopping list and all ingredients
-    list.map((item) => {
+    shoppingList.map((item) => {
         ingredients.map((ingredient) => {
             if (item.name === ingredient.name) {
                 if (item.unit !== ingredient.unit.preferredUnit) {
@@ -77,7 +77,7 @@ export const summarizeShoppingList = (list) => {
 
     let uniqueList = [];
 
-    list.map((item) => {
+    shoppingList.map((item) => {
         //Runs on first iteration when list is emprty
         if (uniqueList.length === 0) {
             uniqueList.push({
