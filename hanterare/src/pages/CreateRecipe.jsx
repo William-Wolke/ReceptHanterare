@@ -391,7 +391,7 @@ const CreateRecipe = () => {
               setter={setIngredientUnit}
             />
 
-            <Button text="+" onClickFunc={handleAddingredient}/>
+            <Button text="+" onClickFunc={handleAddIngredient}/>
 
             <IngredientList list={ingredients} />
 
