@@ -9,8 +9,8 @@ import CreateIngredient from './pages/CreateIngredient.jsx';
 import CreateMenu from './pages/CreateMenu.jsx';
 import MenuList from './pages/MenuList.jsx';
 import Menu from './pages/Menu.jsx';
-import css from './components/css/style.css';
-import theme from './components/css/theme.css';
+import './components/css/style.css';
+import './components/css/theme.css';
 
 function App() {
   return (
