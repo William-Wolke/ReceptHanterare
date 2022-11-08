@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-import Recipe from './components/Recipe';
-import RecipeList from './components/RecipeList';
-import CreateRecipe from './components/CreateRecipe';
-import Navbar from './components/Navbar';
-import CreateIngredient from './components/CreateIngredient';
-import CreateMenu from './components/CreateMenu';
-import MenuList from './components/MenuList';
-import Menu from './components/Menu';
-import css from './components/css/style.css';
-import theme from './components/css/theme.css';
+import Recipe from './pages/Recipe.jsx';
+import RecipeList from './pages/RecipeList';
+import CreateRecipe from './pages/CreateRecipe.jsx';
+import Navbar from './components/Navbar.jsx';
+import CreateIngredient from './pages/CreateIngredient.jsx';
+import CreateMenu from './pages/CreateMenu.jsx';
+import MenuList from './pages/MenuList.jsx';
+import Menu from './pages/Menu.jsx';
+import './components/css/style.css';
+import './components/css/theme.css';
 
 function App() {
   return (
