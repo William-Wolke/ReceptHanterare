@@ -6,3 +6,4 @@ server/.env
 server/temp/
 hanterare/.env
 server/public/
+server/documents
