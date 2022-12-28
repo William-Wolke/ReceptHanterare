@@ -6,7 +6,7 @@ const { renderDocxWeekMenu } = require('../../components/createdocx.js');
 const fs = require('node:fs');
 const path = require('node:path');
 
-router.get('/shoppinglist/:year/:week/:format', async (req, res) => {
+router.get('/shoppinglist/docx/:year/:week/', async (req, res) => {
     try {
         if (req.params.year === undefined || req.params.week === undefined) {
             throw new Error('Invalid values for week or year');
@@ -18,26 +18,41 @@ router.get('/shoppinglist/:year/:week/:format', async (req, res) => {
             throw new Error('Couldnt find a matching menu');
         }
 
-        //Send docx file or html file, default: html
-        if (req.params.format === 'docx') {
-            renderDocxWeekMenu(`inköpslista-${menu.year}-V${menu.week}`, menu.shoppingList);
+        renderDocxWeekMenu(`inköpslista-${menu.year}-V${menu.week}`, menu.shoppingList);
 
-            res.status(200).download(path.join(process.cwd(), 'documents', `inköpslista-${menu.year}-V${menu.week}.docx`));
-        } else {
-            const data = renderWeekMenu(menu.year, menu.week, menu.ingredients);
+        res.status(200).download(path.join(process.cwd(), 'temp', `inköpslista-${menu.year}-V${menu.week}.docx`));
+    } catch (e) {
+        console.error(e.message);
+        res.status(500).json({ message: e.message });
+    }
+});
 
-            const tempFilePath = path.join(__dirname, '/temp/' + 'inköpslistaV' + menu.week + '.html');
+router.get('/shoppinglist/html/:year/:week/', async (req, res) => {
+    try {
+        if (req.params.year === undefined || req.params.week === undefined) {
+            throw new Error('Invalid values for week or year');
+        }
 
-            try {
-                await fs.writeFile(tempFilePath, data, (err) => {
-                    if (err) {
-                        return console.error(err);
-                    }
-                    res.download(tempFilePath);
-                });
-            } catch (e) {
-                console.error(e.message);
-            }
+        const menu = await Menu.findOne().byYearAndWeek(Number(req.params.year), Number(req.params.week));
+
+        if (!menu) {
+            throw new Error('Couldnt find a matching menu');
+        }
+
+        const data = renderWeekMenu(menu.year, menu.week, menu.shoppingList);
+
+        const tempFilePath = path.join(process.cwd(), 'temp', 'inköpslista' + menu.year + 'V' + menu.week + '.html');
+
+        try {
+            await fs.writeFileSync(tempFilePath, data, (err) => {
+                if (err) {
+                    return console.error(err);
+                }
+                res.download(tempFilePath);
+            });
+        } catch (e) {
+            console.error(e.message);
+            res.status(500).json({ message: e.message });
         }
 
         // res.status(200).json({ message: 'ok' });

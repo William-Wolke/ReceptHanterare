@@ -1,7 +1,7 @@
 const { sortShoppingList } = require('./helpers');
 
-const renderWeekMenu = (week, ingredients) => {
-    const { dairy, bread, chark, produce, freezer, cupboard } = sortShoppingList(ingredients);
+const renderWeekMenu = (year, week, shoppingList) => {
+    const { dairy, bread, chark, produce, freezer, cupboard, other } = sortShoppingList(shoppingList);
 
     return `
             <!DOCTYPE html>
@@ -26,7 +26,7 @@ const renderWeekMenu = (week, ingredients) => {
             </head>
             <body>
                 <header>
-                    <h1>Inköpslista för V.${week}</h1>
+                    <h1>Inköpslista för ${year} V.${week}</h1>
                 </header>
                 <main>
                     <div class="list">

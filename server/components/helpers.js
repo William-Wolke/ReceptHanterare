@@ -1,4 +1,4 @@
-const sortShoppingList = () => {
+const sortShoppingList = (ingredients) => {
     let dairy = [];
     let bread = [];
     let chark = [];

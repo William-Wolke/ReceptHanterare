@@ -1,26 +1,46 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Document, Packer, Paragraph } = require('docx');
-// const { sortShoppingList } = require('./helpers');
+const { Document, Packer, Paragraph, HeadingLevel } = require('docx');
+const { sortShoppingList } = require('./helpers');
 
 const renderDocxWeekMenu = (title, list) => {
-  // const { dairy, bread, chark, produce, freezer, cupboard } = sortShoppingList(ingredients);
+    const { bread, dairy, chark, produce, freezer, cupboard, other } = sortShoppingList(list);
+    let sections = [];
 
-    const sections = renderSection(list);
-    const doc = renderDocument([sections]);
+    sections.push(renderSection('Bröd', bread));
+    sections.push(renderSection('Mjölkdisken', dairy));
+    sections.push(renderSection('Köttdisken', chark));
+    sections.push(renderSection('Grönsaker', produce));
+    sections.push(renderSection('Frysen', freezer));
+    sections.push(renderSection('Skafferi', cupboard));
+    sections.push(renderSection('Annat', other));
+
+    const doc = renderDocument(sections);
     saveDocx(title, doc);
 };
 
-const renderSection = (list) => {
-    return {
-        children: list.map((item) => {
-            return new Paragraph({
+const renderSection = (title, list) => {
+    let children = [];
+    children.push(
+        new Paragraph({
+            text: title,
+            heading: HeadingLevel.HEADING_2,
+        })
+    );
+
+    list.forEach((item) => {
+        children.push(
+            new Paragraph({
                 text: item.name,
                 bullet: {
                     level: 0,
                 },
-            });
-        }),
+            })
+        );
+    });
+
+    return {
+        children: children,
     };
 };
 
@@ -35,7 +55,7 @@ const saveDocx = (fileName, doc) => {
         fileName = fileName + '.docx';
     }
     Packer.toBuffer(doc).then((buffer) => {
-        fs.writeFileSync(path.join(process.cwd(), 'documents', fileName), buffer);
+        fs.writeFileSync(path.join(process.cwd(), 'temp', fileName), buffer);
     });
 };
 
