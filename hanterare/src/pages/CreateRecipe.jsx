@@ -10,7 +10,51 @@ import AttributeList from '../components/AttributeList';
 import Button from '../components/Button';
 import IngredientList from '../components/IngredientList';
 import InputList from '../components/InputList';
-import constants from '../data/constants.json';
+
+const mealTypes = [{ name: 'Förrätt' }, { name: 'Efterrätt' }, { name: 'Mellanmål' }, { name: 'Middag' }, { name: 'Lunch' }, { name: '' }];
+
+const dietTypes = [
+    { name: 'Vegansk' },
+    { name: 'Glutenfri' },
+    { name: 'Kött' },
+    { name: 'Vegetarisk' },
+    { name: 'Laktosfri' },
+    { name: '' },
+];
+
+const kitchenTypes = [{ name: 'Svensk' }, { name: 'Finsk' }, { name: 'Tysk' }, { name: 'Skånsk/Dansk' }, { name: '' }];
+
+const attributeTypes = [
+    { name: 'Snabb' },
+    { name: 'Billig' },
+    { name: 'Lyxig' },
+    { name: 'Långkok' },
+    { name: 'Illasmakande' },
+    { name: '' },
+];
+
+const measurmentTypes = [
+    { name: 'Krm' },
+    { name: 'Tsk' },
+    { name: 'Msk' },
+    { name: 'L' },
+    { name: 'Dl' },
+    { name: 'Cl' },
+    { name: 'Ml' },
+    { name: 'St' },
+    { name: 'G' },
+    { name: '' },
+];
+
+const sectionTypes = [
+    { name: 'bread' },
+    { name: 'diary' },
+    { name: 'chark' },
+    { name: 'produce' },
+    { name: 'freezer' },
+    { name: 'cupboard' },
+    { name: '' },
+];
 
 const CreateRecipe = () => {
     //Form inputs to create a recipe
@@ -30,8 +74,8 @@ const CreateRecipe = () => {
     //Form inputs to create an ingredient
     const [ingredientName, setIngredientName] = useState('');
     const [ingredientAmount, setIngredientAmount] = useState(0);
-    const [ingredientUnit, setIngredientUnit] = useState(constants.measurmentTypes[constants.measurmentTypes.length - 1].name);
-    const [ingredientSection, setIngredientSection] = useState(constants.sectionTypes[0].name);
+    const [ingredientUnit, setIngredientUnit] = useState(measurmentTypes[measurmentTypes.length - 1].name);
+    const [ingredientSection, setIngredientSection] = useState(sectionTypes[0].name);
 
     //Form for attributes
     const [mealName, setMealName] = useState('');
@@ -180,7 +224,7 @@ const CreateRecipe = () => {
                     <InputTextArea text="Beskrivning" htmlFor="description" value={description} setter={setDescription} />
 
                     {/* Time */}
-                    <InputRange text="Tid" min={1} htmlFor="time" value={time} setter={setTime} />
+                    <Input type="number" text="Tid" htmlFor="time" value={time} setter={setTime} />
 
                     {/* Image */}
                     {/* <Input type="text" text="Bild" htmlFor="image" value={image} setter={setImage} /> */}
@@ -189,11 +233,11 @@ const CreateRecipe = () => {
                     {/* <Input type="text" text="Alt attribut" htmlFor="altText" value={alt} setter={setAlt} /> */}
 
                     {/* Number of portions */}
-                    <InputRange text="Portioner" min={1} htmlFor="portions" value={portions} setter={setPortions} />
+                    <Input type="text" text="Portioner" htmlFor="portions" value={portions} setter={setPortions} />
 
                     {/* Meal */}
                     <div>
-                        <InputSelect text="Måltid" optionList={constants.mealTypes} htmlFor="meal" value={mealName} setter={setMealName} />
+                        <InputSelect text="Måltid" optionList={mealTypes} htmlFor="meal" value={mealName} setter={setMealName} />
                         <Button text={'Lägg till'} onClickFunc={handleAddMeal} />
 
                         <AttributeList list={meal} />
@@ -201,7 +245,7 @@ const CreateRecipe = () => {
 
                     {/* Diet */}
                     <div>
-                        <InputSelect text="Kost" optionList={constants.dietTypes} htmlFor="diet" value={dietName} setter={setDietName} />
+                        <InputSelect text="Kost" optionList={dietTypes} htmlFor="diet" value={dietName} setter={setDietName} />
 
                         <Button text="Lägg till" onClickFunc={handleAddDiet} />
 
@@ -210,7 +254,7 @@ const CreateRecipe = () => {
 
                     {/* Kitchen */}
                     <div>
-                        <InputSelect text="Kök" optionList={constants.kitchenTypes} htmlFor="kitchen" value={kitchenName} setter={setKitchenName} />
+                        <InputSelect text="Kök" optionList={kitchenTypes} htmlFor="kitchen" value={kitchenName} setter={setKitchenName} />
 
                         <Button text="Lägg till" onClickFunc={handleAddKitchen} />
 
@@ -221,7 +265,7 @@ const CreateRecipe = () => {
                     <div>
                         <InputSelect
                             text="Egenskap"
-                            optionList={constants.attributeTypes}
+                            optionList={attributeTypes}
                             htmlFor="attribute"
                             value={attributeName}
                             setter={setAttributeName}
@@ -265,13 +309,13 @@ const CreateRecipe = () => {
 
                         {/* Ingredint amount */}
 
-                        <InputRange text="Mängd" htmlFor="amount" value={ingredientAmount} setter={setIngredientAmount} />
+                        <InputRange type="number" text="Mängd" htmlFor="amount" value={ingredientAmount} setter={setIngredientAmount} />
 
                         {/* Ingredint unit */}
 
                         <InputSelect
                             text="Mått"
-                            optionList={constants.measurmentTypes}
+                            optionList={measurmentTypes}
                             htmlFor="measurment"
                             value={ingredientUnit}
                             setter={setIngredientUnit}
@@ -281,7 +325,7 @@ const CreateRecipe = () => {
 
                         <InputSelect
                             text="Del i butiken"
-                            optionList={constants.sectionTypes}
+                            optionList={sectionTypes}
                             htmlFor="section"
                             value={ingredientSection}
                             setter={setIngredientSection}
