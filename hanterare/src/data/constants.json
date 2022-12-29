@@ -1,0 +1,49 @@
+{
+    "dietTypes": [
+        { "name": "Vegansk" },
+        { "name": "Glutenfri" },
+        { "name": "Kött" },
+        { "name": "Vegetarisk" },
+        { "name": "Laktosfri" },
+        { "name": "" }
+    ],
+    "mealTypes": [
+        { "name": "Förrätt" },
+        { "name": "Efterrätt" },
+        { "name": "Mellanmål" },
+        { "name": "Middag" },
+        { "name": "Lunch" },
+        { "name": "" }
+    ],
+    "kitchenTypes": [{ "name": "Svensk" }, { "name": "Finsk" }, { "name": "Tysk" }, { "name": "Skånsk/Dansk" }, { "name": "" }],
+    "attributeTypes": [
+        { "name": "Snabb" },
+        { "name": "Billig" },
+        { "name": "Lyxig" },
+        { "name": "Långkok" },
+        { "name": "Illasmakande" },
+        { "name": "" }
+    ],
+    "measurmentTypes": [
+        { "name": "Krm" },
+        { "name": "Tsk" },
+        { "name": "Msk" },
+        { "name": "L" },
+        { "name": "Dl" },
+        { "name": "Cl" },
+        { "name": "Ml" },
+        { "name": "St" },
+        { "name": "G" },
+        { "name": "" }
+    ],
+    "preferredMeasurmentTypes": [{ "name": "G" }, { "name": "L" }, { "name": "St" }],
+    "sectionTypes": [
+        { "name": "bread" },
+        { "name": "diary" },
+        { "name": "chark" },
+        { "name": "produce" },
+        { "name": "freezer" },
+        { "name": "cupboard" },
+        { "name": "" }
+    ]
+}
