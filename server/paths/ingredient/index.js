@@ -5,11 +5,11 @@ const router = express.Router();
 //Get all ingredients
 router.get("/all", async (req, res) => {
     try {
-        let result = await Ingredient.find({})
+        const result = await Ingredient.find({}).sort({name: 1});
         //Send the array of results
         res.status(200).json(result);
     } catch (e) {
-        console.error(error);
+        console.error(e.message);
         res.status(500);
     }
 });

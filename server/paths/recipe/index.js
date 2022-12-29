@@ -6,8 +6,12 @@ const router = express.Router();
 router.get('/one/:name', async (req, res) => {
     //Query
     try {
-        let result = await Recipe.findOne().byName(req.query.name);
-        res.json(result);
+        let result = await Recipe.findOne().byName(req.params.name);
+
+        if (!result) {
+            res.status(404).json({message: 'Recource not found'});
+        }
+        res.status(200).json(result);
     } catch (e) {
         console.error(e.messsage);
         res.status(500);

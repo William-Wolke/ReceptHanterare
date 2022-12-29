@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const ingredient = require('./ingredient');
 
 const recipeSchema = new mongoose.Schema({
     name: {
@@ -9,12 +8,12 @@ const recipeSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        required: true,
+        // required: true,
         trim: true,
     },
     alt: {
         type: String,
-        required: true,
+        // required: true,
         trim: true,
     },
     description: {
