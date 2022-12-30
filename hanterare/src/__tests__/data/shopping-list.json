@@ -1,0 +1,215 @@
+{
+    "ingredients": [
+        {
+            "name": "Avocado",
+            "unit": {
+                "preferredUnit": "St",
+                "conversion": [{ "unit": "St", "amount": 1 }, { "unit": "G", "amount": 165 }, { "unit": "L" }]
+            },
+            "section": "produce"
+        },
+        {
+            "name": "Milk",
+            "unit": {
+                "preferredUnit": "L",
+                "conversion": [{ "unit": "St" }, { "unit": "G", "amount": 1000 }, { "unit": "L", "amount": 1 }]
+            },
+            "section": "dairy"
+        },
+        {
+            "name": "Thing",
+            "unit": {
+                "preferredUnit": "St"
+            },
+            "section": "cupboard"
+        },
+        {
+            "name": "Dings",
+            "unit": {
+                "preferredUnit": "St",
+                "conversion": [{ "unit": "St", "amount": 1 }, { "unit": "G" }, { "unit": "L" }]
+            },
+            "section": "cupboard"
+        }
+    ],
+    "shoppingList": [
+        {
+            "name": "Avocado",
+            "unit": "St",
+            "amount": 2,
+            "section": "produce"
+        },
+        {
+            "name": "Avocado",
+            "unit": "G",
+            "amount": 200,
+            "section": "produce"
+        },
+        {
+            "name": "Avocado",
+            "unit": "L",
+            "amount": 2,
+            "section": "produce"
+        },
+        {
+            "name": "Milk",
+            "unit": "St",
+            "amount": 1,
+            "section": "dairy"
+        },
+        {
+            "name": "Milk",
+            "unit": "G",
+            "amount": 500,
+            "section": "dairy"
+        },
+        {
+            "name": "Milk",
+            "unit": "Ml",
+            "amount": 1000,
+            "section": "dairy"
+        },
+        {
+            "name": "Milk",
+            "unit": "Kg",
+            "amount": 2,
+            "section": "dairy"
+        },
+        {
+            "name": "Thing",
+            "unit": "G",
+            "amount": 500,
+            "section": "cupboard"
+        },
+        {
+            "name": "Thing",
+            "unit": "L",
+            "amount": 2,
+            "section": "cupboard"
+        },
+        {
+            "name": "Dings",
+            "unit": "St",
+            "amount": 4,
+            "section": "cupboard"
+        },
+        {
+            "name": "Dings",
+            "unit": "St",
+            "amount": 4,
+            "section": "cupboard"
+        }
+    ],
+    "expectedToPrefferedShoppingList": [
+        {
+            "name": "Avocado",
+            "unit": "St",
+            "amount": 2,
+            "section": "produce"
+        },
+        {
+            "name": "Avocado",
+            "unit": "St",
+            "amount": 1.2121,
+            "section": "produce"
+        },
+        {
+            "name": "Avocado",
+            "unit": "L",
+            "amount": 2,
+            "section": "produce"
+        },
+        {
+            "name": "Milk",
+            "unit": "St",
+            "amount": 1,
+            "section": "dairy"
+        },
+        {
+            "name": "Milk",
+            "unit": "L",
+            "amount": 0.5,
+            "section": "dairy"
+        },
+        {
+            "name": "Milk",
+            "unit": "L",
+            "amount": 1,
+            "section": "dairy"
+        },
+        {
+            "name": "Milk",
+            "unit": "L",
+            "amount": 2,
+            "section": "dairy"
+        },
+        {
+            "name": "Thing",
+            "unit": "G",
+            "amount": 500,
+            "section": "cupboard"
+        },
+        {
+            "name": "Thing",
+            "unit": "L",
+            "amount": 2,
+            "section": "cupboard"
+        },
+        {
+            "name": "Dings",
+            "unit": "St",
+            "amount": 4,
+            "section": "cupboard"
+        },
+        {
+            "name": "Dings",
+            "unit": "St",
+            "amount": 4,
+            "section": "cupboard"
+        }
+    ],
+    "expectedSortedShoppingList": [
+        {
+            "name": "Avocado",
+            "unit": "St",
+            "amount": 3.2121,
+            "section": "produce"
+        },
+        {
+            "name": "Avocado",
+            "unit": "L",
+            "amount": 2,
+            "section": "produce"
+        },
+        {
+            "name": "Milk",
+            "unit": "St",
+            "amount": 1,
+            "section": "dairy"
+        },
+        {
+            "name": "Milk",
+            "unit": "L",
+            "amount": 3.5,
+            "section": "dairy"
+        },
+        {
+            "name": "Thing",
+            "unit": "G",
+            "amount": 500,
+            "section": "cupboard"
+        },
+        {
+            "name": "Thing",
+            "unit": "L",
+            "amount": 2,
+            "section": "cupboard"
+        },
+        {
+            "name": "Dings",
+            "unit": "St",
+            "amount": 8,
+            "section": "cupboard"
+        }
+    ]
+}

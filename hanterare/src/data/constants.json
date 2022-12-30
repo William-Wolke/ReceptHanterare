@@ -45,5 +45,52 @@
         { "name": "freezer" },
         { "name": "cupboard" },
         { "name": "" }
+    ],
+    "metric": [
+        {
+            "unit": "Kg",
+            "convert": 1000,
+            "convertTo": "G"
+        },
+        {
+            "unit": "Hg",
+            "convert": 100,
+            "convertTo": "G"
+        },
+        {
+            "unit": "Mg",
+            "convert": 0.001,
+            "convertTo": "G"
+        },
+        {
+            "unit": "Dl",
+            "convert": 0.1,
+            "convertTo": "L"
+        },
+        {
+            "unit": "Cl",
+            "convert": 0.01,
+            "convertTo": "L"
+        },
+        {
+            "unit": "Ml",
+            "convert": 0.001,
+            "convertTo": "L"
+        },
+        {
+            "unit": "Msk",
+            "convert": 0.015,
+            "convertTo": "L"
+        },
+        {
+            "unit": "Tsk",
+            "convert": 0.005,
+            "convertTo": "L"
+        },
+        {
+            "unit": "Krm",
+            "convert": 0.001,
+            "convertTo": "L"
+        }
     ]
 }
