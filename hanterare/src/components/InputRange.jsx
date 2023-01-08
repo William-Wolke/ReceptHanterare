@@ -9,6 +9,7 @@ const InputRange = ({ htmlFor, value, setter, text, type = 'number', min = 0, ma
                 min={min}
                 max={max}
                 className="input"
+                step="0.0001"
                 onChange={(e) => {
                     setter(e.target.value);
                 }}

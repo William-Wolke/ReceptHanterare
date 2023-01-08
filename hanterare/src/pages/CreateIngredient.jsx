@@ -25,7 +25,7 @@ const CreateIngredient = () => {
             conversion = [
                 {
                     unit: 'St',
-                    amount: pieces || undefined,
+                    amount: Number(pieces) || undefined,
                 },
                 {
                     unit: 'G',
@@ -33,7 +33,7 @@ const CreateIngredient = () => {
                 },
                 {
                     unit: 'L',
-                    amount: liters || undefined,
+                    amount: Number(liters) || undefined,
                 },
             ];
         }
@@ -56,6 +56,8 @@ const CreateIngredient = () => {
                 console.log('Failed');
                 setIsError(true);
             }
+        } else {
+            console.error('Invalid ingredient');
         }
     };
 
