@@ -1,791 +1,476 @@
-[{
-  "name": "Lätt sallad",
-  "image": "sallad.jpeg",
-  "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-  "description": "Denna simpla och sköna gröna sallad kan hjälpa en under livets tuffa perioder. Lätt fuktig. Denna bäbis har mycket smak.",
-  "attribute": {
-    "portions": 4,
-    "meal": [
-      "förrätt",
-      "mellanmål",
-      "efterrätt"
-    ],
-    "diet": [
-      "vegansk",
-      "glutenfritt"
-    ],
-    "properties": [
-      "billig",
-      "snabb"
-    ],
-    "kitchen": [
-      "fransk"
-    ],
-    "time": "15"
-  },
-  "ingredients": [
+[
     {
-      "name": "Isbergssallat",
-      "amount": 300,
-      "unit": "G"
+        "_id": "63bad86348978c3ca7cf3fb3",
+        "name": "Lätt sallad",
+        "image": "sallad.jpeg",
+        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "description": "Denna simpla och sköna gröna sallad kan hjälpa en under livets tuffa perioder. Lätt fuktig. Denna bäbis har mycket smak.",
+        "attribute": {
+            "portions": 4,
+            "meal": ["förrätt", "mellanmål", "efterrätt"],
+            "diet": ["vegansk", "glutenfritt"],
+            "properties": ["billig", "snabb"],
+            "kitchen": ["fransk"],
+            "time": "15"
+        },
+        "ingredients": [
+            { "name": "Isbergssallat", "amount": 300, "unit": "G" },
+            { "name": "Tomat", "amount": 2, "unit": "St" }
+        ],
+        "steps": [
+            "Ansa den spröda och ljuvliga sallaten.",
+            "Skölj sallaten i isvatten precis som chocken av att vakna på morgonen.",
+            "Som en bödel vid Stockholms blodbad, skiva upp tomaten",
+            "Som en tornado sveper över landsmassor skall du nu blanda tomat och sallaten.",
+            "Avnjut smaken av slajm likt Daidalos avnjuter att slajma små barn."
+        ],
+        "__v": 0
     },
     {
-      "name": "Tomat",
-      "amount": 2,
-      "unit": "St"
+        "_id": "63bad86348978c3ca7cf3fb4",
+        "name": "Lök me lök",
+        "image": "sallad.jpeg",
+        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "description": "lölölölölölök",
+        "attribute": {
+            "portions": 0,
+            "meal": ["Efterrätt", "Mellanmål"],
+            "diet": ["Vegansk", "Vegetarisk", "Laktosfri"],
+            "properties": ["Snabb", "Billig", "Illasmakande"],
+            "kitchen": ["Finsk", "Skånsk/Dansk"]
+        },
+        "ingredients": [
+            { "name": "Röd lök", "amount": "100", "unit": "G" },
+            { "name": "Gul lök", "amount": "69", "unit": "G" }
+        ],
+        "steps": ["Hagga lögen", "lukte lögen", "smege lögen"],
+        "__v": 0
+    },
+    {
+        "_id": "63bad86348978c3ca7cf3fb5",
+        "name": "Falukorv med stuvade makaroner",
+        "image": "sallad.jpeg",
+        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "description": "Barnsligt gott tycker stora som små. Stekt falukorv serveras här med mjölkstuvade makaroner. Mums!",
+        "attribute": {
+            "portions": "4",
+            "meal": ["Middag"],
+            "diet": ["Kött"],
+            "properties": ["Snabb", "Billig"],
+            "kitchen": ["Svenska"],
+            "time": "30"
+        },
+        "ingredients": [
+            { "name": "Mjölk", "amount": "1", "unit": "L" },
+            { "name": "Makaroner", "amount": "5", "unit": "Dl" },
+            { "name": "Falukorv", "amount": "550", "unit": "G" }
+        ],
+        "steps": [
+            "Koka upp mjölken och tillsätt makaronerna. Koka makaronerna under omrörning på svag värme i cirka 25 minuter.",
+            "Skär korven i skivor och stek dem i olja i en stekpanna.",
+            "Servera korven och makaronerna med lite grönsaker och ketchup."
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "63bad86348978c3ca7cf3fb6",
+        "name": "Krämig pasta pesto",
+        "image": "sallad.jpeg",
+        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "description": "Pasta med pesto fast vegansk.",
+        "attribute": {
+            "portions": "3",
+            "meal": [],
+            "diet": ["Vegansk", "Vegetarisk", "Laktosfri"],
+            "properties": ["Snabb"],
+            "kitchen": ["Italienskt"],
+            "time": "20"
+        },
+        "ingredients": [
+            { "name": "Röd lök", "amount": "1", "unit": "St" },
+            { "name": "Vitlök", "amount": "4", "unit": "St" },
+            { "name": "Vegofiler", "amount": "300", "unit": "G" },
+            { "name": "Vegansk Creme Fraiche", "amount": "2", "unit": "Dl" },
+            { "name": "Vegansk pesto", "amount": "150", "unit": "G" },
+            { "name": "Körsbärstomater", "amount": "200", "unit": "G" },
+            { "name": "Pasta", "amount": "500", "unit": "G" },
+            { "name": "Salt", "amount": 0, "unit": "" },
+            { "name": "Peppar", "amount": 0, "unit": "" },
+            { "name": "Rapsolja", "amount": "1", "unit": "Msk" }
+        ],
+        "steps": [
+            "Börja med att skala och skiva lök och vitlök. Skär tomaterna i halvor.",
+            "Sätt på pastan och börja koka i rikligt saltat vatten.",
+            "Hetta upp en stekpanna och fräs lök, vitlök och vegokött tills löken är mjuk och vegoköttet fått färg.",
+            "Slå i den veganska creme fraiche och pesto i panna och låt koka upp tills pastan är klar.",
+            "",
+            "Spara 1-2 dl pastavatten och häll av pastan när den är rejält al dente.",
+            "Vänd ner pastan och de halverade tomaterna i pastasåsen. Rör om så allt blandas och späd efter behov med pastavatten. Servera omgående."
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "63bad86348978c3ca7cf3fb7",
+        "name": "Vegansk Tunamelt med avokado",
+        "image": "sallad.jpeg",
+        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "description": "En smarrig vegansk macka",
+        "attribute": {
+            "portions": "4",
+            "meal": ["Middag", "Lunch"],
+            "diet": ["Vegansk", "Vegetarisk", "Laktosfri"],
+            "properties": ["Snabb"],
+            "kitchen": ["Amerikansk"],
+            "time": "30"
+        },
+        "ingredients": [
+            { "name": "Förkokade kikärtor", "amount": "400", "unit": "G" },
+            { "name": "Norialger ark", "amount": "2", "unit": "St" },
+            { "name": "Röd lök", "amount": "0.5", "unit": "St" },
+            { "name": "Tomat", "amount": "1", "unit": "St" },
+            { "name": "Saltgurka", "amount": "1", "unit": "St" },
+            { "name": "Inlagd kapris", "amount": "2", "unit": "Msk" },
+            { "name": "Tomatpuré", "amount": "1", "unit": "Tsk" },
+            { "name": "Sriracha", "amount": "2", "unit": "Tsk" },
+            { "name": "Vegansk majonäs", "amount": "1", "unit": "Dl" },
+            { "name": "Citronsaft", "amount": "2", "unit": "Tsk" },
+            { "name": "Salt", "amount": "", "unit": "" },
+            { "name": "Levainbröd skivor", "amount": "8", "unit": "St" },
+            { "name": "Avocado", "amount": "2", "unit": "St" },
+            { "name": "Vegansk cheddar, skivad", "amount": "8", "unit": "St" },
+            { "name": "Veganskt smör", "amount": "", "unit": "" }
+        ],
+        "steps": [
+            "Börja med att hälla av spadet från kikärtorna och mosa dem grovt med en potatisstöt.",
+            "Skala och finhacka rödlöken. Ta bort kärnorna ur tomaterna och finahacka resten. Finhacka ättiksgurkan och gräslöken. Kör norialgerna i en matberedare tills de blir småsmulor. Du kan också krossa dem så fint du kan med händerna om du inte har en matberedare.",
+            "Blanda ihop de mosade kikärtorna med de hackade grönsakerna och alla övriga ingredienser. Rör om så allt blandas och smaka av med Tabasco, Ponzu, citron och salt. Du vill ha en röra med kraftig smak utan att det blir överdrivet.",
+            "Skiva brödet och bred margarin på ovansidan av alla mackorna.",
+            "Kärna ur och skiva avokadon och lägg varsin skivad halva utbredd över fyra av brödskivornas smörade sidor.",
+            "Toppa avocadon med rikligt med tonfuskröra. Toppa röran med rikligt med hyvlad vegask cheddar och avsluta med att lägga på de kvarvarande brödskivorna med den smörade sidan neråt.",
+            "Stek mackorna i rikligt med olivolja på bägge sidor under viss press tills de fått fin stekyta och osten smält. Det underlättar om du har ett lock till stekpannan som kan stänga in värmen och snabbare smälta osten. Pressa inte för hårt för då ramlar röran lätt ur.",
+            "Skär i halvor och servera!"
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "63bad86348978c3ca7cf3fb8",
+        "name": "Veganska burgare med pommes",
+        "image": "sallad.jpeg",
+        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "description": "Burgare fast veganskt.",
+        "attribute": {
+            "portions": "4",
+            "meal": ["Middag"],
+            "diet": ["Vegansk", "Vegetarisk"],
+            "properties": [],
+            "kitchen": ["Svenska"],
+            "time": "20"
+        },
+        "ingredients": [
+            { "name": "Pommes", "amount": "850", "unit": "G" },
+            { "name": "Röd lök", "amount": "1", "unit": "St" },
+            { "name": "Tomat", "amount": "1", "unit": "St" },
+            { "name": "Gurka", "amount": "0.5", "unit": "St" },
+            { "name": "Isbergssallat", "amount": "50", "unit": "G" },
+            { "name": "Hamburgerost", "amount": "1", "unit": "St" },
+            { "name": "hamburgerbröd", "amount": "6", "unit": "St" },
+            { "name": "Delifresh plantbeef burgare", "amount": "6", "unit": "St" },
+            { "name": "Slotts senap", "amount": "", "unit": "" },
+            { "name": "Hamburgardressing stor", "amount": "", "unit": "" },
+            { "name": "Heinz ketchup", "amount": "", "unit": "" },
+            { "name": "Vegansk majonäs", "amount": "", "unit": "" }
+        ],
+        "steps": [
+            "Lägg pommes på en plåt utan bakplåtspapper och tillaga enligt paketanvisningarna.",
+            "Förbered alla grönsaker, skiva rödlök, tomat och gurka. Lägg salladsblad och de skivade grönsaker på ett serveringsfat tillsammans med hamburgarosten.",
+            "Stek burgarna och servera med valfria såser.",
+            "Glöm inte bröden."
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "63bad86348978c3ca7cf3fb9",
+        "name": "Tacos",
+        "image": "sallad.jpeg",
+        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "description": "Riktigt god fredags mat",
+        "attribute": {
+            "portions": "3",
+            "meal": ["Middag"],
+            "diet": ["Vegetarisk", "Tacotarian"],
+            "properties": ["Lyxig", "Tacos"],
+            "kitchen": ["Svenska"],
+            "time": "30"
+        },
+        "ingredients": [
+            { "name": "Avocado", "amount": "4", "unit": "St" },
+            { "name": "Tomat", "amount": "1", "unit": "St" },
+            { "name": "Vitlök", "amount": "5", "unit": "St" },
+            { "name": "Citronsaft", "amount": "1", "unit": "Msk" },
+            { "name": "Röd chili", "amount": "1", "unit": "St" },
+            { "name": "Kruka koriander", "amount": "1", "unit": "St" },
+            { "name": "Röd lök", "amount": "1", "unit": "St" },
+            { "name": "Vegofärs", "amount": "400", "unit": "G" },
+            { "name": "Taco krydda hot cayenne", "amount": "1", "unit": "St" },
+            { "name": "Tortilla Corn Wheat Medium", "amount": "1", "unit": "St" },
+            { "name": "Riven ost", "amount": "100", "unit": "G" },
+            { "name": "Majs burk", "amount": "1", "unit": "St" },
+            { "name": "Frankful ostdipp", "amount": "1", "unit": "St" },
+            { "name": "Taco sauce x-hot", "amount": "1", "unit": "St" },
+            { "name": "Gräddfil liten", "amount": "1", "unit": "St" },
+            { "name": "Nacho chips liten", "amount": "1", "unit": "St" }
+        ],
+        "steps": [
+            "Dela avokadon och ta ur kärnorna. Gröp ur fruktköttet. Lägg fruktköttet i en skål och mixa eller mosa sönder med en gaffel eller i mixer.",
+            "Kärna ur tomaten och hacka fint. Dela, kärna ur och hacka chilin fint. Blanda tomat, chili, pressad vitlök pressad citron och kryddor tillsammans med avokadomoset.",
+            "Bryn vegofärsen i rapsolja. Tillsätt tacokryddan och vatten. Stek tills allt vatten puttrat bort.",
+            "Lägg alla tillbehör i skålar och servera. Njut!"
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "63bad86348978c3ca7cf3fba",
+        "name": "Vegobullar gräddsås och kokt potatis",
+        "image": "sallad.jpeg",
+        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "description": "En klassiker men gjord vegansk.",
+        "attribute": {
+            "portions": "4",
+            "meal": ["Middag", "Lunch"],
+            "diet": ["Vegetarisk", "Vegansk", "Laktosfri"],
+            "properties": ["Snabb"],
+            "kitchen": ["Svenska"],
+            "time": "20"
+        },
+        "ingredients": [
+            { "name": "Potatis", "amount": "900", "unit": "G" },
+            { "name": "Smör", "amount": "2", "unit": "Msk" },
+            { "name": "Vetemjöl", "amount": "1", "unit": "Msk" },
+            { "name": "Havregrädde", "amount": "3.5", "unit": "Dl" },
+            { "name": "Lingonsylt", "amount": "1.5", "unit": "Tsk" },
+            { "name": "Kinesisk soja", "amount": "1.5", "unit": "Tsk" },
+            { "name": "Grönsaksbuljongtärning", "amount": "0.5", "unit": "St" },
+            { "name": "Salt", "amount": "0.5", "unit": "Krm" },
+            { "name": "Peppar", "amount": "0.5", "unit": "Krm" },
+            { "name": "Vegobullar", "amount": "400", "unit": "G" },
+            { "name": "Gammaldags Gurka", "amount": "300", "unit": "G" }
+        ],
+        "steps": [
+            "Koka potatisen från kallt lättsaltat vatten",
+            "Låt koka i 20 minuter. Kom ihåg att koka med locket på och med lägre temperatur för att spara energi.",
+            "För sås: Smält smöret i en kastrull och blanda i mjölet. När det börjar tjockna, tillsätt grädden och rör om.",
+            "Häll i resten av ingredienserna och koka upp.",
+            "Smaka av och tillsätt vid behov mer salt och peppar.",
+            "Låt sjuda tills såsen tjocknat.",
+            "Stek bullarna till de får färg.",
+            "Servera potatis gräddsås och vegobullarna med lingonsylt och pressgurka."
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "63bad86348978c3ca7cf3fbb",
+        "name": "Vegansk pytt i panna",
+        "image": "sallad.jpeg",
+        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "description": "Pytt i panna fast vegansk.",
+        "attribute": {
+            "portions": "4",
+            "meal": ["Middag"],
+            "diet": ["Vegansk", "Vegetarisk", "Laktosfri"],
+            "properties": ["Billig"],
+            "kitchen": ["Svenska"],
+            "time": "40"
+        },
+        "ingredients": [
+            { "name": "Potatis", "amount": "500", "unit": "G" },
+            { "name": "Morot", "amount": "3", "unit": "St" },
+            { "name": "Vitkål", "amount": "200", "unit": "G" },
+            { "name": "Gul lök", "amount": "1", "unit": "St" },
+            { "name": "Vegokorv", "amount": "200", "unit": "G" },
+            { "name": "Salt", "amount": "", "unit": "" },
+            { "name": "Peppar", "amount": "", "unit": "" },
+            { "name": "Rapsolja", "amount": "2", "unit": "Msk" },
+            { "name": "Vitlökspulver", "amount": "1", "unit": "Msk" }
+        ],
+        "steps": [
+            "Börja med att skala, rensa och skölj alla grönsaker. Tärna dem i ungefär 5-10 mm stora bitar, beroende på vad du orkar med. Ju finare du tärnar desto snabbare går det att steka.",
+            "Lägg upp de olika typerna av grönsaker/vegokött i tallrikar efter hur grova de är. Följ ungefär mina grupperingar ovan!",
+            "Stek de grövre först i rapsolja, alt och peppar tills de är genomstekta och fått fin färg. Jag använder ganska hög värme och vaktar pannan noga, men om du känner dig osäker så kan du steka på medelvärme och låta det ta lite längre tid. Ställ åt sidan och upprepa med de övriga grönsakerna så allt steks den tid de behöver.",
+            "När allt är stekt blandar du ihop allt i pannan igen, smakar av med vitlökspulver, salt och peppar och låter värmas upp.",
+            "Servera med inlagda rödbetor eller vad för tillbehör du föredrar!"
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "63bad86348978c3ca7cf3fbc",
+        "name": "Biff Stoganov",
+        "image": "sallad.jpeg",
+        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "description": "En god rysk klassiker med pommes och haricot verts stekta med lök och bacon blir det en festmåltid.",
+        "attribute": {
+            "portions": "4",
+            "meal": ["Middag"],
+            "diet": ["Kött"],
+            "properties": ["Lyxig"],
+            "kitchen": ["Ryskt"],
+            "time": "40"
+        },
+        "ingredients": [
+            { "name": "Pommes", "amount": "850", "unit": "G" },
+            { "name": "Smör", "amount": "2", "unit": "Msk" },
+            { "name": "Gul lök", "amount": "3", "unit": "St" },
+            { "name": "Champinjon", "amount": "250", "unit": "G" },
+            { "name": "Oxfile", "amount": "500", "unit": "G" },
+            { "name": "Vetemjöl", "amount": "2", "unit": "Msk" },
+            { "name": "Kalvfond", "amount": "1.5", "unit": "Msk" },
+            { "name": "Dijonsenap", "amount": "3", "unit": "Msk" },
+            { "name": "Salt", "amount": "1", "unit": "Tsk" },
+            { "name": "Peppar", "amount": "1", "unit": "Tsk" },
+            { "name": "Creme fraiche", "amount": "2", "unit": "Dl" },
+            { "name": "Haricots verts", "amount": "300", "unit": "G" },
+            { "name": "Bacon", "amount": "200", "unit": "G" }
+        ],
+        "steps": [
+            "Tillaga pommesen enligt instruktioner på paketet. ",
+            "Smält 1 msk smör i en stor kastrull. Stek den skivade svampen tills den fått lite färg. Ta ur och sätt åt sidan.",
+            "Tillsätt en till msk smör i kastrullen och stek lök i 1-2 min.",
+            "Tillsätt oxfilen som är skuren i mindre bitar och vetemjölet. Tillaga i 2-3 min eller tills bynt.",
+            "Häll i kalvfonden, 3 dl vatten, dijonsenap och rör runt för att lossa de bruna bitarna på botten.",
+            "Häll i creme fraiche och låt puttra tills såsen tjocknat lite. Smaka av låt stå medan hericot vertsen tillagas. ",
+            "Hacka 1 lök och bacon i bitar. Stek bacon och lök i en stekpanna tills mjukt och fått lite färg. Blanchera bönorna.",
+            "Lägg i bönorna i stekpannan och stek i någon minut.",
+            "Servera och njut"
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "63badc07f45da3dfa7d2373c",
+        "name": "Broccoli- och blomkålsgratäng med korv",
+        "description": "En vardagsrätt som snabbt kommer att slukas av hela familjen när den ställs på middagsbordet. Lättlagat, krämigt och väldigt gott!",
+        "attribute": {
+            "portions": "4",
+            "meal": ["Middag"],
+            "diet": ["Kött"],
+            "properties": [],
+            "kitchen": ["Svensk"],
+            "time": "40"
+        },
+        "ingredients": [
+            { "name": "Blomkål", "amount": "500", "unit": "G" },
+            { "name": "Broccoli", "amount": "300", "unit": "G" },
+            { "name": "Korv", "amount": "300", "unit": "G" },
+            { "name": "Smör", "amount": "50", "unit": "G", "section": "dairy" },
+            {
+                "name": "Vetemjöl",
+                "amount": "0.5",
+                "unit": "Dl",
+                "section": "cupboard"
+            },
+            { "name": "Mjölk", "amount": "2", "unit": "Dl", "section": "dairy" },
+            { "name": "Vispgrädde", "amount": "2", "unit": "Dl" },
+            { "name": "Mozzarella", "amount": "150", "unit": "G" },
+            { "name": "Parmesan", "amount": "1", "unit": "Dl" },
+            { "name": "Salt", "amount": "1", "unit": "Tsk", "section": "cupboard" },
+            { "name": "Peppar", "amount": "1", "unit": "Krm", "section": "cupboard" },
+            {
+                "name": "Vitlökspulver",
+                "amount": "1",
+                "unit": "Krm",
+                "section": "cupboard"
+            },
+            { "name": "Cayennepeppar", "amount": "1", "unit": "Krm" },
+            { "name": "Paprikapulver", "amount": "1", "unit": "Krm" },
+            { "name": "Chipotlepulver", "amount": "1", "unit": "Krm" }
+        ],
+        "steps": [
+            "Sätt ugnen på 180 grader.",
+            "Skär broccoli och blomkål i mindre buketter.",
+            "Koka dem i saltat vatten 3-5 minuter, de ska inte bli helt mjuka utan ha lite motstånd kvar.",
+            "Plocka upp blomkål och broccoli med en hålslev och lägg i en ugnsform (spara ca 2 dl av kokspadet).",
+            "Smält smöret i en kastrull, vispa i mjölet. Tillsätt ca 0,5 dl kokspad, mjölk och grädde. Låt koka ihop till en krämig bechamelsås under omrörning. Smaka av med vitlökspulver, cayennpeppar, paprikapulver, chipotlepulver,  salt och nymalen svartpeppar. Späd eventuellt med mer kokspad tills du får den konsistens du önskar.",
+            "Ringla över såsen och toppa med riven mozzarella och riven parmesan.",
+            "Sätt in i ugnen för att gratineras, ca 20-25 minuter, sänk värmen om osten får för mycket färg.",
+            "Stek korven tills den fått fin färg.",
+            "Ta ut gratängen och låt svalna något före servering. Servera med korven."
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "63badff4f45da3dfa7d23742",
+        "name": "Linsgryta med fetaost",
+        "description": "Mustig och snabblagad linsgryta som toppas med fetaost. En mycket god vegetarisk middag mitt i veckan.\n\nSvinntips: Får du linsgryta över så håller den i en dryg vecka i kylskåp. Funkar perfekt som pastasås om du vill variera.",
+        "attribute": {
+            "portions": "4",
+            "meal": ["Middag"],
+            "diet": ["Vegetarisk"],
+            "properties": ["Snabb", "Billig"],
+            "kitchen": [],
+            "time": "20"
+        },
+        "ingredients": [
+            { "name": "Gul lök", "amount": "1", "unit": "St", "section": "produce" },
+            { "name": "Vitlök", "amount": "4", "unit": "St", "section": "produce" },
+            {
+                "name": "Röd chili",
+                "amount": "0.5",
+                "unit": "St",
+                "section": "produce"
+            },
+            { "name": "Morot", "amount": "1", "unit": "St", "section": "produce" },
+            { "name": "Krossade tomater", "amount": "400", "unit": "G" },
+            { "name": "Oregano", "amount": "2", "unit": "Tsk" },
+            { "name": "Vatten", "amount": "2", "unit": "Dl" },
+            {
+                "name": "Grönsaksbuljongtärning",
+                "amount": "2",
+                "unit": "St",
+                "section": "cupboard"
+            },
+            { "name": "Gröna linser, torkade", "amount": "90", "unit": "G" },
+            { "name": "Fetaost", "amount": "150", "unit": "G" },
+            { "name": "Olivolja", "amount": "0.5", "unit": "Dl" },
+            { "name": "Salt", "amount": "1", "unit": "Tsk", "section": "cupboard" },
+            { "name": "Peppar", "amount": "1", "unit": "Krm", "section": "cupboard" },
+            { "name": "Surdegsbröd", "amount": "1", "unit": "St" }
+        ],
+        "steps": [
+            "Skölj linserna noggrant. Låt koka i 15 minuter på låg värme i en halv liter vatten och en buljongtärning.",
+            "Hacka lök, vitlök och morötter. Fräs i rikligt med olivolja.\n",
+            "Häll av linserna och tillsätt tillsammans med tomat oregano, vatten och buljongtärningen. Koka ihop 5 min.",
+            "Smaka av med salt och peppar.",
+            "Smula över fetaost och servera med surdegsbröd."
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "63bae2d3585b798b10df556e",
+        "name": "Gnocchi med tomatsås och mozzarella",
+        "description": "Den här måltiden passar perfekt till vardags då allt tillagas i en form. Enkelt, gott och snabbt när det är som allra bäst.",
+        "attribute": { "portions": "4", "meal": ["Middag"], "diet": ["Vegetarisk"], "properties": ["Snabb"], "kitchen": [], "time": "30" },
+        "ingredients": [
+            { "name": "Gul lök", "amount": "1", "unit": "St", "section": "produce" },
+            { "name": "Vitlök", "amount": "5", "unit": "St", "section": "produce" },
+            { "name": "Olivolja", "amount": "4", "unit": "Msk" },
+            { "name": "Tomatpuré", "amount": "2", "unit": "Msk", "section": "cupboard" },
+            { "name": "Chiliflakes", "amount": "1", "unit": "Krm" },
+            { "name": "Vitvinsvinäger", "amount": "1", "unit": "Msk" },
+            { "name": "Hela tomater på burk", "amount": "800", "unit": "G" },
+            { "name": "Salt", "amount": "1", "unit": "Tsk", "section": "cupboard" },
+            { "name": "Peppar", "amount": "1", "unit": "Krm", "section": "cupboard" },
+            { "name": "Gnocchi, färsk", "amount": "500", "unit": "G" },
+            { "name": "Mozzarella", "amount": "250", "unit": "G" }
+        ],
+        "steps": [
+            "Sätt ugnen på 200 grader.",
+            "Finhacka löken och stek den lätt gyllene i olivoljan i en ugnsfast gryta.",
+            "Finhacka vitlöken och ha i, stek i någon minut innan du tillsätter tomatpurén och chili och rör om.",
+            "Tillsätt vitvinsvinäger och stek allt i ca 2 minuter.",
+            "Häll sedan i de hela skalade tomaterna i grytan, låt koka ett par minuter och krossa dem sedan med en slev så du får ut all god vätska. Salta och peppra.",
+            "Låt koka ordentligt i ca 5 minuter.",
+            "Tillsätt sedan gnocchin och låt det koka med i 2 minuter, tillsätt eventuellt 0.5 dl vatten om såsen är för fast.",
+            "Riv mozzarellan i bitar, vänd runt den enda mozzarellan med sås och gnocchi och toppa grytan med den andra mozzarellan.",
+            "Ställ in i ugnen och baka i ca 15 minuter, tills osten är gyllene."
+        ],
+        "__v": 0
     }
-  ],
-  "steps": [
-    "Ansa den spröda och ljuvliga sallaten.",
-    "Skölj sallaten i isvatten precis som chocken av att vakna på morgonen.",
-    "Som en bödel vid Stockholms blodbad, skiva upp tomaten",
-    "Som en tornado sveper över landsmassor skall du nu blanda tomat och sallaten.",
-    "Avnjut smaken av slajm likt Daidalos avnjuter att slajma små barn."
-  ]
-},{
-  "name": "Lök me lök",
-  "image": "sallad.jpeg",
-  "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-  "description": "lölölölölölök",
-  "attribute": {
-    "portions": 0,
-    "meal": [
-      "Efterrätt",
-      "Mellanmål"
-    ],
-    "diet": [
-      "Vegansk",
-      "Vegetarisk",
-      "Laktosfri"
-    ],
-    "properties": [
-      "Snabb",
-      "Billig",
-      "Illasmakande"
-    ],
-    "kitchen": [
-      "Finsk",
-      "Skånsk/Dansk"
-    ]
-  },
-  "ingredients": [
-    {
-      "name": "Röd lök",
-      "amount": "100",
-      "unit": "G"
-    },
-    {
-      "name": "Gul lök",
-      "amount": "69",
-      "unit": "G"
-    }
-  ],
-  "steps": [
-    "Hagga lögen",
-    "lukte lögen",
-    "smege lögen"
-  ]
-},{
-  "name": "Falukorv med stuvade makaroner",
-  "image": "sallad.jpeg",
-  "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-  "description": "Barnsligt gott tycker stora som små. Stekt falukorv serveras här med mjölkstuvade makaroner. Mums!",
-  "attribute": {
-    "portions": "4",
-    "meal": [
-      "Middag"
-    ],
-    "diet": [
-      "Kött"
-    ],
-    "properties": [
-      "Snabb",
-      "Billig"
-    ],
-    "kitchen": [
-      "Svenska"
-    ],
-    "time": "30"
-  },
-  "ingredients": [
-    {
-      "name": "Mjölk",
-      "amount": "1",
-      "unit": "L"
-    },
-    {
-      "name": "Makaroner",
-      "amount": "5",
-      "unit": "Dl"
-    },
-    {
-      "name": "Falukorv",
-      "amount": "550",
-      "unit": "G"
-    }
-  ],
-  "steps": [
-    "Koka upp mjölken och tillsätt makaronerna. Koka makaronerna under omrörning på svag värme i cirka 25 minuter.",
-    "Skär korven i skivor och stek dem i olja i en stekpanna.",
-    "Servera korven och makaronerna med lite grönsaker och ketchup."
-  ]
-},{
-  "name": "Krämig pasta pesto",
-  "image": "sallad.jpeg",
-  "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-  "description": "Pasta med pesto fast vegansk.",
-  "attribute": {
-    "portions": "3",
-    "meal": [],
-    "diet": [
-      "Vegansk",
-      "Vegetarisk",
-      "Laktosfri"
-    ],
-    "properties": [
-      "Snabb"
-    ],
-    "kitchen": [
-      "Italienskt"
-    ],
-    "time": "20"
-  },
-  "ingredients": [
-    {
-      "name": "Röd lök",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Vitlök",
-      "amount": "4",
-      "unit": "St"
-    },
-    {
-      "name": "Vegofiler",
-      "amount": "300",
-      "unit": "G"
-    },
-    {
-      "name": "Vegansk Creme Fraiche",
-      "amount": "2",
-      "unit": "Dl"
-    },
-    {
-      "name": "Vegansk pesto",
-      "amount": "150",
-      "unit": "G"
-    },
-    {
-      "name": "Körsbärstomater",
-      "amount": "200",
-      "unit": "G"
-    },
-    {
-      "name": "Pasta",
-      "amount": "500",
-      "unit": "G"
-    },
-    {
-      "name": "Salt",
-      "amount": 0,
-      "unit": ""
-    },
-    {
-      "name": "Peppar",
-      "amount": 0,
-      "unit": ""
-    },
-    {
-      "name": "Rapsolja",
-      "amount": "1",
-      "unit": "Msk"
-    }
-  ],
-  "steps": [
-    "Börja med att skala och skiva lök och vitlök. Skär tomaterna i halvor.",
-    "Sätt på pastan och börja koka i rikligt saltat vatten.",
-    "Hetta upp en stekpanna och fräs lök, vitlök och vegokött tills löken är mjuk och vegoköttet fått färg.",
-    "Slå i den veganska creme fraiche och pesto i panna och låt koka upp tills pastan är klar.",
-    "",
-    "Spara 1-2 dl pastavatten och häll av pastan när den är rejält al dente.",
-    "Vänd ner pastan och de halverade tomaterna i pastasåsen. Rör om så allt blandas och späd efter behov med pastavatten. Servera omgående."
-  ]
-},{
-  "name": "Vegansk Tunamelt med avokado",
-  "image": "sallad.jpeg",
-  "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-  "description": "En smarrig vegansk macka",
-  "attribute": {
-    "portions": "4",
-    "meal": [
-      "Middag",
-      "Lunch"
-    ],
-    "diet": [
-      "Vegansk",
-      "Vegetarisk",
-      "Laktosfri"
-    ],
-    "properties": [
-      "Snabb"
-    ],
-    "kitchen": [
-      "Amerikansk"
-    ],
-    "time": "30"
-  },
-  "ingredients": [
-    {
-      "name": "Förkokade kikärtor",
-      "amount": "400",
-      "unit": "G"
-    },
-    {
-      "name": "Norialger ark",
-      "amount": "2",
-      "unit": "St"
-    },
-    {
-      "name": "Röd lök",
-      "amount": "0.5",
-      "unit": "St"
-    },
-    {
-      "name": "Tomat",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Saltgurka",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Inlagd kapris",
-      "amount": "2",
-      "unit": "Msk"
-    },
-    {
-      "name": "Tomatpuré",
-      "amount": "1",
-      "unit": "Tsk"
-    },
-    {
-      "name": "Sriracha",
-      "amount": "2",
-      "unit": "Tsk"
-    },
-    {
-      "name": "Vegansk majonäs",
-      "amount": "1",
-      "unit": "Dl"
-    },
-    {
-      "name": "Citronsaft",
-      "amount": "2",
-      "unit": "Tsk"
-    },
-    {
-      "name": "Salt",
-      "amount": "",
-      "unit": ""
-    },
-    {
-      "name": "Levainbröd skivor",
-      "amount": "8",
-      "unit": "St"
-    },
-    {
-      "name": "Avocado",
-      "amount": "2",
-      "unit": "St"
-    },
-    {
-      "name": "Vegansk cheddar, skivad",
-      "amount": "8",
-      "unit": "St"
-    },
-    {
-      "name": "Veganskt smör",
-      "amount": "",
-      "unit": ""
-    }
-  ],
-  "steps": [
-    "Börja med att hälla av spadet från kikärtorna och mosa dem grovt med en potatisstöt.",
-    "Skala och finhacka rödlöken. Ta bort kärnorna ur tomaterna och finahacka resten. Finhacka ättiksgurkan och gräslöken. Kör norialgerna i en matberedare tills de blir småsmulor. Du kan också krossa dem så fint du kan med händerna om du inte har en matberedare.",
-    "Blanda ihop de mosade kikärtorna med de hackade grönsakerna och alla övriga ingredienser. Rör om så allt blandas och smaka av med Tabasco, Ponzu, citron och salt. Du vill ha en röra med kraftig smak utan att det blir överdrivet.",
-    "Skiva brödet och bred margarin på ovansidan av alla mackorna.",
-    "Kärna ur och skiva avokadon och lägg varsin skivad halva utbredd över fyra av brödskivornas smörade sidor.",
-    "Toppa avocadon med rikligt med tonfuskröra. Toppa röran med rikligt med hyvlad vegask cheddar och avsluta med att lägga på de kvarvarande brödskivorna med den smörade sidan neråt.",
-    "Stek mackorna i rikligt med olivolja på bägge sidor under viss press tills de fått fin stekyta och osten smält. Det underlättar om du har ett lock till stekpannan som kan stänga in värmen och snabbare smälta osten. Pressa inte för hårt för då ramlar röran lätt ur.",
-    "Skär i halvor och servera!"
-  ]
-},{
-  "name": "Veganska burgare med pommes",
-  "image": "sallad.jpeg",
-  "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-  "description": "Burgare fast veganskt.",
-  "attribute": {
-    "portions": "4",
-    "meal": [
-      "Middag"
-    ],
-    "diet": [
-      "Vegansk",
-      "Vegetarisk"
-    ],
-    "properties": [],
-    "kitchen": [
-      "Svenska"
-    ],
-    "time": "20"
-  },
-  "ingredients": [
-    {
-      "name": "Pommes",
-      "amount": "850",
-      "unit": "G"
-    },
-    {
-      "name": "Röd lök",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Tomat",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Gurka",
-      "amount": "0.5",
-      "unit": "St"
-    },
-    {
-      "name": "Isbergssallat",
-      "amount": "50",
-      "unit": "G"
-    },
-    {
-      "name": "Hamburgerost",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "hamburgerbröd",
-      "amount": "6",
-      "unit": "St"
-    },
-    {
-      "name": "Delifresh plantbeef burgare",
-      "amount": "6",
-      "unit": "St"
-    },
-    {
-      "name": "Slotts senap",
-      "amount": "",
-      "unit": ""
-    },
-    {
-      "name": "Hamburgardressing stor",
-      "amount": "",
-      "unit": ""
-    },
-    {
-      "name": "Heinz ketchup",
-      "amount": "",
-      "unit": ""
-    },
-    {
-      "name": "Vegansk majonäs",
-      "amount": "",
-      "unit": ""
-    }
-  ],
-  "steps": [
-    "Lägg pommes på en plåt utan bakplåtspapper och tillaga enligt paketanvisningarna.",
-    "Förbered alla grönsaker, skiva rödlök, tomat och gurka. Lägg salladsblad och de skivade grönsaker på ett serveringsfat tillsammans med hamburgarosten.",
-    "Stek burgarna och servera med valfria såser.",
-    "Glöm inte bröden."
-  ]
-},{
-  "name": "Tacos",
-  "image": "sallad.jpeg",
-  "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-  "description": "Riktigt god fredags mat",
-  "attribute": {
-    "portions": "3",
-    "meal": [
-      "Middag"
-    ],
-    "diet": [
-      "Vegetarisk",
-      "Tacotarian"
-    ],
-    "properties": [
-      "Lyxig",
-      "Tacos"
-    ],
-    "kitchen": [
-      "Svenska"
-    ],
-    "time": "30"
-  },
-  "ingredients": [
-    {
-      "name": "Avocado",
-      "amount": "4",
-      "unit": "St"
-    },
-    {
-      "name": "Tomat",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Vitlök",
-      "amount": "5",
-      "unit": "St"
-    },
-    {
-      "name": "Citronsaft",
-      "amount": "1",
-      "unit": "Msk"
-    },
-    {
-      "name": "Röd chili",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Kruka koriander",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Röd lök",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Vegofärs",
-      "amount": "400",
-      "unit": "G"
-    },
-    {
-      "name": "Taco krydda hot cayenne",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Tortilla Corn Wheat Medium",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Riven ost",
-      "amount": "100",
-      "unit": "G"
-    },
-    {
-      "name": "Majs burk",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Frankful ostdipp",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Taco sauce x-hot",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Gräddfil liten",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Nacho chips liten",
-      "amount": "1",
-      "unit": "St"
-    }
-  ],
-  "steps": [
-    "Dela avokadon och ta ur kärnorna. Gröp ur fruktköttet. Lägg fruktköttet i en skål och mixa eller mosa sönder med en gaffel eller i mixer.",
-    "Kärna ur tomaten och hacka fint. Dela, kärna ur och hacka chilin fint. Blanda tomat, chili, pressad vitlök pressad citron och kryddor tillsammans med avokadomoset.",
-    "Bryn vegofärsen i rapsolja. Tillsätt tacokryddan och vatten. Stek tills allt vatten puttrat bort.",
-    "Lägg alla tillbehör i skålar och servera. Njut!"
-  ]
-},{
-  "name": "Vegobullar gräddsås och kokt potatis",
-  "image": "sallad.jpeg",
-  "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-  "description": "En klassiker men gjord vegansk.",
-  "attribute": {
-    "portions": "4",
-    "meal": [
-      "Middag",
-      "Lunch"
-    ],
-    "diet": [
-      "Vegetarisk",
-      "Vegansk",
-      "Laktosfri"
-    ],
-    "properties": [
-      "Snabb"
-    ],
-    "kitchen": [
-      "Svenska"
-    ],
-    "time": "20"
-  },
-  "ingredients": [
-    {
-      "name": "Potatis",
-      "amount": "900",
-      "unit": "G"
-    },
-    {
-      "name": "Smör",
-      "amount": "2",
-      "unit": "Msk"
-    },
-    {
-      "name": "Vetemjöl",
-      "amount": "1",
-      "unit": "Msk"
-    },
-    {
-      "name": "Havregrädde",
-      "amount": "3.5",
-      "unit": "Dl"
-    },
-    {
-      "name": "Lingonsylt",
-      "amount": "1.5",
-      "unit": "Tsk"
-    },
-    {
-      "name": "Kinesisk soja",
-      "amount": "1.5",
-      "unit": "Tsk"
-    },
-    {
-      "name": "Grönsaksbuljongtärning",
-      "amount": "0.5",
-      "unit": "St"
-    },
-    {
-      "name": "Salt",
-      "amount": "0.5",
-      "unit": "Krm"
-    },
-    {
-      "name": "Peppar",
-      "amount": "0.5",
-      "unit": "Krm"
-    },
-    {
-      "name": "Vegobullar",
-      "amount": "400",
-      "unit": "G"
-    },
-    {
-      "name": "Gammaldags Gurka",
-      "amount": "300",
-      "unit": "G"
-    }
-  ],
-  "steps": [
-    "Koka potatisen från kallt lättsaltat vatten",
-    "Låt koka i 20 minuter. Kom ihåg att koka med locket på och med lägre temperatur för att spara energi.",
-    "För sås: Smält smöret i en kastrull och blanda i mjölet. När det börjar tjockna, tillsätt grädden och rör om.",
-    "Häll i resten av ingredienserna och koka upp.",
-    "Smaka av och tillsätt vid behov mer salt och peppar.",
-    "Låt sjuda tills såsen tjocknat.",
-    "Stek bullarna till de får färg.",
-    "Servera potatis gräddsås och vegobullarna med lingonsylt och pressgurka."
-  ]
-},{
-  "name": "Vegansk pytt i panna",
-  "image": "sallad.jpeg",
-  "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-  "description": "Pytt i panna fast vegansk.",
-  "attribute": {
-    "portions": "4",
-    "meal": [
-      "Middag"
-    ],
-    "diet": [
-      "Vegansk",
-      "Vegetarisk",
-      "Laktosfri"
-    ],
-    "properties": [
-      "Billig"
-    ],
-    "kitchen": [
-      "Svenska"
-    ],
-    "time": "40"
-  },
-  "ingredients": [
-    {
-      "name": "Potatis",
-      "amount": "500",
-      "unit": "G"
-    },
-    {
-      "name": "Morot",
-      "amount": "3",
-      "unit": "St"
-    },
-    {
-      "name": "Vitkål",
-      "amount": "200",
-      "unit": "G"
-    },
-    {
-      "name": "Gul lök",
-      "amount": "1",
-      "unit": "St"
-    },
-    {
-      "name": "Vegokorv",
-      "amount": "200",
-      "unit": "G"
-    },
-    {
-      "name": "Salt",
-      "amount": "",
-      "unit": ""
-    },
-    {
-      "name": "Peppar",
-      "amount": "",
-      "unit": ""
-    },
-    {
-      "name": "Rapsolja",
-      "amount": "2",
-      "unit": "Msk"
-    },
-    {
-      "name": "Vitlökspulver",
-      "amount": "1",
-      "unit": "Msk"
-    }
-  ],
-  "steps": [
-    "Börja med att skala, rensa och skölj alla grönsaker. Tärna dem i ungefär 5-10 mm stora bitar, beroende på vad du orkar med. Ju finare du tärnar desto snabbare går det att steka.",
-    "Lägg upp de olika typerna av grönsaker/vegokött i tallrikar efter hur grova de är. Följ ungefär mina grupperingar ovan!",
-    "Stek de grövre först i rapsolja, alt och peppar tills de är genomstekta och fått fin färg. Jag använder ganska hög värme och vaktar pannan noga, men om du känner dig osäker så kan du steka på medelvärme och låta det ta lite längre tid. Ställ åt sidan och upprepa med de övriga grönsakerna så allt steks den tid de behöver.",
-    "När allt är stekt blandar du ihop allt i pannan igen, smakar av med vitlökspulver, salt och peppar och låter värmas upp.",
-    "Servera med inlagda rödbetor eller vad för tillbehör du föredrar!"
-  ]
-},{
-  "name": "Biff Stoganov",
-  "image": "sallad.jpeg",
-  "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-  "description": "En god rysk klassiker med pommes och haricot verts stekta med lök och bacon blir det en festmåltid.",
-  "attribute": {
-    "portions": "4",
-    "meal": [
-      "Middag"
-    ],
-    "diet": [
-      "Kött"
-    ],
-    "properties": [
-      "Lyxig"
-    ],
-    "kitchen": [
-      "Ryskt"
-    ],
-    "time": "40"
-  },
-  "ingredients": [
-    {
-      "name": "Pommes",
-      "amount": "850",
-      "unit": "G"
-    },
-    {
-      "name": "Smör",
-      "amount": "2",
-      "unit": "Msk"
-    },
-    {
-      "name": "Gul lök",
-      "amount": "3",
-      "unit": "St"
-    },
-    {
-      "name": "Champinjon",
-      "amount": "250",
-      "unit": "G"
-    },
-    {
-      "name": "Oxfile",
-      "amount": "500",
-      "unit": "G"
-    },
-    {
-      "name": "Vetemjöl",
-      "amount": "2",
-      "unit": "Msk"
-    },
-    {
-      "name": "Kalvfond",
-      "amount": "1.5",
-      "unit": "Msk"
-    },
-    {
-      "name": "Dijonsenap",
-      "amount": "3",
-      "unit": "Msk"
-    },
-    {
-      "name": "Salt",
-      "amount": "1",
-      "unit": "Tsk"
-    },
-    {
-      "name": "Peppar",
-      "amount": "1",
-      "unit": "Tsk"
-    },
-    {
-      "name": "Creme fraiche",
-      "amount": "2",
-      "unit": "Dl"
-    },
-    {
-      "name": "Haricots verts",
-      "amount": "300",
-      "unit": "G"
-    },
-    {
-      "name": "Bacon",
-      "amount": "200",
-      "unit": "G"
-    }
-  ],
-  "steps": [
-    "Tillaga pommesen enligt instruktioner på paketet. ",
-    "Smält 1 msk smör i en stor kastrull. Stek den skivade svampen tills den fått lite färg. Ta ur och sätt åt sidan.",
-    "Tillsätt en till msk smör i kastrullen och stek lök i 1-2 min.",
-    "Tillsätt oxfilen som är skuren i mindre bitar och vetemjölet. Tillaga i 2-3 min eller tills bynt.",
-    "Häll i kalvfonden, 3 dl vatten, dijonsenap och rör runt för att lossa de bruna bitarna på botten.",
-    "Häll i creme fraiche och låt puttra tills såsen tjocknat lite. Smaka av låt stå medan hericot vertsen tillagas. ",
-    "Hacka 1 lök och bacon i bitar. Stek bacon och lök i en stekpanna tills mjukt och fått lite färg. Blanchera bönorna.",
-    "Lägg i bönorna i stekpannan och stek i någon minut.",
-    "Servera och njut"
-  ]
-}]
+]
