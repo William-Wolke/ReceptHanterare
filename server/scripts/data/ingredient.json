@@ -1,1421 +1,1419 @@
-[{
-  "name": "Röd lök",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": 1
-      },
-      {
-        "unit": "G",
-        "amount": 150
-      },
-      {
-        "unit": "L",
-        "amount": 0.2
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Gul lök",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": 1
-      },
-      {
-        "unit": "G",
-        "amount": 150
-      },
-      {
-        "unit": "L",
-        "amount": 0.2
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Falukorv",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "G",
-        "amount": "400"
-      },
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "L",
-        "amount": "0.5"
-      }
-    ]
-  },
-  "section": "chark"
-},{
-  "name": "Vitlök",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "3.5"
-      },
-      {
-        "unit": "L",
-        "amount": "0.005"
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Makaroner",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "50"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Mjölk",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "1000"
-      },
-      {
-        "unit": "L",
-        "amount": "1"
-      }
-    ]
-  },
-  "section": "dairy"
-},{
-  "name": "Isbergssallat",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "500"
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Tomat",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "90"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Potatis",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "90"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Smör",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "0"
-      },
-      {
-        "unit": "G",
-        "amount": "95"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "dairy"
-},{
-  "name": "Vetemjöl",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": 0
-      },
-      {
-        "unit": "G",
-        "amount": "70"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Havregrädde",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": 0
-      },
-      {
-        "unit": "G",
-        "amount": "100"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "dairy"
-},{
-  "name": "Lingonsylt",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": 0
-      },
-      {
-        "unit": "G",
-        "amount": "115"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Kinesisk soja",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": 0
-      },
-      {
-        "unit": "G",
-        "amount": "100"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Grönsaksbuljongtärning",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "10"
-      },
-      {
-        "unit": "L",
-        "amount": "0.5"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Salt",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "125"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Peppar",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "43.3"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Vegobullar",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "10"
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "freezer"
-},{
-  "name": "Rapsolja",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "90"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Vegofiler",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": ""
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "freezer"
-},{
-  "name": "Vegansk Creme Fraiche",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "100"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "dairy"
-},{
-  "name": "Vegansk pesto",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "100"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Körsbärstomater",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "20"
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Pasta",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "35"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Avocado",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "165"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Limesaft",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "0"
-      },
-      {
-        "unit": "L",
-        "amount": "0.25"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Förkokade kikärtor",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "400"
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Norialger ark",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": ""
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Röd chili",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "20"
-      },
-      {
-        "unit": "L",
-        "amount": "0"
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Saltgurka",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": ""
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Inlagd kapris",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "8.6"
-      },
-      {
-        "unit": "L",
-        "amount": "0.015"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Kruka koriander",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": 0
-      },
-      {
-        "unit": "L",
-        "amount": "0.03"
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Fryst koriander",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "40"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "freezer"
-},{
-  "name": "Tomatpuré",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "120"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Ponzu",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "120"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Vegofärs",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "1000"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "freezer"
-},{
-  "name": "Sriracha",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "5"
-      },
-      {
-        "unit": "L",
-        "amount": "0.005"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Taco krydda hot cayenne",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "28"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Vegansk majonäs",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "95"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Tortilla Corn Wheat Medium",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "336"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Citronsaft",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": ""
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Riven ost",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "150"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "dairy"
-},{
-  "name": "Majs burk",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "150"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Frankful ostdipp",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "240"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Levainbröd skivor",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "20"
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "bread"
-},{
-  "name": "Vegansk cheddar, skivad",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "15"
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "dairy"
-},{
-  "name": "Taco sauce x-hot",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "230"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Veganskt smör",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "90"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "dairy"
-},{
-  "name": "Gräddfil liten",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "0"
-      },
-      {
-        "unit": "L",
-        "amount": "0.3"
-      }
-    ]
-  },
-  "section": "dairy"
-},{
-  "name": "Heinz ketchup",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "1015"
-      },
-      {
-        "unit": "L",
-        "amount": "0.875"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Slotts senap",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "450"
-      },
-      {
-        "unit": "L",
-        "amount": "0"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Hamburgardressing stor",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "425"
-      },
-      {
-        "unit": "L",
-        "amount": "0"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Vitkål",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "1200"
-      },
-      {
-        "unit": "L",
-        "amount": "3"
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Morot",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "65"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Delifresh plantbeef burgare",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "90"
-      },
-      {
-        "unit": "L",
-        "amount": "0"
-      }
-    ]
-  },
-  "section": "freezer"
-},{
-  "name": "Vegokorv",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "60"
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "freezer"
-},{
-  "name": "hamburgerbröd",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "55.625"
-      },
-      {
-        "unit": "L",
-        "amount": "0"
-      }
-    ]
-  },
-  "section": "bread"
-},{
-  "name": "Vitlökspulver",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "660"
-      },
-      {
-        "unit": "L",
-        "amount": "1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Nacho chips liten",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "185"
-      },
-      {
-        "unit": "L",
-        "amount": "0"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Hamburgerost",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "200"
-      },
-      {
-        "unit": "L",
-        "amount": "0"
-      }
-    ]
-  },
-  "section": "milk"
-},{
-  "name": "Pommes",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": ""
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "freezer"
-},{
-  "name": "Gurka",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "400"
-      },
-      {
-        "unit": "L",
-        "amount": "0.9"
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Gammaldags Gurka",
-  "unit": {
-    "preferredUnit": "St",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "730"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Bacon",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "140"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "chark"
-},{
-  "name": "Champinjon",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "0"
-      },
-      {
-        "unit": "G",
-        "amount": "1"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "produce"
-},{
-  "name": "Oxfile",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "0"
-      },
-      {
-        "unit": "G",
-        "amount": "1"
-      },
-      {
-        "unit": "L",
-        "amount": 0
-      }
-    ]
-  },
-  "section": "chark"
-},{
-  "name": "Kalvfond",
-  "unit": {
-    "preferredUnit": "L",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": "1"
-      },
-      {
-        "unit": "G",
-        "amount": "0"
-      },
-      {
-        "unit": "L",
-        "amount": "0.5"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Dijonsenap",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "110"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "cupboard"
-},{
-  "name": "Creme fraiche",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "100"
-      },
-      {
-        "unit": "L",
-        "amount": "0.1"
-      }
-    ]
-  },
-  "section": "dairy"
-},{
-  "name": "Haricots verts",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": ""
-      },
-      {
-        "unit": "G",
-        "amount": "1"
-      },
-      {
-        "unit": "L",
-        "amount": ""
-      }
-    ]
-  },
-  "section": "freezer"
-},{
-  "name": "Mjöl",
-  "unit": {
-    "preferredUnit": "G",
-    "conversion": [
-      {
-        "unit": "St",
-        "amount": 0
-      },
-      {
-        "unit": "G",
-        "amount": "60"
-      },
-      {
-        "unit": "L",
-        "amount": "0"
-      }
-    ]
-  },
-  "section": "cupboard"
-}]
+[
+    {
+        "name": "Röd lök",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 150
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.2
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Gul lök",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 150
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.2
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Falukorv",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "G",
+                    "amount": 400
+                },
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.5
+                }
+            ]
+        },
+        "section": "chark"
+    },
+    {
+        "name": "Vitlök",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 3.5
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.005
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Makaroner",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 50
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Mjölk",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 1000
+                },
+                {
+                    "unit": "L",
+                    "amount": 1
+                }
+            ]
+        },
+        "section": "dairy"
+    },
+    {
+        "name": "Isbergssallat",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 500
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Tomat",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 90
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Potatis",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 90
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Smör",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 95
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "dairy"
+    },
+    {
+        "name": "Vetemjöl",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 70
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Havregrädde",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 100
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "dairy"
+    },
+    {
+        "name": "Lingonsylt",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 115
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Kinesisk soja",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 100
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Grönsaksbuljongtärning",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 10
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.5
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Salt",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 125
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Peppar",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 43.3
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Vegobullar",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 10
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "freezer"
+    },
+    {
+        "name": "Rapsolja",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 90
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Vegofiler",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G"
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "freezer"
+    },
+    {
+        "name": "Vegansk Creme Fraiche",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 100
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "dairy"
+    },
+    {
+        "name": "Vegansk pesto",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 100
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Körsbärstomater",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 20
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Pasta",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 35
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Avocado",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 165
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Limesaft",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G"
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.25
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Förkokade kikärtor",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 400
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Norialger ark",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G"
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Röd chili",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 20
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Saltgurka",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G"
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Inlagd kapris",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 8.6
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.015
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Kruka koriander",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G"
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.03
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Fryst koriander",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 40
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "freezer"
+    },
+    {
+        "name": "Tomatpuré",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 120
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Ponzu",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 120
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Vegofärs",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 1000
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "freezer"
+    },
+    {
+        "name": "Sriracha",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 5
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.005
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Taco krydda hot cayenne",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 28
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Vegansk majonäs",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 95
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Tortilla Corn Wheat Medium",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 336
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Citronsaft",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G"
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Riven ost",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 150
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "dairy"
+    },
+    {
+        "name": "Majs burk",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 150
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Frankful ostdipp",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 240
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Levainbröd skivor",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 20
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "bread"
+    },
+    {
+        "name": "Vegansk cheddar, skivad",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 15
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "dairy"
+    },
+    {
+        "name": "Taco sauce x-hot",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 230
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Veganskt smör",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 90
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "dairy"
+    },
+    {
+        "name": "Gräddfil liten",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G"
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.3
+                }
+            ]
+        },
+        "section": "dairy"
+    },
+    {
+        "name": "Heinz ketchup",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 1015
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.875
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Slotts senap",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 450
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Hamburgardressing stor",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 425
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Vitkål",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 1200
+                },
+                {
+                    "unit": "L",
+                    "amount": 3
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Morot",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 65
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Delifresh plantbeef burgare",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 90
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "freezer"
+    },
+    {
+        "name": "Vegokorv",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 60
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "freezer"
+    },
+    {
+        "name": "hamburgerbröd",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 55.625
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "bread"
+    },
+    {
+        "name": "Vitlökspulver",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 660
+                },
+                {
+                    "unit": "L",
+                    "amount": 1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Nacho chips liten",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 185
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Hamburgerost",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 200
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "milk"
+    },
+    {
+        "name": "Pommes",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G"
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "freezer"
+    },
+    {
+        "name": "Gurka",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 400
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.9
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Gammaldags Gurka",
+        "unit": {
+            "preferredUnit": "St",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 730
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Bacon",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": 140
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "chark"
+    },
+    {
+        "name": "Champinjon",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 1
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "produce"
+    },
+    {
+        "name": "Oxfile",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 1
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "chark"
+    },
+    {
+        "name": "Kalvfond",
+        "unit": {
+            "preferredUnit": "L",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G"
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.5
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Dijonsenap",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 110
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "cupboard"
+    },
+    {
+        "name": "Creme fraiche",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 100
+                },
+                {
+                    "unit": "L",
+                    "amount": 0.1
+                }
+            ]
+        },
+        "section": "dairy"
+    },
+    {
+        "name": "Haricots verts",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 1
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "freezer"
+    },
+    {
+        "name": "Mjöl",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St"
+                },
+                {
+                    "unit": "G",
+                    "amount": 60
+                },
+                {
+                    "unit": "L"
+                }
+            ]
+        },
+        "section": "cupboard"
+    }
+]

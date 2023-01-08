@@ -159,13 +159,12 @@ const CreateRecipe = () => {
         <>
             {createNewIngredient && <CreateIngredient />}
             {createNewIngredient && (
-                <button
-                    onClick={() => {
+                <Button
+                    text={'Update ingredients'}
+                    onClickFunc={() => {
                         setUpdateIngredients(updateIngredients * -1);
                     }}
-                >
-                    Update ingredients
-                </button>
+                />
             )}
             <div className="create">
                 <form onSubmit={handleSubmit} className="form">
@@ -210,7 +209,13 @@ const CreateRecipe = () => {
 
                     {/* Kitchen */}
                     <div>
-                        <InputSelect text="Kök" optionList={constants.kitchenTypes} htmlFor="kitchen" value={kitchenName} setter={setKitchenName} />
+                        <InputSelect
+                            text="Kök"
+                            optionList={constants.kitchenTypes}
+                            htmlFor="kitchen"
+                            value={kitchenName}
+                            setter={setKitchenName}
+                        />
 
                         <Button text="Lägg till" onClickFunc={handleAddKitchen} />
 
