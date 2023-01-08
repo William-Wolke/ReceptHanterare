@@ -2,6 +2,7 @@ import constants from './data/constants.json';
 
 //Returns a array that contains the recipenames for the passed array
 export const summarizeNames = (array) => {
+    if (!array?.length) return [];
     return array.map((item) => {
         return item.name;
     });
@@ -42,50 +43,23 @@ export const toPreferredUnit = (shoppingList, ingredients) => {
             return item;
         }
 
-        // ingredients.map((ingredient) => {
-        //     if (item.name === ingredient.name) {
-        //         if (item.unit !== ingredient.unit.preferredUnit) {
-        //             ingredient.unit?.conversion?.map((unit) => {
-        //                 if (unit.unit === ingredient.unit?.preferredUnit) {
-        //                     constants.metric.map((metric) => {
-        //                         if (metric.unit === item.unit) {
-        //                             //Convert from
-        //                             item.amount = Number(item.amount * unit.amount * metric.convert);
-        //                             item.unit = ingredient.unit.preferredUnit;
-        //                         }
-        //                     });
-        //                 }
-        //             });
-        //         }
-        //     }
-        // });
-
         return item;
     });
 };
 
-export const summarizeShoppingList = (shoppingList, ingredients) => {
-    //Convert all shopping items to prefered units
-    shoppingList = toPreferredUnit(shoppingList, ingredients);
-
+export const summarizeShoppingList = (shoppingList) => {
     //Map through all items in shopping list and all ingredients
     //Summarize the list
 
     let uniqueList = [];
 
     shoppingList.forEach((item) => {
-        const ingredient = uniqueList.find(({ name, unit }) => {if (name === item.name && unit === item.unit) {console.log(name, item.name, unit, item.unit); return true}});
-        // console.log('hello', item, 'bye', ingredient);
-
-        
+        const ingredient = uniqueList.find(({ name, unit }) => name === item.name && unit === item.unit);
         if (ingredient && ingredient.unit === item.unit) {
-            let amount = parseFloat((ingredient.amount + item.amount).toFixed(numOfDecimals));
+            let amount = parseFloat(Number((Number(ingredient.amount) + Number(item.amount))).toFixed(numOfDecimals));
 
-            console.log("adding", ingredient.amount, "with", item.amount)
-            console.log("result", amount);
             ingredient.amount = amount;
         } else {
-            console.log("pushing", item)
             uniqueList.push({
                 name: item.name,
                 amount: item.amount,

@@ -18,8 +18,6 @@ test('Summarize shopping list', () => {
     results.forEach((result, index) => {
         const expected = data.expectedSortedShoppingList[index];
 
-        console.log(result, expected);
-
         expect(result.unit).toBe(expected.unit);
         expect(result.amount).toBe(expected.amount);
     });
