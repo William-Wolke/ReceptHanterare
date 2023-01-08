@@ -56,7 +56,7 @@ export const summarizeShoppingList = (shoppingList) => {
     shoppingList.forEach((item) => {
         const ingredient = uniqueList.find(({ name, unit }) => name === item.name && unit === item.unit);
         if (ingredient && ingredient.unit === item.unit) {
-            let amount = parseFloat(Number((Number(ingredient.amount) + Number(item.amount))).toFixed(numOfDecimals));
+            let amount = parseFloat(Number(Number(ingredient.amount) + Number(item.amount)).toFixed(numOfDecimals));
 
             ingredient.amount = amount;
         } else {

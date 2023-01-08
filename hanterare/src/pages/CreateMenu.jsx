@@ -4,25 +4,14 @@ import UseAxios from '../hooks/UseAxios';
 import Input from '../components/Input';
 import InputSelect from '../components/InputSelect';
 import InputRange from '../components/InputRange';
-import WeekdayList from '../components/WeekdayList';
 import Button from '../components/Button';
 import IngredientList from '../components/IngredientList';
-import { summarizeNames, summarizeShoppingList } from '../helpers';
+import { summarizeNames, summarizeShoppingList, toPreferredUnit } from '../helpers';
 import constants from '../data/constants.json';
-
-// const weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
 const CreateMenu = () => {
     const [update, setUpdate] = useState(false);
 
-    //States for showing which days to eat what
-    // const [monday, setMonday] = useState([]);
-    // const [tuesday, setTuesday] = useState([]);
-    // const [wednesday, setWednesday] = useState([]);
-    // const [thursday, setThursday] = useState([]);
-    // const [friday, setFriday] = useState([]);
-    // const [saturday, setSaturday] = useState([]);
-    // const [sunday, setSunday] = useState([]);
     const [shoppingList, setShoppingList] = useState([]);
 
     const [weekMenu, setWeekMenu] = useState([
@@ -35,22 +24,9 @@ const CreateMenu = () => {
         { name: 'sunday', recipes: [] },
     ]);
 
-    const getWeekIngredients = (weekMenu) => {
-        let tempArr = [];
-
-        let ingredientsArr = weekMenu.map((menu) => {
-            tempArr = menu?.ingredients.map((ingredient) => {
-                return ingredient;
-            });
-            return tempArr;
-        });
-
-        return ingredientsArr;
-    };
-
     //States for general info for menu
     const [week, setWeek] = useState(1);
-    const [year, setYear] = useState(2022);
+    const [year, setYear] = useState(2023);
 
     //States to add new element/recipes to days
     const [recipe, setRecipe] = useState('');
@@ -72,25 +48,22 @@ const CreateMenu = () => {
         //Prevent reloading page
         e.preventDefault();
 
-        // setShoppingList(summarizeShoppingList(shoppingList, ingredients));
-
-        const concatShoppingList = shoppingList.concat(looseIngredients);
+        const tempShoppingList = summarizeShoppingList(shoppingList, ingredients).concat(looseIngredients);
 
         //Create object to insert into db
         //We only want to save the recipenames not the entire recipes
         const menu = {
             year: year,
             week: week,
-            monday: summarizeNames(weekMenu[0].ingredients, data),
-            tuesday: summarizeNames(weekMenu[1].ingredients, data),
-            wednesday: summarizeNames(weekMenu[2].ingredients, data),
-            thursday: summarizeNames(weekMenu[3].ingredients, data),
-            friday: summarizeNames(weekMenu[4].ingredients, data),
-            saturday: summarizeNames(weekMenu[5].ingredients, data),
-            sunday: summarizeNames(weekMenu[6].ingredients, data),
-            shoppingList: concatShoppingList,
+            monday: weekMenu[0].recipes,
+            tuesday: weekMenu[1].recipes,
+            wednesday: weekMenu[2].recipes,
+            thursday: weekMenu[3].recipes,
+            friday: weekMenu[4].recipes,
+            saturday: weekMenu[5].recipes,
+            sunday: weekMenu[6].recipes,
+            shoppingList: tempShoppingList,
         };
-
         console.log(menu);
 
         //Call api to create
@@ -102,22 +75,36 @@ const CreateMenu = () => {
     const handleAddRecipe = () => {
         const addedRecipe = data.find(({ name }) => name === recipe);
 
-        let dayIndex = weekMenu.findIndex(({ name }) => name === day);
-        let tempWeekMenu = weekMenu;
-        let weekMenuDay = tempWeekMenu.find(({ name }) => name === day);
+        if (!addedRecipe) return;
 
-        weekMenuDay.recipes = [...weekMenuDay.recipes, addedRecipe.name];
+        const dayIndex = weekMenu.findIndex(({ name }) => name === day);
+        let weekMenuDay = weekMenu.find(({ name }) => name === day);
+        let tempWeekMenu = weekMenu;
+
+        if (weekMenuDay) {
+            weekMenuDay.recipes = [...weekMenuDay.recipes, addedRecipe.name];
+        } else {
+            weekMenuDay.recipes = [addedRecipe.name];
+        }
 
         //Set weekMenu to updated weekMenu
         tempWeekMenu[dayIndex] = weekMenuDay;
 
         setWeekMenu(tempWeekMenu);
-        setShoppingList(summarizeShoppingList([...shoppingList, addedRecipe.ingredients]));
+
+        let tempShoppingList;
+        if (shoppingList.length) {
+            tempShoppingList = summarizeShoppingList(toPreferredUnit([...shoppingList, ...addedRecipe.ingredients], ingredients));
+        } else {
+            tempShoppingList = summarizeShoppingList(toPreferredUnit(addedRecipe.ingredients, ingredients));
+        }
+
+        setShoppingList(tempShoppingList);
 
         if (weekMenu.findIndex(({ name }) => name === day) === 6) {
             setDay(weekMenu[0].name);
         } else {
-            setDay(weekMenu[weekMenu.findIndex(({ name }) => name === day) + 1]);
+            setDay(weekMenu[weekMenu.findIndex(({ name }) => name === day) + 1].name);
         }
         setRecipe('');
     };
@@ -166,7 +153,19 @@ const CreateMenu = () => {
 
                         <Button text={'+'} onClickFunc={handleAddRecipe} />
 
-                        <WeekdayList weekdays={weekMenu} />
+                        <div className="weekdayMenuList form-element">
+                            {weekMenu.map(({ name, recipes }, index) => {
+                                return (
+                                    <div key={`${name} + ${index}`} className="weekdayMenuItem">
+                                        <h2 className="weekdayMenuHeader">{name}</h2>
+                                        {recipes &&
+                                            recipes.map((recipeName, index) => {
+                                                return <p key={'recipe' + index}>{recipeName}</p>;
+                                            })}
+                                    </div>
+                                );
+                            })}
+                        </div>
 
                         <div className="form-element">
                             <h2>Inköpslista</h2>
@@ -199,13 +198,6 @@ const CreateMenu = () => {
                         <Button text={'Lägg till'} onClickFunc={handleAddLoose} />
 
                         <IngredientList list={looseIngredients} />
-
-                        <Button
-                            text={'Summera ingredienser'}
-                            onClickFunc={() => {
-                                setShoppingList(summarizeShoppingList(shoppingList, ingredients));
-                            }}
-                        />
 
                         <div className="form-element">
                             <input type="submit" value="Submit" className="input button" />
