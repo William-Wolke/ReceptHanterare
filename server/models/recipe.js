@@ -18,12 +18,19 @@ const recipeSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true,
+        // required: true,
         trim: true,
     },
-    attribute: {
-        type: Object,
-        required: true,
+    time: {
+        type: Number,
+        min: 0,
+    },
+    portions: {
+        type: Number,
+        min: 0,
+    },
+    tags: {
+        type: Array,
     },
     ingredients: {
         type: Array,

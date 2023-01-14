@@ -57,11 +57,9 @@ const CreateRecipe = () => {
             // image: image,
             // alt: alt,
             description: description,
-            attribute: {
-                portions: portions,
-                tags: tags,
-                time: time,
-            },
+            portions: portions,
+            tags: tags,
+            time: time,
             ingredients: ingredients,
             steps: steps,
         };

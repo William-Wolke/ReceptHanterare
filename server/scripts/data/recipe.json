@@ -1,60 +1,12 @@
 [
     {
-        "name": "Lätt sallad",
-        "image": "sallad.jpeg",
-        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-        "description": "Denna simpla och sköna gröna sallad kan hjälpa en under livets tuffa perioder. Lätt fuktig. Denna bäbis har mycket smak.",
-        "attribute": {
-            "portions": 4,
-            "meal": ["förrätt", "mellanmål", "efterrätt"],
-            "diet": ["vegansk", "glutenfritt"],
-            "properties": ["billig", "snabb"],
-            "kitchen": ["fransk"],
-            "time": "15"
-        },
-        "ingredients": [
-            { "name": "Isbergssallat", "amount": 300, "unit": "G" },
-            { "name": "Tomat", "amount": 2, "unit": "St" }
-        ],
-        "steps": [
-            "Ansa den spröda och ljuvliga sallaten.",
-            "Skölj sallaten i isvatten precis som chocken av att vakna på morgonen.",
-            "Som en bödel vid Stockholms blodbad, skiva upp tomaten",
-            "Som en tornado sveper över landsmassor skall du nu blanda tomat och sallaten.",
-            "Avnjut smaken av slajm likt Daidalos avnjuter att slajma små barn."
-        ]
-    },
-    {
-        "name": "Lök me lök",
-        "image": "sallad.jpeg",
-        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
-        "description": "lölölölölölök",
-        "attribute": {
-            "portions": 0,
-            "meal": ["Efterrätt", "Mellanmål"],
-            "diet": ["Vegansk", "Vegetarisk", "Laktosfri"],
-            "properties": ["Snabb", "Billig", "Illasmakande"],
-            "kitchen": ["Finsk", "Skånsk/Dansk"]
-        },
-        "ingredients": [
-            { "name": "Röd lök", "amount": "100", "unit": "G" },
-            { "name": "Gul lök", "amount": "69", "unit": "G" }
-        ],
-        "steps": ["Hagga lögen", "lukte lögen", "smege lögen"]
-    },
-    {
         "name": "Falukorv med stuvade makaroner",
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
         "description": "Barnsligt gott tycker stora som små. Stekt falukorv serveras här med mjölkstuvade makaroner. Mums!",
-        "attribute": {
-            "portions": "4",
-            "meal": ["Middag"],
-            "diet": ["Kött"],
-            "properties": ["Snabb", "Billig"],
-            "kitchen": ["Svenska"],
-            "time": "30"
-        },
+        "time": 30,
+        "portions": 4,
+        "tags": ["Middag", "Kött", "Snabb", "Billig", "Svensk"],
         "ingredients": [
             { "name": "Mjölk", "amount": "1", "unit": "L" },
             { "name": "Makaroner", "amount": "5", "unit": "Dl" },
@@ -71,14 +23,9 @@
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
         "description": "Pasta med pesto fast vegansk.",
-        "attribute": {
-            "portions": "3",
-            "meal": [],
-            "diet": ["Vegansk", "Vegetarisk", "Laktosfri"],
-            "properties": ["Snabb"],
-            "kitchen": ["Italienskt"],
-            "time": "20"
-        },
+        "time": 20,
+        "portions": 3,
+        "tags": ["Vegansk", "Vegetarisk", "Laktosfri", "Snabb", "Italiensk", "Snabb"],
         "ingredients": [
             { "name": "Röd lök", "amount": "1", "unit": "St" },
             { "name": "Vitlök", "amount": "4", "unit": "St" },
@@ -106,14 +53,9 @@
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
         "description": "En smarrig vegansk macka",
-        "attribute": {
-            "portions": "4",
-            "meal": ["Middag", "Lunch"],
-            "diet": ["Vegansk", "Vegetarisk", "Laktosfri"],
-            "properties": ["Snabb"],
-            "kitchen": ["Amerikansk"],
-            "time": "30"
-        },
+        "time": 30,
+        "portions": 4,
+        "tags": ["Middag", "Lunch", "Vegansk", "Vegetarisk", "Laktosfri", "Snabb", "Amerikansk"],
         "ingredients": [
             { "name": "Förkokade kikärtor", "amount": "400", "unit": "G" },
             { "name": "Norialger ark", "amount": "2", "unit": "St" },
@@ -147,14 +89,9 @@
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
         "description": "Burgare fast veganskt.",
-        "attribute": {
-            "portions": "4",
-            "meal": ["Middag"],
-            "diet": ["Vegansk", "Vegetarisk"],
-            "properties": [],
-            "kitchen": ["Svenska"],
-            "time": "20"
-        },
+        "time": 20,
+        "portions": 4,
+        "tags": ["Middag", "Vegansk", "Vegetarisk", "Svensk", "Italiensk", "Snabb"],
         "ingredients": [
             { "name": "Pommes", "amount": "850", "unit": "G" },
             { "name": "Röd lök", "amount": "1", "unit": "St" },
@@ -178,17 +115,12 @@
     },
     {
         "name": "Tacos",
-        "image": "sallad.jpeg",
-        "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
+        "image": "",
+        "alt": "",
         "description": "Riktigt god fredags mat",
-        "attribute": {
-            "portions": "3",
-            "meal": ["Middag"],
-            "diet": ["Vegetarisk", "Tacotarian"],
-            "properties": ["Lyxig", "Tacos"],
-            "kitchen": ["Svenska"],
-            "time": "30"
-        },
+        "time": 30,
+        "portions": 4,
+        "tags": ["Middag", "Vegetarisk", "Tacotarian", "Lyxig", "Tacos", "Svensk"],
         "ingredients": [
             { "name": "Avocado", "amount": "4", "unit": "St" },
             { "name": "Tomat", "amount": "1", "unit": "St" },
@@ -219,14 +151,9 @@
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
         "description": "En klassiker men gjord vegansk.",
-        "attribute": {
-            "portions": "4",
-            "meal": ["Middag", "Lunch"],
-            "diet": ["Vegetarisk", "Vegansk", "Laktosfri"],
-            "properties": ["Snabb"],
-            "kitchen": ["Svenska"],
-            "time": "20"
-        },
+        "time": 20,
+        "portions": 4,
+        "tags": ["Middag", "Lunch", "Vegetarisk", "Vegansk", "Laktosfri", "Snabb", "Svensk"],
         "ingredients": [
             { "name": "Potatis", "amount": "900", "unit": "G" },
             { "name": "Smör", "amount": "2", "unit": "Msk" },
@@ -256,14 +183,9 @@
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
         "description": "Pytt i panna fast vegansk.",
-        "attribute": {
-            "portions": "4",
-            "meal": ["Middag"],
-            "diet": ["Vegansk", "Vegetarisk", "Laktosfri"],
-            "properties": ["Billig"],
-            "kitchen": ["Svenska"],
-            "time": "40"
-        },
+        "time": 40,
+        "portions": 4,
+        "tags": ["Middag", "Vegansk", "Vegetarisk", "Laktosfri", "Billig", "Svensk"],
         "ingredients": [
             { "name": "Potatis", "amount": "500", "unit": "G" },
             { "name": "Morot", "amount": "3", "unit": "St" },
@@ -288,14 +210,9 @@
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
         "description": "En god rysk klassiker med pommes och haricot verts stekta med lök och bacon blir det en festmåltid.",
-        "attribute": {
-            "portions": "4",
-            "meal": ["Middag"],
-            "diet": ["Kött"],
-            "properties": ["Lyxig"],
-            "kitchen": ["Ryskt"],
-            "time": "40"
-        },
+        "time": 40,
+        "portions": 4,
+        "tags": ["Middag", "Kött", "Lyxig", "Rysk"],
         "ingredients": [
             { "name": "Pommes", "amount": "850", "unit": "G" },
             { "name": "Smör", "amount": "2", "unit": "Msk" },
@@ -326,14 +243,9 @@
     {
         "name": "Broccoli- och blomkålsgratäng med korv",
         "description": "En vardagsrätt som snabbt kommer att slukas av hela familjen när den ställs på middagsbordet. Lättlagat, krämigt och väldigt gott!",
-        "attribute": {
-            "portions": "4",
-            "meal": ["Middag"],
-            "diet": ["Kött"],
-            "properties": [],
-            "kitchen": ["Svensk"],
-            "time": "40"
-        },
+        "time": 40,
+        "portions": 4,
+        "tags": ["Middag", "Kött", "Svensk"],
         "ingredients": [
             { "name": "Blomkål", "amount": "500", "unit": "G" },
             { "name": "Broccoli", "amount": "300", "unit": "G" },
@@ -376,14 +288,9 @@
     {
         "name": "Linsgryta med fetaost",
         "description": "Mustig och snabblagad linsgryta som toppas med fetaost. En mycket god vegetarisk middag mitt i veckan.\n\nSvinntips: Får du linsgryta över så håller den i en dryg vecka i kylskåp. Funkar perfekt som pastasås om du vill variera.",
-        "attribute": {
-            "portions": "4",
-            "meal": ["Middag"],
-            "diet": ["Vegetarisk"],
-            "properties": ["Snabb", "Billig"],
-            "kitchen": [],
-            "time": "20"
-        },
+        "time": 20,
+        "portions": 4,
+        "tags": ["Middag", "Vegetarisk", "Snabb", "Billig", "Italiensk"],
         "ingredients": [
             { "name": "Gul lök", "amount": "1", "unit": "St", "section": "produce" },
             { "name": "Vitlök", "amount": "4", "unit": "St", "section": "produce" },
@@ -421,7 +328,9 @@
     {
         "name": "Gnocchi med tomatsås och mozzarella",
         "description": "Den här måltiden passar perfekt till vardags då allt tillagas i en form. Enkelt, gott och snabbt när det är som allra bäst.",
-        "attribute": { "portions": "4", "meal": ["Middag"], "diet": ["Vegetarisk"], "properties": ["Snabb"], "kitchen": [], "time": "30" },
+        "time": 30,
+        "portions": 4,
+        "tags": ["Middag", "Vegetarisk", "Snabb", "Snabb", "Italiensk"],
         "ingredients": [
             { "name": "Gul lök", "amount": "1", "unit": "St", "section": "produce" },
             { "name": "Vitlök", "amount": "5", "unit": "St", "section": "produce" },
