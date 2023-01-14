@@ -348,6 +348,13 @@ textarea {
     flex-direction: column;
 }
 
+.create-ingredient-row {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    gap: 8px;
+}
+
 /*END Create ingredient*/
 
 /* Add ingredient to recipe start */

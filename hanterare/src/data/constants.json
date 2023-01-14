@@ -38,12 +38,13 @@
     ],
     "preferredMeasurmentTypes": [{ "name": "G" }, { "name": "L" }, { "name": "St" }],
     "sectionTypes": [
-        { "name": "bread" },
-        { "name": "diary" },
-        { "name": "chark" },
-        { "name": "produce" },
-        { "name": "freezer" },
-        { "name": "cupboard" },
+        { "name": "Bröd" },
+        { "name": "Mejeri" },
+        { "name": "Färskvaror" },
+        { "name": "Kött och chark" },
+        { "name": "Frukt och grönt" },
+        { "name": "Frysvaror" },
+        { "name": "Skafferi" },
         { "name": "" }
     ],
     "metric": [

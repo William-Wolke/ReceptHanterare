@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 
 const recipeSchema = new mongoose.Schema({
@@ -8,18 +9,18 @@ const recipeSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        // required: true,
         trim: true,
     },
     alt: {
         type: String,
-        // required: true,
         trim: true,
     },
     description: {
         type: String,
-        // required: true,
         trim: true,
+    },
+    recipes: {
+        type: [ObjectId],
     },
     time: {
         type: Number,

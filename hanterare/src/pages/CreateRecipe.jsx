@@ -118,16 +118,7 @@ const CreateRecipe = () => {
     };
 
     const handleSetIngredientName = (ingredientName) => {
-        const ingredient = data.find(({ name }) => {
-            console.log(name, ingredientName);
-            return name === ingredientName;
-        });
-        if (ingredient?.unit && ingredient?.unit.preferredUnit) {
-            setIngredientName(ingredient.name);
-            setIngredientUnit(ingredient.unit.preferredUnit);
-        } else {
-            setIngredientName(ingredientName);
-        }
+        setIngredientName(ingredientName);
     };
 
     //Fetches ingredients from db
@@ -204,7 +195,7 @@ const CreateRecipe = () => {
                             <h2>Ingredienser</h2>
                         </div>
 
-                        <IngredientList list={ingredients} />
+                        <IngredientList list={ingredients} setList={setIngredients} />
 
                         <div className="add-ingredient-form">
                             {/* Ingredint amount */}

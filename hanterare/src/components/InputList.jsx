@@ -12,6 +12,7 @@ const InputList = ({ dataList, htmlFor, value, setter, text, listName, className
                     setter(e.target.value);
                 }}
                 ref={inputRef}
+                autoComplete={"off"}
             />
 
             <datalist id={listName}>

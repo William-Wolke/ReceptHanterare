@@ -17,7 +17,6 @@
                     "amount": 0.2
                 }
             ]
-            
         }
     },
     {
@@ -39,5 +38,26 @@
                 }
             ]
         }
+    },
+    {
+        "name": "Blomkål",
+        "unit": {
+            "preferredUnit": "G",
+            "conversion": [
+                {
+                    "unit": "St",
+                    "amount": 1
+                },
+                {
+                    "unit": "G",
+                    "amount": "600"
+                },
+                {
+                    "unit": "L",
+                    "amount": 1.5
+                }
+            ]
+        },
+        "section": "produce"
     }
 ]

@@ -6,7 +6,7 @@ import InputSelect from '../components/InputSelect';
 import InputRange from '../components/InputRange';
 import Button from '../components/Button';
 import IngredientList from '../components/IngredientList';
-import { summarizeNames, summarizeShoppingList, toPreferredUnit } from '../helpers';
+import { summarizeShoppingList, toPreferredUnit } from '../helpers';
 import constants from '../data/constants.json';
 
 const CreateMenu = () => {
