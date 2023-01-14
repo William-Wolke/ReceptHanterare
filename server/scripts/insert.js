@@ -103,9 +103,11 @@ mongoose.connect(process.env.DB_URL, options);
 
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
-db.once('open', () => {
+db.once('open', async() => {
     console.log('Connected');
-    insertTestdata();
+    await insertTestdata();
+
+    process.exit(0);
 });
 
 module.exports = insertTestdata;
