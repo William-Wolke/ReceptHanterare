@@ -11,6 +11,7 @@ import Button from '../components/Button';
 import IngredientList from '../components/IngredientList';
 import InputList from '../components/InputList';
 import constants from '../data/constants.json';
+import useFocus from '../hooks/useFocus';
 
 const CreateRecipe = () => {
     //Form inputs to create a recipe
@@ -20,10 +21,8 @@ const CreateRecipe = () => {
     // const [image, setImage] = useState('');
     // const [alt, setAlt] = useState('');
     const [portions, setPortions] = useState(0);
-    const [meal, setMeal] = useState([]);
-    const [diet, setDiet] = useState([]);
-    const [properties, setProperties] = useState([]);
-    const [kitchen, setKitchen] = useState([]);
+    const [tag, setTag] = useState('');
+    const [tags, setTags] = useState([]);
     const [time, setTime] = useState(0);
     const [steps, setSteps] = useState([]);
 
@@ -31,13 +30,8 @@ const CreateRecipe = () => {
     const [ingredientName, setIngredientName] = useState('');
     const [ingredientAmount, setIngredientAmount] = useState(0);
     const [ingredientUnit, setIngredientUnit] = useState(constants.measurmentTypes[constants.measurmentTypes.length - 1].name);
-    const [ingredientSection, setIngredientSection] = useState(constants.sectionTypes[0].name);
 
     //Form for attributes
-    const [mealName, setMealName] = useState('');
-    const [dietName, setDietName] = useState('');
-    const [attributeName, setAttributeName] = useState('');
-    const [kitchenName, setKitchenName] = useState('');
     const [step, setStep] = useState('');
 
     //Create new ingredient while creating recipe
@@ -45,6 +39,12 @@ const CreateRecipe = () => {
 
     //Update ingredients state
     const [updateIngredients, setUpdateIngredients] = useState(1);
+
+    const [tagRef, setTagFocus] = useFocus();
+    const [ingredientRef, setIngredientFocus] = useFocus();
+    const [stepRef, setStepFocus] = useFocus();
+
+    const tagTypes = [...constants.mealTypes, ...constants.dietTypes, ...constants.kitchenTypes, ...constants.attributeTypes];
 
     //Onsubmit
     const handleSubmit = async (e) => {
@@ -59,10 +59,7 @@ const CreateRecipe = () => {
             description: description,
             attribute: {
                 portions: portions,
-                meal: meal,
-                diet: diet,
-                properties: properties,
-                kitchen: kitchen,
+                tags: tags,
                 time: time,
             },
             ingredients: ingredients,
@@ -90,7 +87,6 @@ const CreateRecipe = () => {
                 name: ingredientName,
                 amount: ingredientAmount,
                 unit: ingredientUnit,
-                section: ingredient?.section,
             };
 
             setIngredients([...ingredients, newIngredient]);
@@ -98,7 +94,6 @@ const CreateRecipe = () => {
             setIngredientName('');
             setIngredientUnit('');
             setIngredientAmount(0);
-            setIngredientSection('');
         }
     };
 
@@ -116,21 +111,8 @@ const CreateRecipe = () => {
         setValue('');
     };
 
-    const handleAddMeal = () => {
-        handleAddListItem(mealName, meal, setMealName, setMeal);
-    };
-
-    //On add new ingredient
-    const handleAddDiet = () => {
-        handleAddListItem(dietName, diet, setDietName, setDiet);
-    };
-
-    const handleAddKitchen = () => {
-        handleAddListItem(kitchenName, kitchen, setKitchenName, setKitchen);
-    };
-
-    const handleAddPropertie = () => {
-        handleAddListItem(attributeName, properties, setAttributeName, setProperties);
+    const handleAddTag = () => {
+        handleAddListItem(tag, tags, setTag, setTags);
     };
 
     const handleAddStep = () => {
@@ -145,8 +127,6 @@ const CreateRecipe = () => {
         if (ingredient?.unit && ingredient?.unit.preferredUnit) {
             setIngredientName(ingredient.name);
             setIngredientUnit(ingredient.unit.preferredUnit);
-            setIngredientSection(ingredient.section);
-            console.log(ingredient.section);
         } else {
             setIngredientName(ingredientName);
         }
@@ -167,139 +147,150 @@ const CreateRecipe = () => {
                 />
             )}
             <div className="create">
-                <form onSubmit={handleSubmit} className="form">
-                    <div className="form-element">
-                        <h1>Lägg till ett nytt recept</h1>
-                    </div>
+                <form onSubmit={handleSubmit} className="form form-grid">
+                    <div className="form-grid-element">
+                        <div className="form-element">
+                            <h1>Lägg till ett nytt recept</h1>
+                        </div>
 
-                    {/* Titel */}
-                    <Input type="text" text="Namn" htmlFor="recipeName" value={recipeName} setter={setRecipeName} />
+                        {/* Titel */}
+                        <Input type="text" placeholder="Namn" htmlFor="recipeName" value={recipeName} setter={setRecipeName} />
 
-                    {/* Description */}
-                    <InputTextArea text="Beskrivning" htmlFor="description" value={description} setter={setDescription} />
+                        {/* Description */}
+                        <InputTextArea placeholder="Beskrivning..." htmlFor="description" value={description} setter={setDescription} />
 
-                    {/* Time */}
-                    <InputRange text="Tid" min={1} htmlFor="time" value={time} setter={setTime} />
+                        <div className="form-atribute-container">
+                            {/* Time */}
+                            <InputRange text="Tid" min={1} htmlFor="time" value={time} setter={setTime} />
+                            {/* Number of portions */}
+                            <InputRange text="Portioner" min={1} htmlFor="portions" value={portions} setter={setPortions} />
+                        </div>
 
-                    {/* Image */}
-                    {/* <Input type="text" text="Bild" htmlFor="image" value={image} setter={setImage} /> */}
+                        <div className="form-atribute-container form-tag-container">
+                            <div className="double-input-container form-tag-item">
+                                <input
+                                    className="input"
+                                    type="text"
+                                    list="tags"
+                                    placeholder="Lägg till tag"
+                                    value={tag}
+                                    onChange={(e) => {
+                                        setTag(e.target.value);
+                                    }}
+                                    ref={tagRef}
+                                />
+                                <input
+                                    type="button"
+                                    value="+"
+                                    className="input"
+                                    onClick={() => {
+                                        handleAddTag();
+                                        setTagFocus();
+                                    }}
+                                />
+                                <datalist id="tags">
+                                    {tagTypes.length &&
+                                        tagTypes.map((option, index) => {
+                                            return (
+                                                <option value={option.name} key={index}>
+                                                    {option.name}
+                                                </option>
+                                            );
+                                        })}
+                                </datalist>
+                                <AttributeList list={tags} />
+                            </div>
+                        </div>
 
-                    {/* Alt attribute for img */}
-                    {/* <Input type="text" text="Alt attribut" htmlFor="altText" value={alt} setter={setAlt} /> */}
-
-                    {/* Number of portions */}
-                    <InputRange text="Portioner" min={1} htmlFor="portions" value={portions} setter={setPortions} />
-
-                    {/* Meal */}
-                    <div>
-                        <InputSelect text="Måltid" optionList={constants.mealTypes} htmlFor="meal" value={mealName} setter={setMealName} />
-                        <Button text={'Lägg till'} onClickFunc={handleAddMeal} />
-
-                        <AttributeList list={meal} />
-                    </div>
-
-                    {/* Diet */}
-                    <div>
-                        <InputSelect text="Kost" optionList={constants.dietTypes} htmlFor="diet" value={dietName} setter={setDietName} />
-
-                        <Button text="Lägg till" onClickFunc={handleAddDiet} />
-
-                        <AttributeList list={diet} />
-                    </div>
-
-                    {/* Kitchen */}
-                    <div>
-                        <InputSelect
-                            text="Kök"
-                            optionList={constants.kitchenTypes}
-                            htmlFor="kitchen"
-                            value={kitchenName}
-                            setter={setKitchenName}
-                        />
-
-                        <Button text="Lägg till" onClickFunc={handleAddKitchen} />
-
-                        <AttributeList list={kitchen} />
-                    </div>
-
-                    {/* Attribute */}
-                    <div>
-                        <InputSelect
-                            text="Egenskap"
-                            optionList={constants.attributeTypes}
-                            htmlFor="attribute"
-                            value={attributeName}
-                            setter={setAttributeName}
-                        />
-
-                        <Button text="Lägg till" onClickFunc={handleAddPropertie} />
-
-                        <AttributeList list={properties} />
-                    </div>
-
-                    {/* Steps */}
-                    <div>
-                        <InputTextArea text="Steg" htmlFor="steps" value={step} setter={setStep} />
-
-                        <Button text="Lägg till" onClickFunc={handleAddStep} />
-
-                        <AttributeList list={steps} />
-                    </div>
-
-                    {/* Display status on fetching ingredients */}
-                    {error && <p>{error}</p>}
-                    {isPending && <p>{isPending}</p>}
-
-                    <div className="form-element">
-                        <h2>Lägg till ingredienser</h2>
-                    </div>
-
-                    <div>
-                        {/* Ingredint name */}
-
-                        {data && (
-                            <InputList
-                                text="Namn"
-                                dataList={[...data, { name: '' }]}
-                                htmlFor="ingredientName"
-                                value={ingredientName}
-                                setter={handleSetIngredientName}
-                                listName="ingredient-name"
-                            />
-                        )}
-
-                        {/* Ingredint amount */}
-
-                        <InputRange text="Mängd" htmlFor="amount" value={ingredientAmount} setter={setIngredientAmount} />
-
-                        {/* Ingredint unit */}
-
-                        <InputSelect
-                            text="Mått"
-                            optionList={constants.measurmentTypes}
-                            htmlFor="measurment"
-                            value={ingredientUnit}
-                            setter={setIngredientUnit}
-                        />
-
-                        {/* Ingredient section */}
-
-                        <InputSelect
-                            text="Del i butiken"
-                            optionList={constants.sectionTypes}
-                            htmlFor="section"
-                            value={ingredientSection}
-                            setter={setIngredientSection}
-                        />
-
-                        <Button text="+" onClickFunc={handleAddIngredient} />
+                        <div className="form-element">
+                            <h2>Ingredienser</h2>
+                        </div>
 
                         <IngredientList list={ingredients} />
+
+                        <div className="add-ingredient-form">
+                            {/* Ingredint amount */}
+                            <InputRange
+                                text="Mängd"
+                                htmlFor="amount"
+                                value={ingredientAmount}
+                                setter={setIngredientAmount}
+                                className="add-ingredient-input"
+                            />
+
+                            {/* Ingredint unit */}
+
+                            <InputSelect
+                                text="Mått"
+                                optionList={constants.measurmentTypes}
+                                htmlFor="measurment"
+                                value={ingredientUnit}
+                                setter={setIngredientUnit}
+                                className="add-ingredient-input"
+                            />
+
+                            {/* Ingredint name */}
+                            {data && (
+                                <InputList
+                                    text="Namn"
+                                    dataList={[...data, { name: '' }]}
+                                    htmlFor="ingredientName"
+                                    value={ingredientName}
+                                    setter={handleSetIngredientName}
+                                    listName="ingredient-name"
+                                    className="add-ingredient-input"
+                                    inputRef={ingredientRef}
+                                />
+                            )}
+
+                            <Button
+                                text="+"
+                                onClickFunc={() => {
+                                    handleAddIngredient();
+                                    setIngredientFocus();
+                                }}
+                                className="add-ingredient-button steps-button"
+                            />
+                        </div>
+                    </div>
+                    <div className="form-grid-element">
+                        {/* Steps */}
+
+                        {steps.length > 0 && (
+                            <ol className="form-ol">
+                                {steps.map((stepItem) => {
+                                    return <li>{stepItem}</li>;
+                                })}
+                            </ol>
+                        )}
+                        <div className="add-ingredient-form">
+                            <InputTextArea
+                                placeholder="Steg..."
+                                htmlFor="steps"
+                                value={step}
+                                setter={setStep}
+                                inputRef={stepRef}
+                                className="ingredient-textarea"
+                            />
+
+                            <Button
+                                text="+"
+                                onClickFunc={() => {
+                                    handleAddStep();
+                                    setStepFocus();
+                                }}
+                                className="steps-button"
+                            />
+                        </div>
 
                         <div className="form-element">
                             <input type="submit" className="input" value="Submit" />
                         </div>
                     </div>
+
+                    {/* Display status on fetching ingredients */}
+                    {error && <p>{error}</p>}
+                    {isPending && <p>{isPending}</p>}
                 </form>
             </div>
         </>

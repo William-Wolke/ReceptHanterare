@@ -1,10 +1,10 @@
-const InputSelect = ({ optionList, htmlFor, value, setter, text }) => {
+const InputSelect = ({ optionList, htmlFor, value, setter, text, className }) => {
     return (
-        <div className='form-group form-element'>
+        <div className={'form-group form-element ' + className}>
             <label htmlFor={htmlFor}>{text}</label>
             <select
                 id={htmlFor}
-                className='input'
+                className='input' 
                 value={value}
                 onChange={(e) => {
                     setter(e.target.value);

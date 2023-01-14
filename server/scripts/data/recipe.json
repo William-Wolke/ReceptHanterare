@@ -1,6 +1,5 @@
 [
     {
-        "_id": "63bad86348978c3ca7cf3fb3",
         "name": "Lätt sallad",
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
@@ -23,11 +22,9 @@
             "Som en bödel vid Stockholms blodbad, skiva upp tomaten",
             "Som en tornado sveper över landsmassor skall du nu blanda tomat och sallaten.",
             "Avnjut smaken av slajm likt Daidalos avnjuter att slajma små barn."
-        ],
-        "__v": 0
+        ]
     },
     {
-        "_id": "63bad86348978c3ca7cf3fb4",
         "name": "Lök me lök",
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
@@ -43,11 +40,9 @@
             { "name": "Röd lök", "amount": "100", "unit": "G" },
             { "name": "Gul lök", "amount": "69", "unit": "G" }
         ],
-        "steps": ["Hagga lögen", "lukte lögen", "smege lögen"],
-        "__v": 0
+        "steps": ["Hagga lögen", "lukte lögen", "smege lögen"]
     },
     {
-        "_id": "63bad86348978c3ca7cf3fb5",
         "name": "Falukorv med stuvade makaroner",
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
@@ -69,11 +64,9 @@
             "Koka upp mjölken och tillsätt makaronerna. Koka makaronerna under omrörning på svag värme i cirka 25 minuter.",
             "Skär korven i skivor och stek dem i olja i en stekpanna.",
             "Servera korven och makaronerna med lite grönsaker och ketchup."
-        ],
-        "__v": 0
+        ]
     },
     {
-        "_id": "63bad86348978c3ca7cf3fb6",
         "name": "Krämig pasta pesto",
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
@@ -106,11 +99,9 @@
             "",
             "Spara 1-2 dl pastavatten och häll av pastan när den är rejält al dente.",
             "Vänd ner pastan och de halverade tomaterna i pastasåsen. Rör om så allt blandas och späd efter behov med pastavatten. Servera omgående."
-        ],
-        "__v": 0
+        ]
     },
     {
-        "_id": "63bad86348978c3ca7cf3fb7",
         "name": "Vegansk Tunamelt med avokado",
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
@@ -149,11 +140,9 @@
             "Toppa avocadon med rikligt med tonfuskröra. Toppa röran med rikligt med hyvlad vegask cheddar och avsluta med att lägga på de kvarvarande brödskivorna med den smörade sidan neråt.",
             "Stek mackorna i rikligt med olivolja på bägge sidor under viss press tills de fått fin stekyta och osten smält. Det underlättar om du har ett lock till stekpannan som kan stänga in värmen och snabbare smälta osten. Pressa inte för hårt för då ramlar röran lätt ur.",
             "Skär i halvor och servera!"
-        ],
-        "__v": 0
+        ]
     },
     {
-        "_id": "63bad86348978c3ca7cf3fb8",
         "name": "Veganska burgare med pommes",
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
@@ -185,11 +174,9 @@
             "Förbered alla grönsaker, skiva rödlök, tomat och gurka. Lägg salladsblad och de skivade grönsaker på ett serveringsfat tillsammans med hamburgarosten.",
             "Stek burgarna och servera med valfria såser.",
             "Glöm inte bröden."
-        ],
-        "__v": 0
+        ]
     },
     {
-        "_id": "63bad86348978c3ca7cf3fb9",
         "name": "Tacos",
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
@@ -225,11 +212,9 @@
             "Kärna ur tomaten och hacka fint. Dela, kärna ur och hacka chilin fint. Blanda tomat, chili, pressad vitlök pressad citron och kryddor tillsammans med avokadomoset.",
             "Bryn vegofärsen i rapsolja. Tillsätt tacokryddan och vatten. Stek tills allt vatten puttrat bort.",
             "Lägg alla tillbehör i skålar och servera. Njut!"
-        ],
-        "__v": 0
+        ]
     },
     {
-        "_id": "63bad86348978c3ca7cf3fba",
         "name": "Vegobullar gräddsås och kokt potatis",
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
@@ -264,11 +249,9 @@
             "Låt sjuda tills såsen tjocknat.",
             "Stek bullarna till de får färg.",
             "Servera potatis gräddsås och vegobullarna med lingonsylt och pressgurka."
-        ],
-        "__v": 0
+        ]
     },
     {
-        "_id": "63bad86348978c3ca7cf3fbb",
         "name": "Vegansk pytt i panna",
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
@@ -298,11 +281,9 @@
             "Stek de grövre först i rapsolja, alt och peppar tills de är genomstekta och fått fin färg. Jag använder ganska hög värme och vaktar pannan noga, men om du känner dig osäker så kan du steka på medelvärme och låta det ta lite längre tid. Ställ åt sidan och upprepa med de övriga grönsakerna så allt steks den tid de behöver.",
             "När allt är stekt blandar du ihop allt i pannan igen, smakar av med vitlökspulver, salt och peppar och låter värmas upp.",
             "Servera med inlagda rödbetor eller vad för tillbehör du föredrar!"
-        ],
-        "__v": 0
+        ]
     },
     {
-        "_id": "63bad86348978c3ca7cf3fbc",
         "name": "Biff Stoganov",
         "image": "sallad.jpeg",
         "alt": "En sprudlande grön sallad som smälter i munnen som slajm.",
@@ -340,11 +321,9 @@
             "Hacka 1 lök och bacon i bitar. Stek bacon och lök i en stekpanna tills mjukt och fått lite färg. Blanchera bönorna.",
             "Lägg i bönorna i stekpannan och stek i någon minut.",
             "Servera och njut"
-        ],
-        "__v": 0
+        ]
     },
     {
-        "_id": "63badc07f45da3dfa7d2373c",
         "name": "Broccoli- och blomkålsgratäng med korv",
         "description": "En vardagsrätt som snabbt kommer att slukas av hela familjen när den ställs på middagsbordet. Lättlagat, krämigt och väldigt gott!",
         "attribute": {
@@ -392,11 +371,9 @@
             "Sätt in i ugnen för att gratineras, ca 20-25 minuter, sänk värmen om osten får för mycket färg.",
             "Stek korven tills den fått fin färg.",
             "Ta ut gratängen och låt svalna något före servering. Servera med korven."
-        ],
-        "__v": 0
+        ]
     },
     {
-        "_id": "63badff4f45da3dfa7d23742",
         "name": "Linsgryta med fetaost",
         "description": "Mustig och snabblagad linsgryta som toppas med fetaost. En mycket god vegetarisk middag mitt i veckan.\n\nSvinntips: Får du linsgryta över så håller den i en dryg vecka i kylskåp. Funkar perfekt som pastasås om du vill variera.",
         "attribute": {
@@ -439,11 +416,9 @@
             "Häll av linserna och tillsätt tillsammans med tomat oregano, vatten och buljongtärningen. Koka ihop 5 min.",
             "Smaka av med salt och peppar.",
             "Smula över fetaost och servera med surdegsbröd."
-        ],
-        "__v": 0
+        ]
     },
     {
-        "_id": "63bae2d3585b798b10df556e",
         "name": "Gnocchi med tomatsås och mozzarella",
         "description": "Den här måltiden passar perfekt till vardags då allt tillagas i en form. Enkelt, gott och snabbt när det är som allra bäst.",
         "attribute": { "portions": "4", "meal": ["Middag"], "diet": ["Vegetarisk"], "properties": ["Snabb"], "kitchen": [], "time": "30" },
@@ -470,7 +445,6 @@
             "Tillsätt sedan gnocchin och låt det koka med i 2 minuter, tillsätt eventuellt 0.5 dl vatten om såsen är för fast.",
             "Riv mozzarellan i bitar, vänd runt den enda mozzarellan med sås och gnocchi och toppa grytan med den andra mozzarellan.",
             "Ställ in i ugnen och baka i ca 15 minuter, tills osten är gyllene."
-        ],
-        "__v": 0
+        ]
     }
 ]

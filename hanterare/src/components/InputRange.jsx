@@ -1,6 +1,6 @@
-const InputRange = ({ htmlFor, value, setter, text, type = 'number', min = 0, max = 9999 }) => {
+const InputRange = ({ htmlFor, value, setter, text, type = 'number', min = 0, max = 9999, className }) => {
     return (
-        <div className="form-group form-element">
+        <div className={'form-group form-element ' + className}>
             <label htmlFor={htmlFor}>{text}</label>
             <input
                 type={type}
@@ -8,7 +8,7 @@ const InputRange = ({ htmlFor, value, setter, text, type = 'number', min = 0, ma
                 value={value}
                 min={min}
                 max={max}
-                className="input"
+                className='input'
                 step="0.0001"
                 onChange={(e) => {
                     setter(e.target.value);

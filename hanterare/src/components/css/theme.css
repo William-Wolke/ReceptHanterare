@@ -1,13 +1,30 @@
 :root{
-    --body-background: #f6f6f6;
+    --body-background: ##FFFBFF;
     --dark-body-background: #161a1f;
-    --block-background: #ffffff;
+    --block-background: #84B082;
     --dark-block-background: #334155;
-    --text-color:#2e2e2e;
+    --text-color:#110B11;
     --dark-text-color:#f4f4f5;
-    --link-color: #3B3355;
+    --link-color: #110B11;
     --dark-link-color: #d0adf0;
     color-scheme: light dark;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--link-color);
+}
+
+a:visited {
+    color: var(--link-color);
 }
 
 @media (prefers-color-scheme: dark) { 
@@ -31,7 +48,7 @@
     }
     /*Form*/
     .create {
-        background-color: var(--dark-block-background);
+        
     }
     .form-element {
         color: var(--dark-text-color);
@@ -73,7 +90,6 @@
     }
     /*Form*/
     .create {
-        background-color: var(--block-background);
         color: var(--text-color);
     }
     .ingredient-list-value {
