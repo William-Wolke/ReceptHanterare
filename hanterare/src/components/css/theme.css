@@ -8,6 +8,7 @@
     --link-color: #110B11;
     --dark-link-color: #d0adf0;
     color-scheme: light dark;
+    --remove-color: #e73531;
 }
 
 * {

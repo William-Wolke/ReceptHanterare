@@ -95,10 +95,18 @@ textarea {
 }
 
 .recipeAttributeItem {
+    margin: 0 0.5em;
+    height: auto;
     padding: 0.7em;
     border-radius: 10px;
-    background-color: var(--dark-link-color);
+    background-color: var(--block-background);
     min-width: fit-content;
+    align-items: center;
+    text-align: center;
+}
+
+.add-tag{
+    margin-right: 1em;
 }
 
 .recipeInfoContainer {
@@ -195,6 +203,28 @@ textarea {
 
 /*Create recipe*/
 
+.remove{
+    background-color: var(--remove-color);
+    border-color: var(--remove-color);
+    border: 0;
+    color: #fff;
+    border-radius: 0;
+    width: max-content;
+    white-space: nowrap;
+    padding: 0 0.5em;
+}
+
+.add{
+    background-color: var(--block-background);
+    border-color: var(--block-background);
+    border: 0;
+    color: #fff;
+    border-radius: 0;
+    width: max-content;
+    white-space: nowrap;
+    padding: 0 0.5em;
+}
+
 .create{
     display: flex;
     flex-direction: column;
@@ -205,11 +235,12 @@ textarea {
 
 .create h1 {
     justify-content: right;
+    margin-bottom: 1em;
 }
 
 .create h2 {
     margin: auto;
-    padding: 2em 0;
+    padding: 3em 0;
 }
 
 .form {
@@ -239,9 +270,14 @@ textarea {
 
 .form-element {
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+}
+
+.form-element h2 {
+    margin: auto 0;
+    padding-bottom: 1em;
 }
 
 .form-grid {
@@ -252,6 +288,7 @@ textarea {
 
 .form-grid-element {
     width: 50%;
+    position: relative;
 }
 
 .form-atribute-container {
@@ -304,6 +341,15 @@ textarea {
     gap: 1em;
 }
 
+.add-ingredient-input{
+    height: 100%;
+    padding: 0;
+}
+
+.add-ingredient-input-name{
+    height: 45.66px;
+}
+
 .recipeStepsList {
     display: flex;
     flex-direction: column;
@@ -325,6 +371,30 @@ textarea {
     text-align: center;
 }
 
+.add-step-form{
+    display: flex;
+    flex-direction: row; 
+}
+
+.add-step-input{
+    width: 100%;
+    display: block;
+    height: 100%;
+    margin-right: 0;
+}
+
+.submit-button{
+    margin-top: 5em;
+}
+
+.remove-step-button{
+    height:auto;
+    width:auto;
+}
+
+.remove-ingredient-button{
+    height: auto;
+}
 /*END Create recipe*/
 
 /*START Create ingredient*/
@@ -366,17 +436,13 @@ textarea {
     margin: auto;
 }
 
-.add-ingredient-button {
-    margin-top: 26px;
-}
-
-.add-ingredient-input {
-    /* width: 100%; */
-}
-
-.form-ol {
-    width: 70%;
-    margin: auto;
+.add-button-container {
+    display: flex;
+    width: 90%;
+    margin: 0;
+    padding: 1em 0 0 0; 
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .ingredient-textarea {
@@ -384,7 +450,9 @@ textarea {
 }
 
 .steps-button {
-    width: min-content;
+    width: 4em;
+    margin: auto 0;
+    padding: 1em 0;
 }
 
 /* Add ingredient to recipe start */

@@ -24,15 +24,17 @@ const CreateRecipe = () => {
     const [tag, setTag] = useState('');
     const [tags, setTags] = useState([]);
     const [time, setTime] = useState(0);
-    const [steps, setSteps] = useState([]);
+    const [steps, setSteps] = useState([{ stepText: '' }]);
 
     //Form inputs to create an ingredient
-    const [ingredientName, setIngredientName] = useState('');
-    const [ingredientAmount, setIngredientAmount] = useState(0);
-    const [ingredientUnit, setIngredientUnit] = useState(constants.measurmentTypes[constants.measurmentTypes.length - 1].name);
+    // const [ingredientName, setIngredientName] = useState('');
+    // const [ingredientAmount, setIngredientAmount] = useState(0);
+    // const [ingredientUnit, setIngredientUnit] = useState(constants.measurmentTypes[constants.measurmentTypes.length - 1].name);
+    const [inputFields, setInputFields] = useState([{ ingredientAmount: 0, ingredientUnit: '', ingredientName: '' }]);
+    const [inputSteps, setStep] = useState([{ stepText: '' }])
 
     //Form for attributes
-    const [step, setStep] = useState('');
+    // const [step, setStep] = useState('');
 
     //Create new ingredient while creating recipe
     const [createNewIngredient, setCreateNewIngredient] = useState(false);
@@ -41,7 +43,6 @@ const CreateRecipe = () => {
     const [updateIngredients, setUpdateIngredients] = useState(1);
 
     const [tagRef, setTagFocus] = useFocus();
-    const [ingredientRef, setIngredientFocus] = useFocus();
     const [stepRef, setStepFocus] = useFocus();
 
     const tagTypes = [...constants.mealTypes, ...constants.dietTypes, ...constants.kitchenTypes, ...constants.attributeTypes];
@@ -50,6 +51,24 @@ const CreateRecipe = () => {
     const handleSubmit = async (e) => {
         //Prevent reloading page
         e.preventDefault();
+        let tempIngredients = [];
+        let tempSteps = [];
+
+        inputFields.forEach((field) => {
+            if (field.ingredientName) {
+                tempIngredients.push({
+                    amount: field.ingredientAmount,
+                    unit: field.ingredientUnit,
+                    name: field.ingredientName,
+                });
+            }
+        })
+        inputSteps.forEach((step) => {
+            if (step.stepText) {
+                tempSteps.push(step.stepText)
+            }
+        })
+
 
         //Create object to insert into db
         const recipe = {
@@ -60,8 +79,8 @@ const CreateRecipe = () => {
             portions: portions,
             tags: tags,
             time: time,
-            ingredients: ingredients,
-            steps: steps,
+            ingredients: tempIngredients,
+            steps: tempSteps,
         };
 
         console.log(recipe);
@@ -72,26 +91,6 @@ const CreateRecipe = () => {
             alert('Created recipe');
         } else {
             console.log('Failed');
-        }
-    };
-
-    //On add new ingredient
-    const handleAddIngredient = () => {
-        const ingredient = data.find(({ name }) => name === ingredientName);
-
-        if (ingredientName && ingredientAmount && ingredientUnit) {
-            //create new ingredient
-            let newIngredient = {
-                name: ingredientName,
-                amount: ingredientAmount,
-                unit: ingredientUnit,
-            };
-
-            setIngredients([...ingredients, newIngredient]);
-
-            setIngredientName('');
-            setIngredientUnit('');
-            setIngredientAmount(0);
         }
     };
 
@@ -113,13 +112,41 @@ const CreateRecipe = () => {
         handleAddListItem(tag, tags, setTag, setTags);
     };
 
-    const handleAddStep = () => {
-        handleAddListItem(step, steps, setStep, setSteps);
-    };
+    const addFields = () => {
+        let newField = { ingredientAmount: 0, ingredientUnit: '', ingredientName: '' }
 
-    const handleSetIngredientName = (ingredientName) => {
-        setIngredientName(ingredientName);
-    };
+        setInputFields([...inputFields, newField])
+    }
+
+    const addSteps = () => {
+        let newStep = { stepText: '' }
+
+        setStep([...inputSteps, newStep])
+    }
+
+    const handleFormChange = (event, index) => {
+        let data = [...inputFields];
+        data[index][event.target.name] = event.target.value;
+        setInputFields(data);
+    }
+
+    const handleStepChange = (event, index) => {
+        let data = [...inputSteps];
+        data[index][event.target.name] = event.target.value;
+        setStep(data);
+    }
+
+    const removeFields = (index) => {
+        let data = [...inputFields];
+        data.splice(index, 1)
+        setInputFields(data)
+    }
+
+    const removeStepsFields = (index) => {
+        let data = [...inputSteps];
+        data.splice(index, 1)
+        setStep(data)
+    }
 
     //Fetches ingredients from db
     const { data, isPending, error } = useFetch('/ingredient/all/', 'GET', updateIngredients);
@@ -150,6 +177,7 @@ const CreateRecipe = () => {
 
                         <div className="form-atribute-container">
                             {/* Time */}
+
                             <InputRange text="Tid" min={1} htmlFor="time" value={time} setter={setTime} />
                             {/* Number of portions */}
                             <InputRange text="Portioner" min={1} htmlFor="portions" value={portions} setter={setPortions} />
@@ -171,7 +199,7 @@ const CreateRecipe = () => {
                                 <input
                                     type="button"
                                     value="+"
-                                    className="input"
+                                    className="input add add-tag"
                                     onClick={() => {
                                         handleAddTag();
                                         setTagFocus();
@@ -195,84 +223,133 @@ const CreateRecipe = () => {
                             <h2>Ingredienser</h2>
                         </div>
 
-                        <IngredientList list={ingredients} setList={setIngredients} />
+                        <div>
+                            {inputFields.map((input, index) => {
+                                return (
+                                    <div className="add-ingredient-form" key={index}>
+                                        {/* Ingredint amount */}
+                                        <div className='form-group form-element add-ingredient-input'>
+                                            {/* <label htmlFor={amount}>{text}</label> */}
+                                            <input
+                                                type='number'
+                                                id='amount'
+                                                value={input.ingredientAmount}
+                                                min="0"
+                                                max="9999"
+                                                className='input'
+                                                step="0.0001"
+                                                onChange={(event) => {
+                                                    handleFormChange(event, index);
+                                                }}
+                                                name="ingredientAmount"
+                                            />
+                                        </div>
 
-                        <div className="add-ingredient-form">
-                            {/* Ingredint amount */}
-                            <InputRange
-                                text="Mängd"
-                                htmlFor="amount"
-                                value={ingredientAmount}
-                                setter={setIngredientAmount}
-                                className="add-ingredient-input"
-                            />
+                                        {/* Ingredint unit */}
+                                        <div className='form-group form-element add-ingredient-input'>
+                                            {/* <label htmlFor='measurment'>Hej</label> */}
+                                            <select
+                                                id='measurment'
+                                                className='input'
+                                                value={input.ingredientUnit}
+                                                name='ingredientUnit'
+                                                onChange={(event) => {
+                                                    handleFormChange(event, index);
+                                                }}
+                                            >
+                                                {constants.measurmentTypes && constants.measurmentTypes.map((option, index) => {
+                                                    return (<option value={option.name} key={index}>{option.name}</option>)
+                                                })}
+                                            </select>
+                                        </div>
 
-                            {/* Ingredint unit */}
+                                        {/* Ingredint name */}
+                                        {data && (
+                                            <div className="form-group form-element add-ingredient-input add-ingredient-input-name">
+                                                {/* <label htmlFor={htmlFor}>{text}</label> */}
+                                                <input
+                                                    type="text"
+                                                    id='ingredientName'
+                                                    value={input.ingredientName}
+                                                    className="input add-ingredient-input"
+                                                    list='ingredient-name'
+                                                    onChange={(event) => {
+                                                        handleFormChange(event, index);
+                                                    }}
+                                                    autoComplete={"off"}
+                                                    name="ingredientName"
+                                                />
 
-                            <InputSelect
-                                text="Mått"
-                                optionList={constants.measurmentTypes}
-                                htmlFor="measurment"
-                                value={ingredientUnit}
-                                setter={setIngredientUnit}
-                                className="add-ingredient-input"
-                            />
+                                                <datalist id='ingredient-name'>
+                                                    {[...data, { name: '' }].length &&
+                                                        [...data, { name: '' }].map((option, index) => {
+                                                            return (
+                                                                <option value={option.name} key={index}>
+                                                                    {option.name}
+                                                                </option>
+                                                            );
+                                                        })}
+                                                </datalist>
+                                            </div>
+                                        )}
+                                        
+                                        <button className="remove-ingredient-button remove " type='button' onClick={() => removeFields(index)}>Ta bort</button>
 
-                            {/* Ingredint name */}
-                            {data && (
-                                <InputList
-                                    text="Namn"
-                                    dataList={[...data, { name: '' }]}
-                                    htmlFor="ingredientName"
-                                    value={ingredientName}
-                                    setter={handleSetIngredientName}
-                                    listName="ingredient-name"
-                                    className="add-ingredient-input"
-                                    inputRef={ingredientRef}
-                                />
-                            )}
+                                    </div>
+                                )
+                            })}
+                        </div>
 
-                            <Button
-                                text="+"
-                                onClickFunc={() => {
-                                    handleAddIngredient();
-                                    setIngredientFocus();
-                                }}
-                                className="add-ingredient-button steps-button"
+                        <div className="form-element add-button-container">
+                            <input
+                                type="button"
+                                value='+'
+                                className="input button steps-button add"
+                                onClick={addFields}
                             />
                         </div>
+
                     </div>
                     <div className="form-grid-element">
                         {/* Steps */}
-
-                        {steps.length > 0 && (
-                            <ol className="form-ol">
-                                {steps.map((stepItem) => {
-                                    return <li>{stepItem}</li>;
-                                })}
-                            </ol>
-                        )}
-                        <div className="add-ingredient-form">
-                            <InputTextArea
-                                placeholder="Steg..."
-                                htmlFor="steps"
-                                value={step}
-                                setter={setStep}
-                                inputRef={stepRef}
-                                className="ingredient-textarea"
-                            />
-
-                            <Button
-                                text="+"
-                                onClickFunc={() => {
-                                    handleAddStep();
-                                    setStepFocus();
-                                }}
-                                className="steps-button"
-                            />
+                        <div className="form-element">
+                            <h2>Lägg till steg</h2>
                         </div>
 
-                        <div className="form-element">
+                        <div>
+                            <div>
+                                {inputSteps.map((input, index) => {
+                                    return (
+                                        <div className="form-group form-element  add-step-form" key={index}>
+                                            <p>{index + 1 + "."}</p>
+                                            {/* <label htmlFor={htmlFor}>{text}</label> */}
+                                            <textarea
+                                                id='step'
+                                                value={input.stepText}
+                                                className="input add-step-input"
+                                                onChange={(event) => {
+                                                    handleStepChange(event, index);
+                                                }}
+                                                name="stepText"
+                                            />
+                                            <button className="remove-step-button remove" type='button' onClick={() => removeStepsFields(index)}>Ta bort</button>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
+
+                            <div className="form-element add-button-container">
+                                <input
+                                    type="button"
+                                    value='+'
+                                    className="input button steps-button add"
+                                    onClick={addSteps}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="form-element submit-button">
                             <input type="submit" className="input" value="Submit" />
                         </div>
                     </div>
