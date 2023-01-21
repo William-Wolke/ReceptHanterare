@@ -17,7 +17,7 @@ const RecipeList = () => {
                         <div className='recipeListItemContainer card'>
                             <div className="recipeListItem" key={recipe.name + "container" + index}>
                                 <div className="recipeListTime" key={recipe.name + " attribut"}>
-                                    <p key={recipe.name + " tid"}>{recipe.attribute.time ? recipe.attribute.time : 0} min</p>
+                                    <p key={recipe.name + " tid"}>{recipe.time ? recipe.time : 0} min</p>
                                 </div>
                                 <div className="recipeListName" key={recipe.name + " namndiv"}>
                                     <h3 key={recipe.name + " name"}>{recipe.name}</h3>

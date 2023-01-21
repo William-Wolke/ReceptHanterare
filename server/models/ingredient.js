@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+// const conversionSchema = new mongoose.Schema({
+
+// })
+
 const ingredientSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -9,6 +13,13 @@ const ingredientSchema = new mongoose.Schema({
     unit: {
         type: Object,
         default: {},
+        //TODO Try this
+        // preferredUnit: String,
+        // conversion: [{
+        //     unit: String,
+        //     amount: Number
+        // }]
+        // conversion: [conversionSchema]
     },
     section: {
         type: String,

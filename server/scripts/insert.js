@@ -81,7 +81,6 @@ const insertRecipeData = async () => {
 
     console.log('Inserting recipe data...');
 
-
     let saved = 0;
     let errors = 0;
 
@@ -107,7 +106,7 @@ db.once('open', async() => {
     console.log('Connected');
     await insertTestdata();
 
-    process.exit(0);
+    // process.exit(0);
 });
 
 module.exports = insertTestdata;
