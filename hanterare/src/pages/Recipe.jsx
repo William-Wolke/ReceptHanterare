@@ -1,11 +1,36 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 
 const Recipe = () => {
     const { name } = useParams();
 
+    const [currentPortions, setCurrentPortions] = useState(0);
+
     const { data: recipe, isPending, error } = useFetch(`/recipe/one/${name}/`, 'GET');
+
+    const handleSubtractPortions = () => {
+        if (!recipe) return;
+        if (currentPortions === 0) {
+            if (recipe.portions - 2 < 1) {
+                setCurrentPortions(recipe.portions);
+            } else {
+                setCurrentPortions(recipe.portions - 2);
+            }
+        } else {
+            if (currentPortions - 2 < 1) return;
+            setCurrentPortions(currentPortions - 2);
+        }
+    };
+
+    const handleAddPortions = () => {
+        if (!recipe) return;
+        if (currentPortions === 0) {
+            setCurrentPortions(recipe.portions + 2);
+        } else {
+            setCurrentPortions(currentPortions + 2);
+        }
+    };
 
     return (
         <div className="recept">
@@ -56,11 +81,11 @@ const Recipe = () => {
                         <div className="ingredienser">
                             <h3>Ingredienser</h3>
                             <div className="recipePortions">
-                                <button>
+                                <button onClick={handleSubtractPortions}>
                                     <p>-</p>
                                 </button>
-                                <p>{recipe.portions} portioner</p>
-                                <button>
+                                <p>{currentPortions === 0 ? recipe.portions : currentPortions} portioner</p>
+                                <button onClick={handleAddPortions}>
                                     <p>+</p>
                                 </button>
                             </div>
@@ -70,12 +95,34 @@ const Recipe = () => {
                                         return (
                                             <div className="recipeIngredientItem" key={'ingredient' + index}>
                                                 <p>{ingredient.name}</p>
-                                                <p>{ingredient.amount}</p>
+                                                <p>{ingredient.amount * ((currentPortions || recipe.portions) / recipe.portions)}</p>
                                                 <p>{ingredient.unit}</p>
                                             </div>
                                         );
                                     })}
                             </div>
+                            {recipe?.recipes?.length > 0 &&
+                                recipe.recipes.map((childRecipe) => {
+                                    return (
+                                        <div>
+                                            <h4>{childRecipe?.name}</h4>
+                                            {childRecipe?.ingredients?.length > 0 &&
+                                                childRecipe.ingredients.map((ingredient, index) => {
+                                                    console.log(ingredient.amount, recipe.portions / (currentPortions || 1));
+                                                    return (
+                                                        <div className="recipeIngredientItem" key={'childrecipeIngredient' + index}>
+                                                            <p>{ingredient.name}</p>
+                                                            <p>
+                                                                {ingredient.amount *
+                                                                    ((currentPortions || recipe.portions) / recipe.portions)}
+                                                            </p>
+                                                            <p>{ingredient.unit}</p>
+                                                        </div>
+                                                    );
+                                                })}
+                                        </div>
+                                    );
+                                })}
                         </div>
                     </div>
                     <div className="recipeItem">
