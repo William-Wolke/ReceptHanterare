@@ -374,7 +374,7 @@ const CreateRecipe = () => {
                                     {/* Ingredint amount */}
                                     <div className="form-group form-element add-ingredient-input">
                                         <select
-                                            value={underRecipe.name}
+                                            value={`${underRecipe.name}@${underRecipe._id}`}
                                             min="0"
                                             max="9999"
                                             className="input"
