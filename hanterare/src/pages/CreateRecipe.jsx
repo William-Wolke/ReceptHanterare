@@ -43,6 +43,7 @@ const CreateRecipe = () => {
         e.preventDefault();
         let tempIngredients = [];
         let tempSteps = [];
+        let tempRecipeIds = [];
 
         inputFields.forEach((field) => {
             if (field.ingredientName) {
@@ -58,8 +59,11 @@ const CreateRecipe = () => {
                 tempSteps.push(step.stepText);
             }
         });
-
-        const recipeIds = underRecipes.map((item) => item._id)
+        underRecipes.forEach((recipe) => {
+            if (recipe._id) {
+                tempRecipeIds.push(recipe._id);
+            }
+        });
 
         //Create object to insert into db
         const recipe = {
@@ -68,7 +72,7 @@ const CreateRecipe = () => {
             // alt: alt,
             description: description,
             portions: portions,
-            recipes: recipeIds,
+            recipes: tempRecipeIds,
             tags: tags,
             time: time,
             ingredients: tempIngredients,
