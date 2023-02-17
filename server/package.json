@@ -9,7 +9,7 @@
     "dev": "nodemon server.js",
     "insert-test-data": "node ./scripts/insert.js",
     "delete-all-data": "node ./scripts/deleteAll.js",
-    "start-db": "docker-compose up"
+    "start-db": "docker compose up && docker compose down"
   },
   "author": "",
   "license": "ISC",
