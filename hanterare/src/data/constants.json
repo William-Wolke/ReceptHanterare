@@ -1,0 +1,97 @@
+{
+    "dietTypes": [
+        { "name": "Vegansk" },
+        { "name": "Glutenfri" },
+        { "name": "Kött" },
+        { "name": "Vegetarisk" },
+        { "name": "Laktosfri" },
+        { "name": "" }
+    ],
+    "mealTypes": [
+        { "name": "Förrätt" },
+        { "name": "Efterrätt" },
+        { "name": "Mellanmål" },
+        { "name": "Middag" },
+        { "name": "Lunch" },
+        { "name": "" }
+    ],
+    "kitchenTypes": [{ "name": "Svensk" }, { "name": "Finsk" }, { "name": "Tysk" }, { "name": "Skånsk/Dansk" }, { "name": "" }],
+    "attributeTypes": [
+        { "name": "Snabb" },
+        { "name": "Billig" },
+        { "name": "Lyxig" },
+        { "name": "Långkok" },
+        { "name": "Illasmakande" },
+        { "name": "" }
+    ],
+    "measurmentTypes": [
+        { "name": "Krm" },
+        { "name": "Tsk" },
+        { "name": "Msk" },
+        { "name": "L" },
+        { "name": "Dl" },
+        { "name": "Cl" },
+        { "name": "Ml" },
+        { "name": "St" },
+        { "name": "G" },
+        { "name": "" }
+    ],
+    "preferredMeasurmentTypes": [{ "name": "G" }, { "name": "L" }, { "name": "St" }],
+    "sectionTypes": [
+        { "name": "Bröd" },
+        { "name": "Mejeri" },
+        { "name": "Färskvaror" },
+        { "name": "Kött och chark" },
+        { "name": "Frukt och grönt" },
+        { "name": "Frysvaror" },
+        { "name": "Skafferi" },
+        { "name": "" }
+    ],
+    "metric": [
+        {
+            "unit": "Kg",
+            "convert": 1000,
+            "convertTo": "G"
+        },
+        {
+            "unit": "Hg",
+            "convert": 100,
+            "convertTo": "G"
+        },
+        {
+            "unit": "Mg",
+            "convert": 0.001,
+            "convertTo": "G"
+        },
+        {
+            "unit": "Dl",
+            "convert": 0.1,
+            "convertTo": "L"
+        },
+        {
+            "unit": "Cl",
+            "convert": 0.01,
+            "convertTo": "L"
+        },
+        {
+            "unit": "Ml",
+            "convert": 0.001,
+            "convertTo": "L"
+        },
+        {
+            "unit": "Msk",
+            "convert": 0.015,
+            "convertTo": "L"
+        },
+        {
+            "unit": "Tsk",
+            "convert": 0.005,
+            "convertTo": "L"
+        },
+        {
+            "unit": "Krm",
+            "convert": 0.001,
+            "convertTo": "L"
+        }
+    ]
+}

@@ -1,6 +1,6 @@
-const InputTextArea = ({ htmlFor, value, setter, text }) => {
+const InputTextArea = ({ htmlFor, value, setter, text, placeholder, inputRef, className }) => {
     return (
-        <div className='form-group form-element'>
+        <div className={'form-group form-element ' + className}>
             <label htmlFor={htmlFor}>{text}</label>
             <textarea
                 id={htmlFor}
@@ -9,6 +9,8 @@ const InputTextArea = ({ htmlFor, value, setter, text }) => {
                 onChange={(e) => {
                     setter(e.target.value);
                 }}
+                placeholder={placeholder}
+                ref={inputRef}
             />
         </div>
     );

@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const ingredient = require('./ingredient');
 
 const recipeSchema = new mongoose.Schema({
     name: {
@@ -9,22 +8,29 @@ const recipeSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        required: true,
         trim: true,
     },
     alt: {
         type: String,
-        required: true,
         trim: true,
     },
     description: {
         type: String,
-        required: true,
         trim: true,
     },
-    attribute: {
-        type: Object,
-        required: true,
+    recipes: {
+        type: [{type: mongoose.SchemaTypes.ObjectId, ref: 'Recipe'}],
+    },
+    time: {
+        type: Number,
+        min: 0,
+    },
+    portions: {
+        type: Number,
+        min: 0,
+    },
+    tags: {
+        type: Array,
     },
     ingredients: {
         type: Array,

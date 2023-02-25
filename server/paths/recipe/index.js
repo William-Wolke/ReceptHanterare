@@ -6,8 +6,12 @@ const router = express.Router();
 router.get('/one/:name', async (req, res) => {
     //Query
     try {
-        let result = await Recipe.findOne().byName(req.query.name);
-        res.json(result);
+        let result = await Recipe.findOne().byName(req.params.name).populate('recipes');
+
+        if (!result) {
+            res.status(404).json({message: 'Recource not found'});
+        }
+        res.status(200).json(result);
     } catch (e) {
         console.error(e.messsage);
         res.status(500);
@@ -17,7 +21,7 @@ router.get('/one/:name', async (req, res) => {
 //Get all recipes, all attributes are only needed for showing one recipe not showcasing all recipes, therefore the projection to optimize trafic
 router.get('/all', async (req, res) => {
     try {
-        let result = await Recipe.find({})
+        const result = await Recipe.find({}).populate('recipes')
         //Send the array of results
         res.status(200).json(result);
     } catch (e) {

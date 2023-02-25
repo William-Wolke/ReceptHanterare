@@ -12,8 +12,8 @@ const options = {
     maxPoolSize: 10, // Maintain up to 10 socket connections
     serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
     socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
-    family: 4 // Use IPv4, skip trying IPv6
-}
+    family: 4, // Use IPv4, skip trying IPv6
+};
 
 const deleteAllData = async () => {
     let menuResult = await Menu.deleteMany({});
@@ -22,15 +22,18 @@ const deleteAllData = async () => {
     if (ingredientResult) console.log('Deleted Ingredient');
     recipeResult = await Recipe.deleteMany({});
     if (recipeResult) console.log('Deleted Recipe');
-} 
+};
 
 //Connect to Mongo db
 mongoose.connect(process.env.DB_URL, options);
 
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
-db.once('open', () => console.log('Connected'));
+db.once('open', async () => {
+    console.log('Connected');
+    await deleteAllData();
 
-deleteAllData();
+    process.exit(0);
+});
 
 module.exports = deleteAllData;

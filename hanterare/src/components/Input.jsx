@@ -1,4 +1,4 @@
-const InputText = ({ htmlFor, value, setter, text, type }) => {
+const InputText = ({ htmlFor, value, setter, text, type, placeholder }) => {
     return (
         <div className='form-group form-element'>
             <label htmlFor={htmlFor}>{text}</label>
@@ -10,6 +10,7 @@ const InputText = ({ htmlFor, value, setter, text, type }) => {
                 onChange={(e) => {
                     setter(e.target.value);
                 }}
+                placeholder={placeholder}
             />
         </div>
     );

@@ -1,116 +1,70 @@
+import constants from './data/constants.json';
+
 //Returns a array that contains the recipenames for the passed array
 export const summarizeNames = (array) => {
+    if (!array?.length) return [];
     return array.map((item) => {
         return item.name;
     });
 };
 
-export const summarizeShoppingList = (shoppingList, ingredients) => {
-    //Convert all shopping items to prefered units
+const numOfDecimals = 4;
 
-    const metric = [
-        {
-            unit: 'Kg',
-            convert: 1000,
-        },
-        {
-            unit: 'Hg',
-            convert: 100,
-        },
-        {
-            unit: 'Mg',
-            convert: 0.001,
-        },
-        {
-            unit: 'Dl',
-            convert: 0.1,
-        },
-        {
-            unit: 'Cl',
-            convert: 0.01,
-        },
-        {
-            unit: 'Ml',
-            convert: 0.001,
-        },
-        {
-            unit: 'Msk',
-            convert: 0.015,
-        },
-        {
-            unit: 'Tsk',
-            convert: 0.005,
-        },
-        {
-            unit: 'Krm',
-            convert: 0.001,
-        },
-    ];
+export const toPreferredUnit = (shoppingList, ingredients) => {
+    return shoppingList.map((item) => {
+        const ingredient = ingredients.find(({ name }) => name === item.name);
 
-    //Map through all items in shopping list and all ingredients
-    shoppingList.map((item) => {
-        ingredients.map((ingredient) => {
-            if (item.name === ingredient.name) {
-                if (item.unit !== ingredient.unit.preferredUnit) {
-                    ingredient.unit.conversion.map((unit) => {
-                        if (unit.unit === ingredient.unit.preferredUnit) {
-                            metric.map((metric) => {
-                                if (metric.unit === item.unit) {
-                                    //Convert from
-                                    item.amount = Number(
-                                        item.amount *
-                                            unit.amount *
-                                            metric.convert
-                                    );
-                                    item.unit =
-                                        ingredient.unit.preferredUnit;
-                                }
-                            });
-                        }
-                    });
-                }
+        let correctUnit = 1;
+
+        if (ingredient?.unit?.preferredUnit === item.unit) {
+            return item;
+        } else if (ingredient) {
+            const correctMetricUnit = constants.metric.find(({ unit }) => unit === item.unit);
+            if (correctMetricUnit) {
+                correctUnit = correctMetricUnit.convert;
+                item.unit = correctMetricUnit.convertTo;
             }
-        });
-    });
 
+            if (ingredient.unit?.conversion) {
+                const ingredientConversion = ingredient.unit.conversion.find((convert) => convert.unit === ingredient.unit.preferredUnit);
+                const itemConversion = ingredient.unit.conversion.find((convert) => convert.unit === item.unit && convert.amount);
+
+                if (ingredientConversion?.amount && itemConversion) {
+                    item.amount = parseFloat(
+                        (item.amount * correctUnit * (ingredientConversion.amount / itemConversion.amount)).toFixed(numOfDecimals)
+                    );
+                    item.unit = ingredient.unit.preferredUnit;
+                    return item;
+                }
+
+                return item;
+            }
+        } else {
+            return item;
+        }
+
+        return item;
+    });
+};
+
+export const summarizeShoppingList = (shoppingList) => {
+    //Map through all items in shopping list and all ingredients
     //Summarize the list
 
     let uniqueList = [];
 
-    shoppingList.map((item) => {
-        //Runs on first iteration when list is emprty
-        if (uniqueList.length === 0) {
+    shoppingList.forEach((item) => {
+        const ingredient = uniqueList.find(({ name, unit }) => name === item.name && unit === item.unit);
+        if (ingredient && ingredient.unit === item.unit) {
+            let amount = parseFloat(Number(Number(ingredient.amount) + Number(item.amount)).toFixed(numOfDecimals));
+
+            ingredient.amount = amount;
+        } else {
             uniqueList.push({
                 name: item.name,
                 amount: item.amount,
                 unit: item.unit,
             });
-        }
-
-        //Runs on all iterations exept first
-        else if (uniqueList.length > 0) {
-            //If name i present in the array
-            let found = uniqueList.some(
-                (element) => element.name === item.name
-            );
-
-            //No duplicates found, push new item to array
-            if (!found) {
-                uniqueList.push({
-                    name: item.name,
-                    amount: item.amount,
-                    unit: item.unit,
-                });
-            }
-
-            //Duplicates found, instead add the amount to total amount
-            else {
-                uniqueList.map((element) => {
-                    if (element.name === item.name) {
-                        element.amount -= Number(-item.amount);
-                    }
-                });
-            }
         }
     });
     return uniqueList;

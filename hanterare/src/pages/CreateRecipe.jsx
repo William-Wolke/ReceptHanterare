@@ -1,408 +1,431 @@
-import React, { useState, useEffect } from "react";
-import useFetch from "../hooks/useFetch";
-import CreateIngredient from "./CreateIngredient";
-import UseAxios from "../hooks/UseAxios";
-import Input from "../components/Input.jsx";
-import InputSelect from "../components/InputSelect.jsx";
-import InputRange from "../components/InputRange.jsx";
-import InputTextArea from "../components/InputTextArea";
-import AttributeList from "../components/AttributeList";
-import Button from "../components/Button";
-import IngredientList from "../components/IngredientList";
-
-const mealTypes = [
-  { name: "Förrätt", index: 0 },
-  { name: "Efterrätt", index: 1 },
-  { name: "Mellanmål", index: 2 },
-  { name: "Middag", index: 3 },
-  { name: "Lunch", index: 4 },
-  { name: "saturday", index: 5 },
-  { name: "sunday", index: 6 },
-];
-
-const dietTypes = [
-  { name: "Vegansk", index: 0 },
-  { name: "Glutenfri", index: 1 },
-  { name: "Kött", index: 2 },
-  { name: "Vegetarisk", index: 3 },
-  { name: "Laktosfri", index: 4 },
-  { name: "saturday", index: 5 },
-  { name: "sunday", index: 6 },
-];
-
-const kitchenTypes = [
-  { name: "Svensk", index: 0 },
-  { name: "Finsk", index: 1 },
-  { name: "Tysk", index: 2 },
-  { name: "Skånsk/Dansk", index: 3 },
-];
-
-const attributeTypes = [
-  { name: "Snabb", index: 0 },
-  { name: "Billig", index: 1 },
-  { name: "Lyxig", index: 2 },
-  { name: "Långkok", index: 3 },
-  { name: "Illasmakande", index: 4 },
-];
-
-const measurmentTypes = [
-  { name: "Krm", index: 0 },
-  { name: "Tsk", index: 1 },
-  { name: "Msk", index: 2 },
-  { name: "L", index: 3 },
-  { name: "Dl", index: 4 },
-  { name: "Cl", index: 5 },
-  { name: "Ml", index: 6 },
-  { name: "St", index: 7 },
-  { name: "G", index: 8 },
-  { name: "", index: 9 },
-];
+import React, { useState } from 'react';
+import useFetch from '../hooks/useFetch';
+import CreateIngredient from './CreateIngredient';
+import UseAxios from '../hooks/UseAxios';
+import Input from '../components/Input.jsx';
+import InputSelect from '../components/InputSelect.jsx';
+import InputRange from '../components/InputRange.jsx';
+import InputTextArea from '../components/InputTextArea';
+import AttributeList from '../components/AttributeList';
+import Button from '../components/Button';
+import IngredientList from '../components/IngredientList';
+import InputList from '../components/InputList';
+import constants from '../data/constants.json';
+import useFocus from '../hooks/useFocus';
 
 const CreateRecipe = () => {
-  //Form inputs to create a recipe
-  const [recipeName, setRecipeName] = useState("");
-  const [description, setDescription] = useState("");
-  const [ingredients, setIngredients] = useState([]);
-  const [image, setImage] = useState("");
-  const [alt, setAlt] = useState("");
-  const [portions, setPortions] = useState(0);
-  const [meal, setMeal] = useState([]);
-  const [diet, setDiet] = useState([]);
-  const [properties, setProperties] = useState([]);
-  const [kitchen, setKitchen] = useState([]);
-  const [time, setTime] = useState(0);
-  const [steps, setSteps] = useState([]);
+    //Form inputs to create a recipe
+    const [recipeName, setRecipeName] = useState('');
+    const [description, setDescription] = useState('');
+    const [portions, setPortions] = useState(0);
+    const [tag, setTag] = useState('');
+    const [tags, setTags] = useState([]);
+    const [time, setTime] = useState(0);
 
-  //Form inputs to create an ingredient
-  const [ingredientName, setIngredientName] = useState("");
-  const [ingredientAmount, setIngredientAmount] = useState(0);
-  const [ingredientUnit, setIngredientUnit] = useState("");
+    //Form inputs to create an ingredient
+    const [inputFields, setInputFields] = useState([{ ingredientAmount: 0, ingredientUnit: '', ingredientName: '' }]);
+    const [inputSteps, setStep] = useState([{ stepText: '' }]);
+    const [underRecipes, setUnderRecipes] = useState([{ name: '', _id: '' }]);
 
-  //Form for attributes
-  const [mealName, setMealName] = useState("");
-  const [dietName, setDietName] = useState("");
-  const [attributeName, setAttributeName] = useState("");
-  const [kitchenName, setKitchenName] = useState("");
-  const [step, setStep] = useState("");
+    //Create new ingredient while creating recipe
+    const [createNewIngredient, setCreateNewIngredient] = useState(false);
 
-  //Create new ingredient while creating recipe
-  const [createNewIngredient, setCreateNewIngredient] = useState(false);
+    //Update ingredients state
+    const [updateIngredients, setUpdateIngredients] = useState(1);
 
-  //Update ingredients state
-  const [updateIngredients, setUpdateIngredients] = useState("");
+    const [tagRef, setTagFocus] = useFocus();
 
-  //Onsubmit
-  const handleSubmit = async (e) => {
-    //Prevent reloading page
-    e.preventDefault();
+    const tagTypes = [...constants.mealTypes, ...constants.dietTypes, ...constants.kitchenTypes, ...constants.attributeTypes];
 
-    //Create object to insert into db
-    let recipe = {
-      name: recipeName,
-      image: image,
-      alt: alt,
-      description: description,
-      attribute: {
-        portions: portions,
-        meal: meal,
-        diet: diet,
-        properties: properties,
-        kitchen: kitchen,
-        time,
-        time,
-      },
-      ingredients: ingredients,
-      steps: steps,
+    //Onsubmit
+    const handleSubmit = async (e) => {
+        //Prevent reloading page
+        e.preventDefault();
+        let tempIngredients = [];
+        let tempSteps = [];
+        let tempRecipeIds = [];
+
+        inputFields.forEach((field) => {
+            if (field.ingredientName) {
+                tempIngredients.push({
+                    amount: field.ingredientAmount,
+                    unit: field.ingredientUnit,
+                    name: field.ingredientName,
+                });
+            }
+        });
+        inputSteps.forEach((step) => {
+            if (step.stepText) {
+                tempSteps.push(step.stepText);
+            }
+        });
+        underRecipes.forEach((recipe) => {
+            if (recipe._id) {
+                tempRecipeIds.push(recipe._id);
+            }
+        });
+
+        //Create object to insert into db
+        const recipe = {
+            name: recipeName,
+            // image: image,
+            // alt: alt,
+            description: description,
+            portions: portions,
+            recipes: tempRecipeIds,
+            tags: tags,
+            time: time,
+            ingredients: tempIngredients,
+            steps: tempSteps,
+        };
+
+        console.log(recipe);
+
+        let isOk = await UseAxios('/recipe/create', recipe);
+        console.log(isOk);
+        if (isOk) {
+            alert('Created recipe');
+        } else {
+            console.log('Failed');
+        }
     };
 
-    console.log(recipe);
+    const handleAddListItem = (value, list, setValue, setList) => {
+        if (!value) {
+            return;
+        }
 
-    let res = await UseAxios("/recipe/create", recipe);
-    console.log(res);
-    if (res) {
-      console.log("Created recipe");
-    } else {
-      console.log("Failed");
-    }
-  };
+        if (list.includes(value)) {
+            return;
+        }
 
-  //On add new ingredient
-  const handleAddIngredient = () => {
-    //create new ingredient
-    let newIngredient = {
-      name: ingredientName,
-      amount: ingredientAmount,
-      unit: ingredientUnit,
+        setList([...list, value]);
+
+        setValue('');
     };
 
-    console.log(newIngredient);
+    const handleAddTag = () => {
+        handleAddListItem(tag, tags, setTag, setTags);
+    };
 
-    //Push new ingredient to the list of ingredients
-    setIngredients([...ingredients, newIngredient]);
+    const addFields = () => {
+        let newField = { ingredientAmount: 0, ingredientUnit: '', ingredientName: '' };
 
-    //Reset new ingredient form
-    setIngredientName("");
-    setIngredientUnit("");
-    setIngredientAmount(0);
-  };
+        setInputFields([...inputFields, newField]);
+    };
 
-  //On add new ingredient
-  const handleAddMeal = () => {
-    console.log("???");
+    const addSteps = () => {
+        let newStep = { stepText: '' };
 
-    //Push new ingredient to the list of ingredients
-    setMeal([...meal, mealName]);
+        setStep([...inputSteps, newStep]);
+    };
 
-    //Reset new meal form
-    setMealName("");
+    const addUnderRecipes = () => {
+        let newRecipe = { name: '', _id: '' };
 
-    console.log("!!!");
-    console.log(meal);
-  };
+        setUnderRecipes([...underRecipes, newRecipe]);
+    };
 
-  //On add new ingredient
-  const handleAddDiet = () => {
-    //Push new ingredient to the list of ingredients
-    setDiet([...diet, dietName]);
+    const handleFormChange = (event, index) => {
+        let data = [...inputFields];
+        data[index][event.target.name] = event.target.value;
+        setInputFields(data);
+    };
 
-    //Reset diet form
-    setDietName("");
-  };
+    const handleStepChange = (event, index) => {
+        let data = [...inputSteps];
+        data[index][event.target.name] = event.target.value;
+        setStep(data);
+    };
 
-  //On add new ingredient
-  const handleAddKitchen = () => {
-    //Push new ingredient to the list of ingredients
-    setKitchen([...kitchen, kitchenName]);
+    const handleUnderRecipeChange = (event, index) => {
+        let data = [...underRecipes];
+        const [name, id] = event.target.value.split('@');
+        data[index].name = name;
+        data[index]._id = id;
+        setUnderRecipes(data);
+    };
 
-    //Reset diet form
-    setKitchenName("");
-  };
+    const removeFields = (index) => {
+        let data = [...inputFields];
+        data.splice(index, 1);
+        setInputFields(data);
+    };
 
-  //On add new ingredient
-  const handleAddPropertie = () => {
-    //Push new ingredient to the list of ingredients
-    setProperties([...properties, attributeName]);
+    const removeStepsFields = (index) => {
+        let data = [...inputSteps];
+        data.splice(index, 1);
+        setStep(data);
+    };
 
-    //Reset diet form
-    setAttributeName("");
-  };
+    const removeUnderRecipe = (index) => {
+        let data = [...underRecipes];
+        data.splice(index, 1);
+        setUnderRecipes(data);
+    };
 
-  //On add new ingredient
-  const handleAddStep = () => {
-    //Push new ingredient to the list of ingredients
-    setSteps([...steps, step]);
+    //Fetches ingredients from db
+    const { data, isPending, error } = useFetch('/ingredient/all/', 'GET', updateIngredients);
+    const { data: recipes, isPending: recipeIsPending, error: recipeError } = useFetch('/recipe/all/', 'GET');
 
-    //Reset diet form
-    setStep("");
-  };
+    console.log(recipes);
 
-  //Fetches ingredients from db
-  const { data, isPending, error } = useFetch(
-    "/ingredient/all/",
-    "GET",
-    updateIngredients
-  );
+    return (
+        <>
+            {createNewIngredient && <CreateIngredient />}
+            {createNewIngredient && (
+                <Button
+                    text={'Update ingredients'}
+                    onClickFunc={() => {
+                        setUpdateIngredients(updateIngredients * -1);
+                    }}
+                />
+            )}
+            <div className="create">
+                <form onSubmit={handleSubmit} className="form form-grid">
+                    <div className="form-grid-element">
+                        <div className="form-element">
+                            <h1>Lägg till ett nytt recept</h1>
+                        </div>
 
-  return (
-    <>
-      {createNewIngredient && <CreateIngredient />}
-      {createNewIngredient && (
-        <button
-          onClick={() => {
-            setUpdateIngredients(updateIngredients + "y");
-          }}
-        >
-          Update ingredients
-        </button>
-      )}
+                        {/* Titel */}
+                        <Input type="text" placeholder="Namn" htmlFor="recipeName" value={recipeName} setter={setRecipeName} />
 
-      <div className="create">
-        <form onSubmit={handleSubmit} className="form">
-          <div className="form-element">
-            <h1>Lägg till ett nytt recept</h1>
-          </div>
+                        {/* Description */}
+                        <InputTextArea placeholder="Beskrivning..." htmlFor="description" value={description} setter={setDescription} />
 
-          {/* Titel */}
-          <Input
-            type="text"
-            text="Namn"
-            htmlFor="recipeName"
-            value={recipeName}
-            setter={setRecipeName}
-          />
+                        <div className="form-atribute-container">
+                            {/* Time */}
 
-          {/* Description */}
-          <InputTextArea
-            text="Beskrivning"
-            htmlFor="description"
-            value={description}
-            setter={setDescription}
-          />
+                            <InputRange text="Tid" min={1} htmlFor="time" value={time} setter={setTime} />
+                            {/* Number of portions */}
+                            <InputRange text="Portioner" min={1} htmlFor="portions" value={portions} setter={setPortions} />
+                        </div>
 
-          {/* Time */}
-          <Input
-            type="number"
-            text="Tid"
-            htmlFor="time"
-            value={time}
-            setter={setTime}
-          />
+                        <div className="form-atribute-container form-tag-container">
+                            <div className="double-input-container form-tag-item">
+                                <input
+                                    className="input"
+                                    type="text"
+                                    list="tags"
+                                    placeholder="Lägg till tag"
+                                    value={tag}
+                                    onChange={(e) => {
+                                        setTag(e.target.value);
+                                    }}
+                                    ref={tagRef}
+                                />
+                                <input
+                                    type="button"
+                                    value="+"
+                                    className="input add add-tag"
+                                    onClick={() => {
+                                        handleAddTag();
+                                        setTagFocus();
+                                    }}
+                                />
+                                <datalist id="tags">
+                                    {tagTypes.length &&
+                                        tagTypes.map((option, index) => {
+                                            return (
+                                                <option value={option.name} key={index}>
+                                                    {option.name}
+                                                </option>
+                                            );
+                                        })}
+                                </datalist>
+                                <AttributeList list={tags} />
+                            </div>
+                        </div>
 
-          {/* Image */}
-          <Input
-            type="text"
-            text="Bild"
-            htmlFor="image"
-            value={image}
-            setter={setImage}
-          />
+                        <div className="form-element">
+                            <h2>Ingredienser</h2>
+                        </div>
 
-          {/* Alt attribute for img */}
-          <Input
-            type="text"
-            text="Alt attribut"
-            htmlFor="altText"
-            value={alt}
-            setter={setAlt}
-          />
+                        <div>
+                            {inputFields.map((input, index) => {
+                                return (
+                                    <div className="add-ingredient-form" key={index}>
+                                        {/* Ingredint amount */}
+                                        <div className="form-group form-element add-ingredient-input">
+                                            {/* <label htmlFor={amount}>{text}</label> */}
+                                            <input
+                                                type="number"
+                                                id="amount"
+                                                value={input.ingredientAmount}
+                                                min="0"
+                                                max="9999"
+                                                className="input"
+                                                step="0.0001"
+                                                onChange={(event) => {
+                                                    handleFormChange(event, index);
+                                                }}
+                                                name="ingredientAmount"
+                                            />
+                                        </div>
 
-          {/* Number of portions */}
-          <Input
-            type="text"
-            text="Portioner"
-            htmlFor="portions"
-            value={portions}
-            setter={setPortions}
-          />
+                                        {/* Ingredint unit */}
+                                        <div className="form-group form-element add-ingredient-input">
+                                            {/* <label htmlFor='measurment'>Hej</label> */}
+                                            <select
+                                                id="measurment"
+                                                className="input"
+                                                value={input.ingredientUnit}
+                                                name="ingredientUnit"
+                                                onChange={(event) => {
+                                                    handleFormChange(event, index);
+                                                }}
+                                            >
+                                                {constants.measurmentTypes &&
+                                                    constants.measurmentTypes.map((option, index) => {
+                                                        return (
+                                                            <option value={option.name} key={index}>
+                                                                {option.name}
+                                                            </option>
+                                                        );
+                                                    })}
+                                            </select>
+                                        </div>
 
-          <InputSelect
-            text="Måltid"
-            optionList={mealTypes}
-            htmlFor="meal"
-            value={mealName}
-            setter={setMealName}
-          />
+                                        {/* Ingredint name */}
+                                        {data && (
+                                            <div className="form-group form-element add-ingredient-input add-ingredient-input-name">
+                                                {/* <label htmlFor={htmlFor}>{text}</label> */}
+                                                <input
+                                                    type="text"
+                                                    id="ingredientName"
+                                                    value={input.ingredientName}
+                                                    className="input add-ingredient-input"
+                                                    list="ingredient-name"
+                                                    onChange={(event) => {
+                                                        handleFormChange(event, index);
+                                                    }}
+                                                    autoComplete={'off'}
+                                                    name="ingredientName"
+                                                />
 
-          {/* Meal */}
-          <div>
-            <InputSelect
-              text="Måltid"
-              optionList={mealTypes}
-              htmlFor="meal"
-              value={mealName}
-              setter={setMealName}
-            />
-            <Button text={"Lägg till"} onClickFunc={handleAddMeal} />
+                                                <datalist id="ingredient-name">
+                                                    {[...data, { name: '' }].length &&
+                                                        [...data, { name: '' }].map((option, index) => {
+                                                            return (
+                                                                <option value={option.name} key={index}>
+                                                                    {option.name}
+                                                                </option>
+                                                            );
+                                                        })}
+                                                </datalist>
+                                            </div>
+                                        )}
 
-            <AttributeList list={meal} />
-          </div>
+                                        <button
+                                            className="remove-ingredient-button remove "
+                                            type="button"
+                                            onClick={() => removeFields(index)}
+                                        >
+                                            Ta bort
+                                        </button>
+                                    </div>
+                                );
+                            })}
+                        </div>
 
-          {/* Diet */}
-          <div>
-            <InputSelect
-              text="Kost"
-              optionList={dietTypes}
-              htmlFor="diet"
-              value={dietName}
-              setter={setDietName}
-            />
+                        <div className="form-element add-button-container">
+                            <input type="button" value="+" className="input button steps-button add" onClick={addFields} />
+                        </div>
+                    </div>
+                    <div className="form-grid-element">
+                        {/* Steps */}
+                        <div className="form-element">
+                            <h2>Lägg till steg</h2>
+                        </div>
 
-            <Button text="Lägg till" onClickFunc={handleAddDiet} />
+                        <div>
+                            <div>
+                                {inputSteps.map((input, index) => {
+                                    return (
+                                        <div className="form-group form-element  add-step-form" key={index}>
+                                            <p>{index + 1 + '.'}</p>
+                                            {/* <label htmlFor={htmlFor}>{text}</label> */}
+                                            <textarea
+                                                id="step"
+                                                value={input.stepText}
+                                                className="input add-step-input"
+                                                onChange={(event) => {
+                                                    handleStepChange(event, index);
+                                                }}
+                                                name="stepText"
+                                            />
+                                            <button
+                                                className="remove-step-button remove"
+                                                type="button"
+                                                onClick={() => removeStepsFields(index)}
+                                            >
+                                                Ta bort
+                                            </button>
+                                        </div>
+                                    );
+                                })}
+                            </div>
 
-            <AttributeList list={diet} />
-          </div>
+                            <div className="form-element add-button-container">
+                                <input type="button" value="+" className="input button steps-button add" onClick={addSteps} />
+                            </div>
+                        </div>
 
-          {/* Kitchen */}
-          <div>
-            <InputSelect
-              text="Kök"
-              optionList={kitchenTypes}
-              htmlFor="kitchen"
-              value={kitchenName}
-              setter={setKitchenName}
-            />
+                        {underRecipes.map((underRecipe, index) => {
+                            return (
+                                <div className="add-ingredient-form" key={index}>
+                                    {/* Ingredint amount */}
+                                    <div className="form-group form-element add-ingredient-input">
+                                        <select
+                                            value={`${underRecipe.name}@${underRecipe._id}`}
+                                            min="0"
+                                            max="9999"
+                                            className="input"
+                                            step="0.0001"
+                                            onChange={(event) => {
+                                                handleUnderRecipeChange(event, index);
+                                            }}
+                                            name="ingredientAmount"
+                                        >
+                                            <option value={['', '']}></option>
+                                            {recipes?.length > 0 &&
+                                                recipes.map((recipeItem, i) => {
+                                                    return (
+                                                        <option value={`${recipeItem.name}@${recipeItem._id}`} key={i}>
+                                                            {recipeItem.name}
+                                                        </option>
+                                                    );
+                                                })}
+                                        </select>
+                                    </div>
+                                    <button
+                                        className="remove-ingredient-button remove "
+                                        type="button"
+                                        onClick={() => removeUnderRecipe(index)}
+                                    >
+                                        Ta bort
+                                    </button>
+                                </div>
+                            );
+                        })}
 
-            <Button text="Lägg till" onClickFunc={handleAddKitchen} />
+                        <div className="form-element add-button-container">
+                            <input type="button" value="+" className="input button steps-button add" onClick={addUnderRecipes} />
+                        </div>
 
-            <AttributeList list={kitchen} />
-          </div>
+                        <div className="form-element submit-button">
+                            <input type="submit" className="input" value="Submit" />
+                        </div>
+                    </div>
 
-          {/* Attribute */}
-          <div>
-            <InputSelect
-              text="Egenskap"
-              optionList={attributeTypes}
-              htmlFor="attribute"
-              value={attributeName}
-              setter={setAttributeName}
-            />
-
-            <Button text="Lägg till" onClickFunc={handleAddPropertie} />
-
-            <AttributeList list={properties} />
-          </div>
-
-          {/* Steps */}
-          <div>
-            <InputTextArea
-              text="Steg"
-              htmlFor="steps"
-              value={step}
-              setter={setStep}
-            />
-
-            <Button text="Lägg till" onClickFunc={handleAddStep} />
-
-            <AttributeList list={steps} />
-          </div>
-
-          {/* Display status on fetching ingredients */}
-          {error && <p>{error}</p>}
-          {isPending && <p>{isPending}</p>}
-
-          <div>
-            {/* Ingredint name */}
-
-            <InputSelect
-              text="Namn"
-              optionList={[...data, { name: "" }]}
-              htmlFor="name"
-              value={ingredientName}
-              setter={setIngredientName}
-            />
-
-            {/* Ingredint amount */}
-
-            <Input
-              type="number"
-              text="Mängd"
-              htmlFor="amount"
-              value={ingredientAmount}
-              setter={setIngredientAmount}
-            />
-
-            {/* Ingredint unit */}
-
-            <InputSelect
-              text="Mått"
-              optionList={measurmentTypes}
-              htmlFor="measurment"
-              value={mealName}
-              setter={setIngredientUnit}
-            />
-
-            <Button text="+" onClickFunc={handleAddIngredient}/>
-
-            <IngredientList list={ingredients} />
-
-            <div className="form-element">
-              <input type="submit" className="input" value="Submit" />
+                    {/* Display status on fetching ingredients */}
+                    {error && <p>{error}</p>}
+                    {isPending && <p>{isPending}</p>}
+                </form>
             </div>
-          </div>
-        </form>
-      </div>
-    </>
-  );
+        </>
+    );
 };
 
 export default CreateRecipe;

@@ -10,39 +10,39 @@ const menuSchema = new mongoose.Schema({
         required: true,
     },
     monday: {
-        type: Array
+        type: Array,
     },
     tuesday: {
-        type: Array
+        type: Array,
     },
     wednesday: {
-        type: Array
+        type: Array,
     },
     thursday: {
-        type: Array
+        type: Array,
     },
     friday: {
-        type: Array
+        type: Array,
     },
     saturday: {
-        type: Array
+        type: Array,
     },
     sunday: {
-        type: Array
+        type: Array,
     },
     shoppingList: {
-        type: Array
-    }
+        type: Array,
+    },
 });
 
-menuSchema.statics.findDuplicateYearAndWeek = async function(year, week) {
+menuSchema.statics.findDuplicateYearAndWeek = async function (year, week) {
     const menuList = await this.find().byYearAndWeek(year, week);
     if (menuList[0] !== undefined) return true;
     return false;
-}
+};
 
-menuSchema.query.byYearAndWeek = function(year, week) {
-    return this.where({year: year, week: week });
-}
+menuSchema.query.byYearAndWeek = function (year, week) {
+    return this.where({ year: year, week: week });
+};
 
 module.exports = mongoose.model('Menu', menuSchema);
