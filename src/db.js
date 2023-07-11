@@ -10,7 +10,7 @@ mongoose.connect(process.env.MONGODB_URI || serverRuntimeConfig.connectionString
 mongoose.Promise = global.Promise;
 
 export const db = {
-    'Menu': menuSchema(),
-    'Recipe': recipeSchema(),
-    'Ingredient': ingredientSchema(),
+    Menu: menuSchema(),
+    Recipe: recipeSchema(),
+    Ingredient: ingredientSchema(),
 };

@@ -6,14 +6,14 @@ const UseAxios = async (path, body) => {
     try {
         let url = new URL(path, process.env.REACT_APP_DB_HOSTNAME).href;
         let res = await axios.post(url, body);
-        if(res.status === 200) {
-            response =  true;
+        if (res.status === 200) {
+            response = true;
         }
         return response;
     } catch (err) {
-        console.error(err.message)
+        console.error(err.message);
         response = false;
     }
-}
+};
 
 export default UseAxios;

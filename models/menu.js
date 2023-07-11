@@ -46,7 +46,5 @@ export default function menuSchema() {
         return this.where({ year: year, week: week });
     };
 
-    return mongoose.models && "Menu" in mongoose.models ? mongoose.models.Menu : mongoose.model("Menu", MenuSchema);
+    return mongoose.models && 'Menu' in mongoose.models ? mongoose.models.Menu : mongoose.model('Menu', MenuSchema);
 }
-
-

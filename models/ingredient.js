@@ -34,5 +34,5 @@ export default function ingredientSchema() {
         return this.where({ name: new RegExp(name) });
     };
 
-    return mongoose.models && "Ingredient" in mongoose.models ? mongoose.models.Ingredient : mongoose.model("Ingredient", IngredientSchema);
+    return mongoose.models && 'Ingredient' in mongoose.models ? mongoose.models.Ingredient : mongoose.model('Ingredient', IngredientSchema);
 }

@@ -1,56 +1,32 @@
-const express = require('express');
-const Recipe = require('../../models/recipe');
-const router = express.Router();
+import { db } from '../../../src/db';
 
-//Get a recipe based on query
-router.get('/one/:name', async (req, res) => {
-    //Query
-    try {
-        let result = await Recipe.findOne().byName(req.params.name).populate('recipes');
+export default async function handler(req, res) {
+    if (req.method == 'POST') {
+        //Query to find duplicate recipe
+        try {
+            let isDuplicate = await Recipe.findDuplicateName(req.body.name);
+            if (isDuplicate) {
+                throw new Error('Recipe already exist');
+            } else {
+                //Query for inserting the object to the db
+                let newRecipe = new db.Recipe(req.body);
+                await newRecipe.save();
 
-        if (!result) {
-            res.status(404).json({message: 'Recource not found'});
+                //Send respons to browser
+                res.status(200).send({ status: 'yes' });
+            }
+        } catch (e) {
+            console.error(e.message);
+            res.status(304).json({ message: e.message });
         }
-        res.status(200).json(result);
-    } catch (e) {
-        console.error(e.messsage);
-        res.status(500);
     }
-});
 
-//Get all recipes, all attributes are only needed for showing one recipe not showcasing all recipes, therefore the projection to optimize trafic
-router.get('/all', async (req, res) => {
     try {
-        const result = await Recipe.find({}).populate('recipes')
+        const result = await db.Recipe.find({}).populate('recipes');
         //Send the array of results
         res.status(200).json(result);
     } catch (e) {
         console.error(error);
         res.status(500);
     }
-});
-
-
-
-//Create recipe
-router.post('/create', async (req, res) => {
-    //Query to find duplicate recipe
-    try {
-        let isDuplicate = await Recipe.findDuplicateName(req.body.name);
-        if (isDuplicate) {
-            throw new Error("Recipe already exist");
-        } else {
-            //Query for inserting the object to the db
-            let newRecipe = new Recipe(req.body);
-            await newRecipe.save();
-            
-            //Send respons to browser
-            res.status(200).send({status: "yes"});
-        }
-    } catch (e) {
-        console.error(e.message);
-        res.status(304).json({message: e.message});
-    }
-});
-
-module.exports = router;
+}

@@ -1,4 +1,4 @@
-import constants from './data/constants.json';
+import constants from './constants.json';
 
 //Returns a array that contains the recipenames for the passed array
 export const summarizeNames = (array) => {
@@ -31,7 +31,7 @@ export const toPreferredUnit = (shoppingList, ingredients) => {
 
                 if (ingredientConversion?.amount && itemConversion) {
                     item.amount = parseFloat(
-                        (item.amount * correctUnit * (ingredientConversion.amount / itemConversion.amount)).toFixed(numOfDecimals)
+                        (item.amount * correctUnit * (ingredientConversion.amount / itemConversion.amount)).toFixed(numOfDecimals),
                     );
                     item.unit = ingredient.unit.preferredUnit;
                     return item;

@@ -1,8 +1,8 @@
-body{
+body {
     font-family: Monospace;
 }
 
-.recept{
+.recept {
     display: grid;
 }
 
@@ -18,7 +18,7 @@ textarea {
     background-color: var(--block-background);
 }
 
-.navbar{
+.navbar {
     /* display: flex; */
     /* justify-content: center; */
     /* align-items: center; */
@@ -36,7 +36,7 @@ textarea {
     height: 100%;
     width: 100%;
     flex-basis: content;
-    padding: 1rem 0 ;
+    padding: 1rem 0;
 }
 
 .navbarHeader {
@@ -110,12 +110,11 @@ textarea {
     text-align: center;
 }
 
-.add-tag{
+.add-tag {
     margin-right: 1em;
 }
 
 .recipeInfoContainer {
-    
 }
 
 .recipeInfoItem {
@@ -184,7 +183,8 @@ textarea {
     margin: auto;
 }
 
-.recipeListTime, .recipeListName {
+.recipeListTime,
+.recipeListName {
     max-width: 250px;
 }
 
@@ -208,7 +208,7 @@ textarea {
 
 /*Create recipe*/
 
-.remove{
+.remove {
     background-color: var(--remove-color);
     border-color: var(--remove-color);
     border: 0;
@@ -219,7 +219,7 @@ textarea {
     padding: 0 0.5em;
 }
 
-.add{
+.add {
     background-color: var(--block-background);
     border-color: var(--block-background);
     border: 0;
@@ -230,7 +230,7 @@ textarea {
     padding: 0 0.5em;
 }
 
-.create{
+.create {
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -288,7 +288,6 @@ textarea {
 .form-grid {
     display: flex;
     flex-direction: row;
-
 }
 
 .form-grid-element {
@@ -350,13 +349,13 @@ textarea {
     gap: 1em;
 }
 
-.add-ingredient-input{
+.add-ingredient-input {
     height: 100%;
     padding: 0;
     /* width: fit-content; */
 }
 
-.add-ingredient-input-name{
+.add-ingredient-input-name {
     height: 45.66px;
 }
 
@@ -386,28 +385,28 @@ textarea {
     text-align: center;
 }
 
-.add-step-form{
+.add-step-form {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
 }
 
-.add-step-input{
+.add-step-input {
     width: 100%;
     display: block;
     height: 100%;
     margin-right: 0;
 }
 
-.submit-button{
+.submit-button {
     margin-top: 5em;
 }
 
-.remove-step-button{
-    height:auto;
-    width:auto;
+.remove-step-button {
+    height: auto;
+    width: auto;
 }
 
-.remove-ingredient-button{
+.remove-ingredient-button {
     height: auto;
 }
 /*END Create recipe*/
@@ -464,7 +463,7 @@ textarea {
     display: flex;
     width: 90%;
     margin: 0;
-    padding: 1em 0 0 0; 
+    padding: 1em 0 0 0;
     flex-direction: row;
     justify-content: flex-end;
 }
@@ -531,8 +530,6 @@ textarea {
     width: 300px;
     margin: auto;
 }
-
-
 
 .menuListItemScheduleContainer {
     display: flex;

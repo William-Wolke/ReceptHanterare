@@ -13,16 +13,15 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-
 router.get('/', function (req, res) {
     res.sendFile('../.. /pages/upload.html', { root: __dirname });
-})
+});
 
 router.post('/', upload.single('recipe-image'), async function (req, res) {
     // req.file is the `profile-file` file
     // req.body will hold the text fields, if there were any
     console.log(JSON.stringify(req.file));
-    console.log(JSON.stringify(req.body))
+    console.log(JSON.stringify(req.body));
 
     try {
         let recipe = await Recipe.findById(req.body.id);
@@ -33,7 +32,7 @@ router.post('/', upload.single('recipe-image'), async function (req, res) {
             await newRecipe.save();
 
             //Send respons to browser
-            res.status(200).send({ status: "image uploaded" });
+            res.status(200).send({ status: 'image uploaded' });
         }
         throw new Error("Recipe doesn't exist");
     } catch (e) {

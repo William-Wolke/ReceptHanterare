@@ -20,7 +20,7 @@ export default function recipeSchema() {
             trim: true,
         },
         recipes: {
-            type: [{type: mongoose.SchemaTypes.ObjectId, ref: 'Recipe'}],
+            type: [{ type: mongoose.SchemaTypes.ObjectId, ref: 'Recipe' }],
         },
         time: {
             type: Number,
@@ -40,18 +40,18 @@ export default function recipeSchema() {
         steps: {
             type: Array,
             required: true,
-        }
+        },
     });
-    
-    RecipeSchema.statics.findDuplicateName = async function(name) {
+
+    RecipeSchema.statics.findDuplicateName = async function (name) {
         const recipeList = await this.find().byName(name);
         if (recipeList[0] !== undefined) return true;
         return false;
-    }
-    
-    RecipeSchema.query.byName = function(name) {
-        return this.where({name: name});
-    }
+    };
 
-    return mongoose.models && "Recipe" in mongoose.models ? mongoose.models.Recipe : mongoose.model("Recipe", RecipeSchema);
+    RecipeSchema.query.byName = function (name) {
+        return this.where({ name: name });
+    };
+
+    return mongoose.models && 'Recipe' in mongoose.models ? mongoose.models.Recipe : mongoose.model('Recipe', RecipeSchema);
 }

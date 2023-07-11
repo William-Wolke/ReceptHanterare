@@ -3,7 +3,7 @@ import { db } from '../../../src/db';
 export default async function handler(req, res) {
     try {
         // TODO param validation
-        const { slug } = req.query
+        const { slug } = req.query;
         const [year, week] = slug;
         if (year === undefined || week === undefined) {
             throw new Error('Couldnt find a matching menu');
@@ -14,4 +14,4 @@ export default async function handler(req, res) {
         console.error(e.message);
         res.status(500).json({ message: 'Couldnt fetch data for that resource' });
     }
-};
+}

@@ -1,4 +1,4 @@
-import Button from '../components/Button';
+import Button from './Button';
 
 const IngredientList = ({ list, setList }) => {
     return (
@@ -25,7 +25,6 @@ const IngredientList = ({ list, setList }) => {
                                         list.pop(index);
                                         setList(list);
                                     }}
-                                    
                                 />
                             </div>
                         );

@@ -5,7 +5,7 @@ const InputTextArea = ({ htmlFor, value, setter, text, placeholder, inputRef, cl
             <textarea
                 id={htmlFor}
                 value={value}
-                className='input'
+                className="input"
                 onChange={(e) => {
                     setter(e.target.value);
                 }}

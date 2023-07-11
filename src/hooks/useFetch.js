@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 const useFetch = (path, reqType, update) => {
-
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
@@ -13,35 +12,31 @@ const useFetch = (path, reqType, update) => {
 
         fetch(url, {
             method: reqType,
-            signal: abortCont.signal
+            signal: abortCont.signal,
         })
-            .then(res => {
+            .then((res) => {
                 if (!res.ok) {
-                    throw Error('could not fetch data for that recource')
+                    throw Error('could not fetch data for that recource');
                 }
                 return res.json();
             })
-            .then(data => {
+            .then((data) => {
                 setData(data);
                 setIsPending(false);
                 setError(null);
             })
-            .catch(error => {
-                
-                if(error.name === 'AbortError') {
-
-                } 
-                
-                else {  
-                setIsPending(false);
-                setError(error.message);
+            .catch((error) => {
+                if (error.name === 'AbortError') {
+                } else {
+                    setIsPending(false);
+                    setError(error.message);
                 }
             });
 
         return () => abortCont.abort();
     }, [url, reqType, update]);
 
-    return { data, isPending, error }
-}
+    return { data, isPending, error };
+};
 
 export default useFetch;

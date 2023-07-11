@@ -1,28 +1,26 @@
 import React, { useState } from 'react';
-import useFetch from '../hooks/useFetch';
-import UseAxios from '../hooks/UseAxios';
-import Input from '../components/Input';
-import InputSelect from '../components/InputSelect';
-import InputRange from '../components/InputRange';
-import Button from '../components/Button';
-import IngredientList from '../components/IngredientList';
-import { summarizeShoppingList, toPreferredUnit } from '../helpers';
-import constants from '../data/constants.json';
+import axios from 'axios';
+import UseAxios from '../../src/hooks/UseAxios';
+import Input from '../../src/components/Input';
+import InputSelect from '../../src/components/InputSelect';
+import InputRange from '../../src/components/InputRange';
+import Button from '../../src/components/Button';
+import IngredientList from '../../src/components/IngredientList';
+import { summarizeShoppingList, toPreferredUnit } from '../../src/helpers';
+import constants from '../../src/constants.json';
 
 export const getServerSideProps = async function () {
-    const recipeRes = await axios.get(new URL("/api/recipe", process.env.NEXT_PUBLIC_BASE_URL));
-    const ingredientRes = await axios.get(new URL("/api/recipe", process.env.NEXT_PUBLIC_BASE_URL));
+    const recipeRes = await axios.get(new URL('/api/recipe', process.env.NEXT_PUBLIC_BASE_URL));
+    const ingredientRes = await axios.get(new URL('/api/recipe', process.env.NEXT_PUBLIC_BASE_URL));
     return {
         props: {
             recipes: recipeRes?.data,
             ingredients: ingredientRes?.data,
-        }
-    }
-}
+        },
+    };
+};
 
-const CreateMenu = () => {
-    const [update, setUpdate] = useState(false);
-
+export default function CreateMenu({ recipes, ingredients }) {
     const [shoppingList, setShoppingList] = useState([]);
 
     const [weekMenu, setWeekMenu] = useState([
@@ -48,9 +46,6 @@ const CreateMenu = () => {
     const [looseIngredientName, setLooseIngredientName] = useState('');
     const [looseIngredientAmount, setLooseIngredientAmount] = useState(0);
     const [looseIngredientUnit, setLooseIngredientUnit] = useState();
-
-    //Fetches ingredients for comparing to the ingredients in recipes
-    const { data: ingredients, isPending: pendingIngredients, error: ingredientsError } = useFetch('/ingredient/all', 'GET', update);
 
     const handleSubmit = async (e) => {
         //Prevent reloading page
@@ -81,7 +76,7 @@ const CreateMenu = () => {
     };
 
     const handleAddRecipe = () => {
-        const addedRecipe = data.find(({ name }) => name === recipe);
+        const addedRecipe = recipes.find(({ name }) => name === recipe);
 
         if (!addedRecipe) return;
 
@@ -133,7 +128,7 @@ const CreateMenu = () => {
 
     return (
         <>
-            {data && ingredients && (
+            {recipes && ingredients && (
                 <div className="create">
                     <form
                         className="form"
@@ -150,7 +145,7 @@ const CreateMenu = () => {
                         <InputRange htmlFor="week" type="number" value={week} setter={setWeek} text="Vecka" min="1" max="52" />
 
                         <InputSelect
-                            optionList={[...data, { name: '' }]}
+                            optionList={[...recipes, { name: '' }]}
                             htmlFor="recipe"
                             value={recipe}
                             setter={setRecipe}
@@ -213,31 +208,6 @@ const CreateMenu = () => {
                     </form>
                 </div>
             )}
-
-            {isPending && (
-                <div>
-                    <p>Loading...</p>
-                </div>
-            )}
-
-            {pendingIngredients && (
-                <div>
-                    <p>Loading...</p>
-                </div>
-            )}
-
-            {error && (
-                <div>
-                    <p>{error}</p>
-                </div>
-            )}
-
-            {ingredientsError && (
-                <div>
-                    <p>{error}</p>
-                </div>
-            )}
         </>
     );
-};
-export default CreateMenu;
+}

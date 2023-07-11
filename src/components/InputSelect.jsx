@@ -4,15 +4,20 @@ const InputSelect = ({ optionList, htmlFor, value, setter, text, className }) =>
             <label htmlFor={htmlFor}>{text}</label>
             <select
                 id={htmlFor}
-                className='input' 
+                className="input"
                 value={value}
                 onChange={(e) => {
                     setter(e.target.value);
                 }}
             >
-                {optionList && optionList.map((option, index) => {
-                    return (<option value={option.name} key={index}>{option.name}</option>)
-                })}
+                {optionList &&
+                    optionList.map((option, index) => {
+                        return (
+                            <option value={option.name} key={index}>
+                                {option.name}
+                            </option>
+                        );
+                    })}
             </select>
         </div>
     );

@@ -1,50 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-</head>
+    <body>
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            <div>
+                <select id="recipes"></select>
+            </div>
+            <div>
+                <label>Upload profile picture</label>
+                <input type="file" name="profile-file" required />
+            </div>
+            <div>
+                <input type="submit" value="Upload" />
+            </div>
+        </form>
+    </body>
+    <script>
+        async function getRecipes() {
+            const recipeSelect = document.getElementById('recipes');
+            const response = await fetch('/recipes/all');
+            const data = await response.json();
 
-<body>
-    <form method="POST" action="/upload" enctype="multipart/form-data">
-        <div>
-            <select id="recipes"></select>
-        </div>
-        <div>
-            <label>Upload profile picture</label>
-            <input type="file" name="profile-file" required />
-        </div>
-        <div>
-            <input type="submit" value="Upload" />
-        </div>
-    </form>
-</body>
-<script>
-    async function getRecipes() {
-        const recipeSelect = document.getElementById('recipes');
-        const response = await fetch('/recipes/all');
-        const data = await response.json();
-
-        if (data.length > 0) {
-            data.forEach(recipe => {
+            if (data.length > 0) {
+                data.forEach(recipe => {
+                    const option = document.createElement('option');
+                    option.value = recipe.id;
+                    option.innerText = recipe.name;
+                    recipeSelect.appendChild(option);
+                });
+            } else {
                 const option = document.createElement('option');
-                option.value = recipe.id;
-                option.innerText = recipe.name;
+                option.value = '';
+                option.innerText = 'No recipes found';
                 recipeSelect.appendChild(option);
-            });
-        } else {
-            const option = document.createElement('option');
-            option.value = '';
-            option.innerText = 'No recipes found';
-            recipeSelect.appendChild(option);
+            }
+            console.log(data);
         }
-        console.log(data);
-    }
 
-    await getRecipes();
-</script>
+        await getRecipes();
+    </script>
 </html>

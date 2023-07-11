@@ -1,6 +1,6 @@
 const InputList = ({ dataList, htmlFor, value, setter, text, listName, className, inputRef }) => {
     return (
-        <div className={"form-group form-element " + className}>
+        <div className={'form-group form-element ' + className}>
             <label htmlFor={htmlFor}>{text}</label>
             <input
                 type="text"
@@ -12,7 +12,7 @@ const InputList = ({ dataList, htmlFor, value, setter, text, listName, className
                     setter(e.target.value);
                 }}
                 ref={inputRef}
-                autoComplete={"off"}
+                autoComplete={'off'}
             />
 
             <datalist id={listName}>

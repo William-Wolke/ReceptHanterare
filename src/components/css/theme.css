@@ -1,11 +1,11 @@
-:root{
-    --body-background: ##FFFBFF;
+:root {
+    --body-background: ##fffbff;
     --dark-body-background: #161a1f;
-    --block-background: #84B082;
+    --block-background: #84b082;
     --dark-block-background: #334155;
-    --text-color:#110B11;
-    --dark-text-color:#f4f4f5;
-    --link-color: #110B11;
+    --text-color: #110b11;
+    --dark-text-color: #f4f4f5;
+    --link-color: #110b11;
     --dark-link-color: #d0adf0;
     color-scheme: light dark;
     --remove-color: #e73531;
@@ -28,7 +28,7 @@ a:visited {
     color: var(--link-color);
 }
 
-@media (prefers-color-scheme: dark) { 
+@media (prefers-color-scheme: dark) {
     /*Body*/
     body {
         background-color: var(--dark-body-background);
@@ -49,7 +49,6 @@ a:visited {
     }
     /*Form*/
     .create {
-        
     }
     .form-element {
         color: var(--dark-text-color);
@@ -77,7 +76,7 @@ a:visited {
     }
     /*Navbar*/
     .navbar {
-    --dark-block-background: #334155;
+        --dark-block-background: #334155;
         background-color: var(--block-background);
     }
     .navbarBlock {

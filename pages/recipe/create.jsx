@@ -303,8 +303,7 @@ const CreateRecipe = () => {
                                                     }}
                                                     autoComplete={'off'}
                                                     name="ingredientName"
-                                                    placeholder='Ingrediensnamn'
-
+                                                    placeholder="Ingrediensnamn"
                                                 />
 
                                                 <datalist id="ingredient-name">
@@ -358,7 +357,7 @@ const CreateRecipe = () => {
                                                     handleStepChange(event, index);
                                                 }}
                                                 name="stepText"
-                                                placeholder='Skriv in steg här...'
+                                                placeholder="Skriv in steg här..."
                                             />
                                             <button
                                                 className="remove-step-button remove"
