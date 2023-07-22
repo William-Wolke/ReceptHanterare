@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
 import Link from 'next/link';
-import axios from 'axios';
+import db from '../../src/db';
 
 export const getServerSideProps = async function (context) {
-    let url = "/api/menu";
-    context.query.slug.forEach((query) => {
-        url += "/"  + query;
-    });
-    const res = await axios.get(new URL(url, process.env.NEXT_PUBLIC_BASE_URL));
+    const slug = context.query.slug;
+    const [year, week] = slug;
+    if (!year || !week) {
+        throw new Error('Invalid query params');
+    }
+    const data = db.Menu.find().byYearAndWeek(year, week);
     return {
         props: {
-            menu: res?.data,
+            menu: data,
         },
     };
 };

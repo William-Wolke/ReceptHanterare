@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import axios from 'axios';
+import { db } from '../../src/db';
 
 export const getServerSideProps = async function () {
-    const res = await axios.get(new URL('/api/menu', process.env.NEXT_PUBLIC_BASE_URL));
+    const menuData = db.Menu.find();
     return {
         props: {
-            menus: res?.data,
+            menus: menuData,
         },
     };
 };

@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import UseAxios from '../../src/hooks/UseAxios';
-import Input from '../../src/components/Input';
-import InputSelect from '../../src/components/InputSelect';
-import InputRange from '../../src/components/InputRange';
-import Button from '../../src/components/Button';
-import IngredientList from '../../src/components/IngredientList';
+import Input from '../../components/Input';
+import InputSelect from '../../components/InputSelect';
+import InputRange from '../../components/InputRange';
+import Button from '../../components/Button';
+import IngredientList from '../../components/IngredientList';
 import { summarizeShoppingList, toPreferredUnit } from '../../src/helpers';
 import constants from '../../src/constants.json';
+import { db } from '../../src/db';
 
-export const getServerSideProps = async function () {
-    const recipeRes = await axios.get(new URL('/api/recipe', process.env.NEXT_PUBLIC_BASE_URL));
-    const ingredientRes = await axios.get(new URL('/api/recipe', process.env.NEXT_PUBLIC_BASE_URL));
+export async function getServerSideProps() {
+    const recipeData = db.Menu.find();
+    const ingredientRes = db.Ingredient.find();
     return {
         props: {
-            recipes: recipeRes?.data,
-            ingredients: ingredientRes?.data,
+            recipes: recipeData,
+            ingredients: ingredientData,
         },
     };
 };
