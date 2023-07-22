@@ -1,30 +1,35 @@
 import React, { useState } from 'react';
-import useFetch from '../../src/hooks/useFetch';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import axios from 'axios';
 
-export default function Menu() {
-    const [update, setUpdate] = useState('');
+export const getServerSideProps = async function (context) {
+    let url = "/api/menu";
+    context.query.slug.forEach((query) => {
+        url += "/"  + query;
+    });
+    const res = await axios.get(new URL(url, process.env.NEXT_PUBLIC_BASE_URL));
+    return {
+        props: {
+            menu: res?.data,
+        },
+    };
+};
 
-    const { query } = useRouter();
-    const [year, week] = query.slug;
-
-    const { data, isPending, error } = useFetch(`/menu/one/${year}/${week}/`, 'GET', update);
-
+export default function Menu({menu}) {
     const weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
     const swWeekdays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag'];
 
     return (
         <div className="menuContainer">
-            {data && (
+            {menu && (
                 <div className="menuItemContainer card">
                     <div className="menuListItem">
                         {/* Titel */}
                         <div>
-                            <Link to={`/menu/${data.year}/${data.week}`}>
+                            <Link href={`/menu/${menu.year}/${menu.week}`}>
                                 <h1>
-                                    {data.year}: V.{data.week}
+                                    {menu.year}: V.{menu.week}
                                 </h1>
                             </Link>
                         </div>
@@ -36,15 +41,15 @@ export default function Menu() {
 
                             {weekdays.map((weekday, index) => {
                                 return (
-                                    data[weekday] &&
-                                    data[weekday].map((recipeName) => {
+                                    menu[weekday] &&
+                                    menu[weekday].map((recipeName) => {
                                         return (
                                             <div key={weekday + index} className="menuListItemScheduleItem">
                                                 <div className="menuListItemScheduleDay">
                                                     <p>{`${swWeekdays[index]}:`}</p>
                                                 </div>
                                                 <div className="menuListItemScheduleRecipe">
-                                                    <Link to={`/recept/${recipeName}`}>
+                                                    <Link href={`/recept/${recipeName}`}>
                                                         <p>{recipeName}</p>
                                                     </Link>
                                                 </div>
@@ -61,8 +66,8 @@ export default function Menu() {
                             </div>
 
                             {/* SHopping list */}
-                            {data.shoppingList &&
-                                data.shoppingList.map((shoppingItem, index) => {
+                            {menu.shoppingList &&
+                                menu.shoppingList.map((shoppingItem, index) => {
                                     return (
                                         <div key={shoppingItem.name + index} className="menuListIngredientList">
                                             <p>{shoppingItem.name}</p>

@@ -6,6 +6,9 @@ import ingredientSchema from '../models/ingredient';
 
 const { serverRuntimeConfig } = getConfig();
 
+// TODO use next example for db
+// https://github.com/vercel/next.js/blob/canary/examples/with-mongodb-mongoose/lib/dbConnect.js
+
 mongoose.connect(process.env.MONGODB_URI || serverRuntimeConfig.connectionString);
 mongoose.Promise = global.Promise;
 
