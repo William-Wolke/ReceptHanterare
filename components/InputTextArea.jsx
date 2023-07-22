@@ -1,4 +1,4 @@
-const InputTextArea = ({ htmlFor, value, setter, text, placeholder, inputRef, className }) => {
+export default function InputTextArea({ htmlFor, value, setter, text, placeholder, inputRef, className }) {
     return (
         <div className={'form-group form-element ' + className}>
             <label htmlFor={htmlFor}>{text}</label>
@@ -15,5 +15,3 @@ const InputTextArea = ({ htmlFor, value, setter, text, placeholder, inputRef, cl
         </div>
     );
 };
-
-export default InputTextArea;

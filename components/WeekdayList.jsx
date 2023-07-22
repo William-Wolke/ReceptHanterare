@@ -1,4 +1,4 @@
-const WeekdayList = ({ weekdays }) => {
+export default function WeekdayList({ weekdays }) {
     return (
         <div className="weekdayMenuList form-element">
             {weekdays.map(({ name, ingredients }, index) => {
@@ -15,5 +15,3 @@ const WeekdayList = ({ weekdays }) => {
         </div>
     );
 };
-
-export default WeekdayList;

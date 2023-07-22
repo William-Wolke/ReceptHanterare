@@ -1,32 +1,24 @@
-const InputList = ({ dataList, htmlFor, value, setter, text, listName, className, inputRef }) => {
+export default function InputSelect ({ optionList, htmlFor, value, setter, text, className }) {
     return (
         <div className={'form-group form-element ' + className}>
             <label htmlFor={htmlFor}>{text}</label>
-            <input
-                type="text"
+            <select
                 id={htmlFor}
+                className="input"
                 value={value}
-                className="input add-ingredient-input"
-                list={listName}
                 onChange={(e) => {
                     setter(e.target.value);
                 }}
-                ref={inputRef}
-                autoComplete={'off'}
-            />
-
-            <datalist id={listName}>
-                {dataList.length &&
-                    dataList.map((option, index) => {
+            >
+                {optionList &&
+                    optionList.map((option, index) => {
                         return (
                             <option value={option.name} key={index}>
                                 {option.name}
                             </option>
                         );
                     })}
-            </datalist>
+            </select>
         </div>
     );
 };
-
-export default InputList;

@@ -1,4 +1,4 @@
-const AttributeList = ({ list }) => {
+export default function AttributeList({ list }) {
     return (
         <div className="form-element recipeAttributeList">
             {list.map((item, index) => {
@@ -11,5 +11,3 @@ const AttributeList = ({ list }) => {
         </div>
     );
 };
-
-export default AttributeList;

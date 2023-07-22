@@ -1,6 +1,6 @@
 import Button from './Button';
 
-const IngredientList = ({ list, setList }) => {
+export default function IngredientList({ list, setList }) {
     return (
         <>
             <div className="ingredient-list form-element">
@@ -33,5 +33,3 @@ const IngredientList = ({ list, setList }) => {
         </>
     );
 };
-
-export default IngredientList;
