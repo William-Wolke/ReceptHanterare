@@ -75,7 +75,7 @@ export default function CreateMenu({ recipes, ingredients }) {
         console.log(response);
     };
 
-    const handleAddRecipe = () => {
+    function handleAddRecipe() {
         const addedRecipe = recipes.find(({ name }) => name === recipe);
 
         if (!addedRecipe) return;
@@ -112,7 +112,7 @@ export default function CreateMenu({ recipes, ingredients }) {
         setRecipe('');
     };
 
-    const handleAddLoose = () => {
+    function handleAddLoose() {
         const ingredient = {
             name: looseIngredientName,
             amount: looseIngredientAmount,

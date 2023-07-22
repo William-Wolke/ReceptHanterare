@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import UseAxios from '../../src/hooks/UseAxios.js';
 import useFetch from '../../src/hooks/useFetch.js';
-import Input from '../components/Input';
-import InputRange from '../components/InputRange';
-import InputSelect from '../components/InputSelect';
-import InputList from '../components/InputList.jsx';
-import constants from '../data/constants.json';
+import Input from '../../components/Input.jsx';
+import InputRange from '../../components/InputRange.jsx';
+import InputSelect from '../../components/InputSelect';
+import InputList from '../../components/InputList.jsx';
+import constants from '../../src/constants.json';
 
-const CreateIngredient = () => {
+export default function CreateIngredient() {
     const [name, setName] = useState('');
     const [preferredUnit, setPreferredUnit] = useState('G');
     const [pieces, setPieces] = useState(0);
@@ -124,5 +124,3 @@ const CreateIngredient = () => {
         </div>
     );
 };
-
-export default CreateIngredient;
