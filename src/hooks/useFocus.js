@@ -2,7 +2,7 @@ import { useRef } from 'react';
 
 export default function useFocus() {
     const htmlElRef = useRef(null);
-    const setFocus = () => {
+    function setFocus() {
         htmlElRef.current && htmlElRef.current.focus();
     };
 

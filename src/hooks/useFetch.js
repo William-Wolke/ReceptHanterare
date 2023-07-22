@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useFetch = (path, reqType, update) => {
+export default function useFetch(path, reqType, update) {
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
@@ -38,5 +38,3 @@ const useFetch = (path, reqType, update) => {
 
     return { data, isPending, error };
 };
-
-export default useFetch;

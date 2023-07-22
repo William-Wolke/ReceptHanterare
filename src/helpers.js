@@ -1,7 +1,7 @@
 import constants from './constants.json';
 
 //Returns a array that contains the recipenames for the passed array
-export const summarizeNames = (array) => {
+export function summarizeNames(array) {
     if (!array?.length) return [];
     return array.map((item) => {
         return item.name;
@@ -10,7 +10,7 @@ export const summarizeNames = (array) => {
 
 const numOfDecimals = 4;
 
-export const toPreferredUnit = (shoppingList, ingredients) => {
+export function toPreferredUnit(shoppingList, ingredients) {
     return shoppingList.map((item) => {
         const ingredient = ingredients.find(({ name }) => name === item.name);
 
@@ -47,7 +47,7 @@ export const toPreferredUnit = (shoppingList, ingredients) => {
     });
 };
 
-export const summarizeShoppingList = (shoppingList) => {
+export function summarizeShoppingList(shoppingList) {
     //Map through all items in shopping list and all ingredients
     //Summarize the list
 

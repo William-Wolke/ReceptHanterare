@@ -5,7 +5,7 @@ export default function UploadImage() {
     const { data: recipes, isPending, error } = useFetch('/recipe/all/', 'GET');
 
     return (
-        <form method="POST" action={new URL(path, process.env.REACT_APP_DB_HOSTNAME).href} encType="multipart/from-data">
+        <form method="POST" action={new URL(path, process.env.NEXT_PUBLIC_BASE_URL).href} encType="multipart/from-data">
             <div>
                 <select name="id" id="recipe-id-select">
                     {recipes?.length > 0 &&

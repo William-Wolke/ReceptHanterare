@@ -1,7 +1,8 @@
-import useFetch from '../hooks/useFetch';
-import { Link } from 'react-router-dom';
+import useFetch from '../../src/hooks/useFetch';
+import Link from 'next/link';
+import Image from 'next/image';
 
-const RecipeList = () => {
+export default function RecipeList() {
     const { data: recipe, isPending, error } = useFetch('/recipe/all/', 'GET');
 
     return (
@@ -11,7 +12,7 @@ const RecipeList = () => {
             {recipe &&
                 recipe.map((recipe, index) => {
                     return (
-                        <Link to={'/recept/' + recipe.name} key={'recipe' + index}>
+                        <Link href={'/recept/' + recipe.name} key={'recipe' + index}>
                             <div className="recipeListItemContainer card">
                                 <div className="recipeListItem" key={recipe.name + 'container' + index}>
                                     <div className="recipeListTime" key={recipe.name + ' attribut'}>
@@ -21,7 +22,7 @@ const RecipeList = () => {
                                         <h3 key={recipe.name + ' name'}>{recipe.name}</h3>
                                     </div>
                                     <div>
-                                        <img
+                                        <Image
                                             src={new URL('/static/' + recipe.image, process.env.REACT_APP_DB_HOSTNAME).href}
                                             alt={recipe.alt}
                                             className="recipeListThumbnail"
@@ -40,4 +41,3 @@ const RecipeList = () => {
         </div>
     );
 };
-export default RecipeList;

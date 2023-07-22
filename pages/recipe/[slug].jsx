@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import useFetch from '../hooks/useFetch';
+import { useState } from 'react';
+import { useRouter } from 'next/router'
+import useFetch from '../../src/hooks/useFetch';
+import Image from 'next/image';
 
-const Recipe = () => {
-    const { name } = useParams();
+export default function Recipe() {
+    const router = useRouter();
+    const name = router.query.name;
 
     const [currentPortions, setCurrentPortions] = useState(0);
 
     const { data: recipe, isPending, error } = useFetch(`/recipe/one/${name}/`, 'GET');
 
-    const handleSubtractPortions = () => {
+    function handleSubtractPortions() {
         if (!recipe) return;
         if (currentPortions === 0) {
             if (recipe.portions - 2 < 1) {
@@ -23,7 +25,7 @@ const Recipe = () => {
         }
     };
 
-    const handleAddPortions = () => {
+    function handleAddPortions() {
         if (!recipe) return;
         if (currentPortions === 0) {
             setCurrentPortions(recipe.portions + 2);
@@ -68,7 +70,7 @@ const Recipe = () => {
                     </div>
                     <div className="recipeItem">
                         <div className="receptImageContainer">
-                            <img
+                            <Image
                                 src={new URL('/static/' + recipe.image, process.env.REACT_APP_DB_HOSTNAME).href}
                                 alt={recipe.alt}
                                 height="400"
@@ -102,9 +104,9 @@ const Recipe = () => {
                                     })}
                             </div>
                             {recipe?.recipes?.length > 0 &&
-                                recipe.recipes.map((childRecipe) => {
+                                recipe.recipes.map((childRecipe, index) => {
                                     return (
-                                        <div>
+                                        <div key={index}>
                                             <h4>{childRecipe?.name}</h4>
                                             {childRecipe?.ingredients?.length > 0 &&
                                                 childRecipe.ingredients.map((ingredient, index) => {
@@ -142,14 +144,14 @@ const Recipe = () => {
                             {recipe.recipes?.length > 0 && (
                                 <div>
                                     <h2>Andra recept</h2>
-                                    {recipe.recipes.map((recipeItem) => {
+                                    {recipe.recipes.map((recipeItem, index) => {
                                         return (
-                                            <div>
+                                            <div key={index}>
                                                 <h3>{recipeItem.name}</h3>
                                                 {recipeItem?.steps.length > 0 && (
                                                     <ol>
-                                                        {recipeItem.steps.map((step) => {
-                                                            return <li>{step}</li>;
+                                                        {recipeItem.steps.map((step, index) => {
+                                                            return <li key={index}>{step}</li>;
                                                         })}
                                                     </ol>
                                                 )}
@@ -165,5 +167,3 @@ const Recipe = () => {
         </div>
     );
 };
-
-export default Recipe;

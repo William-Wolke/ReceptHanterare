@@ -2,18 +2,15 @@ import React, { useState } from 'react';
 import useFetch from '../../src/hooks/useFetch';
 import CreateIngredient from '../ingredient/create';
 import UseAxios from '../../src/hooks/UseAxios';
-import Input from '../components/Input.jsx';
-import InputSelect from '../components/InputSelect.jsx';
-import InputRange from '../components/InputRange.jsx';
-import InputTextArea from '../components/InputTextArea';
-import AttributeList from '../components/AttributeList';
-import Button from '../components/Button';
-import IngredientList from '../components/IngredientList';
-import InputList from '../components/InputList';
-import constants from '../data/constants.json';
+import Input from '../../components/Input.jsx';
+import InputRange from '../../components/InputRange.jsx';
+import InputTextArea from '../../components/InputTextArea';
+import AttributeList from '../../components/AttributeList';
+import Button from '../../components/Button';
+import constants from '../../src/constants.json';
 import useFocus from '../../src/hooks/useFocus';
 
-const CreateRecipe = () => {
+export default function CreateRecipe() {
     //Form inputs to create a recipe
     const [recipeName, setRecipeName] = useState('');
     const [description, setDescription] = useState('');
@@ -90,7 +87,7 @@ const CreateRecipe = () => {
         }
     };
 
-    const handleAddListItem = (value, list, setValue, setList) => {
+    function handleAddListItem(value, list, setValue, setList) {
         if (!value) {
             return;
         }
@@ -104,41 +101,41 @@ const CreateRecipe = () => {
         setValue('');
     };
 
-    const handleAddTag = () => {
+    function handleAddTag() {
         handleAddListItem(tag, tags, setTag, setTags);
     };
 
-    const addFields = () => {
+    function addFields() {
         let newField = { ingredientAmount: 0, ingredientUnit: '', ingredientName: '' };
 
         setInputFields([...inputFields, newField]);
     };
 
-    const addSteps = () => {
+    function addSteps() {
         let newStep = { stepText: '' };
 
         setStep([...inputSteps, newStep]);
     };
 
-    const addUnderRecipes = () => {
+    function addUnderRecipes() {
         let newRecipe = { name: '', _id: '' };
 
         setUnderRecipes([...underRecipes, newRecipe]);
     };
 
-    const handleFormChange = (event, index) => {
+    function handleFormChange(event, index) {
         let data = [...inputFields];
         data[index][event.target.name] = event.target.value;
         setInputFields(data);
     };
 
-    const handleStepChange = (event, index) => {
+    function handleStepChange(event, index) {
         let data = [...inputSteps];
         data[index][event.target.name] = event.target.value;
         setStep(data);
     };
 
-    const handleUnderRecipeChange = (event, index) => {
+    function handleUnderRecipeChange(event, index) {
         let data = [...underRecipes];
         const [name, id] = event.target.value.split('@');
         data[index].name = name;
@@ -146,19 +143,19 @@ const CreateRecipe = () => {
         setUnderRecipes(data);
     };
 
-    const removeFields = (index) => {
+    function removeFields (index) {
         let data = [...inputFields];
         data.splice(index, 1);
         setInputFields(data);
     };
 
-    const removeStepsFields = (index) => {
+    function removeStepsFields (index) {
         let data = [...inputSteps];
         data.splice(index, 1);
         setStep(data);
     };
 
-    const removeUnderRecipe = (index) => {
+    function removeUnderRecipe(index) {
         let data = [...underRecipes];
         data.splice(index, 1);
         setUnderRecipes(data);
@@ -436,5 +433,3 @@ const CreateRecipe = () => {
         </>
     );
 };
-
-export default CreateRecipe;
