@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     if (req.method == 'POST') {
         //Query to find duplicate recipe
         try {
-            let isDuplicate = await Recipe.findDuplicateName(req.body.name);
+            let isDuplicate = await db.Recipe.findDuplicateName(req.body.name);
             if (isDuplicate) {
                 throw new Error('Recipe already exist');
             } else {
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
         //Send the array of results
         res.status(200).json(result);
     } catch (e) {
-        console.error(error);
+        console.error(e.message);
         res.status(500);
     }
 }

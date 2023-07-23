@@ -1,14 +1,14 @@
 import { db } from '../../../src/db';
 
 export default async function handler(req, res) {
-    if (req.method == 'POST') {
+    if (req.method === 'POST') {
         try {
             let isDuplicate = await db.Menu.findDuplicateYearAndWeek(req.body.year, req.body.week);
 
             if (isDuplicate) {
-                throw new Error('Menu already exist');
+                res.status(304).json({ message: 'Menu already exists' });
             } else {
-                let newMenu = new Menu(req.body);
+                let newMenu = new db.Menu(req.body);
                 await newMenu.save();
 
                 res.status(201).json({ message: 'Created menu' });
@@ -17,6 +17,7 @@ export default async function handler(req, res) {
             console.error(e.message);
             res.status(500).json({ message: 'Couldnt create menu' });
         }
+        return;
     }
 
     try {

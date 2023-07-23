@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 export default function ingredientSchema() {
     const IngredientSchema = new mongoose.Schema({

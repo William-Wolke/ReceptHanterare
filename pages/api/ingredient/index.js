@@ -18,6 +18,7 @@ export default async function handler(req, res) {
             console.error(e.message);
             res.status(500).json({ message: e.message });
         }
+        return;
     }
 
     try {
