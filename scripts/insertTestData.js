@@ -1,108 +1,68 @@
 require('dotenv').config();
-const mongoose = require('mongoose');
-const Menu = require('../models/menu.js');
-const Ingredient = require('../models/ingredient.js');
-const Recipe = require('../models/recipe.js');
-
+const axios = require('axios');
 const menuData = require('./data/menu.json');
 const recipeData = require('./data/recipe.json');
 const ingredientData = require('./data/ingredient.json');
 
-const options = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 5000,
-    autoIndex: false, // Don't build indexes
-    maxPoolSize: 10, // Maintain up to 10 socket connections
-    serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
-    socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
-    family: 4, // Use IPv4, skip trying IPv6
+async function insertTestdata() {
+    const menuUrl = new URL('/api/menu', process.env.NEXT_PUBLIC_BASE_URL);
+    const ingredientUrl = new URL('/api/ingredient', process.env.NEXT_PUBLIC_BASE_URL);
+    const recipeUrl = new URL('/api/recipe', process.env.NEXT_PUBLIC_BASE_URL);
+
+    const resultPromise = Promise.all(
+        [
+            postData(menuUrl, menuData),
+            postData(ingredientUrl, ingredientData),
+            postData(recipeUrl, recipeData)
+        ]
+    )
+
+    resultPromise.then(function (result) {
+        console.log("🚀 ~ result:", result)
+        const [menuResult, ingredientResult, recipeResult] = result;
+        console.log(`
+                Saved menus: ${menuResult.saved}
+                Saved ingredients: ${ingredientResult.saved}
+                Saved recipes: ${recipeResult.saved}
+
+                # of errors: ${menuResult.errors + ingredientResult.errors + recipeResult.errors}
+                ${menuResult.errors ? `Errors saving menus: ${menuResult.errors}` : ``}
+                ${ingredientResult.errors ? `Errors saving ingredients: ${ingredientResult.errors}` : ``}
+                ${recipeResult.errors ? `Errors saving recipes: ${recipeResult.errors}` : ``}
+            `);
+    }).catch(function (error) {
+        console.log(error);
+    });
+
 };
 
-const insertTestdata = async () => {
-    console.log('Hello');
-    let [savedMenus, menuErrors] = await insertMenuData();
-    let [savedIngredients, ingredientErrors] = await insertIngredientData();
-    let [savedRecipes, recipeErrors] = await insertRecipeData();
-    console.log(`
-        Saved menus: ${savedMenus}
-        Saved ingredients: ${savedIngredients}
-        Saved recipes: ${savedRecipes}
-    
-        # of errors: ${menuErrors + ingredientErrors + recipeErrors}
-        ${menuErrors ? `Errors saving menus: ${menuErrors}` : ``}
-        ${ingredientErrors ? `Errors saving ingredients: ${ingredientErrors}` : ``}
-        ${recipeErrors ? `Errors saving recipes: ${recipeErrors}` : ``}
-    `);
-};
+/**
+ * 
+ * @param {string} url 
+ * @param {object[]} data 
+ */
+async function postData(url, data) {
+    console.log(`Inserting data to ${url}...`);
 
-const insertMenuData = async () => {
-    console.log('Inserting menu data...');
-
-    let saved = 0;
-    let errors = 0;
-
-    await menuData.map(async (item) => {
+    const info = {
+        saved: 0,
+        errors: 0,
+    }
+    await data.map(async function (item) {
         try {
-            await new Menu(item).save();
-            saved = saved + 1;
+            const formData = new URLSearchParams();
+            Object.entries(item).map(([key, value]) => {
+                formData.append(key, value);
+            });
+            await axios.post(url, item);
+            info.saved = info.saved + 1;
         } catch (e) {
             console.error(e.message);
-            errors = errors + 1;
+            info.errors = info.errors + 1;
         }
     });
 
-    return [saved, errors];
-};
+    return info;
+}
 
-const insertIngredientData = async () => {
-    console.log('Inserting ingredient data...');
-
-    let saved = 0;
-    let errors = 0;
-
-    await ingredientData.map(async (item) => {
-        try {
-            await new Ingredient(item).save();
-            saved = saved + 1;
-        } catch (e) {
-            console.error(e.message);
-            errors = errors + 1;
-        }
-    });
-
-    return [saved, errors];
-};
-
-const insertRecipeData = async () => {
-    console.log('Inserting recipe data...');
-
-    let saved = 0;
-    let errors = 0;
-
-    await recipeData.map(async (item) => {
-        try {
-            await new Recipe(item).save();
-            saved = saved + 1;
-        } catch (e) {
-            console.error(e.message);
-            errors = errors + 1;
-        }
-    });
-
-    return [saved, errors];
-};
-
-//Connect to Mongo db
-mongoose.connect(process.env.DB_URL, options);
-
-const db = mongoose.connection;
-db.on('error', (error) => console.error(error));
-db.once('open', async () => {
-    console.log('Connected');
-    await insertTestdata();
-
-    // process.exit(0);
-});
-
-module.exports = insertTestdata;
+insertTestdata();
