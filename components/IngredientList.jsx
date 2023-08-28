@@ -32,4 +32,4 @@ export default function IngredientList({ list, setList }) {
             </div>
         </>
     );
-};
+}

@@ -16,4 +16,4 @@ export default function InputRange({ htmlFor, value, setter, text, type = 'numbe
             />
         </div>
     );
-};
+}

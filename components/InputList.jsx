@@ -1,4 +1,4 @@
-export default function InputList ({ dataList, htmlFor, value, setter, text, listName, className, inputRef }) {
+export default function InputList({ dataList, htmlFor, value, setter, text, listName, className, inputRef }) {
     return (
         <div className={'form-group form-element ' + className}>
             <label htmlFor={htmlFor}>{text}</label>
@@ -27,4 +27,4 @@ export default function InputList ({ dataList, htmlFor, value, setter, text, lis
             </datalist>
         </div>
     );
-};
+}

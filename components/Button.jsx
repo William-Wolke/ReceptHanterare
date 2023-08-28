@@ -4,4 +4,4 @@ export default function Button({ text, onClickFunc, className }) {
             <input type="button" value={text} className={'input button ' + className} onClick={onClickFunc} />
         </div>
     );
-};
+}

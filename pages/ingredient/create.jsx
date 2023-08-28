@@ -129,4 +129,4 @@ export default function CreateIngredient({ lostIngredients }) {
             </form>
         </div>
     );
-};
+}

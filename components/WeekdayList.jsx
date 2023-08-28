@@ -14,4 +14,4 @@ export default function WeekdayList({ weekdays }) {
             })}
         </div>
     );
-};
+}

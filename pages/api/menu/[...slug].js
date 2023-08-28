@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     try {
         // TODO param validation
         const { slug } = req.query;
-        console.log("🚀 ~ handler ~ query:", query)
+        console.log('🚀 ~ handler ~ query:', query);
         if (!slug || slug.length === 0 || slug[0] === undefined || slug[1] === undefined) {
             throw new Error('Couldnt find a matching menu');
         }

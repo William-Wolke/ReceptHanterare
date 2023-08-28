@@ -17,7 +17,7 @@ export function renderDocxWeekMenu(title, list) {
 
     const doc = renderDocument(sections);
     saveDocx(title, doc);
-};
+}
 
 function renderSection(title, list) {
     let children = [];
@@ -25,7 +25,7 @@ function renderSection(title, list) {
         new Paragraph({
             text: title,
             heading: HeadingLevel.HEADING_2,
-        })
+        }),
     );
 
     list.forEach((item) => {
@@ -35,20 +35,20 @@ function renderSection(title, list) {
                 bullet: {
                     level: 0,
                 },
-            })
+            }),
         );
     });
 
     return {
         children: children,
     };
-};
+}
 
 function renderDocument(sections) {
     return new Document({
         sections: sections,
     });
-};
+}
 
 function saveDocx(fileName, doc) {
     if (!fileName.endsWith('.docx')) {
@@ -57,4 +57,4 @@ function saveDocx(fileName, doc) {
     Packer.toBuffer(doc).then((buffer) => {
         fs.writeFileSync(path.join(process.cwd(), 'temp', fileName), buffer);
     });
-};
+}

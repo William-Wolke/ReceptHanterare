@@ -14,4 +14,4 @@ export default function InputText({ htmlFor, value, setter, text, type, placehol
             />
         </div>
     );
-};
+}

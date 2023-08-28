@@ -1,7 +1,5 @@
-export function getServerSideProps() {
-
-}
+export function getServerSideProps() {}
 
 export default function Ingredient() {
-    return <div>Ingredient</div>
+    return <div>Ingredient</div>;
 }

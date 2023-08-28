@@ -10,15 +10,15 @@ import constants from '../../src/constants.json';
 import { db } from '../../src/db';
 
 export async function getServerSideProps() {
-    const recipeData = await db.Recipe.find().lean();
-    const ingredientData = await db.Ingredient.find().lean();
+    const recipeData = await db.Recipe.find({}).lean();
+    const ingredientData = await db.Ingredient.find({}).lean();
     return {
         props: {
             recipes: JSON.parse(JSON.stringify(recipeData)),
             ingredients: JSON.parse(JSON.stringify(ingredientData)),
         },
     };
-};
+}
 
 export default function CreateMenu({ recipes, ingredients }) {
     const [shoppingList, setShoppingList] = useState([]);
@@ -110,7 +110,7 @@ export default function CreateMenu({ recipes, ingredients }) {
             setDay(weekMenu[weekMenu.findIndex(({ name }) => name === day) + 1].name);
         }
         setRecipe('');
-    };
+    }
 
     function handleAddLoose() {
         const ingredient = {
@@ -124,7 +124,7 @@ export default function CreateMenu({ recipes, ingredients }) {
         setLooseIngredientName('');
         setLooseIngredientAmount(0);
         setLooseIngredientUnit('');
-    };
+    }
 
     return (
         <>

@@ -1,4 +1,4 @@
-import { db} from '../../../src/db';
+import { db } from '../../../src/db';
 
 export default async function handler(req, res) {
     if (req.method == 'POST') {

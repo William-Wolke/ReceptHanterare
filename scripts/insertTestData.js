@@ -9,18 +9,17 @@ async function insertTestdata() {
     const ingredientUrl = new URL('/api/ingredient', process.env.NEXT_PUBLIC_BASE_URL);
     const recipeUrl = new URL('/api/recipe', process.env.NEXT_PUBLIC_BASE_URL);
 
-    const resultPromise = Promise.all(
-        [
-            postData(menuUrl, menuData),
-            postData(ingredientUrl, ingredientData),
-            postData(recipeUrl, recipeData)
-        ]
-    )
+    const resultPromise = Promise.all([
+        postData(menuUrl, menuData),
+        postData(ingredientUrl, ingredientData),
+        postData(recipeUrl, recipeData),
+    ]);
 
-    resultPromise.then(function (result) {
-        console.log("🚀 ~ result:", result)
-        const [menuResult, ingredientResult, recipeResult] = result;
-        console.log(`
+    resultPromise
+        .then(function (result) {
+            console.log('🚀 ~ result:', result);
+            const [menuResult, ingredientResult, recipeResult] = result;
+            console.log(`
                 Saved menus: ${menuResult.saved}
                 Saved ingredients: ${ingredientResult.saved}
                 Saved recipes: ${recipeResult.saved}
@@ -30,16 +29,16 @@ async function insertTestdata() {
                 ${ingredientResult.errors ? `Errors saving ingredients: ${ingredientResult.errors}` : ``}
                 ${recipeResult.errors ? `Errors saving recipes: ${recipeResult.errors}` : ``}
             `);
-    }).catch(function (error) {
-        console.log(error);
-    });
-
-};
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
 
 /**
- * 
- * @param {string} url 
- * @param {object[]} data 
+ *
+ * @param {string} url
+ * @param {object[]} data
  */
 async function postData(url, data) {
     console.log(`Inserting data to ${url}...`);
@@ -47,7 +46,7 @@ async function postData(url, data) {
     const info = {
         saved: 0,
         errors: 0,
-    }
+    };
     await data.map(async function (item) {
         try {
             const formData = new URLSearchParams();

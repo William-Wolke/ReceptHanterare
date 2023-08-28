@@ -6,7 +6,7 @@ export function summarizeNames(array) {
     return array.map((item) => {
         return item.name;
     });
-};
+}
 
 const numOfDecimals = 4;
 
@@ -45,7 +45,7 @@ export function toPreferredUnit(shoppingList, ingredients) {
 
         return item;
     });
-};
+}
 
 export function summarizeShoppingList(shoppingList) {
     //Map through all items in shopping list and all ingredients
@@ -68,4 +68,4 @@ export function summarizeShoppingList(shoppingList) {
         }
     });
     return uniqueList;
-};
+}

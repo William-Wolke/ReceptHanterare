@@ -1,7 +1,7 @@
 // import useFetch from '../../src/hooks/useFetch';
 import Link from 'next/link';
 import Image from 'next/image';
-import {db} from '../../src/db';
+import { db } from '../../src/db';
 
 export async function getServerSideProps() {
     const recipes = await db.Recipe.find({}).lean();
@@ -9,11 +9,11 @@ export async function getServerSideProps() {
     return {
         props: {
             recipes: JSON.parse(JSON.stringify(recipes)),
-        }
-    }
+        },
+    };
 }
 
-export default function RecipeList({recipes}) {
+export default function RecipeList({ recipes }) {
     return (
         <div className="recipeList" key="recipeListMain">
             {recipes &&
@@ -49,4 +49,4 @@ export default function RecipeList({recipes}) {
                 })}
         </div>
     );
-};
+}

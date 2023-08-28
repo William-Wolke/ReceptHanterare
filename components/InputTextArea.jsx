@@ -14,4 +14,4 @@ export default function InputTextArea({ htmlFor, value, setter, text, placeholde
             />
         </div>
     );
-};
+}

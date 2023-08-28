@@ -1,4 +1,4 @@
-export default function InputSelect ({ optionList, htmlFor, value, setter, text, className }) {
+export default function InputSelect({ optionList, htmlFor, value, setter, text, className }) {
     return (
         <div className={'form-group form-element ' + className}>
             <label htmlFor={htmlFor}>{text}</label>
@@ -21,4 +21,4 @@ export default function InputSelect ({ optionList, htmlFor, value, setter, text,
             </select>
         </div>
     );
-};
+}

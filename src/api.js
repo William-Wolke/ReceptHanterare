@@ -14,4 +14,4 @@ export default async function apiPost(path, body) {
         console.error(err.message);
         response = false;
     }
-};
+}

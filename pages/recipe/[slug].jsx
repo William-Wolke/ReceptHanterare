@@ -4,22 +4,22 @@ import { db } from '../../src/db';
 
 export async function getServerSideProps(context) {
     const slug = context.query.slug;
-    console.log("🚀 ~ file: [slug].jsx:9 ~ getServerSideProps ~ slug:", slug)
+    console.log('🚀 ~ file: [slug].jsx:9 ~ getServerSideProps ~ slug:', slug);
     if (!slug) {
         throw new Error('Invalid query params');
     }
-    const recipe = await db.Recipe.findOne({name: slug}).lean();
-    console.log("🚀 ~ file: [slug].jsx:12 ~ getServerSideProps ~ recipe:", recipe)
+    const recipe = await db.Recipe.findOne({ name: slug }).lean();
+    console.log('🚀 ~ file: [slug].jsx:12 ~ getServerSideProps ~ recipe:', recipe);
 
     return {
         props: {
             recipe: JSON.parse(JSON.stringify(recipe)),
-        }
-    }
+        },
+    };
 }
 
-export default function Recipe({recipe}) {
-console.log("🚀 ~ file: [slug].jsx:22 ~ Recipe ~ recipe:", recipe)
+export default function Recipe({ recipe }) {
+    console.log('🚀 ~ file: [slug].jsx:22 ~ Recipe ~ recipe:', recipe);
 
     const [currentPortions, setCurrentPortions] = useState(0);
 
@@ -35,7 +35,7 @@ console.log("🚀 ~ file: [slug].jsx:22 ~ Recipe ~ recipe:", recipe)
             if (currentPortions - 2 < 1) return;
             setCurrentPortions(currentPortions - 2);
         }
-    };
+    }
 
     function handleAddPortions() {
         if (!recipe) return;
@@ -44,7 +44,7 @@ console.log("🚀 ~ file: [slug].jsx:22 ~ Recipe ~ recipe:", recipe)
         } else {
             setCurrentPortions(currentPortions + 2);
         }
-    };
+    }
 
     return (
         <div className="recept">
@@ -176,4 +176,4 @@ console.log("🚀 ~ file: [slug].jsx:22 ~ Recipe ~ recipe:", recipe)
             )}
         </div>
     );
-};
+}

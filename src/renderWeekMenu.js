@@ -1,6 +1,6 @@
 const { sortShoppingList } = require('./helpers');
 
-export function renderWeekMenu (year, week, shoppingList) {
+export function renderWeekMenu(year, week, shoppingList) {
     const { dairy, bread, chark, produce, freezer, cupboard, other } = sortShoppingList(shoppingList);
 
     return `
@@ -151,4 +151,4 @@ export function renderWeekMenu (year, week, shoppingList) {
             </body>
             </html>
         `;
-};
+}

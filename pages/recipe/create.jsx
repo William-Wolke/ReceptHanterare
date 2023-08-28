@@ -99,41 +99,41 @@ export default function CreateRecipe() {
         setList([...list, value]);
 
         setValue('');
-    };
+    }
 
     function handleAddTag() {
         handleAddListItem(tag, tags, setTag, setTags);
-    };
+    }
 
     function addFields() {
         let newField = { ingredientAmount: 0, ingredientUnit: '', ingredientName: '' };
 
         setInputFields([...inputFields, newField]);
-    };
+    }
 
     function addSteps() {
         let newStep = { stepText: '' };
 
         setStep([...inputSteps, newStep]);
-    };
+    }
 
     function addUnderRecipes() {
         let newRecipe = { name: '', _id: '' };
 
         setUnderRecipes([...underRecipes, newRecipe]);
-    };
+    }
 
     function handleFormChange(event, index) {
         let data = [...inputFields];
         data[index][event.target.name] = event.target.value;
         setInputFields(data);
-    };
+    }
 
     function handleStepChange(event, index) {
         let data = [...inputSteps];
         data[index][event.target.name] = event.target.value;
         setStep(data);
-    };
+    }
 
     function handleUnderRecipeChange(event, index) {
         let data = [...underRecipes];
@@ -141,25 +141,25 @@ export default function CreateRecipe() {
         data[index].name = name;
         data[index]._id = id;
         setUnderRecipes(data);
-    };
+    }
 
-    function removeFields (index) {
+    function removeFields(index) {
         let data = [...inputFields];
         data.splice(index, 1);
         setInputFields(data);
-    };
+    }
 
-    function removeStepsFields (index) {
+    function removeStepsFields(index) {
         let data = [...inputSteps];
         data.splice(index, 1);
         setStep(data);
-    };
+    }
 
     function removeUnderRecipe(index) {
         let data = [...underRecipes];
         data.splice(index, 1);
         setUnderRecipes(data);
-    };
+    }
 
     //Fetches ingredients from db
     const { data, isPending, error } = useFetch('/ingredient/all/', 'GET', updateIngredients);
@@ -432,4 +432,4 @@ export default function CreateRecipe() {
             </div>
         </>
     );
-};
+}

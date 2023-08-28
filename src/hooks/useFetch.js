@@ -37,4 +37,4 @@ export default function useFetch(path, reqType, update) {
     }, [url, reqType, update]);
 
     return { data, isPending, error };
-};
+}

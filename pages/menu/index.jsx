@@ -8,7 +8,7 @@ export async function getServerSideProps() {
             menus: JSON.parse(JSON.stringify(menuData)),
         },
     };
-};
+}
 
 export default function MenuList({ menus }) {
     const weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
