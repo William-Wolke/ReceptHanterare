@@ -1,0 +1,108 @@
+:root {
+    --body-background: ##fffbff;
+    --dark-body-background: #161a1f;
+    --block-background: #84b082;
+    --dark-block-background: #334155;
+    --text-color: #110b11;
+    --dark-text-color: #f4f4f5;
+    --link-color: #110b11;
+    --dark-link-color: #d0adf0;
+    color-scheme: light dark;
+    --remove-color: #e73531;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--link-color);
+}
+
+a:visited {
+    color: var(--link-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    /*Body*/
+    body {
+        background-color: var(--dark-body-background);
+        color: var(--dark-text-color);
+    }
+    /*Navbar*/
+    .navbarContainer {
+        background-color: var(--dark-block-background);
+    }
+    .navbarBlock {
+        background-color: var(--dark-block-background);
+    }
+    .navbarLink {
+        color: var(--dark-link-color);
+    }
+    .navbarLink:hover {
+        background-color: var(--link-color);
+    }
+    /*Form*/
+    .create {
+    }
+    .form-element {
+        color: var(--dark-text-color);
+    }
+    .ingredient-list-value {
+        border: 1px solid var(--dark-text-color);
+    }
+    .recipeIngredientItem {
+        background-color: var(--link-color);
+        border-bottom: solid 1px var(--dark-text-color);
+    }
+    .menuListItemSection {
+        border-bottom: solid 1px var(--dark-text-color);
+    }
+    .card {
+        background-color: var(--dark-block-background);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    /*Body*/
+    body {
+        background-color: var(--body-background);
+        color: var(--text-color);
+    }
+    /*Navbar*/
+    .navbar {
+        --dark-block-background: #334155;
+        background-color: var(--block-background);
+    }
+    .navbarBlock {
+        background-color: var(--block-background);
+    }
+    .navbarLinks {
+        color: var(--link-color);
+    }
+    .navbarLinks:hover {
+        background-color: #491cfd;
+    }
+    /*Form*/
+    .create {
+        color: var(--text-color);
+    }
+    .ingredient-list-value {
+        border: 1px solid var(--text-color);
+    }
+    .recipeIngredientItem {
+        background-color: var(--dark-link-color);
+        border-bottom: solid 1px var(--text-color);
+    }
+    .menuListItemSection {
+        border-bottom: solid 1px var(--text-color);
+    }
+    .card {
+        background-color: var(--block-background);
+    }
+}

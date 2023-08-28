@@ -1,0 +1,570 @@
+body {
+    font-family: Monospace;
+}
+
+.recept {
+    display: grid;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/*Navbar*/
+
+.navbarContainer {
+    width: 100%;
+    margin: 0;
+    background-color: var(--block-background);
+}
+
+.navbar {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    max-width: 90%;
+    margin: auto;
+    /* flex-direction: column; */
+    /* justify-content: flex-start; */
+    /* gap: 1rem; */
+}
+
+.navbarLinkContainer {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    height: 100%;
+    width: 100%;
+    flex-basis: content;
+    padding: 1rem 0;
+}
+
+.navbarHeader {
+    padding-right: 5 rem;
+    font-size: 25px;
+}
+
+.navbarLink {
+    text-decoration: none;
+    font-size: larger;
+    height: 100%;
+    flex-grow: 1;
+    margin: auto 0;
+}
+
+.navbarLinkText {
+    font-size: 16px;
+    text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+    .navbar {
+        flex-direction: row;
+    }
+    .navbarLink {
+        /* width: 150px; */
+    }
+}
+
+/*END NAVBAR*/
+
+.app-content {
+    width: 100%;
+    margin: 0 0 8rem 0;
+}
+
+/*START Recipe*/
+
+.recipeContainer {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 800px) {
+    .recipeContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.recipeItem {
+    margin: 1em;
+}
+
+.recipeImage {
+    object-fit: cover;
+    width: 500px;
+    height: 500px;
+}
+
+.recipeAttributeItem {
+    margin: 0 0.5em;
+    height: auto;
+    padding: 0.7em;
+    border-radius: 10px;
+    background-color: var(--block-background);
+    min-width: fit-content;
+    align-items: center;
+    text-align: center;
+}
+
+.add-tag {
+    margin-right: 1em;
+}
+
+.recipeInfoContainer {
+}
+
+.recipeInfoItem {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+.recipePortions {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.recipePortions button {
+    height: 4em;
+    width: 3em;
+}
+
+.recipeIngredientContainer {
+    margin-top: 1em;
+}
+
+.recipeIngredientItem {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    font-size: larger;
+    padding: 0.5em 1em;
+}
+
+.recipeInstructionsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipeInstructionsItem {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+/*END Recipe*/
+
+/*START RecipeList*/
+
+.recipeList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: auto;
+}
+
+.recipeListItemContainer {
+    width: 300px;
+    margin-top: 1em;
+    padding-bottom: 1em;
+}
+
+.recipeListItem {
+    width: 250px;
+    margin: auto;
+}
+
+.recipeListTime,
+.recipeListName {
+    max-width: 250px;
+}
+
+.recipeListName {
+    height: 50px;
+}
+
+.recipeListThumbnail {
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+}
+
+.recipeListButton {
+    display: block;
+    height: 50px;
+    width: 100%;
+}
+
+/*END RecipeList*/
+
+/*Create recipe*/
+
+.remove {
+    background-color: var(--remove-color);
+    border-color: var(--remove-color);
+    border: 0;
+    color: #fff;
+    border-radius: 0;
+    width: max-content;
+    white-space: nowrap;
+    padding: 0 0.5em;
+}
+
+.add {
+    background-color: var(--block-background);
+    border-color: var(--block-background);
+    border: 0;
+    color: #fff;
+    border-radius: 0;
+    width: max-content;
+    white-space: nowrap;
+    padding: 0 0.5em;
+}
+
+.create {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.create h1 {
+    justify-content: right;
+    margin-bottom: 1em;
+}
+
+.create h2 {
+    margin: auto;
+    padding: 3em 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    gap: 2em;
+}
+
+.form-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-ingredients {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.form-element {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-element h2 {
+    margin: auto 0;
+    padding-bottom: 1em;
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-grid-element {
+    width: 50%;
+    position: relative;
+}
+
+.form-atribute-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    gap: 1em;
+}
+
+.form-tag-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.double-input-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+}
+
+.double-input-input {
+    flex-grow: 4;
+}
+
+.double-input-button {
+    flex-grow: 1;
+}
+
+.input {
+    padding: 1em;
+}
+
+.small-number-input {
+    width: 50px;
+}
+
+.text-area {
+    padding: 3em 1em;
+}
+
+.ingredient-list {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipeAttributeList {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.add-ingredient-input {
+    height: 100%;
+    padding: 0;
+    /* width: fit-content; */
+}
+
+.add-ingredient-input-name {
+    height: 45.66px;
+}
+
+#ingredientName {
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.recipeStepsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.ingredient-list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.ingredient-list-value {
+    width: 100%;
+    padding: 1.5em;
+    text-align: center;
+}
+
+.add-step-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.add-step-input {
+    width: 100%;
+    display: block;
+    height: 100%;
+    margin-right: 0;
+}
+
+.submit-button {
+    margin-top: 5em;
+}
+
+.remove-step-button {
+    height: auto;
+    width: auto;
+}
+
+.remove-ingredient-button {
+    height: auto;
+}
+/*END Create recipe*/
+
+/*START Create ingredient*/
+
+.createIngredientContainer {
+    width: 80%;
+    padding: 1em 0 2em;
+    margin: 1em auto;
+}
+
+.createIngredientForm {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createIngredientItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-ingredient-row {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    gap: 8px;
+}
+
+/*END Create ingredient*/
+
+/* Add ingredient to recipe start */
+
+#add-ingredient-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 1em;
+}
+
+.add-ingredient-form {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.add-button-container {
+    display: flex;
+    width: 90%;
+    margin: 0;
+    padding: 1em 0 0 0;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.ingredient-textarea {
+    width: 90%;
+}
+
+.steps-button {
+    width: 4em;
+    margin: auto 0;
+    padding: 1em 0;
+}
+
+/* Add ingredient to recipe start */
+
+/*START Create menu*/
+
+.createMenuContainer {
+    width: 80%;
+    margin: auto;
+}
+
+.weekdayMenuList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.weekdayMenuItem {
+    text-align: center;
+}
+
+/*END Create menu*/
+
+/*START Menu*/
+
+.menuContainer {
+    margin-top: 0.5em;
+}
+
+.menuItemContainer {
+    padding-top: 0.5em;
+}
+
+/*END Menu*/
+
+/*START MenuList*/
+
+.menuListContainer {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    gap: 1em;
+}
+
+.menuListItemContainer {
+    width: 350px;
+}
+
+.menuListItem {
+    width: 300px;
+    margin: auto;
+}
+
+.menuListItemScheduleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuListItemScheduleItem {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.menuListItemSchedule p {
+    margin-bottom: 5em;
+}
+
+.menuListIngredientList {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+/*END MenuList*/
+
+/* START Footer */
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* END Footer */
