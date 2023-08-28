@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UseAxios from '../../src/hooks/UseAxios';
+import apiPost from '../../src/api';
 import Input from '../../components/Input';
 import InputSelect from '../../components/InputSelect';
 import InputRange from '../../components/InputRange';
@@ -10,12 +10,12 @@ import constants from '../../src/constants.json';
 import { db } from '../../src/db';
 
 export async function getServerSideProps() {
-    const recipeData = db.Menu.find();
-    const ingredientRes = db.Ingredient.find();
+    const recipeData = await db.Recipe.find().lean();
+    const ingredientData = await db.Ingredient.find().lean();
     return {
         props: {
-            recipes: recipeData,
-            ingredients: ingredientData,
+            recipes: JSON.parse(JSON.stringify(recipeData)),
+            ingredients: JSON.parse(JSON.stringify(ingredientData)),
         },
     };
 };
@@ -70,7 +70,7 @@ export default function CreateMenu({ recipes, ingredients }) {
         console.log(menu);
 
         //Call api to create
-        let response = await UseAxios('/menu/create/', menu);
+        let response = await apiPost('api/menu/', menu);
 
         console.log(response);
     };

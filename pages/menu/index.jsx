@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { db } from '../../src/db';
 
-export const getServerSideProps = async function () {
-    const menuData = db.Menu.find();
+export async function getServerSideProps() {
+    const menuData = await db.Menu.find({}).lean();
     return {
         props: {
-            menus: menuData,
+            menus: JSON.parse(JSON.stringify(menuData)),
         },
     };
 };
@@ -24,7 +24,7 @@ export default function MenuList({ menus }) {
                             <div className="menuListItem">
                                 {/* Titel */}
                                 <div>
-                                    <Link to={`/menu/${item.year}/${item.week}`}>
+                                    <Link href={`/menu/${item.year}/${item.week}`}>
                                         <h1>
                                             {item.year}: V.{item.week}
                                         </h1>
@@ -46,7 +46,7 @@ export default function MenuList({ menus }) {
                                                             <p>{`${swWeekdays[index]}:`}</p>
                                                         </div>
                                                         <div className="menuListItemScheduleRecipe">
-                                                            <Link to={`/recept/${recipeName}`}>
+                                                            <Link href={`/recept/${recipeName}`}>
                                                                 <p>{recipeName}</p>
                                                             </Link>
                                                         </div>

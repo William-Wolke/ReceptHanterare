@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import db from '../../src/db';
 
-export const getServerSideProps = async function (context) {
+export async function getServerSideProps(context) {
     const slug = context.query.slug;
     const [year, week] = slug;
     if (!year || !week) {
         throw new Error('Invalid query params');
     }
-    const data = db.Menu.find().byYearAndWeek(year, week);
+    const data = await db.Menu.find().byYearAndWeek(year, week).lean();
     return {
         props: {
-            menu: data,
+            menu: JSON.parse(JSON.stringify(data)),
         },
     };
 };

@@ -1,18 +1,25 @@
-import useFetch from '../../src/hooks/useFetch';
+// import useFetch from '../../src/hooks/useFetch';
 import Link from 'next/link';
 import Image from 'next/image';
+import {db} from '../../src/db';
 
-export default function RecipeList() {
-    const { data: recipe, isPending, error } = useFetch('/recipe/all/', 'GET');
+export async function getServerSideProps() {
+    const recipes = await db.Recipe.find({}).lean();
 
+    return {
+        props: {
+            recipes: JSON.parse(JSON.stringify(recipes)),
+        }
+    }
+}
+
+export default function RecipeList({recipes}) {
     return (
         <div className="recipeList" key="recipeListMain">
-            {error && <div>{error}</div>}
-            {isPending && <div>Loading...</div>}
-            {recipe &&
-                recipe.map((recipe, index) => {
+            {recipes &&
+                recipes.map((recipe, index) => {
                     return (
-                        <Link href={'/recept/' + recipe.name} key={'recipe' + index}>
+                        <Link href={'/recipe/' + recipe.name} key={'recipe' + index}>
                             <div className="recipeListItemContainer card">
                                 <div className="recipeListItem" key={recipe.name + 'container' + index}>
                                     <div className="recipeListTime" key={recipe.name + ' attribut'}>
@@ -23,9 +30,11 @@ export default function RecipeList() {
                                     </div>
                                     <div>
                                         <Image
-                                            src={new URL('/static/' + recipe.image, process.env.REACT_APP_DB_HOSTNAME).href}
+                                            src={new URL('/images/' + recipe.image, process.env.NEXT_PUBLIC_BASE_URL).href}
                                             alt={recipe.alt}
                                             className="recipeListThumbnail"
+                                            width={200}
+                                            height={200}
                                         />
                                     </div>
                                     <div key={recipe.name + ' buttondiv'}>

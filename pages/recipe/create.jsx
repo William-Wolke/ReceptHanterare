@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useFetch from '../../src/hooks/useFetch';
 import CreateIngredient from '../ingredient/create';
-import UseAxios from '../../src/hooks/UseAxios';
+import apiPost from '../../src/api';
 import Input from '../../components/Input.jsx';
 import InputRange from '../../components/InputRange.jsx';
 import InputTextArea from '../../components/InputTextArea';
@@ -78,7 +78,7 @@ export default function CreateRecipe() {
 
         console.log(recipe);
 
-        let isOk = await UseAxios('/recipe/create', recipe);
+        let isOk = await apiPost('/recipe/create', recipe);
         console.log(isOk);
         if (isOk) {
             alert('Created recipe');

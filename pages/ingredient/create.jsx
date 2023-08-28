@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UseAxios from '../../src/hooks/UseAxios.js';
+import apiPost from '../../src/api.js';
 import useFetch from '../../src/hooks/useFetch.js';
 import Input from '../../components/Input.jsx';
 import InputRange from '../../components/InputRange.jsx';
@@ -17,7 +17,7 @@ export default function CreateIngredient() {
     const [isCreated, setIsCreated] = useState(false);
     const [isError, setIsError] = useState(false);
 
-    const { data: lostIngredients, isPending, error } = useFetch('/ingredient/lost/', 'GET');
+    const { data: lostIngredients, isPending, error } = useFetch('/api/ingredient/lost/', 'GET');
 
     const handleSubmit = async (e) => {
         //Prevent reload
@@ -52,7 +52,7 @@ export default function CreateIngredient() {
                 section: section || '',
             };
 
-            const isOk = await UseAxios('/ingredient/create/', data);
+            const isOk = await apiPost('/ingredient/create/', data);
             if (isOk) {
                 console.log('Created ingredient');
                 setIsCreated(true);

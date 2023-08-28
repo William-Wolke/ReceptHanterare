@@ -1,15 +1,27 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router'
-import useFetch from '../../src/hooks/useFetch';
 import Image from 'next/image';
+import { db } from '../../src/db';
 
-export default function Recipe() {
-    const router = useRouter();
-    const name = router.query.name;
+export async function getServerSideProps(context) {
+    const slug = context.query.slug;
+    console.log("🚀 ~ file: [slug].jsx:9 ~ getServerSideProps ~ slug:", slug)
+    if (!slug) {
+        throw new Error('Invalid query params');
+    }
+    const recipe = await db.Recipe.findOne({name: slug}).lean();
+    console.log("🚀 ~ file: [slug].jsx:12 ~ getServerSideProps ~ recipe:", recipe)
+
+    return {
+        props: {
+            recipe: JSON.parse(JSON.stringify(recipe)),
+        }
+    }
+}
+
+export default function Recipe({recipe}) {
+console.log("🚀 ~ file: [slug].jsx:22 ~ Recipe ~ recipe:", recipe)
 
     const [currentPortions, setCurrentPortions] = useState(0);
-
-    const { data: recipe, isPending, error } = useFetch(`/recipe/one/${name}/`, 'GET');
 
     function handleSubtractPortions() {
         if (!recipe) return;
@@ -36,10 +48,8 @@ export default function Recipe() {
 
     return (
         <div className="recept">
-            {error && <div>{error}</div>}
-            {isPending && <div>Loading...</div>}
             {recipe && (
-                <div key={recipe.name} className="recipeContainer">
+                <div className="recipeContainer">
                     <div className="recipeItem">
                         <div className="receptIntro">
                             <h2>{recipe.name}</h2>
@@ -47,7 +57,7 @@ export default function Recipe() {
                                 <div className="recipeInfoItem">
                                     <p className="recipeAttributeItem">{recipe.time ? recipe.time : 0} min</p>
 
-                                    {recipe.tags.map((meal, index) => {
+                                    {recipe.tags?.map((meal, index) => {
                                         return (
                                             <p className="recipeAttributeItem" key={'meal' + index}>
                                                 {meal}
@@ -71,7 +81,7 @@ export default function Recipe() {
                     <div className="recipeItem">
                         <div className="receptImageContainer">
                             <Image
-                                src={new URL('/static/' + recipe.image, process.env.REACT_APP_DB_HOSTNAME).href}
+                                src={new URL('/images/' + recipe.image, process.env.NEXT_PUBLIC_BASE_URL).href}
                                 alt={recipe.alt}
                                 height="400"
                                 width="400"
@@ -132,7 +142,7 @@ export default function Recipe() {
                             <div>
                                 <h3>Gör så här</h3>
                             </div>
-                            {recipe.steps.map((step, index) => {
+                            {recipe.steps?.map((step, index) => {
                                 return (
                                     <div key={index} className="recipeInstructionsItem">
                                         <input type="checkbox" />
@@ -148,9 +158,9 @@ export default function Recipe() {
                                         return (
                                             <div key={index}>
                                                 <h3>{recipeItem.name}</h3>
-                                                {recipeItem?.steps.length > 0 && (
+                                                {recipeItem?.steps?.length > 0 && (
                                                     <ol>
-                                                        {recipeItem.steps.map((step, index) => {
+                                                        {recipeItem.steps?.map((step, index) => {
                                                             return <li key={index}>{step}</li>;
                                                         })}
                                                     </ol>
