@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import apiPost from '../../src/api.js';
-import useFetch from '../../src/hooks/useFetch.js';
 import Input from '../../components/Input.jsx';
 import InputRange from '../../components/InputRange.jsx';
 import InputSelect from '../../components/InputSelect';
 import InputList from '../../components/InputList.jsx';
 import constants from '../../src/constants.json';
+import { getLostIngredients } from '../../src/db';
 
-export default function CreateIngredient() {
+export async function getServerSideProps() {
+    const lostIngredients = await getLostIngredients();
+    return {
+        props: {
+            lostIngredients: JSON.parse(JSON.stringify(lostIngredients)),
+        },
+    };
+}
+
+export default function CreateIngredient({ lostIngredients }) {
     const [name, setName] = useState('');
     const [preferredUnit, setPreferredUnit] = useState('G');
     const [pieces, setPieces] = useState(0);
@@ -17,10 +26,7 @@ export default function CreateIngredient() {
     const [isCreated, setIsCreated] = useState(false);
     const [isError, setIsError] = useState(false);
 
-    const { data: lostIngredients, isPending, error } = useFetch('/api/ingredient/lost/', 'GET');
-
     const handleSubmit = async (e) => {
-        //Prevent reload
         e.preventDefault();
 
         let conversion;

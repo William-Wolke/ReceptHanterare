@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import apiPost from '../../src/api';
 import Input from '../../components/Input';
 import InputSelect from '../../components/InputSelect';

@@ -17,3 +17,25 @@ export const db = {
     Recipe: recipeSchema(),
     Ingredient: ingredientSchema(),
 };
+
+export async function getLostIngredients() {
+    const definedIngredients = await db.Ingredient.find({});
+    const menus = await db.Recipe.find({});
+    let ingredients = [];
+    let lostIngredients = [];
+
+    menus.forEach((menuItem) => {
+        ingredients = [...ingredients, ...menuItem.ingredients];
+    });
+
+    ingredients.forEach((ingredientItem) => {
+        if (!ingredientItem) return;
+        const found = definedIngredients.some(({ name }) => name === ingredientItem.name);
+
+        if (!found) {
+            lostIngredients.push(ingredientItem);
+        }
+    });
+
+    return lostIngredients;
+}
