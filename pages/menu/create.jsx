@@ -70,7 +70,7 @@ export default function CreateMenu({ recipes, ingredients }) {
         console.log(menu);
 
         //Call api to create
-        let response = await apiPost('api/menu/', menu);
+        let response = await apiPost('/api/menu/', menu);
 
         console.log(response);
     };

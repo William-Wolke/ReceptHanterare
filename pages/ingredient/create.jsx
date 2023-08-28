@@ -58,7 +58,7 @@ export default function CreateIngredient({ lostIngredients }) {
                 section: section || '',
             };
 
-            const isOk = await apiPost('/ingredient/create/', data);
+            const isOk = await apiPost('/api/ingredient/', data);
             if (isOk) {
                 console.log('Created ingredient');
                 setIsCreated(true);

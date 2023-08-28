@@ -78,7 +78,7 @@ export default function CreateRecipe() {
 
         console.log(recipe);
 
-        let isOk = await apiPost('/recipe/create', recipe);
+        let isOk = await apiPost('/api/recipe', recipe);
         console.log(isOk);
         if (isOk) {
             alert('Created recipe');
