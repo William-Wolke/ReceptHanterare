@@ -28,5 +28,3 @@ export default function InputList ({ dataList, htmlFor, value, setter, text, lis
         </div>
     );
 };
-
-export default InputList;
