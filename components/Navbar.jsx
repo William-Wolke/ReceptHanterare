@@ -9,24 +9,12 @@ export default function Navbar() {
                         <h1 className="navbarHeader">Receptsida</h1>
                     </Link>
 
-                    <Link href="/recipe" className="navbarLink">
+                    <Link href="/recipes" className="navbarLink">
                         <h2 className="navbarLinkText">Recept</h2>
-                    </Link>
-
-                    <Link href="/recipe/create" className="navbarLink">
-                        <h2 className="navbarLinkText">Skapa Recept</h2>
-                    </Link>
-
-                    <Link href="/ingredient/create" className="navbarLink">
-                        <h2 className="navbarLinkText">Skapa Ingrediens</h2>
                     </Link>
 
                     <Link href="/menu" className="navbarLink">
                         <h2 className="navbarLinkText">Veckomenyer</h2>
-                    </Link>
-
-                    <Link href="/menu/create" className="navbarLink">
-                        <h2 className="navbarLinkText">Skapa Veckomeny</h2>
                     </Link>
                 </div>
             </div>
