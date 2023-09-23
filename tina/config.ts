@@ -1,7 +1,11 @@
 import { defineConfig } from 'tinacms';
+import * as constants from '../src/constants.json';
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main';
+
+const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const units = constants.metric.map((item) => item.unit);
 
 export default defineConfig({
     branch,
@@ -87,6 +91,7 @@ export default defineConfig({
                                 type: 'string',
                                 name: 'unit',
                                 label: 'Unit',
+                                options: units,
                             },
                         ],
                         ui: {
@@ -145,6 +150,7 @@ export default defineConfig({
                         type: 'string',
                         name: 'prefered_unit',
                         label: 'Prefered Unit',
+                        options: units,
                     },
                     {
                         type: 'object',
@@ -156,6 +162,7 @@ export default defineConfig({
                                 type: 'string',
                                 name: 'unit',
                                 label: 'Unit',
+                                options: units,
                             },
                             {
                                 type: 'number',
@@ -185,6 +192,11 @@ export default defineConfig({
                         required: true,
                     },
                     {
+                        type: 'rich-text',
+                        name: 'description',
+                        label: 'Description',
+                    },
+                    {
                         type: 'object',
                         name: 'recipes',
                         label: 'Recipes',
@@ -200,6 +212,7 @@ export default defineConfig({
                                 type: 'string',
                                 name: 'day',
                                 label: 'Day',
+                                options: weekdays,
                             },
                         ],
                     },
