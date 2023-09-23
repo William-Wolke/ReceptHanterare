@@ -1,35 +1,52 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import { db } from '../../src/db';
+import client from '../../tina/__generated__/client'
+import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
-export async function getServerSideProps(context) {
-    const slug = context.query.slug;
-    console.log('🚀 ~ file: [slug].jsx:9 ~ getServerSideProps ~ slug:', slug);
-    if (!slug) {
-        throw new Error('Invalid query params');
+export const getStaticProps = async ({ params }) => {
+    let data = {}
+    let query = {}
+    let variables = { relativePath: `${params.filename}.yaml` }
+    try {
+        const res = await client.queries.recipes(variables)
+        query = res.query
+        data = res.data
+        variables = res.variables
+    } catch {
+        // swallow errors related to document creation
     }
-    const recipe = await db.Recipe.findOne({ name: slug }).lean();
-    console.log('🚀 ~ file: [slug].jsx:12 ~ getServerSideProps ~ recipe:', recipe);
 
     return {
         props: {
-            recipe: JSON.parse(JSON.stringify(recipe)),
+            variables: variables,
+            data: data,
+            query: query,
+            //myOtherProp: 'some-other-data',
         },
-    };
+    }
+}
+export const getStaticPaths = async () => {
+    const recipesListData = await client.queries.recipesConnection()
+    return {
+        paths: recipesListData.data.recipesConnection.edges.map((post) => ({
+            params: { filename: post.node._sys.filename },
+        })),
+        fallback: false,
+    }
 }
 
-export default function Recipe({ recipe }) {
-    console.log('🚀 ~ file: [slug].jsx:22 ~ Recipe ~ recipe:', recipe);
+export default function Recipe({ data }) {
+    const recipe = data.recipes;
 
     const [currentPortions, setCurrentPortions] = useState(0);
 
     function handleSubtractPortions() {
         if (!recipe) return;
         if (currentPortions === 0) {
-            if (recipe.portions - 2 < 1) {
-                setCurrentPortions(recipe.portions);
+            if (recipe.servings - 2 < 1) {
+                setCurrentPortions(recipe.servings);
             } else {
-                setCurrentPortions(recipe.portions - 2);
+                setCurrentPortions(recipe.servings - 2);
             }
         } else {
             if (currentPortions - 2 < 1) return;
@@ -40,10 +57,14 @@ export default function Recipe({ recipe }) {
     function handleAddPortions() {
         if (!recipe) return;
         if (currentPortions === 0) {
-            setCurrentPortions(recipe.portions + 2);
+            setCurrentPortions(recipe.servings + 2);
         } else {
             setCurrentPortions(currentPortions + 2);
         }
+    }
+
+    function getAmount(amount) {
+        return parseFloat(amount) * ((currentPortions || recipe.servings) / recipe.servings).toFixed(2);
     }
 
     return (
@@ -52,10 +73,10 @@ export default function Recipe({ recipe }) {
                 <div className="recipeContainer">
                     <div className="recipeItem">
                         <div className="receptIntro">
-                            <h2>{recipe.name}</h2>
+                            <h2>{recipe.title}</h2>
                             <div className="recipeInfoContainer">
                                 <div className="recipeInfoItem">
-                                    <p className="recipeAttributeItem">{recipe.time ? recipe.time : 0} min</p>
+                                    <p className="recipeAttributeItem">{recipe.time ? recipe.time : "0 min"}</p>
 
                                     {recipe.tags?.map((meal, index) => {
                                         return (
@@ -67,8 +88,27 @@ export default function Recipe({ recipe }) {
                                 </div>
                                 <div className="recipeInfoItem"></div>
                                 <div className="receptBeskrivning">
-                                    <p>{recipe.description}</p>
-                                </div>
+                                    <TinaMarkdown content={recipe.description} />
+                                </div>{recipe?.recipes?.length > 0 &&
+                                    recipe.recipes.map((childRecipe, index) => {
+                                        return (
+                                            <div key={index}>
+                                                <h4>{childRecipe?.name}</h4>
+                                                {childRecipe?.ingredients?.length > 0 &&
+                                                    childRecipe.ingredients.map((ingredient, index) => {
+                                                        return (
+                                                            <div className="recipeIngredientItem" key={'childrecipeIngredient' + index}>
+                                                                <p>{ingredient.name}</p>
+                                                                <p>
+                                                                    {getAmount(ingredient.amount)}
+                                                                </p>
+                                                                <p>{ingredient.unit}</p>
+                                                            </div>
+                                                        );
+                                                    })}
+                                            </div>
+                                        );
+                                    })}
                                 <div>
                                     <button>
                                         <i></i>
@@ -82,7 +122,6 @@ export default function Recipe({ recipe }) {
                         <div className="receptImageContainer">
                             <Image
                                 src={new URL('/images/' + recipe.image, process.env.NEXT_PUBLIC_BASE_URL).href}
-                                alt={recipe.alt}
                                 height="400"
                                 width="400"
                                 className="recipeImage"
@@ -96,7 +135,7 @@ export default function Recipe({ recipe }) {
                                 <button onClick={handleSubtractPortions}>
                                     <p>-</p>
                                 </button>
-                                <p>{currentPortions === 0 ? recipe.portions : currentPortions} portioner</p>
+                                <p>{currentPortions === 0 ? recipe.servings : currentPortions} portioner</p>
                                 <button onClick={handleAddPortions}>
                                     <p>+</p>
                                 </button>
@@ -106,8 +145,8 @@ export default function Recipe({ recipe }) {
                                     recipe.ingredients.map((ingredient, index) => {
                                         return (
                                             <div className="recipeIngredientItem" key={'ingredient' + index}>
-                                                <p>{ingredient.name}</p>
-                                                <p>{ingredient.amount * ((currentPortions || recipe.portions) / recipe.portions)}</p>
+                                                <p>{ingredient.name.name}</p>
+                                                <p>{getAmount(ingredient.amount)}</p>
                                                 <p>{ingredient.unit}</p>
                                             </div>
                                         );
@@ -120,14 +159,10 @@ export default function Recipe({ recipe }) {
                                             <h4>{childRecipe?.name}</h4>
                                             {childRecipe?.ingredients?.length > 0 &&
                                                 childRecipe.ingredients.map((ingredient, index) => {
-                                                    console.log(ingredient.amount, recipe.portions / (currentPortions || 1));
                                                     return (
                                                         <div className="recipeIngredientItem" key={'childrecipeIngredient' + index}>
                                                             <p>{ingredient.name}</p>
-                                                            <p>
-                                                                {ingredient.amount *
-                                                                    ((currentPortions || recipe.portions) / recipe.portions)}
-                                                            </p>
+                                                            <p>{getAmount(ingredient.amount)}</p>
                                                             <p>{ingredient.unit}</p>
                                                         </div>
                                                     );
@@ -142,29 +177,17 @@ export default function Recipe({ recipe }) {
                             <div>
                                 <h3>Gör så här</h3>
                             </div>
-                            {recipe.steps?.map((step, index) => {
-                                return (
-                                    <div key={index} className="recipeInstructionsItem">
-                                        <input type="checkbox" />
-                                        <p>{index + 1 + '.'}</p>
-                                        <p>{step}</p>
-                                    </div>
-                                );
-                            })}
+                            <TinaMarkdown content={recipe.instructions} components={{
+                                li: (props) => <li className='recipeInstructionItem' {...props} />
+                            }} />
                             {recipe.recipes?.length > 0 && (
                                 <div>
                                     <h2>Andra recept</h2>
                                     {recipe.recipes.map((recipeItem, index) => {
                                         return (
                                             <div key={index}>
-                                                <h3>{recipeItem.name}</h3>
-                                                {recipeItem?.steps?.length > 0 && (
-                                                    <ol>
-                                                        {recipeItem.steps?.map((step, index) => {
-                                                            return <li key={index}>{step}</li>;
-                                                        })}
-                                                    </ol>
-                                                )}
+                                                <h3>{recipeItem.title}</h3>
+                                                <TinaMarkdown content={recipeItem.description} />
                                             </div>
                                         );
                                     })}

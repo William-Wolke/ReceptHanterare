@@ -1,16 +1,17 @@
-// import useFetch from '../../src/hooks/useFetch';
 import Link from 'next/link';
 import Image from 'next/image';
-import { db } from '../../src/db';
+import { client } from '../../tina/__generated__/client';
 
-export async function getServerSideProps() {
-    const recipes = await db.Recipe.find({}).lean();
-
+export const getStaticProps = async ({ params }) => {
+    const recipesResponse = await client.queries.recipesConnection();
+    const recipes = recipesResponse.data.recipesConnection.edges.map((recipe) => {
+        return recipe.node;
+    })
     return {
         props: {
-            recipes: JSON.parse(JSON.stringify(recipes)),
+            recipes: recipes,
         },
-    };
+    }
 }
 
 export default function RecipeList({ recipes }) {
@@ -19,14 +20,14 @@ export default function RecipeList({ recipes }) {
             {recipes &&
                 recipes.map((recipe, index) => {
                     return (
-                        <Link href={'/recipe/' + recipe.name} key={'recipe' + index}>
+                        <Link href={'/recipes/' + recipe._sys.filename} key={'recipe' + index}>
                             <div className="recipeListItemContainer card">
-                                <div className="recipeListItem" key={recipe.name + 'container' + index}>
-                                    <div className="recipeListTime" key={recipe.name + ' attribut'}>
-                                        <p key={recipe.name + ' tid'}>{recipe.time ? recipe.time : 0} min</p>
+                                <div className="recipeListItem" key={recipe.title + 'container' + index}>
+                                    <div className="recipeListTime" key={recipe.title + ' attribut'}>
+                                        <p key={recipe.title + ' tid'}>{recipe.time ? recipe.time : 0}</p>
                                     </div>
-                                    <div className="recipeListName" key={recipe.name + ' namndiv'}>
-                                        <h3 key={recipe.name + ' name'}>{recipe.name}</h3>
+                                    <div className="recipeListName" key={recipe.title + ' namndiv'}>
+                                        <h3 key={recipe.title + ' name'}>{recipe.title}</h3>
                                     </div>
                                     <div>
                                         <Image
