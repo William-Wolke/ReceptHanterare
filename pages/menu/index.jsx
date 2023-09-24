@@ -1,32 +1,43 @@
 import Link from 'next/link';
-import { db } from '../../src/db';
+import { client } from '../../tina/__generated__/client';
 
-export async function getServerSideProps() {
-    const menuData = await db.Menu.find({}).lean();
+export const getStaticProps = async ({ params }) => {
+    const menusResponse = await client.queries.menusConnection();
+    const menus = menusResponse.data.menusConnection.edges.map((menu) => {
+        return menu.node;
+    })
     return {
         props: {
-            menus: JSON.parse(JSON.stringify(menuData)),
+            menus: menus,
         },
-    };
+    }
 }
 
 export default function MenuList({ menus }) {
     const weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
-    const swWeekdays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag'];
+    const svWeekdays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag'];
 
     return (
         <div className="menuListContainer">
             {menus &&
-                menus.map((item, index) => {
+                menus.map((menu, index) => {
+                    const weekday_recipes = {};
+                    for (const recipe of menu.recipes) {
+                        if (recipe.day in weekday_recipes) {
+                            weekday_recipes[recipe.day].push(recipe.name);
+                        } else {
+                            weekday_recipes[recipe.day] = [recipe.name];
+                        }
+                    }
                     return (
                         <div className="menuListItemContainer card" key={'menu' + index}>
                             <div className="menuListItem">
                                 {/* Titel */}
                                 <div>
-                                    <Link href={`/menu/${item.year}/${item.week}`}>
+                                    <Link href={`/menu/${menu._sys.filename}`}>
                                         <h1>
-                                            {item.year}: V.{item.week}
+                                            {menu.title}
                                         </h1>
                                     </Link>
                                 </div>
@@ -36,45 +47,27 @@ export default function MenuList({ menus }) {
                                         <h2>Recept för veckan</h2>
                                     </div>
 
-                                    {weekdays.map((weekday, index) => {
+                                    {weekday_recipes && Object.entries(weekday_recipes).map(([day, recipes], i) => {
+                                        if (recipes.length == 0) {
+                                            return;
+                                        }
                                         return (
-                                            item[weekday] &&
-                                            item[weekday].map((recipeName) => {
-                                                return (
-                                                    <div key={weekday + index} className="menuListItemScheduleItem">
-                                                        <div className="menuListItemScheduleDay">
-                                                            <p>{`${swWeekdays[index]}:`}</p>
-                                                        </div>
-                                                        <div className="menuListItemScheduleRecipe">
-                                                            <Link href={`/recept/${recipeName}`}>
-                                                                <p>{recipeName}</p>
+                                            <div key={day + i} className="menuListItemScheduleItem">
+                                                <div className="menuListItemScheduleDay">
+                                                    <p>{day}</p>
+                                                </div>
+                                                {recipes && recipes.map((recipe, index) => {
+                                                    return (
+                                                        <div className="menuListItemScheduleRecipe" key={`weekdayrecipe${index}`}>
+                                                            <Link href={`/recipes/${recipe._sys.filename}`}>
+                                                                <p>{recipe.title}</p>
                                                             </Link>
                                                         </div>
-                                                    </div>
-                                                );
-                                            })
+                                                    );
+                                                })}
+                                            </div>
                                         );
                                     })}
-                                </div>
-
-                                <div className="menuListItemSection">
-                                    <div>
-                                        <h2>Inköpslista</h2>
-                                    </div>
-
-                                    {/* SHopping list */}
-                                    {item.shoppingList &&
-                                        item.shoppingList.map((shoppingItem, index) => {
-                                            return (
-                                                <div key={shoppingItem.name + index} className="menuListIngredientList">
-                                                    <p>{shoppingItem.name}</p>
-
-                                                    <p>{shoppingItem.amount}</p>
-
-                                                    <p>{shoppingItem.unit}</p>
-                                                </div>
-                                            );
-                                        })}
                                 </div>
                             </div>
                         </div>
