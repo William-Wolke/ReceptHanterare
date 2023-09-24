@@ -8,10 +8,7 @@
     "start": "tinacms build && next start",
     "lint": "next lint",
     "prettier-fix": "prettier --write .",
-    "prettier-check": "prettier --check .",
-    "insert-test-data": "node ./scripts/insertTestData.js",
-    "delete-all-data": "node ./scripts/deleteData.js",
-    "create-data-backup": ""
+    "prettier-check": "prettier --check ."
   },
   "dependencies": {
     "@tinacms/cli": "^1.5.29",
