@@ -1,0 +1,8 @@
+title: Fryst koriander
+preferredUnit: G
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 40
+section: freezer

@@ -1,0 +1,8 @@
+title: Rapsolja
+preferredUnit: L
+conversion:
+- unit: G
+  amount: 90
+- unit: L
+  amount: 0.1
+section: cupboard

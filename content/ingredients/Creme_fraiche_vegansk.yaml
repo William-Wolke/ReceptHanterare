@@ -1,0 +1,9 @@
+title: Vegansk Creme Fraiche
+preferredUnit: L
+conversion:
+- unit: St
+- unit: G
+  amount: 100
+- unit: L
+  amount: 0.1
+section: dairy

@@ -1,0 +1,8 @@
+title: Ponzu
+preferredUnit: L
+conversion:
+- unit: G
+  amount: 120
+- unit: L
+  amount: 0.1
+section: cupboard

@@ -1,0 +1,8 @@
+title: Vegofärs
+preferredUnit: G
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 1000
+section: freezer

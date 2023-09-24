@@ -1,0 +1,8 @@
+title: Cayennepeppar
+preferredUnit: L
+conversion:
+- unit: G
+  amount: 72
+- unit: L
+  amount: 0.2
+section: cupboard

@@ -1,0 +1,8 @@
+title: Kalvfond
+preferredUnit: L
+conversion:
+- unit: St
+  amount: 1
+- unit: L
+  amount: 0.5
+section: cupboard

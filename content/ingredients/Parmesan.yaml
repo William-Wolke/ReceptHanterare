@@ -1,0 +1,8 @@
+title: Parmesan
+preferredUnit: G
+conversion:
+- unit: G
+  amount: 50
+- unit: L
+  amount: 0.1
+section: diary

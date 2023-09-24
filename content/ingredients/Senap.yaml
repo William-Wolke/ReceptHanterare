@@ -1,0 +1,8 @@
+title: Slotts senap
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 450
+section: cupboard

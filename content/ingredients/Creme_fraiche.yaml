@@ -1,0 +1,8 @@
+title: Creme fraiche
+preferredUnit: G
+conversion:
+- unit: G
+  amount: 100
+- unit: L
+  amount: 0.1
+section: dairy

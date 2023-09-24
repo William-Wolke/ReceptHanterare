@@ -1,0 +1,10 @@
+title: Vitkål
+preferredUnit: G
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 1200
+- unit: L
+  amount: 3
+section: produce

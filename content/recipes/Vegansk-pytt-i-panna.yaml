@@ -1,0 +1,62 @@
+title: Vegansk pytt i panna
+description: |
+  Pytt i panna fast vegansk.
+time: 40 Min
+servings: 2
+tags:
+  - Svensk
+  - Billig
+  - Laktosfri
+  - Vegetarisk
+  - Vegansk
+  - Middag
+instructions: >
+  Börja med att skala, rensa och skölj alla grönsaker. Tärna dem i ungefär
+  5-10    mm stora bitar, beroende på vad du orkar med. Ju finare du tärnar
+  desto snabbare    går det att steka.
+
+
+  Lägg upp de olika typerna av grönsaker/vegokött i tallrikar efter hur grova
+  de    är. Följ ungefär mina grupperingar ovan!
+
+
+  Stek de grövre först i rapsolja, alt och peppar tills de är genomstekta och
+  fått    fin färg. Jag använder ganska hög värme och vaktar pannan noga, men om
+  du känner dig osäker så kan du steka på medelvärme och låta det ta lite längre
+  tid. Ställ åt sidan och upprepa med de övriga grönsakerna så allt steks den
+  tid de behöver.
+
+
+  När allt är stekt blandar du ihop allt i pannan igen, smakar av med
+  vitlökspulver, salt och peppar och låter värmas upp.
+
+
+  Servera med inlagda rödbetor eller vad för tillbehör du föredrar!
+ingredients:
+  - name: content/ingredients/Vitlökspulver.yaml
+    amount: 1
+    unit: Msk
+  - name: content/ingredients/Rapsolja.yaml
+    amount: 2
+    unit: Msk
+  - name: content/ingredients/Peppar.yaml
+    amount: 1
+    unit: Tsk
+  - name: content/ingredients/Salt.yaml
+    amount: 1
+    unit: Tsk
+  - name: content/ingredients/Vegokorv.yaml
+    amount: 200
+    unit: G
+  - name: content/ingredients/Gul_lök.yaml
+    amount: 1
+    unit: St
+  - name: content/ingredients/Vitkål.yaml
+    amount: 200
+    unit: G
+  - name: content/ingredients/Potatis.yaml
+    amount: 500
+    unit: G
+  - name: content/ingredients/Morot.yaml
+    amount: 3
+    unit: St

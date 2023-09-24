@@ -1,0 +1,58 @@
+title: Krämig pasta pesto vegansk
+description: |
+  Pasta med pesto fast vegansk.
+time: 20 minuter
+servings: 3
+tags:
+  - Snabb
+  - Italiensk
+  - Snabb
+  - Laktosfri
+  - Vegetarisk
+  - Vegansk
+instructions: >
+  1. Börja med att skala och skiva lök och vitlök. Skär tomaterna i halvor.
+
+  2. Sätt på pastan och börja koka i rikligt saltat vatten.
+
+  3. Hetta upp en stekpanna och fräs lök, vitlök och vegokött tills löken är
+  mjuk och vegoköttet fått färg.
+
+  4. Slå i den veganska creme fraiche och pesto i panna och låt koka upp tills
+  pastan är klar.
+
+  5. Spara 1-2 dl pastavatten och häll av pastan när den är rejält al dente.
+
+  6. Vänd ner pastan och de halverade tomaterna i pastasåsen. Rör om så allt
+  blandas och späd efter behov med pastavatten. Servera omgående.
+ingredients:
+  - name: content/ingredients/Röd_lök.yaml
+    amount: 1
+    unit: St
+  - name: content/ingredients/Vitlök.yaml
+    amount: 4
+    unit: St
+  - name: content/ingredients/Vegofileer.yaml
+    amount: 300
+    unit: G
+  - name: content/ingredients/Creme_fraiche.yaml
+    amount: 2
+    unit: Dl
+  - name: content/ingredients/Pesto_vegansk.yaml
+    amount: 150
+    unit: G
+  - name: content/ingredients/Körsbärstomater.yaml
+    amount: 200
+    unit: G
+  - name: content/ingredients/Pasta.yaml
+    amount: 500
+    unit: G
+  - name: content/ingredients/Salt.yaml
+    amount: 0
+    unit: 
+  - name: content/ingredients/Peppar.yaml
+    amount: 0
+    unit: G
+  - name: content/ingredients/Rapsolja.yaml
+    amount: 1
+    unit: Msk

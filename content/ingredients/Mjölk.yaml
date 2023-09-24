@@ -1,0 +1,10 @@
+title: Mjölk
+preferredUnit: L
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 1000
+- unit: L
+  amount: 1
+section: dairy

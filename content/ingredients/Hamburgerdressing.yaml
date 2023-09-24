@@ -1,0 +1,9 @@
+title: Hamburgardressing stor
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 425
+- unit: L
+section: cupboard

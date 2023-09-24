@@ -1,0 +1,8 @@
+title: Olivolja
+preferredUnit: L
+conversion:
+- unit: G
+  amount: 93
+- unit: L
+  amount: 0.1
+section: cupboard

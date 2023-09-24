@@ -1,0 +1,81 @@
+title: Vegansk tunamelt med avocado
+description: |
+  En smarrig vegansk macka
+time: 30 min
+servings: 4
+tags:
+  - Amerikansk
+  - Snabb
+  - Laktosfri
+  - Vegetarisk
+  - Vegansk
+  - Lunch
+  - Middag
+instructions: >
+  1. Börja med att hälla av spadet från kikärtorna och mosa dem grovt med en
+  potatisstöt.
+
+  2. Skala och finhacka rödlöken. Ta bort kärnorna ur tomaterna och finahacka
+  resten. Finhacka ättiksgurkan och gräslöken. Kör norialgerna i en matberedare
+  tills de blir småsmulor. Du kan också krossa dem så fint du kan med händerna
+  om du inte har en matberedare.
+
+  3. Blanda ihop de mosade kikärtorna med de hackade grönsakerna och alla övriga
+  ingredienser. Rör om så allt blandas och smaka av med Tabasco, Ponzu, citron
+  och salt. Du vill ha en röra med kraftig smak utan att det blir överdrivet.
+
+  4. Skiva brödet och bred margarin på ovansidan av alla mackorna.
+
+  5. Kärna ur och skiva avokadon och lägg varsin skivad halva utbredd över fyra
+  av brödskivornas smörade sidor.
+
+  6. Toppa avocadon med rikligt med tonfuskröra. Toppa röran med rikligt med
+  hyvlad vegask cheddar och avsluta med att lägga på de kvarvarande brödskivorna
+  med den smörade sidan neråt.
+
+  7. Stek mackorna i rikligt med olivolja på bägge sidor under viss press tills
+  de fått fin stekyta och osten smält. Det underlättar om du har ett lock till
+  stekpannan som kan stänga in värmen och snabbare smälta osten. Pressa inte för
+  hårt för då ramlar röran lätt ur.
+
+  8. Skär i halvor och servera!
+ingredients:
+  - name: content/ingredients/Tomat.yaml
+    amount: 1
+    unit: St
+  - name: content/ingredients/Saltgurka.yaml
+    amount: 1
+    unit: St
+  - name: content/ingredients/Kapris_inlagd.yaml
+    amount: 2
+    unit: Msk
+  - name: content/ingredients/Tomatpure.yaml
+    amount: 1
+    unit: Tsk
+  - name: content/ingredients/Sriracha.yaml
+    amount: 2
+    unit: Tsk
+  - name: content/ingredients/Majonäs_vegansk.yaml
+    amount: 1
+    unit: Dl
+  - name: content/ingredients/Citronsaft.yaml
+    amount: 2
+    unit: Tsk
+  - name: content/ingredients/Salt.yaml
+    amount: 1
+    unit: Tsk
+  - name: content/ingredients/Levainbröd_skivor.yaml
+    amount: 8
+    unit: St
+  - name: content/ingredients/Avocado.yaml
+    amount: 2
+    unit: St
+  - name: content/ingredients/Smör_veganskt.yaml
+    amount: 1
+    unit: Msk
+  - name: content/ingredients/Cheddar_skivad_vegansk.yaml
+    amount: 8
+    unit: St
+  - name: content/ingredients/Norialger_ark.yaml
+    amount: 2
+    unit: St

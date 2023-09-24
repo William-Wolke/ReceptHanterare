@@ -1,0 +1,10 @@
+title: Röd lök
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 150
+- unit: L
+  amount: 0.2
+section: produce

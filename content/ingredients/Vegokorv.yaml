@@ -1,0 +1,8 @@
+title: Vegokorv
+preferredUnit: G
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 60
+section: freezer

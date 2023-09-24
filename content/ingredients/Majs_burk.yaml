@@ -1,0 +1,8 @@
+title: Majs burk
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 150
+section: cupboard

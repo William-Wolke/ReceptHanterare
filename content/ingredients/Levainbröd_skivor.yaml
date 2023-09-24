@@ -1,0 +1,8 @@
+title: Levainbröd skivor
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 20
+section: bread

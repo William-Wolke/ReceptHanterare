@@ -1,0 +1,8 @@
+title: hamburgerbröd
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 55.625
+section: bread
