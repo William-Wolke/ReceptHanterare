@@ -69,3 +69,14 @@ export function summarizeShoppingList(shoppingList) {
     });
     return uniqueList;
 }
+
+export function getShoppingList(recipes) {
+    let shoppingList = [];
+    for (const recipe of recipes) {
+        if (!recipe || !recipe.name.ingredients || recipe?.name?.ingredients?.length === 0) {
+            continue;
+        }
+        shoppingList = shoppingList.concat(recipe.name.ingredients);
+    }
+    return shoppingList;
+}
