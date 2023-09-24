@@ -1,0 +1,8 @@
+title: Haricots verts
+preferredUnit: G
+conversion:
+- unit: St
+- unit: G
+  amount: 1
+- unit: L
+section: freezer

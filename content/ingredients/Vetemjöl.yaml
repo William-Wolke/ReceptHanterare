@@ -1,0 +1,8 @@
+title: Vetemjöl
+preferredUnit: G
+conversion:
+- unit: G
+  amount: 70
+- unit: L
+  amount: 0.1
+section: cupboard

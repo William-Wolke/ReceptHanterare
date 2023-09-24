@@ -1,0 +1,6 @@
+title: Mjöl
+preferredUnit: G
+conversion:
+- unit: G
+  amount: 60
+section: cupboard

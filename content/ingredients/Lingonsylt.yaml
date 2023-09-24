@@ -1,0 +1,8 @@
+title: Lingonsylt
+preferredUnit: G
+conversion:
+- unit: G
+  amount: 115
+- unit: L
+  amount: 0.1
+section: cupboard

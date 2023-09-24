@@ -1,0 +1,8 @@
+title: Salt
+preferredUnit: L
+conversion:
+- unit: G
+  amount: 125
+- unit: L
+  amount: 0.1
+section: cupboard

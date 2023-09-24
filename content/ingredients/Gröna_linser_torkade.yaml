@@ -1,0 +1,8 @@
+title: Gröna linser, torkade
+preferredUnit: G
+conversion:
+- unit: G
+  amount: 85
+- unit: L
+  amount: 0.1
+section: cupboard

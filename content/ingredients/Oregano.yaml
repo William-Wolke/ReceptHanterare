@@ -1,0 +1,8 @@
+title: Oregano
+preferredUnit: L
+conversion:
+- unit: G
+  amount: 10
+- unit: L
+  amount: 0.1
+section: cupboard

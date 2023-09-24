@@ -1,0 +1,10 @@
+title: Vitlök
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 3.5
+- unit: L
+  amount: 0.005
+section: produce

@@ -1,0 +1,8 @@
+title: Vegansk cheddar, skivad
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 15
+section: dairy

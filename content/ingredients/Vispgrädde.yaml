@@ -1,0 +1,8 @@
+title: Vispgrädde
+preferredUnit: L
+conversion:
+- unit: G
+  amount: 100
+- unit: L
+  amount: 0.1
+section: diary

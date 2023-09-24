@@ -1,0 +1,8 @@
+title: Körsbärstomater
+preferredUnit: G
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 20
+section: produce

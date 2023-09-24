@@ -1,0 +1,8 @@
+title: Bacon
+prefered_unit: G
+conversion:
+  - unit: St
+    amount: 1
+  - unit: G
+    amount: 140
+section: Chark

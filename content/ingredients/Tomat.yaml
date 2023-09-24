@@ -1,0 +1,10 @@
+title: Tomat
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 90
+- unit: L
+  amount: 0.1
+section: produce

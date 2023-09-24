@@ -1,0 +1,17 @@
+title: 2022 v.10
+description: ''
+recipes:
+  - name: content/recipes/Biff-stroganoff.yaml
+    day: Sunday
+  - name: content/recipes/Veganska-burgare-med-pommes.yaml
+    day: Saturday
+  - name: content/recipes/Tacos.yaml
+    day: Friday
+  - name: content/recipes/Vegansk-pytt-i-panna.yaml
+    day: Thursday
+  - name: content/recipes/Vegansk-tunamelt-med-avocado.yaml
+    day: Wednesday
+  - name: content/recipes/Krmig-pasta-pesto-vegansk.yaml
+    day: Tuesday
+  - name: content/recipes/Vegobullar-med-grddss-och-kokt-potatis.yaml
+    day: Monday

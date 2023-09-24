@@ -1,0 +1,8 @@
+title: Gammaldags Gurka
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 730
+section: cupboard

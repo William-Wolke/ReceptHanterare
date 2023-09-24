@@ -1,0 +1,8 @@
+title: Korv
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 80
+section: chark

@@ -64,6 +64,16 @@
             "convertTo": "G"
         },
         {
+            "unit": "G",
+            "convert": 1,
+            "convertTo": "G"
+        },
+        {
+            "unit": "L",
+            "convert": 1,
+            "convertTo": "L"
+        },
+        {
             "unit": "Dl",
             "convert": 0.1,
             "convertTo": "L"
@@ -92,6 +102,11 @@
             "unit": "Krm",
             "convert": 0.001,
             "convertTo": "L"
+        },
+        {
+            "unit": "St",
+            "convert": 1,
+            "convertTo": "St"
         }
     ]
 }

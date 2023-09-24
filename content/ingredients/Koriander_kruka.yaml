@@ -1,0 +1,8 @@
+title: Kruka koriander
+preferredUnit: G
+conversion:
+- unit: St
+  amount: 1
+- unit: L
+  amount: 0.03
+section: produce

@@ -1,0 +1,8 @@
+title: Vatten
+preferredUnit: L
+conversion:
+- unit: G
+  amount: 1000
+- unit: L
+  amount: 1
+section: ''

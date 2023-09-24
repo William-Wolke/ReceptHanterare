@@ -47,25 +47,37 @@ export function toPreferredUnit(shoppingList, ingredients) {
     });
 }
 
-export function summarizeShoppingList(shoppingList) {
+export function summarizeShoppingList(shoppingList = []) {
     //Map through all items in shopping list and all ingredients
     //Summarize the list
 
     let uniqueList = [];
 
     shoppingList.forEach((item) => {
-        const ingredient = uniqueList.find(({ name, unit }) => name === item.name && unit === item.unit);
+        if (!item) return;
+        const ingredient = uniqueList.find(({ name, unit }) => name === item.name.title && unit === item.unit);
         if (ingredient && ingredient.unit === item.unit) {
             let amount = parseFloat(Number(Number(ingredient.amount) + Number(item.amount)).toFixed(numOfDecimals));
 
             ingredient.amount = amount;
         } else {
             uniqueList.push({
-                name: item.name,
+                name: item.name.title,
                 amount: item.amount,
                 unit: item.unit,
             });
         }
     });
     return uniqueList;
+}
+
+export function getShoppingList(recipes) {
+    let shoppingList = [];
+    for (const recipe of recipes) {
+        if (!recipe || !recipe.name.ingredients || recipe?.name?.ingredients?.length === 0) {
+            continue;
+        }
+        shoppingList = shoppingList.concat(recipe.name.ingredients);
+    }
+    return shoppingList;
 }

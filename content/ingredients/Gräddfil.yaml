@@ -1,0 +1,8 @@
+title: Gräddfil
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: L
+  amount: 0.3
+section: dairy

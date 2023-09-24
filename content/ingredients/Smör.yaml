@@ -1,0 +1,8 @@
+title: Smör
+preferredUnit: G
+conversion:
+- unit: G
+  amount: 95
+- unit: L
+  amount: 0.1
+section: dairy

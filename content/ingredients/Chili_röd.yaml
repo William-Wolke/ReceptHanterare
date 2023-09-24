@@ -1,0 +1,9 @@
+title: Röd chili
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 20
+- unit: L
+section: produce

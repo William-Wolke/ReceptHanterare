@@ -1,0 +1,8 @@
+title: Falukorv
+preferredUnit: G
+conversion:
+- unit: G
+  amount: 400
+- unit: St
+  amount: 1
+section: chark

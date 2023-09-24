@@ -1,0 +1,10 @@
+title: Morot
+preferredUnit: G
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 65
+- unit: L
+  amount: 0.1
+section: produce

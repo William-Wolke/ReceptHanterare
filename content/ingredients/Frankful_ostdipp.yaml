@@ -1,0 +1,8 @@
+title: Frankful ostdipp
+preferredUnit: St
+conversion:
+- unit: St
+  amount: 1
+- unit: G
+  amount: 240
+section: cupboard
