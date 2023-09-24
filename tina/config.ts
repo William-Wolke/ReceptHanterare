@@ -215,8 +215,26 @@ export default defineConfig({
                                 options: weekdays,
                             },
                         ],
+                        ui: {
+                            itemProps: (item) => {
+                                // Field values are accessed by item?.<Field name>
+                                return { label: item?.name };
+                            },
+                        },
                     },
                 ],
+                ui: {
+                    // router: (props) => {
+                    //     return '/';
+                    // },
+                    filename: {
+                        slugify: (values) => {
+                            // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
+                            return `${values?.title?.toLowerCase().replace(/ /g, '-')}`;
+                        },
+                    },
+                    
+                },
             },
         ],
     },
