@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import client from '../../tina/__generated__/client'
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import client from '../../tina/__generated__/client';
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
 export const getStaticProps = async ({ params }) => {
-    let data = {}
-    let query = {}
-    let variables = { relativePath: `${params.filename}.yaml` }
+    let data = {};
+    let query = {};
+    let variables = { relativePath: `${params.filename}.yaml` };
     try {
-        const res = await client.queries.recipes(variables)
-        query = res.query
-        data = res.data
-        variables = res.variables
+        const res = await client.queries.recipes(variables);
+        query = res.query;
+        data = res.data;
+        variables = res.variables;
     } catch {
         // swallow errors related to document creation
     }
@@ -23,17 +23,17 @@ export const getStaticProps = async ({ params }) => {
             query: query,
             //myOtherProp: 'some-other-data',
         },
-    }
-}
+    };
+};
 export const getStaticPaths = async () => {
-    const recipesListData = await client.queries.recipesConnection()
+    const recipesListData = await client.queries.recipesConnection();
     return {
         paths: recipesListData.data.recipesConnection.edges.map((post) => ({
             params: { filename: post.node._sys.filename },
         })),
         fallback: false,
-    }
-}
+    };
+};
 
 export default function Recipe({ data }) {
     const recipe = data.recipes;
@@ -76,7 +76,7 @@ export default function Recipe({ data }) {
                             <h2>{recipe.title}</h2>
                             <div className="recipeInfoContainer">
                                 <div className="recipeInfoItem">
-                                    <p className="recipeAttributeItem">{recipe.time ? recipe.time : "0 min"}</p>
+                                    <p className="recipeAttributeItem">{recipe.time ? recipe.time : '0 min'}</p>
 
                                     {recipe.tags?.map((meal, index) => {
                                         return (
@@ -89,7 +89,8 @@ export default function Recipe({ data }) {
                                 <div className="recipeInfoItem"></div>
                                 <div className="receptBeskrivning">
                                     <TinaMarkdown content={recipe.description} />
-                                </div>{recipe?.recipes?.length > 0 &&
+                                </div>
+                                {recipe?.recipes?.length > 0 &&
                                     recipe.recipes.map((childRecipe, index) => {
                                         return (
                                             <div key={index}>
@@ -99,9 +100,7 @@ export default function Recipe({ data }) {
                                                         return (
                                                             <div className="recipeIngredientItem" key={'childrecipeIngredient' + index}>
                                                                 <p>{ingredient.name}</p>
-                                                                <p>
-                                                                    {getAmount(ingredient.amount)}
-                                                                </p>
+                                                                <p>{getAmount(ingredient.amount)}</p>
                                                                 <p>{ingredient.unit}</p>
                                                             </div>
                                                         );
@@ -118,16 +117,13 @@ export default function Recipe({ data }) {
                             </div>
                         </div>
                     </div>
-                    <div className="recipeItem">
-                        <div className="receptImageContainer">
-                            <Image
-                                src={new URL('/images/' + recipe.image, process.env.NEXT_PUBLIC_BASE_URL).href}
-                                height="400"
-                                width="400"
-                                className="recipeImage"
-                            />
+                    {
+                        <div className="recipeItem">
+                            <div className="receptImageContainer">
+                                {recipe.image && <Image src={recipe.image} height="400" width="400" className="recipeImage" />}
+                            </div>
                         </div>
-                    </div>
+                    }
                     <div className="recipeItem">
                         <div className="ingredienser">
                             <h3>Ingredienser</h3>
@@ -177,9 +173,12 @@ export default function Recipe({ data }) {
                             <div>
                                 <h3>Gör så här</h3>
                             </div>
-                            <TinaMarkdown content={recipe.instructions} components={{
-                                li: (props) => <li className='recipeInstructionItem' {...props} />
-                            }} />
+                            <TinaMarkdown
+                                content={recipe.instructions}
+                                components={{
+                                    li: (props) => <li className="recipeInstructionItem" {...props} />,
+                                }}
+                            />
                             {recipe.recipes?.length > 0 && (
                                 <div>
                                     <h2>Andra recept</h2>
