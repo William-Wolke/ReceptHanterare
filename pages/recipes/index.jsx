@@ -6,13 +6,13 @@ export const getStaticProps = async ({ params }) => {
     const recipesResponse = await client.queries.recipesConnection();
     const recipes = recipesResponse.data.recipesConnection.edges.map((recipe) => {
         return recipe.node;
-    })
+    });
     return {
         props: {
             recipes: recipes,
         },
-    }
-}
+    };
+};
 
 export default function RecipeList({ recipes }) {
     return (
@@ -30,13 +30,15 @@ export default function RecipeList({ recipes }) {
                                         <h3 key={recipe.title + ' name'}>{recipe.title}</h3>
                                     </div>
                                     <div>
-                                        <Image
-                                            src={new URL('/images/' + recipe.image, process.env.NEXT_PUBLIC_BASE_URL).href}
-                                            alt={recipe.alt}
-                                            className="recipeListThumbnail"
-                                            width={200}
-                                            height={200}
-                                        />
+                                        {recipe.image && (
+                                            <Image
+                                                src={recipe.image}
+                                                alt={recipe.alt}
+                                                className="recipeListThumbnail"
+                                                width={200}
+                                                height={200}
+                                            />
+                                        )}
                                     </div>
                                     <div key={recipe.name + ' buttondiv'}>
                                         <button className="recipeListButton" key={recipe.name + ' button'}>
