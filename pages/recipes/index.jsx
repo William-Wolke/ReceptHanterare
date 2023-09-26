@@ -16,35 +16,27 @@ export const getStaticProps = async ({ params }) => {
 
 export default function RecipeList({ recipes }) {
     return (
-        <div className="recipeList" key="recipeListMain">
+        <div className="w-[90%] flex flex-row flex-wrap gap-4 mx-auto mt-8" key="recipeListMain">
             {recipes &&
                 recipes.map((recipe, index) => {
                     return (
                         <Link href={'/recipes/' + recipe._sys.filename} key={'recipe' + index}>
-                            <div className="recipeListItemContainer card">
-                                <div className="recipeListItem" key={recipe.title + 'container' + index}>
-                                    <div className="recipeListTime" key={recipe.title + ' attribut'}>
-                                        <p key={recipe.title + ' tid'}>{recipe.time ? recipe.time : 0}</p>
-                                    </div>
-                                    <div className="recipeListName" key={recipe.title + ' namndiv'}>
-                                        <h3 key={recipe.title + ' name'}>{recipe.title}</h3>
-                                    </div>
-                                    <div>
-                                        {recipe.image && (
-                                            <Image
-                                                src={recipe.image}
-                                                alt={recipe.alt}
-                                                className="recipeListThumbnail"
-                                                width={200}
-                                                height={200}
-                                            />
-                                        )}
-                                    </div>
-                                    <div key={recipe.name + ' buttondiv'}>
-                                        <button className="recipeListButton" key={recipe.name + ' button'}>
-                                            <p>Lägg till i veckomeny</p>
-                                        </button>
-                                    </div>
+                            <div className="bg-[#84b082] w-72 h-64" key={recipe.title + 'container' + index}>
+                                <div className="h-48 w-48 mx-auto">
+                                    {recipe.image && (
+                                        <Image
+                                            src={recipe.image}
+                                            alt={recipe.alt}
+                                            width={300}
+                                            height={200}
+                                        />
+                                    )}
+                                </div>
+                                <div className="px-4 pb-4 pt-1" key={recipe.title + ' attribut'}>
+                                    <p key={recipe.title + ' tid'}>{recipe.time ? recipe.time : 0}</p>
+                                    <h3 key={recipe.title + ' name'} className="text-base">
+                                        {recipe.title}
+                                    </h3>
                                 </div>
                             </div>
                         </Link>

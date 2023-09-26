@@ -125,48 +125,46 @@ export default function Recipe({ data }) {
                         </div>
                     }
                     <div className="recipeItem">
-                        <div className="ingredienser">
-                            <h3>Ingredienser</h3>
-                            <div className="recipePortions">
-                                <button onClick={handleSubtractPortions}>
-                                    <p>-</p>
-                                </button>
-                                <p>{currentPortions === 0 ? recipe.servings : currentPortions} portioner</p>
-                                <button onClick={handleAddPortions}>
-                                    <p>+</p>
-                                </button>
-                            </div>
-                            <div className="recipeIngredientContainer">
-                                {recipe.ingredients &&
-                                    recipe.ingredients.map((ingredient, index) => {
-                                        return (
-                                            <div className="recipeIngredientItem" key={'ingredient' + index}>
-                                                <p>{ingredient.name.name}</p>
-                                                <p>{getAmount(ingredient.amount)}</p>
-                                                <p>{ingredient.unit}</p>
-                                            </div>
-                                        );
-                                    })}
-                            </div>
-                            {recipe?.recipes?.length > 0 &&
-                                recipe.recipes.map((childRecipe, index) => {
+                        <h3 className="text-xl">Ingredienser</h3>
+                        <div className="flex flex-row border border-gray-300 rounded-lg w-full justify-between text-base">
+                            <button className="border-r px-3 border-gray-300" onClick={handleSubtractPortions}>
+                                <p>-</p>
+                            </button>
+                            <p className='p-2'>{currentPortions === 0 ? recipe.servings : currentPortions} portioner</p>
+                            <button className='border-l px-3 border-gray-300' onClick={handleAddPortions}>
+                                <p>+</p>
+                            </button>
+                        </div>
+                        <div className="border border-gray-300 rounded-lg text-base">
+                            {recipe.ingredients &&
+                                recipe.ingredients.map((ingredient, index) => {
                                     return (
-                                        <div key={index}>
-                                            <h4>{childRecipe?.name}</h4>
-                                            {childRecipe?.ingredients?.length > 0 &&
-                                                childRecipe.ingredients.map((ingredient, index) => {
-                                                    return (
-                                                        <div className="recipeIngredientItem" key={'childrecipeIngredient' + index}>
-                                                            <p>{ingredient.name}</p>
-                                                            <p>{getAmount(ingredient.amount)}</p>
-                                                            <p>{ingredient.unit}</p>
-                                                        </div>
-                                                    );
-                                                })}
+                                        <div className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2" key={'ingredient' + index}>
+                                            <p className='font-medium'>{ingredient.name.title}</p>
+                                            <p className='ml-auto'>{getAmount(ingredient.amount)}</p>
+                                            <p>{ingredient.unit}</p>
                                         </div>
                                     );
                                 })}
                         </div>
+                        {recipe?.recipes?.length > 0 &&
+                            recipe.recipes.map((childRecipe, index) => {
+                                return (
+                                    <div key={index}>
+                                        <h4>{childRecipe?.title}</h4>
+                                        {childRecipe?.ingredients?.length > 0 &&
+                                            childRecipe.ingredients.map((ingredient, index) => {
+                                                return (
+                                                    <div className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2" key={'child-ingredient' + index}>
+                                                        <p className='font-medium'>{ingredient.name.title}</p>
+                                                        <p className='ml-auto'>{getAmount(ingredient.amount)}</p>
+                                                        <p>{ingredient.unit}</p>
+                                                    </div>
+                                                );
+                                            })}
+                                    </div>
+                                );
+                            })}
                     </div>
                     <div className="recipeItem">
                         <div className="recipeInstructionsContainer">
