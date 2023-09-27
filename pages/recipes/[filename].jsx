@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import client from '../../tina/__generated__/client';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { useTina } from 'tinacms/dist/react'
 
 export const getStaticProps = async ({ params }) => {
     let data = {};
@@ -35,7 +36,12 @@ export const getStaticPaths = async () => {
     };
 };
 
-export default function Recipe({ data }) {
+export default function Recipe(props) {
+    const { data } = useTina({
+        query: props.query,
+        variables: props.variables,
+        data: props.data,
+    })
     const recipe = data.recipes;
 
     const [currentPortions, setCurrentPortions] = useState(0);
@@ -68,113 +74,105 @@ export default function Recipe({ data }) {
     }
 
     return (
-        <div className="recept">
+        <div className="">
             {recipe && (
-                <div className="recipeContainer">
-                    <div className="recipeItem">
-                        <div className="receptIntro">
-                            <h2>{recipe.title}</h2>
-                            <div className="recipeInfoContainer">
-                                <div className="recipeInfoItem">
-                                    <p className="recipeAttributeItem">{recipe.time ? recipe.time : '0 min'}</p>
+                <div className="">
+                    <div className="">
+                        <div className="w-5/6 mx-auto">
+                            {recipe.image && <Image src={recipe.image} height="400" width="400" className="" alt={recipe.title} />}
+                            <h2 className="text-2xl mt-10">{recipe.title}</h2>
+                            <div className="">
+                                <div className="flex flex-row gap-4 text-sm pt-4">
+                                    <p className="my-auto">{recipe.time ? recipe.time : '0 min'}</p>
 
                                     {recipe.tags?.map((meal, index) => {
                                         return (
-                                            <p className="recipeAttributeItem" key={'meal' + index}>
+                                            <p className="rounded-full px-2 py-1 border border-[#84b082]" key={'meal' + index}>
                                                 {meal}
                                             </p>
                                         );
                                     })}
                                 </div>
-                                <div className="recipeInfoItem"></div>
-                                <div className="receptBeskrivning">
+                                <div className="pt-4 text-sm">
                                     <TinaMarkdown content={recipe.description} />
-                                </div>
-                                {recipe?.recipes?.length > 0 &&
-                                    recipe.recipes.map((childRecipe, index) => {
-                                        return (
-                                            <div key={index}>
-                                                <h4>{childRecipe?.name}</h4>
-                                                {childRecipe?.ingredients?.length > 0 &&
-                                                    childRecipe.ingredients.map((ingredient, index) => {
-                                                        return (
-                                                            <div className="recipeIngredientItem" key={'childrecipeIngredient' + index}>
-                                                                <p>{ingredient.name}</p>
-                                                                <p>{getAmount(ingredient.amount)}</p>
-                                                                <p>{ingredient.unit}</p>
-                                                            </div>
-                                                        );
-                                                    })}
-                                            </div>
-                                        );
-                                    })}
-                                <div>
-                                    <button>
-                                        <i></i>
-                                        <p>Lägg till i veckomenyn</p>
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {
-                        <div className="recipeItem">
-                            <div className="receptImageContainer">
-                                {recipe.image && <Image src={recipe.image} height="400" width="400" className="recipeImage" />}
+                    <div className='flex flex-col md:grid md:grid-cols-2 mt-6'>
+                        <div className="w-5/6 mx-auto flex flex-col gap-4">
+                            <h3 className="text-xl">Ingredienser</h3>
+                            <div className="flex flex-row border border-gray-300 rounded-lg w-full justify-between text-base">
+                                <button className="border-r px-3 border-gray-300" onClick={handleSubtractPortions}>
+                                    <p>-</p>
+                                </button>
+                                <p className="p-2">{currentPortions === 0 ? recipe.servings : currentPortions} portioner</p>
+                                <button className="border-l px-3 border-gray-300" onClick={handleAddPortions}>
+                                    <p>+</p>
+                                </button>
                             </div>
-                        </div>
-                    }
-                    <div className="recipeItem">
-                        <h3 className="text-xl">Ingredienser</h3>
-                        <div className="flex flex-row border border-gray-300 rounded-lg w-full justify-between text-base">
-                            <button className="border-r px-3 border-gray-300" onClick={handleSubtractPortions}>
-                                <p>-</p>
-                            </button>
-                            <p className='p-2'>{currentPortions === 0 ? recipe.servings : currentPortions} portioner</p>
-                            <button className='border-l px-3 border-gray-300' onClick={handleAddPortions}>
-                                <p>+</p>
-                            </button>
-                        </div>
-                        <div className="border border-gray-300 rounded-lg text-base">
-                            {recipe.ingredients &&
-                                recipe.ingredients.map((ingredient, index) => {
+                            <div className="border border-gray-300 rounded-lg text-base">
+                                {recipe.ingredients &&
+                                    recipe.ingredients.map((ingredient, index) => {
+                                        return (
+                                            <div
+                                                className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2"
+                                                key={'ingredient' + index}
+                                            >
+                                                <p className="font-medium">{ingredient.name.title}</p>
+                                                <p className="ml-auto">{getAmount(ingredient.amount)}</p>
+                                                <p>{ingredient.unit}</p>
+                                            </div>
+                                        );
+                                    })}
+                            </div>
+                            {recipe?.recipes?.length > 0 &&
+                                recipe.recipes.map((childRecipe, index) => {
                                     return (
-                                        <div className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2" key={'ingredient' + index}>
-                                            <p className='font-medium'>{ingredient.name.title}</p>
-                                            <p className='ml-auto'>{getAmount(ingredient.amount)}</p>
-                                            <p>{ingredient.unit}</p>
+                                        <div key={index}>
+                                            <h4>{childRecipe?.title}</h4>
+                                            {childRecipe?.ingredients?.length > 0 &&
+                                                childRecipe.ingredients.map((ingredient, index) => {
+                                                    return (
+                                                        <div
+                                                            className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2"
+                                                            key={'child-ingredient' + index}
+                                                        >
+                                                            <p className="font-medium">{ingredient.name.title}</p>
+                                                            <p className="ml-auto">{getAmount(ingredient.amount)}</p>
+                                                            <p>{ingredient.unit}</p>
+                                                        </div>
+                                                    );
+                                                })}
+                                        </div>
+                                    );
+                                })}
+                            {recipe?.recipes?.length > 0 &&
+                                recipe.recipes.map((childRecipe, index) => {
+                                    return (
+                                        <div key={index}>
+                                            <h4>{childRecipe?.name}</h4>
+                                            {childRecipe?.ingredients?.length > 0 &&
+                                                childRecipe.ingredients.map((ingredient, index) => {
+                                                    return (
+                                                        <div className="" key={'childrecipeIngredient' + index}>
+                                                            <p>{ingredient.name}</p>
+                                                            <p>{getAmount(ingredient.amount)}</p>
+                                                            <p>{ingredient.unit}</p>
+                                                        </div>
+                                                    );
+                                                })}
                                         </div>
                                     );
                                 })}
                         </div>
-                        {recipe?.recipes?.length > 0 &&
-                            recipe.recipes.map((childRecipe, index) => {
-                                return (
-                                    <div key={index}>
-                                        <h4>{childRecipe?.title}</h4>
-                                        {childRecipe?.ingredients?.length > 0 &&
-                                            childRecipe.ingredients.map((ingredient, index) => {
-                                                return (
-                                                    <div className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2" key={'child-ingredient' + index}>
-                                                        <p className='font-medium'>{ingredient.name.title}</p>
-                                                        <p className='ml-auto'>{getAmount(ingredient.amount)}</p>
-                                                        <p>{ingredient.unit}</p>
-                                                    </div>
-                                                );
-                                            })}
-                                    </div>
-                                );
-                            })}
-                    </div>
-                    <div className="recipeItem">
-                        <div className="recipeInstructionsContainer">
-                            <div>
-                                <h3>Gör så här</h3>
-                            </div>
+                        <div className="w-5/6 mx-auto flex flex-col gap-4">
+                            <h3 className='text-xl'>Gör så här</h3>
                             <TinaMarkdown
                                 content={recipe.instructions}
                                 components={{
-                                    li: (props) => <li className="recipeInstructionItem" {...props} />,
+                                    li: props => <li className="list-decimal" {...props} />,
+                                    ol: props => <ol className="flex flex-col gap-4 text-sm" {...props} />,
                                 }}
                             />
                             {recipe.recipes?.length > 0 && (
@@ -184,7 +182,13 @@ export default function Recipe({ data }) {
                                         return (
                                             <div key={index}>
                                                 <h3>{recipeItem.title}</h3>
-                                                <TinaMarkdown content={recipeItem.description} />
+                                                <TinaMarkdown
+                                                    content={recipeItem.description}
+                                                    components={{
+                                                        li: props => <li className="list-decimal" {...props} />,
+                                                        ol: props => <ol className="flex flex-col gap-4 text-sm" {...props} />,
+                                                    }}
+                                                />
                                             </div>
                                         );
                                     })}
