@@ -214,6 +214,12 @@ export default defineConfig({
                                 label: 'Day',
                                 options: weekdays,
                             },
+                            {
+                                type: 'number',
+                                name: 'servings',
+                                label: 'Servings',
+
+                            }
                         ],
                         ui: {
                             itemProps: (item) => {
