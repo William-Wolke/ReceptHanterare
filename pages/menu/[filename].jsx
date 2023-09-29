@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import client from '../../tina/__generated__/client';
 import { getShoppingList, summarizeShoppingList } from '../../src/helpers';
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import Image from 'next/image';
 
 export const getStaticProps = async ({ params }) => {
     let data = {};
