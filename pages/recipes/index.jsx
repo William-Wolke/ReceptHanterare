@@ -20,7 +20,7 @@ export default function RecipeList({ recipes }) {
             {recipes &&
                 recipes.map((recipe, index) => {
                     return (
-                        <div className='h-56 w-64'>
+                        <div className='h-56 w-64' key={`recipe${index}`}>
                             <Link href={`/recipes/${recipe._sys.filename}`}>
                                 <div className='h-36 w-42 rounded-t relative bg-[#84b082]'>
                                 {/* <span className='absolute top-0 left-0 bg-gray-600 text-white opacity-70 px-2 py-1 rounded-tl'>{day}</span> */}
