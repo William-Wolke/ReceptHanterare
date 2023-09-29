@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { client } from '../../tina/__generated__/client';
+import Image from 'next/image';
 
 export const getStaticProps = async ({ params }) => {
     const menusResponse = await client.queries.menusConnection();
@@ -48,7 +49,7 @@ export default function MenuList({ menus }) {
                                                 {/* TODO: Make this a reusable component*/}
                                                 {recipes && recipes.map((recipe, index) => {
                                                     return (
-                                                        <div>
+                                                        <div key={`${day}recipe${index}`}>
                                                             <div className='h-36 w-42 rounded-t relative bg-[#84b082]'>
                                                                 <span className='absolute top-0 left-0 bg-gray-600 text-white opacity-70 px-2 py-1 rounded-tl'>{day}</span>
                                                                 {recipe.image && <Image src={recipe.image} height="200" width="200" className="" alt={recipe.title} />}
