@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import client from '../../tina/__generated__/client';
-import { getShoppingList, summarizeShoppingList } from '../../src/helpers';
+import { getShoppingList, summarizeShoppingList, getSectionsShoppingList } from '../../src/helpers';
 import Image from 'next/image';
+
 
 export const getStaticProps = async ({ params }) => {
     let data = {};
@@ -38,6 +39,8 @@ export const getStaticPaths = async () => {
 export default function Menu({ data }) {
     const menu = data.menus;
     const shoppingList = summarizeShoppingList(getShoppingList(menu.recipes));
+    const ingredientSections = getSectionsShoppingList(shoppingList);
+    console.log("🚀 ~ Recipe ~ ingredientSections:", ingredientSections)
 
     const weekday_recipes = {};
     if (menu?.recipes) {
@@ -49,6 +52,7 @@ export default function Menu({ data }) {
             }
         }
     }
+
 
     return (
         <div className="menuContainer">
@@ -110,21 +114,30 @@ export default function Menu({ data }) {
                     </div>
                     <div className="w-3/4 mx-auto flex flex-col gap-4">
                         <h3 className="text-xl">Inköpslista</h3>
-                        <div className="border border-gray-300 rounded-lg text-base">
-                            {shoppingList.length > 0 &&
-                                shoppingList.map((ingredient, index) => {
-                                    return (
-                                        <div
-                                            className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2"
-                                            key={'ingredient' + index}
-                                        >
-                                            <p className="font-medium">{ingredient.name}</p>
-                                            <p className="ml-auto">{ingredient.amount}</p>
-                                            <p>{ingredient.unit}</p>
-                                        </div>
-                                    );
-                                })}
-                        </div>
+                        {ingredientSections && ingredientSections.length > 0 && ingredientSections.map((section, index) => {
+                            if (section.ingredients.length == 0) {
+                                return;
+                            }
+                            return (
+                                <div key={index}>
+                                    <h4 className="text-lg">{section.name}</h4>
+                                    <div className="border border-gray-300 rounded-lg text-base">
+                                        {section.ingredients.map((ingredient, index) => {
+                                            return (
+                                                <div
+                                                    className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2"
+                                                    key={'ingredient' + index}
+                                                >
+                                                    <p className="font-medium">{ingredient.ingredient.title}</p>
+                                                    <p className="ml-auto">{ingredient.amount}</p>
+                                                    <p>{ingredient.unit}</p>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             )}

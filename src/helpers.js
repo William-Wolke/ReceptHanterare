@@ -62,7 +62,7 @@ export function summarizeShoppingList(shoppingList = []) {
             ingredient.amount = amount;
         } else {
             uniqueList.push({
-                name: item.name.title,
+                ingredient: item.name,
                 amount: item.amount,
                 unit: item.unit,
             });
@@ -74,10 +74,26 @@ export function summarizeShoppingList(shoppingList = []) {
 export function getShoppingList(recipes) {
     let shoppingList = [];
     for (const recipe of recipes) {
-        if (!recipe || !recipe.name.ingredients || recipe?.name?.ingredients?.length === 0) {
+        if (!recipe || !recipe?.name?.ingredients || recipe?.name?.ingredients?.length === 0) {
             continue;
         }
         shoppingList = shoppingList.concat(recipe.name.ingredients);
     }
     return shoppingList;
+}
+
+export function getSectionsShoppingList(ingredients) {
+    const sections = constants.sectionTypes;
+    const sectionNames = sections.map((item) => item.name)
+    const sectionsList = sections.map(({ label, name: section }) => {
+        return {
+            name: label,
+            ingredients: ingredients.filter((ingredient) => { return ingredient.ingredient.section === section }),
+        };
+    });
+    sectionsList.push({
+        name: 'Other',
+        ingredients: ingredients.filter((item) => !item.ingredient.section || !sectionNames.includes(item.ingredient.section)),
+    });
+    return sectionsList;
 }
