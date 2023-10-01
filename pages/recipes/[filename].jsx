@@ -49,23 +49,23 @@ export default function Recipe(props) {
     function handleSubtractPortions() {
         if (!recipe) return;
         if (currentPortions === 0) {
-            if (recipe.servings - 2 < 1) {
+            if (recipe.servings - 1 < 1) {
                 setCurrentPortions(recipe.servings);
             } else {
-                setCurrentPortions(recipe.servings - 2);
+                setCurrentPortions(recipe.servings - 1);
             }
         } else {
-            if (currentPortions - 2 < 1) return;
-            setCurrentPortions(currentPortions - 2);
+            if (currentPortions - 1 < 1) return;
+            setCurrentPortions(currentPortions - 1);
         }
     }
 
     function handleAddPortions() {
         if (!recipe) return;
         if (currentPortions === 0) {
-            setCurrentPortions(recipe.servings + 2);
+            setCurrentPortions(recipe.servings + 1);
         } else {
-            setCurrentPortions(currentPortions + 2);
+            setCurrentPortions(currentPortions + 1);
         }
     }
 
