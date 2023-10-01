@@ -1,8 +1,8 @@
 title: Dijonsenap
 preferredUnit: G
 conversion:
-- unit: G
-  amount: 110
-- unit: L
-  amount: 0.1
-section: cupboard
+  - unit: G
+    amount: 110
+  - unit: L
+    amount: 0.1
+section: pantry
