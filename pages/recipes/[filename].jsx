@@ -113,21 +113,23 @@ export default function Recipe(props) {
                                     <p>+</p>
                                 </button>
                             </div>
-                            <div className="border border-gray-300 rounded-lg text-base">
-                                {recipe.ingredients &&
-                                    recipe.ingredients.map((ingredient, index) => {
-                                        return (
-                                            <div
-                                                className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2"
-                                                key={'ingredient' + index}
-                                            >
-                                                <p className="font-medium">{ingredient.name.title}</p>
-                                                <p className="ml-auto">{getAmount(ingredient.amount)}</p>
-                                                <p>{ingredient.unit}</p>
-                                            </div>
-                                        );
-                                    })}
-                            </div>
+                            {recipe?.ingredients?.length > 0 && 
+                                <div className="border border-gray-300 rounded-lg text-base">
+                                    {recipe.ingredients &&
+                                        recipe.ingredients.map((ingredient, index) => {
+                                            return (
+                                                <div
+                                                    className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2"
+                                                    key={'ingredient' + index}
+                                                >
+                                                    <p className="font-medium">{ingredient.name.title}</p>
+                                                    <p className="ml-auto">{getAmount(ingredient.amount)}</p>
+                                                    <p>{ingredient.unit}</p>
+                                                </div>
+                                            );
+                                        })}
+                                </div>
+                            }
                             {recipe?.recipes?.length > 0 &&
                                 recipe.recipes.map((childRecipe, index) => {
                                     return (
