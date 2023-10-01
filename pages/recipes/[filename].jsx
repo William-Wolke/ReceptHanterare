@@ -77,9 +77,8 @@ export default function Recipe(props) {
         <div className="">
             {recipe && (
                 <div className="">
-                    <div className="">
+                    <div className="grid grid-cols-2">
                         <div className="w-5/6 mx-auto">
-                            {recipe.image && <Image src={recipe.image} height="400" width="400" className="" alt={recipe.title} />}
                             <h2 className="text-2xl mt-10">{recipe.title}</h2>
                             <div className="">
                                 <div className="flex flex-row gap-4 text-sm pt-4">
@@ -97,6 +96,9 @@ export default function Recipe(props) {
                                     <TinaMarkdown content={recipe.description} />
                                 </div>
                             </div>
+                        </div>
+                        <div>
+                            {recipe.image && <Image src={recipe.image} height="400" width="400" className="" alt={recipe.title} />}
                         </div>
                     </div>
                     <div className='flex flex-col md:grid md:grid-cols-2 mt-6'>
