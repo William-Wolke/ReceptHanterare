@@ -43,7 +43,7 @@
         { "label": "Färskvaror", "name": "fresh" },
         { "label": "Kött och chark", "name": "chark" },
         { "label": "Frukt och grönt", "name": "produce" },
-        { "label": "Frysvaror", "name": "frozen" },
+        { "label": "Frysvaror", "name": "freezer" },
         { "label": "Skafferi", "name": "pantry" }
     ],
     "metric": [
