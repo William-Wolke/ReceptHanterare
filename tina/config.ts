@@ -6,6 +6,7 @@ const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main';
 
 const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const units = constants.metric.map((item) => item.unit);
+const sections = constants.sectionTypes.map((item) => item.name);
 
 export default defineConfig({
     branch,
@@ -175,6 +176,7 @@ export default defineConfig({
                         type: 'string',
                         name: 'section',
                         label: 'Section',
+                        options: sections,
                     },
                 ],
             },
