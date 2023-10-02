@@ -65,6 +65,7 @@ export function summarizeShoppingList(shoppingList = []) {
                 ingredient: item.name,
                 amount: item.amount,
                 unit: item.unit,
+                checked: false,
             });
         }
     });
@@ -88,12 +89,26 @@ export function getSectionsShoppingList(ingredients) {
     const sectionsList = sections.map(({ label, name: section }) => {
         return {
             name: label,
-            ingredients: ingredients.filter((ingredient) => { return ingredient.ingredient.section === section }),
+            ingredients: ingredients.filter((ingredient) => ingredient.ingredient.section === section).map((ingredient) => {
+                return {
+                    ingredient: ingredient.ingredient,
+                    amount: ingredient.amount,
+                    unit: ingredient.unit,
+                    checked: false,
+                };
+            }),
         };
     });
     sectionsList.push({
         name: 'Other',
-        ingredients: ingredients.filter((item) => !item.ingredient.section || !sectionNames.includes(item.ingredient.section)),
+        ingredients: ingredients.filter((item) => !item.ingredient.section || !sectionNames.includes(item.ingredient.section)).map((ingredient) => {
+            return {
+                ingredient: ingredient.ingredient,
+                amount: ingredient.amount,
+                unit: ingredient.unit,
+                checked: false,
+            };
+        }),
     });
     return sectionsList;
 }

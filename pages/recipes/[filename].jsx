@@ -3,6 +3,8 @@ import Image from 'next/image';
 import client from '../../tina/__generated__/client';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { useTina } from 'tinacms/dist/react'
+import IngredientList from '../../components/IngredientList';
+
 
 export const getStaticProps = async ({ params }) => {
     let data = {};
@@ -69,10 +71,6 @@ export default function Recipe(props) {
         }
     }
 
-    function getAmount(amount) {
-        return parseFloat(amount) * ((currentPortions || recipe.servings) / recipe.servings).toFixed(2);
-    }
-
     return (
         <div className="">
             {recipe && (
@@ -113,21 +111,9 @@ export default function Recipe(props) {
                                     <p>+</p>
                                 </button>
                             </div>
-                            {recipe?.ingredients?.length > 0 && 
+                            {recipe?.ingredients?.length > 0 &&
                                 <div className="border border-gray-300 rounded-lg text-base">
-                                    {recipe.ingredients &&
-                                        recipe.ingredients.map((ingredient, index) => {
-                                            return (
-                                                <div
-                                                    className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2"
-                                                    key={'ingredient' + index}
-                                                >
-                                                    <p className="font-medium">{ingredient.name.title}</p>
-                                                    <p className="ml-auto">{getAmount(ingredient.amount)}</p>
-                                                    <p>{ingredient.unit}</p>
-                                                </div>
-                                            );
-                                        })}
+                                    {recipe.ingredients && <IngredientList ingredients={recipe.ingredients} servings={currentPortions} recipeServings={recipe.servings} />}
                                 </div>
                             }
                             {recipe?.recipes?.length > 0 &&
@@ -135,40 +121,11 @@ export default function Recipe(props) {
                                     return (
                                         <div key={index}>
                                             <h4>{childRecipe?.title}</h4>
-                                            {childRecipe?.ingredients?.length > 0 &&
-                                                childRecipe.ingredients.map((ingredient, index) => {
-                                                    return (
-                                                        <div
-                                                            className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2"
-                                                            key={'child-ingredient' + index}
-                                                        >
-                                                            <p className="font-medium">{ingredient.name.title}</p>
-                                                            <p className="ml-auto">{getAmount(ingredient.amount)}</p>
-                                                            <p>{ingredient.unit}</p>
-                                                        </div>
-                                                    );
-                                                })}
+                                            {childRecipe?.ingredients?.length > 0 && <IngredientList ingredients={childRecipe?.ingredients} recipeServings={recipe.servings} />}
                                         </div>
                                     );
-                                })}
-                            {recipe?.recipes?.length > 0 &&
-                                recipe.recipes.map((childRecipe, index) => {
-                                    return (
-                                        <div key={index}>
-                                            <h4>{childRecipe?.name}</h4>
-                                            {childRecipe?.ingredients?.length > 0 &&
-                                                childRecipe.ingredients.map((ingredient, index) => {
-                                                    return (
-                                                        <div className="" key={'childrecipeIngredient' + index}>
-                                                            <p>{ingredient.name}</p>
-                                                            <p>{getAmount(ingredient.amount)}</p>
-                                                            <p>{ingredient.unit}</p>
-                                                        </div>
-                                                    );
-                                                })}
-                                        </div>
-                                    );
-                                })}
+                                })
+                            }
                         </div>
                         <div className="w-5/6 mx-auto flex flex-col gap-4">
                             <h3 className='text-xl'>Gör så här</h3>

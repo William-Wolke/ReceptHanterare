@@ -1,35 +1,57 @@
-import Button from './Button';
+import { useState } from 'react';
 
-export default function IngredientList({ list, setList }) {
-    return (
-        <>
-            <div className="ingredient-list form-element">
-                <div className="ingredient-list-item">
-                    <p className="ingredient-list-value">Namn</p>
-                    <p className="ingredient-list-value">Mängd</p>
-                    <p className="ingredient-list-value">Enhet</p>
-                </div>
-            </div>
+export default function IngredientList({ ingredients, servings, recipeServings }) {
+    const [ingredientList, setIngredientList] = useState(ingredients);
 
-            <div className="ingredient-list form-element">
-                {list &&
-                    list.map((item, index) => {
-                        return (
-                            <div key={`looseIngredientList${index}`} className="ingredient-list-item">
-                                <p className="ingredient-list-value">{item.name ? item.name : 'Inget'}</p>
-                                <p className="ingredient-list-value">{item.amount ? item.amount : 0}</p>
-                                <p className="ingredient-list-value">{item.unit ? item.unit : 'Ingen'}</p>
-                                <Button
-                                    text="-"
-                                    onClickFunc={() => {
-                                        list.pop(index);
-                                        setList(list);
-                                    }}
-                                />
-                            </div>
-                        );
-                    })}
-            </div>
-        </>
-    );
+    function updateChecked(name, checked) {
+        const newIngredients = ingredientList.map((ingredient) => {
+            console.log("🚀 ~ newIngredients ~ ingredient:", ingredient)
+            if (ingredient.name.title === name) {
+                return {
+                    name: ingredient.name,
+                    amount: ingredient.amount,
+                    unit: ingredient.unit,
+                    checked: checked,
+                };
+            }
+            return ingredient;
+        });
+        newIngredients.sort((ingredient) => ingredient.checked)
+        setIngredientList(newIngredients);
+    }
+
+    if (ingredients?.length === 0) {
+        return;
+    }
+
+    function getAmount(amount) {
+        if (!amount) {
+            return amount;
+        }
+        return parseFloat(amount) * ((servings || recipeServings) / recipeServings).toFixed(2);
+    }
+
+    return ingredientList.map((ingredient, index) => {
+        return (
+            <button
+                className="w-full flex flex-row border-b border-gray-300 py-2 px-3 gap-2"
+                key={'ingredient' + index}
+                type="button"
+                onClick={() => {
+                    updateChecked(ingredient.name.title, !ingredient.checked);
+                    console.log({
+                        color: ingredient.checked ? 'gray' : 'black',
+                    });
+                    console.log("🚀 ~ {section.ingredients.map ~ ingredient:", ingredient)
+                }}
+                style={{
+                    color: ingredient.checked ? 'gray' : 'black',
+                }}
+            >
+                <p className="font-medium">{ingredient.name.title}</p>
+                <p className="ml-auto">{getAmount(ingredient.amount)}</p>
+                <p>{ingredient.unit}</p>
+            </button>
+        );
+    });
 }
