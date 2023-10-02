@@ -46,11 +46,11 @@ export default function Recipe(props) {
     })
     const recipe = data.recipes;
 
-    const [currentPortions, setCurrentPortions] = useState(0);
+    const [currentPortions, setCurrentPortions] = useState(recipe.servings);
 
     function handleSubtractPortions() {
         if (!recipe) return;
-        if (currentPortions === 0) {
+        if (currentPortions < 1) {
             if (recipe.servings - 1 < 1) {
                 setCurrentPortions(recipe.servings);
             } else {
@@ -64,7 +64,7 @@ export default function Recipe(props) {
 
     function handleAddPortions() {
         if (!recipe) return;
-        if (currentPortions === 0) {
+        if (currentPortions < 1) {
             setCurrentPortions(recipe.servings + 1);
         } else {
             setCurrentPortions(currentPortions + 1);
@@ -106,7 +106,7 @@ export default function Recipe(props) {
                                 <button className="border-r px-3 border-gray-300" onClick={handleSubtractPortions}>
                                     <p>-</p>
                                 </button>
-                                <p className="p-2">{currentPortions === 0 ? recipe.servings : currentPortions} portioner</p>
+                                <p className="p-2">{currentPortions} portioner</p>
                                 <button className="border-l px-3 border-gray-300" onClick={handleAddPortions}>
                                     <p>+</p>
                                 </button>
