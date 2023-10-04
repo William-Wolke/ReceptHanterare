@@ -31,9 +31,9 @@ export default defineConfig({
                 path: 'content/recipes',
                 format: 'yaml',
                 ui: {
-                    // router: (props) => {
-                    //     return '/';
-                    // },
+                    router: ({ document }) => {
+                        return '/recipes/' + document?._sys?.filename;
+                    },
                     filename: {
                         slugify: (values) => {
                             // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
@@ -220,8 +220,7 @@ export default defineConfig({
                                 type: 'number',
                                 name: 'servings',
                                 label: 'Servings',
-
-                            }
+                            },
                         ],
                         ui: {
                             itemProps: (item) => {
@@ -232,16 +231,15 @@ export default defineConfig({
                     },
                 ],
                 ui: {
-                    // router: (props) => {
-                    //     return '/';
-                    // },
+                    router: ({ document }) => {
+                        return '/recipes/' + document?._sys?.filename;
+                    },
                     filename: {
                         slugify: (values) => {
                             // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
                             return `${values?.title?.toLowerCase().replace(/ /g, '-')}`;
                         },
                     },
-                    
                 },
             },
         ],

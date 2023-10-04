@@ -1,7 +1,9 @@
+"use client";
 import Link from 'next/link';
 import client from '../../tina/__generated__/client';
 import { getShoppingList, summarizeShoppingList, getSectionsShoppingList } from '../../src/helpers';
 import Image from 'next/image';
+import { useTina } from 'tinacms/dist/react'
 import IngredientSectionList from '../../components/IngredientSectionList';
 
 
@@ -37,7 +39,12 @@ export const getStaticPaths = async () => {
     };
 };
 
-export default function Menu({ data }) {
+export default function Menu(props) {
+    const { data } = useTina({
+        query: props.query,
+        variables: props.variables,
+        data: props.data,
+    })
     const menu = data.menus;
     const shoppingList = summarizeShoppingList(getShoppingList(menu.recipes));
     const ingredientSections = getSectionsShoppingList(shoppingList);
