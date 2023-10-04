@@ -85,11 +85,27 @@ export function getShoppingList(recipes) {
 
 export function getSectionsShoppingList(ingredients) {
     const sections = constants.sectionTypes;
-    const sectionNames = sections.map((item) => item.name)
+    const sectionNames = sections.map((item) => item.name);
     const sectionsList = sections.map(({ label, name: section }) => {
         return {
             name: label,
-            ingredients: ingredients.filter((ingredient) => ingredient.ingredient.section === section).map((ingredient) => {
+            ingredients: ingredients
+                .filter((ingredient) => ingredient.ingredient.section === section)
+                .map((ingredient) => {
+                    return {
+                        ingredient: ingredient.ingredient,
+                        amount: ingredient.amount,
+                        unit: ingredient.unit,
+                        checked: false,
+                    };
+                }),
+        };
+    });
+    sectionsList.push({
+        name: 'Other',
+        ingredients: ingredients
+            .filter((item) => !item.ingredient.section || !sectionNames.includes(item.ingredient.section))
+            .map((ingredient) => {
                 return {
                     ingredient: ingredient.ingredient,
                     amount: ingredient.amount,
@@ -97,18 +113,6 @@ export function getSectionsShoppingList(ingredients) {
                     checked: false,
                 };
             }),
-        };
-    });
-    sectionsList.push({
-        name: 'Other',
-        ingredients: ingredients.filter((item) => !item.ingredient.section || !sectionNames.includes(item.ingredient.section)).map((ingredient) => {
-            return {
-                ingredient: ingredient.ingredient,
-                amount: ingredient.amount,
-                unit: ingredient.unit,
-                checked: false,
-            };
-        }),
     });
     return sectionsList;
 }

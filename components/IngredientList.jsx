@@ -5,7 +5,6 @@ export default function IngredientList({ ingredients, servings, recipeServings }
 
     function updateChecked(name, checked) {
         const newIngredients = ingredientList.map((ingredient) => {
-            console.log("🚀 ~ newIngredients ~ ingredient:", ingredient)
             if (ingredient.name.title === name) {
                 return {
                     name: ingredient.name,
@@ -39,10 +38,6 @@ export default function IngredientList({ ingredients, servings, recipeServings }
                 type="button"
                 onClick={() => {
                     updateChecked(ingredient.name.title, !ingredient.checked);
-                    console.log({
-                        color: ingredient.checked ? 'gray' : 'black',
-                    });
-                    console.log("🚀 ~ {section.ingredients.map ~ ingredient:", ingredient)
                 }}
                 style={{
                     color: ingredient.checked ? 'gray' : 'black',
