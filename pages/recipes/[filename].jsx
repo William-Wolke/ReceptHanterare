@@ -1,11 +1,10 @@
-"use client";
+'use client';
 import { useState } from 'react';
 import Image from 'next/image';
 import client from '../../tina/__generated__/client';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
-import { useTina } from 'tinacms/dist/react'
+import { useTina, tinaField } from 'tinacms/dist/react';
 import IngredientList from '../../components/IngredientList';
-
 
 export const getStaticProps = async ({ params }) => {
     let data = {};
@@ -44,7 +43,7 @@ export default function Recipe(props) {
         query: props.query,
         variables: props.variables,
         data: props.data,
-    })
+    });
     const recipe = data.recipes;
 
     const [currentPortions, setCurrentPortions] = useState(recipe.servings);
@@ -78,11 +77,14 @@ export default function Recipe(props) {
                 <div className="">
                     <div className="grid grid-cols-2">
                         <div className="w-5/6 mx-auto">
-                            <h2 className="text-2xl mt-10">{recipe.title}</h2>
+                            <h2 className="text-2xl mt-10" data-tina-field={tinaField(recipe, 'title')}>
+                                {recipe.title}
+                            </h2>
                             <div className="">
-                                <div className="flex flex-row gap-4 text-sm pt-4">
-                                    <p className="my-auto">{recipe.time ? recipe.time : '0 min'}</p>
-
+                                <div className="flex flex-row gap-4 text-sm pt-4 flex-wrap">
+                                    <p className="my-auto" data-tina-field={tinaField(recipe, 'title')}>
+                                        {recipe.time ? recipe.time : '0 min'}
+                                    </p>
                                     {recipe.tags?.map((meal, index) => {
                                         return (
                                             <p className="rounded-full px-2 py-1 border border-[#84b082]" key={'meal' + index}>
@@ -91,16 +93,16 @@ export default function Recipe(props) {
                                         );
                                     })}
                                 </div>
-                                <div className="pt-4 text-sm">
+                                <div className="pt-4 text-sm" data-tina-field={tinaField(recipe, 'description')}>
                                     <TinaMarkdown content={recipe.description} />
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div data-tina-field={tinaField(recipe, 'image')}>
                             {recipe.image && <Image src={recipe.image} height="400" width="400" className="" alt={recipe.title} />}
                         </div>
                     </div>
-                    <div className='flex flex-col md:grid md:grid-cols-2 mt-6'>
+                    <div className="flex flex-col md:grid md:grid-cols-2 mt-6">
                         <div className="w-5/6 mx-auto flex flex-col gap-4">
                             <h3 className="text-xl">Ingredienser</h3>
                             <div className="flex flex-row border border-gray-300 rounded-lg w-full justify-between text-base">
@@ -112,31 +114,40 @@ export default function Recipe(props) {
                                     <p>+</p>
                                 </button>
                             </div>
-                            {recipe?.ingredients?.length > 0 &&
+
+                            {recipe?.ingredients?.length > 0 && (
                                 <div className="border border-gray-300 rounded-lg text-base">
-                                    {recipe.ingredients && <IngredientList ingredients={recipe.ingredients} servings={currentPortions} recipeServings={recipe.servings} />}
+                                    <IngredientList
+                                        ingredients={recipe.ingredients}
+                                        servings={currentPortions}
+                                        recipeServings={recipe.servings}
+                                    />
                                 </div>
-                            }
+                            )}
+
                             {recipe?.recipes?.length > 0 &&
                                 recipe.recipes.map((childRecipe, index) => {
                                     return (
                                         <div key={index}>
                                             <h4>{childRecipe?.title}</h4>
-                                            {childRecipe?.ingredients?.length > 0 && <IngredientList ingredients={childRecipe?.ingredients} recipeServings={recipe.servings} />}
+                                            {childRecipe?.ingredients?.length > 0 && (
+                                                <IngredientList ingredients={childRecipe?.ingredients} recipeServings={recipe.servings} />
+                                            )}
                                         </div>
                                     );
-                                })
-                            }
+                                })}
                         </div>
                         <div className="w-5/6 mx-auto flex flex-col gap-4">
-                            <h3 className='text-xl'>Gör så här</h3>
-                            <TinaMarkdown
-                                content={recipe.instructions}
-                                components={{
-                                    li: props => <li className="list-decimal" {...props} />,
-                                    ol: props => <ol className="flex flex-col gap-4 text-sm" {...props} />,
-                                }}
-                            />
+                            <h3 className="text-xl">Gör så här</h3>
+                            <div data-tina-field={tinaField(recipe, 'instructions')}>
+                                <TinaMarkdown
+                                    content={recipe.instructions}
+                                    components={{
+                                        li: (props) => <li className="list-decimal" {...props} />,
+                                        ol: (props) => <ol className="flex flex-col gap-4 text-sm" {...props} />,
+                                    }}
+                                />
+                            </div>
                             {recipe.recipes?.length > 0 && (
                                 <div>
                                     <h2>Andra recept</h2>
@@ -147,8 +158,8 @@ export default function Recipe(props) {
                                                 <TinaMarkdown
                                                     content={recipeItem.description}
                                                     components={{
-                                                        li: props => <li className="list-decimal" {...props} />,
-                                                        ol: props => <ol className="flex flex-col gap-4 text-sm" {...props} />,
+                                                        li: (props) => <li className="list-decimal" {...props} />,
+                                                        ol: (props) => <ol className="flex flex-col gap-4 text-sm" {...props} />,
                                                     }}
                                                 />
                                             </div>

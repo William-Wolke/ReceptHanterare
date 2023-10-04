@@ -1,11 +1,10 @@
-"use client";
+'use client';
 import Link from 'next/link';
 import client from '../../tina/__generated__/client';
 import { getShoppingList, summarizeShoppingList, getSectionsShoppingList } from '../../src/helpers';
 import Image from 'next/image';
-import { useTina } from 'tinacms/dist/react'
+import { useTina, tinaField } from 'tinacms/dist/react';
 import IngredientSectionList from '../../components/IngredientSectionList';
-
 
 export const getStaticProps = async ({ params }) => {
     let data = {};
@@ -44,7 +43,7 @@ export default function Menu(props) {
         query: props.query,
         variables: props.variables,
         data: props.data,
-    })
+    });
     const menu = data.menus;
     const shoppingList = summarizeShoppingList(getShoppingList(menu.recipes));
     const ingredientSections = getSectionsShoppingList(shoppingList);
@@ -68,7 +67,9 @@ export default function Menu(props) {
                         {/* Titel */}
                         <div className="w-5/6 mx-auto">
                             <Link href={`/menu/${menu._sys.filename}`}>
-                                <h3 className="text-xl text-center">{menu.title}</h3>
+                                <h3 className="text-xl text-center" data-tina-field={tinaField(menu, 'title')}>
+                                    {menu.title}
+                                </h3>
                             </Link>
                         </div>
 
