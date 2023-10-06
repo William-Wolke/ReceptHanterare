@@ -1,10 +1,10 @@
 title: Vitlökspulver
-preferredUnit: St
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 3.5
-- unit: L
+- unit: l
   amount: 0.005
-section: produce
+section: frukt_och_grönt

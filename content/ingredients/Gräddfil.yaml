@@ -1,8 +1,8 @@
-title: Gräddfil
-preferredUnit: St
+title: gräddfil
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: L
+- unit: l
   amount: 0.3
-section: dairy
+section: mejeri

@@ -1,8 +1,8 @@
 title: Potatis
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 90
-section: produce
+section: frukt_och_grönt

@@ -28,31 +28,31 @@ instructions: >
 ingredients:
   - name: content/ingredients/Röd_lök.yaml
     amount: 1
-    unit: St
+    unit: st
   - name: content/ingredients/Vitlök.yaml
     amount: 4
-    unit: St
+    unit: st
   - name: content/ingredients/Vegofileer.yaml
     amount: 300
-    unit: G
+    unit: g
   - name: content/ingredients/Creme_fraiche.yaml
     amount: 2
-    unit: Dl
+    unit: dl
   - name: content/ingredients/Pesto_vegansk.yaml
     amount: 150
-    unit: G
+    unit: g
   - name: content/ingredients/Körsbärstomater.yaml
     amount: 200
-    unit: G
+    unit: g
   - name: content/ingredients/Pasta.yaml
     amount: 500
-    unit: G
+    unit: g
   - name: content/ingredients/Salt.yaml
     amount: 0
     unit: 
   - name: content/ingredients/Peppar.yaml
     amount: 0
-    unit: G
+    unit: g
   - name: content/ingredients/Rapsolja.yaml
     amount: 1
-    unit: Msk
+    unit: msk

@@ -1,8 +1,8 @@
 title: Avocado
-prefered_unit: St
+prefered_unit: st
 conversion:
-  - unit: G
+  - unit: g
     amount: 165
-  - unit: St
+  - unit: st
     amount: 1
-section: produce
+section: frukt_och_grönt

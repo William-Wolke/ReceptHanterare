@@ -1,8 +1,8 @@
 title: Pasta
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: G
+- unit: g
   amount: 35
-- unit: L
+- unit: l
   amount: 0.1
-section: pantry
+section: skafferi

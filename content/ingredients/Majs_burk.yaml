@@ -1,8 +1,8 @@
 title: Majs burk
-preferredUnit: St
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 150
-section: pantry
+section: skafferi

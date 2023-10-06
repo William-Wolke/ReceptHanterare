@@ -1,8 +1,8 @@
 title: Taco krydda hot cayenne
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 28
-section: pantry
+section: skafferi

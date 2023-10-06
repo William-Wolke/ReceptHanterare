@@ -1,8 +1,8 @@
 title: Smör
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: G
+- unit: g
   amount: 95
-- unit: L
+- unit: l
   amount: 0.1
-section: dairy
+section: mejeri

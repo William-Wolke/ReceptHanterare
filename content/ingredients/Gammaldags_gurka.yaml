@@ -1,8 +1,8 @@
-title: Gammaldags Gurka
-preferredUnit: St
+title: gammaldags Gurka
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 730
-section: pantry
+section: skafferi

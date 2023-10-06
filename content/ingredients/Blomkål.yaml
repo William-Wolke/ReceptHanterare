@@ -1,10 +1,10 @@
 title: Blomkål
-preffered_unit: G
+preffered_unit: g
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 600
-- unit: L
+- unit: l
   amount: 1.5
-section: produce
+section: frukt_och_grönt

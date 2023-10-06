@@ -35,28 +35,28 @@ instructions: >
 ingredients:
   - name: content/ingredients/Vitlökspulver.yaml
     amount: 1
-    unit: Msk
+    unit: msk
   - name: content/ingredients/Rapsolja.yaml
     amount: 2
-    unit: Msk
+    unit: msk
   - name: content/ingredients/Peppar.yaml
     amount: 1
-    unit: Tsk
+    unit: tsk
   - name: content/ingredients/Salt.yaml
     amount: 1
-    unit: Tsk
+    unit: tsk
   - name: content/ingredients/Vegokorv.yaml
     amount: 200
-    unit: G
+    unit: g
   - name: content/ingredients/Gul_lök.yaml
     amount: 1
-    unit: St
+    unit: st
   - name: content/ingredients/Vitkål.yaml
     amount: 200
-    unit: G
+    unit: g
   - name: content/ingredients/Potatis.yaml
     amount: 500
-    unit: G
+    unit: g
   - name: content/ingredients/Morot.yaml
     amount: 3
-    unit: St
+    unit: st

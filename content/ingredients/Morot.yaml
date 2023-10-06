@@ -1,10 +1,10 @@
 title: Morot
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 65
-- unit: L
+- unit: l
   amount: 0.1
-section: produce
+section: frukt_och_grönt

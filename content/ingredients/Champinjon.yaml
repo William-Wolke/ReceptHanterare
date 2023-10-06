@@ -1,6 +1,6 @@
 title: Champinjon
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: G
+- unit: g
   amount: 1
-section: produce
+section: frukt_och_grönt

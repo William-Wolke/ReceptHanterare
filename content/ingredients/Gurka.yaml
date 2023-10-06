@@ -1,10 +1,10 @@
-title: Gurka
-preferredUnit: G
+title: gurka
+preferredUnit: g
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 400
-- unit: L
+- unit: l
   amount: 0.9
-section: produce
+section: frukt_och_grönt

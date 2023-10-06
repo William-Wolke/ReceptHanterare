@@ -1,8 +1,8 @@
 title: Chiliflakes
-preferredUnit: G
+preferredUnit: g
 conversion:
-  - unit: G
+  - unit: g
     amount: 80
-  - unit: L
+  - unit: l
     amount: 0.1
-section: pantry
+section: skafferi

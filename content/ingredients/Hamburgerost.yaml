@@ -1,9 +1,9 @@
 title: Hamburgerost
-preferredUnit: St
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 200
-- unit: L
+- unit: l
 section: milk

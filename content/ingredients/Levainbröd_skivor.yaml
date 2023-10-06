@@ -1,8 +1,8 @@
-title: Levainbröd skivor
-preferredUnit: St
+title: levainbröd skivor
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 20
-section: bread
+section: bröd

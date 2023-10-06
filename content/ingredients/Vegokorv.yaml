@@ -1,8 +1,8 @@
 title: Vegokorv
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 60
-section: freezer
+section: frysvaror

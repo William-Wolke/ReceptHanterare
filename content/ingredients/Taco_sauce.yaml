@@ -1,8 +1,8 @@
 title: Taco sauce x-hot
-preferredUnit: St
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 230
-section: pantry
+section: skafferi

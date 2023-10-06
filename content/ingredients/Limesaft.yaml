@@ -1,8 +1,8 @@
-title: Limesaft
-preferredUnit: L
+title: limesaft
+preferredUnit: l
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: L
+- unit: l
   amount: 0.25
-section: pantry
+section: skafferi

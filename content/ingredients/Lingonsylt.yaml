@@ -1,8 +1,8 @@
-title: Lingonsylt
-preferredUnit: G
+title: lingonsylt
+preferredUnit: g
 conversion:
-- unit: G
+- unit: g
   amount: 115
-- unit: L
+- unit: l
   amount: 0.1
-section: pantry
+section: skafferi

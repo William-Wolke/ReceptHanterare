@@ -1,8 +1,8 @@
 title: Inlagd kapris
-preferredUnit: L
+preferredUnit: l
 conversion:
-- unit: G
+- unit: g
   amount: 8.6
-- unit: L
+- unit: l
   amount: 0.015
-section: pantry
+section: skafferi

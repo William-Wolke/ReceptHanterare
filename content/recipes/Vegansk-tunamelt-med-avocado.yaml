@@ -42,40 +42,40 @@ instructions: >
 ingredients:
   - name: content/ingredients/Tomat.yaml
     amount: 1
-    unit: St
+    unit: st
   - name: content/ingredients/Saltgurka.yaml
     amount: 1
-    unit: St
+    unit: st
   - name: content/ingredients/Kapris_inlagd.yaml
     amount: 2
-    unit: Msk
+    unit: msk
   - name: content/ingredients/Tomatpure.yaml
     amount: 1
-    unit: Tsk
+    unit: tsk
   - name: content/ingredients/Sriracha.yaml
     amount: 2
-    unit: Tsk
+    unit: tsk
   - name: content/ingredients/Majonäs_vegansk.yaml
     amount: 1
-    unit: Dl
+    unit: dl
   - name: content/ingredients/Citronsaft.yaml
     amount: 2
-    unit: Tsk
+    unit: tsk
   - name: content/ingredients/Salt.yaml
     amount: 1
-    unit: Tsk
+    unit: tsk
   - name: content/ingredients/Levainbröd_skivor.yaml
     amount: 8
-    unit: St
+    unit: st
   - name: content/ingredients/Avocado.yaml
     amount: 2
-    unit: St
+    unit: st
   - name: content/ingredients/Smör_veganskt.yaml
     amount: 1
-    unit: Msk
+    unit: msk
   - name: content/ingredients/Cheddar_skivad_vegansk.yaml
     amount: 8
-    unit: St
+    unit: st
   - name: content/ingredients/Norialger_ark.yaml
     amount: 2
-    unit: St
+    unit: st

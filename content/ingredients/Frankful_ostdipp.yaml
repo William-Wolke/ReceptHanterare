@@ -1,8 +1,8 @@
 title: Frankful ostdipp
-preferredUnit: St
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 240
-section: pantry
+section: skafferi

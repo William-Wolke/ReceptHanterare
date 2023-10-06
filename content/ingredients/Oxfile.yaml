@@ -1,6 +1,6 @@
 title: Oxfile
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: G
+- unit: g
   amount: 1
-section: chark
+section: kött_och_chark

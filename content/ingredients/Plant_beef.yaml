@@ -1,8 +1,8 @@
 title: Delifresh plantbeef burgare
-preferredUnit: St
+preferredUnit: st
 conversion:
-  - unit: St
+  - unit: st
     amount: 1
-  - unit: G
+  - unit: g
     amount: 90
-section: freezer
+section: frysvaror

@@ -1,10 +1,10 @@
 title: Mjölk
-preferredUnit: L
+preferredUnit: l
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 1000
-- unit: L
+- unit: l
   amount: 1
-section: dairy
+section: mejeri

@@ -1,8 +1,8 @@
 title: Korv
-preferredUnit: St
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 80
-section: chark
+section: kött_och_chark

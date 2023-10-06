@@ -1,9 +1,9 @@
 title: Hamburgardressing stor
-preferredUnit: St
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 425
-- unit: L
-section: pantry
+- unit: l
+section: skafferi

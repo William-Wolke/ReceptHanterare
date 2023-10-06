@@ -1,8 +1,8 @@
 title: Riven ost
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 150
-section: dairy
+section: mejeri

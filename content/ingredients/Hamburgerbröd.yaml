@@ -1,8 +1,8 @@
 title: hamburgerbröd
-preferredUnit: St
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 55.625
-section: bread
+section: bröd

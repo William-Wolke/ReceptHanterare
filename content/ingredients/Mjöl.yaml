@@ -1,6 +1,6 @@
 title: Mjöl
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: G
+- unit: g
   amount: 60
-section: pantry
+section: skafferi

@@ -1,10 +1,10 @@
-title: Gul lök
-preferredUnit: St
+title: gul lök
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 150
-- unit: L
+- unit: l
   amount: 0.2
-section: produce
+section: frukt_och_grönt

@@ -1,10 +1,10 @@
 title: Heinz ketchup
-preferredUnit: St
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 1015
-- unit: L
+- unit: l
   amount: 0.875
-section: pantry
+section: skafferi

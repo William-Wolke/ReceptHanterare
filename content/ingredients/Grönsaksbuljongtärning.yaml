@@ -1,10 +1,10 @@
-title: Grönsaksbuljongtärning
-preferredUnit: St
+title: grönsaksbuljongtärning
+preferredUnit: st
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 10
-- unit: L
+- unit: l
   amount: 0.5
-section: pantry
+section: skafferi

@@ -1,8 +1,8 @@
 title: Vitvinsvinäger
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: G
+- unit: g
   amount: 100
-- unit: L
+- unit: l
   amount: 0.1
-section: pantry
+section: skafferi

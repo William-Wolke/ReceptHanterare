@@ -1,8 +1,8 @@
-title: Gnocchi, färsk
-preferredUnit: G
+title: gnocchi, färsk
+preferredUnit: g
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 500
 section: Färskvaror

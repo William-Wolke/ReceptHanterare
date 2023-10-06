@@ -1,10 +1,10 @@
 title: Mozzarella
-preferredUnit: G
+preferredUnit: g
 conversion:
-- unit: St
+- unit: st
   amount: 1
-- unit: G
+- unit: g
   amount: 125
-- unit: L
+- unit: l
   amount: 0.2
 section: diary

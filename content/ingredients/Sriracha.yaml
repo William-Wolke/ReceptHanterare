@@ -1,8 +1,8 @@
 title: Sriracha
-preferredUnit: L
+preferredUnit: l
 conversion:
-- unit: G
+- unit: g
   amount: 5
-- unit: L
+- unit: l
   amount: 0.005
-section: pantry
+section: skafferi

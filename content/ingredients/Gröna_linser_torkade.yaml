@@ -1,8 +1,8 @@
-title: Gröna linser, torkade
-preferredUnit: G
+title: gröna linser, torkade
+preferredUnit: g
 conversion:
-- unit: G
+- unit: g
   amount: 85
-- unit: L
+- unit: l
   amount: 0.1
-section: pantry
+section: skafferi
