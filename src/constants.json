@@ -24,86 +24,73 @@
         { "name": "Illasmakande" },
         { "name": "" }
     ],
-    "measurmentTypes": [
-        { "name": "Krm" },
-        { "name": "Tsk" },
-        { "name": "Msk" },
-        { "name": "L" },
-        { "name": "Dl" },
-        { "name": "Cl" },
-        { "name": "Ml" },
-        { "name": "St" },
-        { "name": "G" },
-        { "name": "" }
-    ],
     "preferredMeasurmentTypes": [{ "name": "G" }, { "name": "L" }, { "name": "St" }],
     "sectionTypes": [
-        { "label": "Bröd", "name": "bread" },
-        { "label": "Mejeri", "name": "dairy" },
-        { "label": "Färskvaror", "name": "fresh" },
-        { "label": "Kött och chark", "name": "chark" },
-        { "label": "Frukt och grönt", "name": "produce" },
-        { "label": "Frysvaror", "name": "freezer" },
-        { "label": "Skafferi", "name": "pantry" }
+        { "label": "Bröd", "name": "bröd" },
+        { "label": "Mejeri", "name": "mejeri" },
+        { "label": "Kött och chark", "name": "kött_och_chark" },
+        { "label": "Frukt och grönt", "name": "frukt_och_grönt" },
+        { "label": "Frysvaror", "name": "frysvaror" },
+        { "label": "Skafferi", "name": "skafferi" }
     ],
     "metric": [
         {
-            "unit": "Kg",
+            "unit": "kg",
             "convert": 1000,
             "convertTo": "G"
         },
         {
-            "unit": "Hg",
+            "unit": "hg",
             "convert": 100,
             "convertTo": "G"
         },
         {
-            "unit": "Mg",
+            "unit": "mg",
             "convert": 0.001,
             "convertTo": "G"
         },
         {
-            "unit": "G",
+            "unit": "g",
             "convert": 1,
             "convertTo": "G"
         },
         {
-            "unit": "L",
+            "unit": "l",
             "convert": 1,
             "convertTo": "L"
         },
         {
-            "unit": "Dl",
+            "unit": "dl",
             "convert": 0.1,
             "convertTo": "L"
         },
         {
-            "unit": "Cl",
+            "unit": "cl",
             "convert": 0.01,
             "convertTo": "L"
         },
         {
-            "unit": "Ml",
+            "unit": "ml",
             "convert": 0.001,
             "convertTo": "L"
         },
         {
-            "unit": "Msk",
+            "unit": "msk",
             "convert": 0.015,
             "convertTo": "L"
         },
         {
-            "unit": "Tsk",
+            "unit": "tsk",
             "convert": 0.005,
             "convertTo": "L"
         },
         {
-            "unit": "Krm",
+            "unit": "krm",
             "convert": 0.001,
             "convertTo": "L"
         },
         {
-            "unit": "St",
+            "unit": "st",
             "convert": 1,
             "convertTo": "St"
         }
