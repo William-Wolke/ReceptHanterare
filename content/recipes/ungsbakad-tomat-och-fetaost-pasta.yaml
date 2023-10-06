@@ -3,6 +3,9 @@ description: ''
 time: 30 min
 servings: 4
 ingredients:
+  - name: content/ingredients/Olivolja.yaml
+    amount: 1
+    unit: Dl
   - name: content/ingredients/Spaghetti.yaml
     amount: 400
     unit: G
