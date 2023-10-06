@@ -3,6 +3,9 @@ description: ''
 time: 30 min
 servings: 4
 ingredients:
+  - name: content/ingredients/cocktailtomater.yaml
+    amount: 300
+    unit: G
   - name: content/ingredients/Fetaost.yaml
     amount: 150
     unit: G
