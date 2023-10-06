@@ -3,6 +3,9 @@ description: ''
 time: 30 min
 servings: 4
 ingredients:
+  - name: content/ingredients/Chili_röd.yaml
+    amount: 1
+    unit: St
   - name: content/ingredients/cocktailtomater.yaml
     amount: 300
     unit: G
